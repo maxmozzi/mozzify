@@ -1,0 +1,71 @@
+.sidebar {
+    width: 250px;
+    padding-right: 2rem;
+    flex-shrink: 0;
+}
+
+.filterGroup {
+    border-bottom: 1px solid #eee;
+    padding: 1.5rem 0;
+}
+
+.filterGroup:first-child {
+    padding-top: 0;
+}
+
+.groupTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0;
+    color: #000;
+}
+
+.groupContent {
+    overflow: hidden;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #333;
+    transition: color 0.2s;
+}
+
+.checkboxLabel:hover {
+    color: #000;
+}
+
+.checkbox {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    accent-color: #000;
+}
+
+.labelText {
+    user-select: none;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+        /* Hide via CSS on mobile for now, usually handled by a drawer */
+    }
+}

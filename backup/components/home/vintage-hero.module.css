@@ -1,0 +1,77 @@
+.heroContainer {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    /* Large impactful hero */
+    overflow: hidden;
+}
+
+.heroLink {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.heroImage {
+    object-fit: cover;
+    object-position: center;
+}
+
+.vintageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    /* Slight dark tint for vintage feel */
+    z-index: 1;
+    /* Can add a grain texture here if we had an asset */
+}
+
+.heroContent {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
+.subtext {
+    font-family: 'Times New Roman', serif;
+    /* Use serif for vintage feel if suitable, or strict sans if preferred */
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+.ctaButton {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: white;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 1px solid white;
+}
+
+.heroLink:hover .ctaButton {
+    transform: translateY(-2px);
+    background: transparent;
+    color: white;
+}

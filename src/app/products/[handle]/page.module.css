@@ -1,0 +1,26 @@
+.page {
+    padding-top: 100px;
+    /* Account for fixed header */
+    min-height: 100vh;
+}
+
+.container {
+    margin-bottom: 6rem;
+    max-width: 1900px;
+    /* Wider container to support 600px images in 2-col grid */
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+    .layout {
+        grid-template-columns: 70% 26%;
+        /* Adjusted for 600px gallery images */
+        gap: 4%;
+        align-items: start;
+    }
+}

@@ -1,0 +1,121 @@
+.footer {
+    background: #111;
+    color: white;
+    padding: 4rem 0 1rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.logo {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.desc {
+    font-size: 0.9rem;
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 300px;
+}
+
+.socials {
+    display: flex;
+    gap: 1rem;
+    color: white;
+}
+
+.heading {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.links {
+    list-style: none;
+    padding: 0;
+}
+
+.links li {
+    margin-bottom: 0.8rem;
+}
+
+.links a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.links a:hover {
+    color: white;
+}
+
+.smallText {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 1rem;
+}
+
+.form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.input {
+    background: #222;
+    border: 1px solid #333;
+    padding: 0.8rem;
+    color: white;
+    width: 100%;
+    outline: none;
+}
+
+.submitBtn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 0 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.bottomBar {
+    border-top: 1px solid #222;
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #555;
+    font-size: 0.8rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.legal {
+    display: flex;
+    gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

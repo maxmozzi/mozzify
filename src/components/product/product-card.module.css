@@ -1,0 +1,79 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* group: hover removed */
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background-color: var(--color-bg-subtle);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card:hover .image {
+    transform: scale(1.1);
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.title a {
+    color: var(--color-primary);
+}
+
+.price {
+    font-size: 0.85rem;
+    color: var(--color-secondary);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:hover .overlay {
+    opacity: 1;
+}
+
+.quickView {
+    background: white;
+    color: black;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    transform: translateY(10px);
+    transition: transform 0.3s ease;
+}
+
+.card:hover .quickView {
+    transform: translateY(0);
+}

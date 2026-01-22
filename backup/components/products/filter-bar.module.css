@@ -1,0 +1,191 @@
+.filterBar {
+    position: relative;
+    margin-bottom: 2rem;
+    z-index: 50;
+    /* Above grid */
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 10px;
+}
+
+.filterButton {
+    width: 120px;
+    height: 50px;
+    background: white;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+
+.filterButton:hover,
+.filterButton.active {
+    background: #f9f9f9;
+    border-color: #000;
+}
+
+/* Dropdown */
+.dropdown {
+    position: absolute;
+    top: 60px;
+    /* Below buttons */
+    background: white;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    min-width: 250px;
+    z-index: 60;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 40;
+    background: transparent;
+    /* Transparent click handler */
+}
+
+.dropdownContent {
+    /* Generic content wrapper */
+}
+
+/* Brand Specifics */
+.searchWrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    background: #fcfcfc;
+}
+
+.searchInput {
+    border: none;
+    background: transparent;
+    margin-left: 0.5rem;
+    width: 100%;
+    font-size: 0.85rem;
+    outline: none;
+}
+
+.scrollList {
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.9rem;
+    padding: 0.3rem 0;
+    cursor: pointer;
+}
+
+.checkbox {
+    width: 16px;
+    height: 16px;
+    accent-color: black;
+}
+
+/* Size Grid */
+.grid3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.optionBtn {
+    padding: 0.6rem;
+    border: 1px solid #eee;
+    background: white;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.optionBtn:hover {
+    border-color: black;
+}
+
+/* Color Grid */
+.colorGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.colorBtn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Price */
+.priceInputs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.priceInput {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    width: 80px;
+}
+
+.sliderMock {
+    position: relative;
+    height: 4px;
+    background: #eee;
+    margin-top: 10px;
+}
+
+.track {
+    /* ... */
+}
+
+.thumb {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Sort List */
+.list {
+    display: flex;
+    flex-direction: column;
+}
+
+.listBtn {
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.listBtn:hover {
+    font-weight: bold;
+}

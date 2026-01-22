@@ -1,0 +1,56 @@
+.announcementBar {
+    background-color: #000;
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 0.5rem 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 50;
+    white-space: nowrap;
+}
+
+.track {
+    display: flex;
+    width: max-content;
+    /* Allow track to be as wide as needed */
+    animation: scroll 40s linear infinite;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    /* Spacing between items */
+    padding-right: 4rem;
+    /* Spacing after last item before next chunk */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.separator {
+    color: #555;
+}
+
+.content a {
+    color: white;
+    text-decoration: none;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+        /* Move by half the track if we duplicate twice? Wait.. */
+        /* If we have copies A B C D ... we need to calculate exact width or use strict duplication pairing */
+        /* Safer approach: Translate -100% of ONE content block? */
+        /* Given the setup, if we just let it run, it might jump. */
+        /* Let's try -50% assuming the track is doubled logic, or use specific % if we know the count. */
+        /* Actually standard infinite marquee trick: 
+       Translate X from 0 to -100% of the *original content width*. 
+       Since we just have a flex row, let's try moving -25% if we have 4 copies? */
+        transform: translateX(-25%);
+    }
+}

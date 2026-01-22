@@ -1,0 +1,27 @@
+/* Global Typography Utilities */
+
+.text-h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.text-h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.text-body {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.text-small {
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}

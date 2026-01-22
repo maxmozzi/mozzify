@@ -1,0 +1,94 @@
+.section {
+    padding: 0;
+    margin-bottom: 4rem;
+}
+
+.reviewsContainer {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: #f9f9f9;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 1.5rem;
+}
+
+.heading {
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.author {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.trustpilot {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+/* Factory Grid */
+.factoryGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 500px;
+    /* Tall visual section */
+}
+
+.factoryItem {
+    position: relative;
+    height: 100%;
+}
+
+.imageWrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.factoryImg {
+    object-fit: cover;
+    filter: brightness(0.8);
+    /* Darken for text */
+}
+
+.textOverlay {
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    color: white;
+}
+
+.textOverlay h4 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.textOverlay p {
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    .factoryGrid {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .factoryItem {
+        height: 300px;
+    }
+}

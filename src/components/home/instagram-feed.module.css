@@ -1,0 +1,67 @@
+.section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    width: 100%;
+    /* No gap for contiguous look (Instagram style) or small gap? 
+       User said "Grid of 6 images". Often these are flush. Let's do flush. */
+    gap: 0;
+}
+
+.item {
+    aspect-ratio: 1;
+    /* Square */
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.image {
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.item:hover .overlay {
+    opacity: 1;
+}
+
+.item:hover .image {
+    transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

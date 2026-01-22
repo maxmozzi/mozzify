@@ -1,0 +1,243 @@
+.container {
+    /* Was .infoContainer in my previous failed edit */
+    padding: 2rem 4rem;
+    /* Reduced top padding slightly */
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.brand {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+    font-weight: 500;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+.price {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.selectorTitle {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Size Selector */
+/* MATCHING TSX: .sizes instead of .sizeGrid */
+.sizes {
+    display: flex;
+    flex-direction: row;
+    /* Horizontal */
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.sizeBtn {
+    width: 60px;
+    height: 50px;
+    border: 1px solid #e0e0e0;
+    background: transparent;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.sizeBtn:hover {
+    border-color: #000;
+}
+
+/* Match TSX: .activeSize */
+.activeSize {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+/* Match TSX: .activeColor */
+.activeColor::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.selectorGroup {
+    margin-bottom: 2rem;
+}
+
+.label {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+}
+
+.colors {
+    display: flex;
+    gap: 1rem;
+}
+
+.colorBtn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Action Buttons */
+.addToCartBtn {
+    width: 100%;
+    padding: 1.2rem;
+    background: #000;
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.addToCartBtn:hover {
+    background: #333;
+}
+
+.trustpilot {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.stars {
+    display: flex;
+    gap: 2px;
+}
+
+.trustText {
+    font-size: 0.85rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.sizeHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.sizeGuideBtn {
+    background: none;
+    border: none;
+    text-decoration: underline;
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: #666;
+}
+
+.guarantee {
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.tooltipParams {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.highlight {
+    font-weight: 600;
+}
+
+.tooltipWrapper {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.infoIcon {
+    color: #666;
+}
+
+.tooltip {
+    visibility: hidden;
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    width: 200px;
+    text-align: center;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.tooltipWrapper:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.accordions {
+    border-top: 1px solid #e0e0e0;
+    margin-top: 2rem;
+}
+
+.reviewPlaceholder {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        height: auto;
+        position: relative;
+        padding: 2rem 1.5rem;
+    }
+
+    .title {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+}
