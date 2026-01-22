@@ -24,7 +24,7 @@ export default function TrustSection() {
                 <div className={styles.factoryItem}>
                     <div className={styles.imageWrapper}>
                         {/* Placeholder image for factory */}
-                        <Image src={products[30]?.image || products[0].image} alt="Production" fill className={styles.factoryImg} />
+                        <Image src={products[2]?.image || products[0]?.image || products[0].image} alt="Production" fill className={styles.factoryImg} />
                     </div>
                     <div className={styles.textOverlay}>
                         <h4>ETHICAL PRODUCTION</h4>
@@ -33,7 +33,7 @@ export default function TrustSection() {
                 </div>
                 <div className={styles.factoryItem}>
                     <div className={styles.imageWrapper}>
-                        <Image src={products[31]?.image || products[1].image} alt="Quality" fill className={styles.factoryImg} />
+                        <Image src={products[3]?.image || products[1]?.image || products[0].image} alt="Quality" fill className={styles.factoryImg} />
                     </div>
                     <div className={styles.textOverlay}>
                         <h4>PREMIUM MATERIALS</h4>

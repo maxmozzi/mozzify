@@ -17,10 +17,10 @@ export default function TopCategories() {
     // Pick 4 distinct images from products to represent categories
     // Just mock picking for visual demo
     const catImages = [
-        products[0].image,
-        products[5]?.image || products[0].image,
-        products[10]?.image || products[0].image,
-        products[15]?.image || products[0].image,
+        products[0]?.image || products[0]?.image,
+        products[1]?.image || products[0]?.image,
+        products[2]?.image || products[0]?.image,
+        products[3]?.image || products[0]?.image,
     ];
 
     const LABELS = ['HOODIES', 'JACKETS', 'JOGGERS', 'ACCESSORIES'];
@@ -30,7 +30,7 @@ export default function TopCategories() {
             <h2 className={styles.sectionTitle}>SHOP OUR TOP CATEGORIES</h2>
             <div className={styles.grid}>
                 {LABELS.map((label, idx) => {
-                    const href = `/${label.toLowerCase()}`;
+                    const href = `/amiparis/${label.toLowerCase()}`;
                     return (
                         <Link href={href} key={label} className={styles.card}>
                             <div className={styles.imageWrapper}>

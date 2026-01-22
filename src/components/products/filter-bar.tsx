@@ -9,11 +9,22 @@ interface FilterBarProps {
     brands: string[];
     selectedBrands: string[];
     onBrandChange: (brand: string) => void;
+    categories?: string[];
+    selectedCategories?: string[];
+    onCategoryChange?: (category: string) => void;
 }
 
-export default function FilterBar({ brands, selectedBrands, onBrandChange }: FilterBarProps) {
+export default function FilterBar({ 
+    brands, 
+    selectedBrands, 
+    onBrandChange,
+    categories = [],
+    selectedCategories = [],
+    onCategoryChange
+}: FilterBarProps) {
     const [activeFilter, setActiveFilter] = useState<string | null>(null);
     const [brandSearch, setBrandSearch] = useState('');
+    const [categorySearch, setCategorySearch] = useState('');
 
     const toggleFilter = (filter: string) => {
         if (activeFilter === filter) {
@@ -26,6 +37,7 @@ export default function FilterBar({ brands, selectedBrands, onBrandChange }: Fil
     const closeFilter = () => setActiveFilter(null);
 
     const filteredBrandsDisplay = brands.filter(b => b.toLowerCase().includes(brandSearch.toLowerCase()));
+    const filteredCategoriesDisplay = categories.filter(c => c.toLowerCase().includes(categorySearch.toLowerCase()));
 
     // Visual Data (Same as Sidebar)
     const SIZES = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL'];
@@ -44,6 +56,13 @@ export default function FilterBar({ brands, selectedBrands, onBrandChange }: Fil
 
             {/* Filter Buttons */}
             <div className={styles.buttonGroup}>
+                {categories.length > 0 && (
+                    <FilterButton
+                        label="Category"
+                        isActive={activeFilter === 'category'}
+                        onClick={() => toggleFilter('category')}
+                    />
+                )}
                 <FilterButton
                     label="Brand"
                     isActive={activeFilter === 'brand'}
@@ -85,6 +104,38 @@ export default function FilterBar({ brands, selectedBrands, onBrandChange }: Fil
                                 left: getLeftPosition(activeFilter)
                             }}
                         >
+                            {activeFilter === 'category' && categories.length > 0 && (
+                                <div className={styles.dropdownContent}>
+                                    <div className={styles.searchWrapper}>
+                                        <Search size={16} className={styles.searchIcon} />
+                                        <input
+                                            type="text"
+                                            placeholder="Search category"
+                                            className={styles.searchInput}
+                                            value={categorySearch}
+                                            onChange={(e) => setCategorySearch(e.target.value)}
+                                            autoFocus
+                                        />
+                                    </div>
+                                    <div className={styles.scrollList}>
+                                        {filteredCategoriesDisplay.map(category => (
+                                            <label key={category} className={styles.checkboxLabel}>
+                                                <input
+                                                    type="checkbox"
+                                                    checked={selectedCategories.includes(category)}
+                                                    onChange={() => onCategoryChange?.(category)}
+                                                    className={styles.checkbox}
+                                                />
+                                                <span>{category}</span>
+                                            </label>
+                                        ))}
+                                        {filteredCategoriesDisplay.length === 0 && (
+                                            <span style={{ padding: '1rem', color: '#999' }}>No categories found</span>
+                                        )}
+                                    </div>
+                                </div>
+                            )}
+
                             {activeFilter === 'brand' && (
                                 <div className={styles.dropdownContent}>
                                     <div className={styles.searchWrapper}>
@@ -188,11 +239,12 @@ function FilterButton({ label, isActive, onClick }: { label: string, isActive: b
 // In real app, consider using refs or a positioning library like floating-ui
 function getLeftPosition(filter: string) {
     switch (filter) {
-        case 'brand': return '0px';
-        case 'size': return '130px';
-        case 'color': return '260px';
-        case 'price': return '390px';
-        case 'sort': return '520px';
+        case 'category': return '0px';
+        case 'brand': return '130px';
+        case 'size': return '260px';
+        case 'color': return '390px';
+        case 'price': return '520px';
+        case 'sort': return '650px';
         default: return '0px';
     }
 }

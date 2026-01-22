@@ -27,7 +27,8 @@ export default function ProductGrid({ title, products, variant = 'standard' }: P
             {title && <h2 className={styles.sectionTitle}>{title}</h2>}
             <div className={`${styles.grid} ${isVisual ? styles.visualGrid : ''}`}>
                 {products.map((product) => {
-                    const productUrl = `/${product.category.toLowerCase()}/${product.id}`;
+                    const brandSlug = product.brand?.toLowerCase().replace(/\s+/g, '') || 'amiparis';
+                    const productUrl = `/${brandSlug}/${product.category.toLowerCase()}/${product.id}`;
 
                     return (
                         <Link href={productUrl} key={product.id} className={`${styles.productCard} ${isVisual ? styles.visualCard : ''}`}>

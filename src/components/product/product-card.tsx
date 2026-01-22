@@ -15,7 +15,7 @@ interface Product {
 
 export default function ProductCard({ product }: { product: Product }) {
     const { image, title, price, category, id } = product;
-    const productUrl = `/${category.toLowerCase()}/${id}`;
+    const productUrl = `/product/${category.toLowerCase()}/${id}`;
 
     return (
         <div className={styles.card}>

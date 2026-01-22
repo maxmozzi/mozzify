@@ -28,7 +28,7 @@ import { products } from '@/data/generated-products';
 
 export default function ProductCarousel({ title }: { title: string }) {
     const scrollRef = useRef<HTMLDivElement>(null);
-    const displayProducts = products.slice(0, 10); // Take first 10
+    const displayProducts = products.slice(0, Math.min(10, products.length)); // Take first 10 or all available
 
     const scroll = (direction: 'left' | 'right') => {
         if (scrollRef.current) {
@@ -55,7 +55,7 @@ export default function ProductCarousel({ title }: { title: string }) {
             <div className={styles.carouselContainer} ref={scrollRef}>
                 {displayProducts.map((product, idx) => (
                     <Link
-                        href={`/${product.category.toLowerCase()}/${product.id}`}
+                        href={`/product/${product.category.toLowerCase()}/${product.id}`}
                         key={product.id}
                         className={styles.card}
                     >
