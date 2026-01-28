@@ -26,12 +26,12 @@ export default function ProductGrid({ title, products, variant = 'standard' }: P
         <section className={`container ${styles.section}`}>
             {title && <h2 className={styles.sectionTitle}>{title}</h2>}
             <div className={`${styles.grid} ${isVisual ? styles.visualGrid : ''}`}>
-                {products.map((product) => {
+                {products.map((product, i) => {
                     const brandSlug = product.brand?.toLowerCase().replace(/\s+/g, '') || 'amiparis';
                     const productUrl = `/${brandSlug}/${product.category.toLowerCase()}/${product.id}`;
 
                     return (
-                        <Link href={productUrl} key={product.id} className={`${styles.productCard} ${isVisual ? styles.visualCard : ''}`}>
+                        <Link href={productUrl} key={`${product.id}-${i}`} className={`${styles.productCard} ${isVisual ? styles.visualCard : ''}`}>
                             <div className={styles.imageWrapper}>
                                 <Image
                                     src={product.image}

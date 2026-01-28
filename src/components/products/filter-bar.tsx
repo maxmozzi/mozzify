@@ -14,9 +14,9 @@ interface FilterBarProps {
     onCategoryChange?: (category: string) => void;
 }
 
-export default function FilterBar({ 
-    brands, 
-    selectedBrands, 
+export default function FilterBar({
+    brands,
+    selectedBrands,
     onBrandChange,
     categories = [],
     selectedCategories = [],
@@ -101,7 +101,7 @@ export default function FilterBar({
                             exit={{ opacity: 0, y: -10 }}
                             className={styles.dropdown}
                             style={{
-                                left: getLeftPosition(activeFilter)
+                                left: getDynamicPosition(activeFilter, categories.length > 0)
                             }}
                         >
                             {activeFilter === 'category' && categories.length > 0 && (
@@ -122,7 +122,7 @@ export default function FilterBar({
                                             <label key={category} className={styles.checkboxLabel}>
                                                 <input
                                                     type="checkbox"
-                                                    checked={selectedCategories.includes(category)}
+                                                    checked={selectedCategories?.includes(category)}
                                                     onChange={() => onCategoryChange?.(category)}
                                                     className={styles.checkbox}
                                                 />
@@ -235,16 +235,17 @@ function FilterButton({ label, isActive, onClick }: { label: string, isActive: b
     )
 }
 
-// Simple helper to position dropdown approximately under the button
-// In real app, consider using refs or a positioning library like floating-ui
-function getLeftPosition(filter: string) {
-    switch (filter) {
-        case 'category': return '0px';
-        case 'brand': return '130px';
-        case 'size': return '260px';
-        case 'color': return '390px';
-        case 'price': return '520px';
-        case 'sort': return '650px';
-        default: return '0px';
+function getDynamicPosition(filter: string, hasCategories: boolean) {
+    const baseWidth = 130;
+
+    // Define the sequence of buttons
+    let sequence = ['brand', 'size', 'color', 'price', 'sort'];
+    if (hasCategories) {
+        sequence = ['category', ...sequence];
     }
+
+    const index = sequence.indexOf(filter);
+    if (index === -1) return '0px'; // Fallback
+
+    return `${index * baseWidth}px`;
 }

@@ -1,77 +1,78 @@
 "use client";
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import ProductGrid, { GridProduct } from '@/components/home/product-grid';
 import FilterBar from './filter-bar';
 import styles from './product-listing.module.css';
 
 interface ProductListingProps {
-    initialProducts: GridProduct[];
+    initialProducts: GridProduct[]; // The products to initially display matching the server route
+    allProductsSource?: GridProduct[]; // OPTIONAL: All products available in the system (for Global View filtering)
     title: string;
     initialBrand?: string;
     initialCategory?: string;
     availableCategories?: string[];
-    initialFilteredProducts?: GridProduct[];
+    initialFilteredProducts?: GridProduct[]; // (Deprecated in favor of smart logic, but kept for compat if needed)
+    showBrandFilter?: boolean; // New prop to toggle brand filter visibility
+    isGlobalView?: boolean; // New prop to indicating we are in /category/all
 }
 
-export default function ProductListing({ 
-    initialProducts, 
+export default function ProductListing({
+    initialProducts,
+    allProductsSource = [],
     title,
     initialBrand,
     initialCategory,
     availableCategories = [],
-    initialFilteredProducts
+    showBrandFilter = false,
+    isGlobalView = false
 }: ProductListingProps) {
-    // Initialize with initialBrand if provided
     const [selectedBrands, setSelectedBrands] = useState<string[]>(
         initialBrand ? [initialBrand] : []
     );
+    // If we are in global view, we shouldn't lock the category filter, but effectively we are "in" that category.
+    // However, the user might want to switch categories? The requirement says "The filter must affect only visible products".
+    // For now, let's assume we stick to the current category in Global View.
     const [selectedCategories, setSelectedCategories] = useState<string[]>(
         initialCategory ? [initialCategory] : []
     );
 
-    // Use initialProducts as the base for filtering (all products available)
-    // initialFilteredProducts is only for initial display when category is specified
-    // Once user interacts with filters, we use all products from initialProducts
+    // Resolve the "Source of Truth" products data.
+    // In Global View (/hoodies/all), we technically want to be able to filter ALL hoodies by brand.
+    // 'initialProducts' passed from server are ALREADY filtered by category=Hoodies.
+    // So 'initialProducts' is the correct pool for the Global View.
 
-    // Extract unique brands from all initial products (not just filtered ones)
-    const brands = useMemo(() => {
-        const uniqueBrands = new Set(initialProducts.map(p => p.brand).filter(Boolean) as string[]);
-        return Array.from(uniqueBrands).sort();
-    }, [initialProducts]);
+    // In Brand View (/amiri/hoodies), 'initialProducts' are ONLY Amiri Hoodies.
+    // If the user wants to filter... well, they are already filtered.
 
-    // Extract unique categories from all initial products
-    const categories = useMemo(() => {
-        const uniqueCategories = new Set(initialProducts.map(p => p.category).filter(Boolean) as string[]);
-        return Array.from(uniqueCategories).sort();
-    }, [initialProducts]);
+    // Determine the pool of products we are filtering against.
+    const productPool = initialProducts;
 
-    // Determine which products to use as base for filtering
-    // If user has interacted with filters (changed from initial state), use all products
-    // Otherwise, use initialFilteredProducts if provided
-    const hasInteracted = useMemo(() => {
-        const brandChanged = initialBrand ? !selectedBrands.includes(initialBrand) : selectedBrands.length > 0;
-        const categoryChanged = initialCategory ? !selectedCategories.includes(initialCategory) : selectedCategories.length > 0;
-        return brandChanged || categoryChanged;
-    }, [selectedBrands, selectedCategories, initialBrand, initialCategory]);
-
-    // Filter products
+    // Filter logic
     const filteredProducts = useMemo(() => {
-        // Use all products if user has interacted, otherwise use initial filtered products
-        let base = hasInteracted ? initialProducts : (initialFilteredProducts || initialProducts);
+        let result = productPool;
 
-        // Filter by brand
+        // Brand Filter
         if (selectedBrands.length > 0) {
-            base = base.filter(p => p.brand && selectedBrands.includes(p.brand));
+            result = result.filter(p => p.brand && selectedBrands.includes(p.brand));
         }
 
-        // Filter by category
+        // Category Filter
+        // If we are in Global View, productPool is likely ALREADY just that category.
+        // But if we allow multi-category selection later, this logic stands.
         if (selectedCategories.length > 0) {
-            base = base.filter(p => p.category && selectedCategories.includes(p.category));
+            result = result.filter(p => p.category && selectedCategories.includes(p.category));
         }
 
-        return base;
-    }, [initialProducts, initialFilteredProducts, selectedBrands, selectedCategories, hasInteracted]);
+        return result;
+    }, [productPool, selectedBrands, selectedCategories]);
+
+
+    // Extract available brands dynamically from the CURRENT pool (or the initial full pool of this page)
+    const availableBrands = useMemo(() => {
+        const brands = new Set(productPool.map(p => p.brand).filter(Boolean) as string[]);
+        return Array.from(brands).sort();
+    }, [productPool]);
 
     const handleBrandChange = (brand: string) => {
         setSelectedBrands(prev =>
@@ -82,6 +83,8 @@ export default function ProductListing({
     };
 
     const handleCategoryChange = (category: string) => {
+        // If we are in a strict category page, maybe navigate? 
+        // For now, just client filter.
         setSelectedCategories(prev =>
             prev.includes(category)
                 ? prev.filter(c => c !== category)
@@ -89,30 +92,32 @@ export default function ProductListing({
         );
     };
 
-    // Use availableCategories if provided, otherwise use categories from products
-    const displayCategories = availableCategories.length > 0 ? availableCategories : categories;
-
     return (
         <div className={`container ${styles.listingContainer}`}>
 
-            {/* New Horizontal Filter Bar */}
-            <FilterBar
-                brands={brands}
-                selectedBrands={selectedBrands}
-                onBrandChange={handleBrandChange}
-                categories={displayCategories}
-                selectedCategories={selectedCategories}
-                onCategoryChange={handleCategoryChange}
-            />
+            <div style={{ marginBottom: '2rem' }}>
+                <h1 className="text-3xl font-bold uppercase mb-4">{title}</h1>
+
+                {/* Horizontal Filter Bar */}
+                {/* We pass only what we want to show. If showBrandFilter is true, we pass brands. */}
+                <FilterBar
+                    brands={showBrandFilter ? availableBrands : []}
+                    selectedBrands={selectedBrands}
+                    onBrandChange={handleBrandChange}
+                    // If we are in a specific brand/category page, maybe we don't need category filters?
+                    // The prompt implies we just want Brand filter on the /hoodies/all page.
+                    // We can hide categories if we want, or keep them.
+                    categories={[]} // Simpler for now: Hide category filter to focus on Brand filter as requested
+                    selectedCategories={selectedCategories}
+                    onCategoryChange={handleCategoryChange}
+                />
+            </div>
 
             <div className={styles.mainContent}>
-
-                {/* Result Count (Optional, maybe inside FilterBar or here) */}
                 <div style={{ marginBottom: '1rem', fontSize: '0.9rem', color: '#666' }}>
                     {filteredProducts.length} Products Found
                 </div>
 
-                {/* Visual Grid: Image Only, Specific Ratio */}
                 <ProductGrid
                     title=""
                     products={filteredProducts}
@@ -122,11 +127,12 @@ export default function ProductListing({
                 {filteredProducts.length === 0 && (
                     <div className={styles.noResults}>
                         <p>No products found matching your filters.</p>
-                        <button 
+                        <button
                             onClick={() => {
                                 setSelectedBrands([]);
-                                setSelectedCategories([]);
-                            }} 
+                                // Don't reset category if it's the main page context
+                                if (!initialCategory) setSelectedCategories([]);
+                            }}
                             className={styles.resetBtn}
                         >
                             Clear Filters

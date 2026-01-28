@@ -8,12 +8,8 @@ import styles from './mega-menu.module.css';
 // Menu Configuration
 const MENU_ITEMS = [
     { id: 'shop-all', label: 'Shop All', link: '/all' },
-    { id: 'gifts', label: 'Gifts' },
     { id: 'clothing', label: 'Clothing' },
-    { id: 'shoes', label: 'Shoes' },
-    { id: 'accessories', label: 'Accessories' },
-    { id: 'sport', label: 'Sport' },
-    { id: 'fragrance', label: 'Fragrance' },
+    { id: 'brands', label: 'Brands' }, // Changed 'Shoes' to Brands or just generic updates? User said "Adapt Navbar of CLOTHING". Let's stick to their structure.
     { id: 'mystery', label: 'Mystery Box', link: '/mystery-box' },
 ];
 
@@ -48,12 +44,20 @@ export default function MegaMenu() {
                         transition={{ duration: 0.2 }}
                     >
                         <div className={`container ${styles.dropdownContent}`}>
-                            {activeMenu === 'gifts' && <GiftsContent />}
+                            {/* {activeMenu === 'gifts' && <GiftsContent />} */}
                             {activeMenu === 'clothing' && <ClothingContent />}
-                            {activeMenu === 'shoes' && <ShoesContent />}
-                            {activeMenu === 'accessories' && <AccessoriesContent />}
-                            {activeMenu === 'sport' && <SportContent />}
-                            {activeMenu === 'fragrance' && <FragranceContent />}
+                            {activeMenu === 'brands' && <ShoesContent />} {/* Reusing ShoesContent for Brands for now as visible in my previous edit? No, I see Labels 'Brands' mapped to ShoesContent in previous logic? Let's check logic */}
+                            {/* Actually, I changed 'Shoes' to 'Brands' in MENU_ITEMS. I need to make sure the logic matches. */}
+                            {/* MENU_ITEMS has id: 'brands'. Component map below needs to handle 'brands' */}
+                            {activeMenu === 'brands' && <ClothingContent />} {/* Wait, Brands should probably reuse ClothingContent structure or logic? */}
+                            {/* Re-reading step 117: ShoesContent had brands list.  */}
+                            {/* Let's look at what I need. The user wants "Navbar of CLOTHING" adapted. 
+                                 I removed Gifts, Shoes, Accessories, Sport, Fragrance from MENU_ITEMS?
+                                 In Step 133 I removed gifts, shoes, etc. 
+                                 MENU_ITEMS = shop-all, clothing, brands, mystery.
+                             */}
+                            {activeMenu === 'clothing' && <ClothingContent />}
+                            {activeMenu === 'brands' && <BrandsContent />}
                         </div>
                     </motion.div>
                 )}
@@ -62,43 +66,16 @@ export default function MegaMenu() {
     );
 }
 
-function GiftsContent() {
+// Helper to display brands list (reusing structure)
+function BrandsContent() {
     return (
-        <div className={styles.grid4}>
+        <div className={styles.grid2}>
             <div>
-                <h4 className={styles.columnTitle}>Gift Ideas</h4>
-                <ul className={styles.linkList}>
-                    <li><Link href="/all">Discover All</Link></li>
-                    <li><Link href="/gifts-him">Gifts for Him</Link></li>
-                    <li><Link href="/gifts-her">Gifts for Her</Link></li>
+                <h4 className={styles.columnTitle}>Main Brands</h4>
+                <ul className={styles.linkListGrid}>
+                    <li><Link href="/amiri/hoodies">Amiri</Link></li>
+                    <li><Link href="/amiparis/hoodies">Ami Paris</Link></li>
                 </ul>
-            </div>
-            <div>
-                <h4 className={styles.columnTitle}>Gifts by Price</h4>
-                <ul className={styles.linkList}>
-                    <li><Link href="/price/under-25">Under 25€</Link></li>
-                    <li><Link href="/price/under-50">Under 50€</Link></li>
-                    <li><Link href="/price/under-100">Under 100€</Link></li>
-                </ul>
-            </div>
-            <div>
-                <h4 className={styles.columnTitle}>Featured</h4>
-            </div>
-            <div className={styles.imageColumn}>
-                <div className={styles.promoCard}>
-                    <div style={{ width: '100%', height: '200px', background: '#eee', position: 'relative' }}>
-                        <Image
-                            src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=2000&auto=format&fit=crop"
-                            alt="Gift Ideas"
-                            fill
-                            style={{ objectFit: 'cover' }}
-                        />
-                    </div>
-                    <div className={styles.promoText}>
-                        <span>Gift Ideas</span>
-                        <span className={styles.arrow}>→</span>
-                    </div>
-                </div>
             </div>
         </div>
     )
@@ -110,27 +87,43 @@ function ClothingContent() {
             <div>
                 <h4 className={styles.columnTitle}>Categories</h4>
                 <ul className={styles.linkListGrid}>
-                    <li><Link href="/clothing">View All</Link></li>
-                    <li><Link href="/jackets">Jackets</Link></li>
-                    <li><Link href="/coats">Coats</Link></li>
-                    <li><Link href="/hoodies">Hoodies</Link></li>
-                    <li><Link href="/knitwear">Knitwear</Link></li>
-                    <li><Link href="/pants">Pants</Link></li>
-                    <li><Link href="/jeans">Jeans</Link></li>
-                    <li><Link href="/tshirts">T-Shirts</Link></li>
-                    <li><Link href="/underwear">Underwear</Link></li>
-                    <li><Link href="/shirts">Shirts</Link></li>
-                    <li><Link href="/suits">Suits</Link></li>
+                    <li><Link href="/all">View All</Link></li>
+                    {/* Updated to link to /category/all as requested */}
+                    <li><Link href="/hoodies/all">Hoodies</Link></li>
+                    <li><Link href="/tshirts/all">T-Shirts</Link></li>
+                    <li><Link href="/polo/all">Polo</Link></li>
+                    <li><Link href="/shorts/all">Shorts</Link></li>
+                    <li><Link href="/jeans/all">Jeans</Link></li>
+                    <li><Link href="/sweater/all">Sweater</Link></li>
+                    <li><Link href="/sweatshirts/all">Sweatshirts</Link></li>
+                    <li><Link href="/jacket/all">Jacket</Link></li>
+                    <li><Link href="/sets/all">Sets</Link></li>
+                    <li><Link href="/shoes/all">Shoes</Link></li>
+                    <li><Link href="/iphone_case/all">iPhone Case</Link></li>
                 </ul>
             </div>
             <div>
                 <h4 className={styles.columnTitle}>Brands</h4>
+                {/* Direct links to Brand All Pages? Use /brand/category or we need a brand landing page */}
+                {/* For now, maybe link to /brand/hoodies as example or just /brand/all if we implement it. 
+                     The user didn't explicitly ask for /brand/all page, but /amiri/hoodies works. 
+                     Let's link to the first category of the brand or just text for now?
+                     Actually, with the smart route, /amiri/all should theoretically work IF we implement it? 
+                     My smart route logic handles param2='all' as global category. 
+                     Can it handle param1='amiri' param2='all' -> Brand All? 
+                     Wait, my logic: 
+                     isGlobalCategoryView = param2 === 'all';
+                     if (isGlobalCategoryView) { param1 is category }
+                     So /amiri/all would be treated as Category="Amiri" (which doesn't exist).
+                     
+                     I should probably handle /all specially or fix the route.
+                     User asked for: "Página ALL (todos los productos)... /all". This is a separate route.
+                     User didn't explicitly ask for /amiri/all. 
+                     Let's stick to Categories for now.
+                 */}
                 <ul className={styles.linkListGrid}>
-                    <li><Link href="/b/nike">Nike</Link></li>
-                    <li><Link href="/b/adidas">Adidas</Link></li>
-                    <li><Link href="/b/ralph-lauren">Ralph Lauren</Link></li>
-                    <li><Link href="/b/tommy">Tommy Hilfiger</Link></li>
-                    <li><Link href="/b/lacoste">Lacoste</Link></li>
+                    <li><Link href="/amiri/hoodies">Amiri</Link></li>
+                    <li><Link href="/amiparis/hoodies">Ami Paris</Link></li>
                 </ul>
             </div>
         </div>
