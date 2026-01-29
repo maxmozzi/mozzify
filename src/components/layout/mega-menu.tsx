@@ -46,17 +46,6 @@ export default function MegaMenu() {
                         <div className={`container ${styles.dropdownContent}`}>
                             {/* {activeMenu === 'gifts' && <GiftsContent />} */}
                             {activeMenu === 'clothing' && <ClothingContent />}
-                            {activeMenu === 'brands' && <ShoesContent />} {/* Reusing ShoesContent for Brands for now as visible in my previous edit? No, I see Labels 'Brands' mapped to ShoesContent in previous logic? Let's check logic */}
-                            {/* Actually, I changed 'Shoes' to 'Brands' in MENU_ITEMS. I need to make sure the logic matches. */}
-                            {/* MENU_ITEMS has id: 'brands'. Component map below needs to handle 'brands' */}
-                            {activeMenu === 'brands' && <ClothingContent />} {/* Wait, Brands should probably reuse ClothingContent structure or logic? */}
-                            {/* Re-reading step 117: ShoesContent had brands list.  */}
-                            {/* Let's look at what I need. The user wants "Navbar of CLOTHING" adapted. 
-                                 I removed Gifts, Shoes, Accessories, Sport, Fragrance from MENU_ITEMS?
-                                 In Step 133 I removed gifts, shoes, etc. 
-                                 MENU_ITEMS = shop-all, clothing, brands, mystery.
-                             */}
-                            {activeMenu === 'clothing' && <ClothingContent />}
                             {activeMenu === 'brands' && <BrandsContent />}
                         </div>
                     </motion.div>
