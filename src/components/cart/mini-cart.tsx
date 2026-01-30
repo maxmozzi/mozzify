@@ -27,7 +27,7 @@ export default function MiniCart({ isOpen, onClose }: { isOpen: boolean, onClose
         <div className={styles.footer}>
            <div className={styles.total}>
               <span>Total</span>
-              <span>$0.00</span>
+              <span>$0.00</span> lol
            </div>
            <button className={styles.checkoutBtn}>Checkout</button>
         </div> 
