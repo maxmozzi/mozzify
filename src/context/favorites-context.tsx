@@ -17,7 +17,7 @@ interface FavoritesContextType {
     checkIsFavorite: (id: string) => boolean;
     flyingAnimation: AnimationState;
     navbarHeartRef: React.RefObject<HTMLButtonElement> | null;
-    setNavbarHeartRef: (ref: React.RefObject<HTMLButtonElement>) => void;
+    setNavbarHeartRef: (el: HTMLButtonElement | null) => void;
     resetAnimation: () => void;
     shouldShowRedHeart: boolean;
     currentProductId: string | null;
@@ -68,7 +68,7 @@ export function FavoritesProvider({ children }: { children: React.ReactNode }) {
 
     const addToFavorites = useCallback((product: GridProduct, startRect?: DOMRect) => {
         let wasAdded = false;
-        
+
         setFavorites(prev => {
             // Check if already in favorites
             if (prev.some(fav => fav.id === product.id)) {
@@ -146,7 +146,7 @@ export function FavoritesProvider({ children }: { children: React.ReactNode }) {
             checkIsFavorite,
             flyingAnimation,
             navbarHeartRef: { current: navbarHeartEl } as React.RefObject<HTMLButtonElement>,
-            setNavbarHeartRef: setNavbarHeartRef as any,
+            setNavbarHeartRef,
             resetAnimation,
             shouldShowRedHeart,
             currentProductId,

@@ -594,18 +594,7 @@ import Img_161_Gal_4 from '@/images/burberry/hoodies/Burr_2024NewAutumnWinterSim
 import Img_161_Gal_5 from '@/images/burberry/hoodies/Burr_2024NewAutumnWinterSimpleHoodieKhaki_55E_2Items/Product (7).webp';
 import Img_161_Gal_6 from '@/images/burberry/hoodies/Burr_2024NewAutumnWinterSimpleHoodieKhaki_55E_2Items/Product (8).webp';
 import Img_161_Gal_7 from '@/images/burberry/hoodies/Burr_2024NewAutumnWinterSimpleHoodieKhaki_55E_2Items/Product (9).webp';
-import Img_162_Main from '@/images/burberry/hoodies/Burr_black_basic_56E/Home.webp';
-import Img_162_Hover from '@/images/burberry/hoodies/Burr_black_basic_56E/Home.webp';
-import Img_162_Gal_0 from '@/images/burberry/hoodies/Burr_black_basic_56E/Home.webp';
-import Img_162_Gal_1 from '@/images/burberry/hoodies/Burr_black_basic_56E/Home1.webp';
-import Img_162_Gal_2 from '@/images/burberry/hoodies/Burr_black_basic_56E/Product.webp';
-import Img_162_Gal_3 from '@/images/burberry/hoodies/Burr_black_basic_56E/Product1.webp';
-import Img_163_Main from '@/images/burberry/hoodies/Burr_grey_basic_56E/Home.webp';
-import Img_163_Hover from '@/images/burberry/hoodies/Burr_grey_basic_56E/Home.webp';
-import Img_163_Gal_0 from '@/images/burberry/hoodies/Burr_grey_basic_56E/Home.webp';
-import Img_163_Gal_1 from '@/images/burberry/hoodies/Burr_grey_basic_56E/Home1.webp';
-import Img_163_Gal_2 from '@/images/burberry/hoodies/Burr_grey_basic_56E/Product.webp';
-import Img_163_Gal_3 from '@/images/burberry/hoodies/Burr_grey_basic_56E/Product1.webp';
+
 import Img_164_Main from '@/images/burberry/hoodies/Burr_WSC-12BB057-2_9Items/Home (10).webp';
 import Img_164_Hover from '@/images/burberry/hoodies/Burr_WSC-12BB057-2_9Items/Home (10).webp';
 import Img_164_Gal_0 from '@/images/burberry/hoodies/Burr_WSC-12BB057-2_9Items/Home (10).webp';
@@ -2634,28 +2623,8 @@ export const products: Product[] = [
         brand: 'Burberry',
         slug: 'burberry-hoodies-burr_2024newautumnwintersimplehoodiekhaki_55e_2items'
     },
-    {
-        id: 'Burr_black_basic_56E',
-        title: 'Burberry Hoodies Burr_black_basic_56E',
-        price: 250,
-        image: Img_162_Main,
-        hoverImage: Img_162_Hover,
-        gallery: [Img_162_Gal_0, Img_162_Gal_1, Img_162_Gal_2, Img_162_Gal_3],
-        category: 'Hoodies',
-        brand: 'Burberry',
-        slug: 'burberry-hoodies-burr_black_basic_56e'
-    },
-    {
-        id: 'Burr_grey_basic_56E',
-        title: 'Burberry Hoodies Burr_grey_basic_56E',
-        price: 250,
-        image: Img_163_Main,
-        hoverImage: Img_163_Hover,
-        gallery: [Img_163_Gal_0, Img_163_Gal_1, Img_163_Gal_2, Img_163_Gal_3],
-        category: 'Hoodies',
-        brand: 'Burberry',
-        slug: 'burberry-hoodies-burr_grey_basic_56e'
-    },
+
+
     {
         id: 'Burr_WSC-12BB057-2_9Items',
         title: 'Burberry Hoodies Burr_WSC-12BB057-2_9Items',
