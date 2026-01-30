@@ -23,8 +23,12 @@ const CategoryList = ({ layoutId }: { layoutId?: string }) => (
 export default function Navbar() {
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const { favorites, setNavbarHeartRef, flyingAnimation } = useFavorites();
+    const { setNavbarHeartRef, flyingAnimation, shouldShowRedHeart, currentProductId, checkIsFavorite } = useFavorites();
     const pathname = usePathname();
+
+    // Navbar heart is red only when: (1) temporary after adding to favorites, or (2) we're on a product page and that product is in favorites
+    const isCurrentProductInFavorites = currentProductId != null && checkIsFavorite(currentProductId);
+    const isNavbarHeartRed = shouldShowRedHeart || isCurrentProductInFavorites;
 
     // Close mobile menu when route changes
     useEffect(() => {
@@ -81,8 +85,8 @@ export default function Navbar() {
                                 <button className={styles.iconBtn} ref={setNavbarHeartRef}>
                                     <Heart
                                         size={18}
-                                        fill={favorites.length > 0 ? "red" : "none"}
-                                        color={favorites.length > 0 ? "red" : "black"}
+                                        fill={isNavbarHeartRed ? "red" : "none"}
+                                        color={isNavbarHeartRed ? "red" : "black"}
                                         className={flyingAnimation.isActive ? styles.heartPulse : ''}
                                     />
                                 </button>

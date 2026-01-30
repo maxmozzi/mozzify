@@ -3,8 +3,10 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Heart } from 'lucide-react';
 import styles from './product-carousel.module.css';
+import { useFavorites } from '@/context/favorites-context';
+import { GridProduct } from '@/components/home/product-grid';
 
 // Mock Data for Visuals
 const CAROUSEL_PRODUCTS = Array.from({ length: 10 }).map((_, i) => ({
@@ -29,6 +31,7 @@ import { products } from '@/data/generated-products';
 export default function ProductCarousel({ title }: { title: string }) {
     const scrollRef = useRef<HTMLDivElement>(null);
     const displayProducts = products.slice(0, Math.min(10, products.length)); // Take first 10 or all available
+    const { addToFavorites, removeFromFavorites, checkIsFavorite } = useFavorites();
 
     const scroll = (direction: 'left' | 'right') => {
         if (scrollRef.current) {
@@ -39,6 +42,19 @@ export default function ProductCarousel({ title }: { title: string }) {
             } else {
                 current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
             }
+        }
+    };
+
+    const handleFavoriteClick = (e: React.MouseEvent, product: GridProduct) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const isFav = checkIsFavorite(product.id);
+        if (isFav) {
+            removeFromFavorites(product.id);
+        } else {
+            const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+            addToFavorites(product, rect);
         }
     };
 
@@ -53,30 +69,53 @@ export default function ProductCarousel({ title }: { title: string }) {
             </div>
 
             <div className={styles.carouselContainer} ref={scrollRef}>
-                {displayProducts.map((product, idx) => (
-                    <Link
-                        href={`/product/${product.category.toLowerCase()}/${product.id}`}
-                        key={product.id}
-                        className={styles.card}
-                    >
-                        <div className={styles.imageWrapper}>
-                            <Image
-                                src={product.image}
-                                alt={product.title}
-                                fill
-                                className={styles.productImage}
-                                style={{ objectFit: 'cover' }}
-                            />
-                            {/* Visual Label */}
-                            {(idx % 3 === 0) && <span className={styles.label}>NEW</span>}
-                            {(idx % 3 !== 0 && idx % 2 === 0) && <span className={styles.label}>BESTSELLER</span>}
-                        </div>
-                        <div className={styles.info}>
-                            <h3 className={styles.productName}>{product.title}</h3>
-                            <span className={styles.productPrice}>{product.price}€</span>
-                        </div>
-                    </Link>
-                ))}
+                {displayProducts.map((product, idx) => {
+                    const isFavorite = checkIsFavorite(product.id);
+                    const productAsGrid: GridProduct = {
+                        id: product.id,
+                        title: product.title,
+                        price: product.price,
+                        image: product.image,
+                        category: product.category,
+                        brand: product.brand
+                    };
+
+                    return (
+                        <Link
+                            href={`/product/${product.category.toLowerCase()}/${product.id}`}
+                            key={product.id}
+                            className={styles.card}
+                        >
+                            <div className={styles.imageWrapper}>
+                                <Image
+                                    src={product.image}
+                                    alt={product.title}
+                                    fill
+                                    className={styles.productImage}
+                                    style={{ objectFit: 'cover' }}
+                                />
+                                {/* Visual Label */}
+                                {(idx % 3 === 0) && <span className={styles.label}>NEW</span>}
+                                {(idx % 3 !== 0 && idx % 2 === 0) && <span className={styles.label}>BESTSELLER</span>}
+                                {/* Heart Button */}
+                                <button
+                                    className={styles.wishlistBtn}
+                                    onClick={(e) => handleFavoriteClick(e, productAsGrid)}
+                                >
+                                    <Heart
+                                        size={18}
+                                        fill={isFavorite ? "red" : "none"}
+                                        color={isFavorite ? "red" : "black"}
+                                    />
+                                </button>
+                            </div>
+                            <div className={styles.info}>
+                                <h3 className={styles.productName}>{product.title}</h3>
+                                <span className={styles.productPrice}>{product.price}€</span>
+                            </div>
+                        </Link>
+                    );
+                })}
             </div>
         </section>
     );

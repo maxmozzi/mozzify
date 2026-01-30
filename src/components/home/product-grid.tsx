@@ -56,18 +56,16 @@ export default function ProductGrid({ title, products, variant = 'standard' }: P
                                     className={styles.productImage}
                                     style={{ objectFit: 'cover' }} // Ensure cover
                                 />
-                                {!isVisual && (
-                                    <button
-                                        className={styles.wishlistBtn}
-                                        onClick={(e) => handleFavoriteClick(e, product)}
-                                    >
-                                        <Heart
-                                            size={18}
-                                            fill={isFavorite ? "red" : "none"}
-                                            color={isFavorite ? "red" : "black"}
-                                        />
-                                    </button>
-                                )}
+                                <button
+                                    className={styles.wishlistBtn}
+                                    onClick={(e) => handleFavoriteClick(e, product)}
+                                >
+                                    <Heart
+                                        size={18}
+                                        fill={isFavorite ? "red" : "none"}
+                                        color={isFavorite ? "red" : "black"}
+                                    />
+                                </button>
                             </div>
 
                             {!isVisual && (

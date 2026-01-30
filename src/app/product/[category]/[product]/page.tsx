@@ -1,6 +1,8 @@
 import ProductGallery from '@/components/product/product-gallery';
 import ProductInfo from '@/components/product/product-info';
+import ProductPageFavorite from '@/components/product/product-page-favorite';
 import SocialProofBanner from '@/components/product/social-proof-banner';
+import CurrentProductRegister from '@/components/product/current-product-register';
 import { products } from '@/data/generated-products';
 import { notFound } from 'next/navigation';
 
@@ -28,8 +30,21 @@ export default async function ProductDetailPage({ params }: PageProps) {
 
     return (
         <main className={styles.main}>
+            <CurrentProductRegister productId={product.id} />
             <div className={styles.container}>
                 <ProductGallery images={galleryImages} />
+                <div style={{ marginBottom: '1rem' }}>
+                    <ProductPageFavorite
+                        product={{
+                            id: product.id,
+                            title: product.title,
+                            price: product.price,
+                            image: product.image,
+                            category: product.category,
+                            brand: product.brand
+                        }}
+                    />
+                </div>
                 <ProductInfo
                     title={product.title}
                     price={product.price}

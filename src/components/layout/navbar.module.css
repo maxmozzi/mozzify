@@ -39,7 +39,7 @@
 
 .heartPulse {
     animation: pulseRed 0.4s ease-in-out forwards;
-    animation-delay: 0.6s;
+    animation-delay: 0.7s;
     /* Wait for flight to almost finish */
 }
 

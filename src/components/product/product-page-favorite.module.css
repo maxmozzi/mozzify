@@ -1,0 +1,23 @@
+.favoriteBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #333;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.favoriteBtn:hover {
+    border-color: #999;
+    background: #f9f9f9;
+}
+
+.label {
+    text-transform: none;
+}
