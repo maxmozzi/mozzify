@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Heart } from 'lucide-react';
 import styles from './product-grid.module.css';
+import { useFavorites } from '@/context/favorites-context';
 
 // Minimal mock product for the grid
 export interface GridProduct {
@@ -21,6 +22,20 @@ interface ProductGridProps {
 
 export default function ProductGrid({ title, products, variant = 'standard' }: ProductGridProps) {
     const isVisual = variant === 'visual';
+    const { addToFavorites, removeFromFavorites, checkIsFavorite } = useFavorites();
+
+    const handleFavoriteClick = (e: React.MouseEvent, product: GridProduct) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const isFav = checkIsFavorite(product.id);
+        if (isFav) {
+            removeFromFavorites(product.id);
+        } else {
+            const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+            addToFavorites(product, rect);
+        }
+    };
 
     return (
         <section className={`container ${styles.section}`}>
@@ -29,6 +44,7 @@ export default function ProductGrid({ title, products, variant = 'standard' }: P
                 {products.map((product, i) => {
                     const brandSlug = product.brand?.toLowerCase().replace(/\s+/g, '') || 'amiparis';
                     const productUrl = `/${brandSlug}/${product.category.toLowerCase()}/${product.id}`;
+                    const isFavorite = checkIsFavorite(product.id);
 
                     return (
                         <Link href={productUrl} key={`${product.id}-${i}`} className={`${styles.productCard} ${isVisual ? styles.visualCard : ''}`}>
@@ -41,8 +57,15 @@ export default function ProductGrid({ title, products, variant = 'standard' }: P
                                     style={{ objectFit: 'cover' }} // Ensure cover
                                 />
                                 {!isVisual && (
-                                    <button className={styles.wishlistBtn}>
-                                        <Heart size={18} />
+                                    <button
+                                        className={styles.wishlistBtn}
+                                        onClick={(e) => handleFavoriteClick(e, product)}
+                                    >
+                                        <Heart
+                                            size={18}
+                                            fill={isFavorite ? "red" : "none"}
+                                            color={isFavorite ? "red" : "black"}
+                                        />
                                     </button>
                                 )}
                             </div>

@@ -1,5 +1,5 @@
 import styles from './trust-section.module.css';
-import { Star } from 'lucide-react';
+
 import Image from 'next/image';
 import { products } from '@/data/generated-products'; // Borrowing images for factory placeholders
 
@@ -8,16 +8,7 @@ export default function TrustSection() {
         <section className={styles.section}>
 
             {/* Reviews Part */}
-            <div className={`container ${styles.reviewsContainer}`}>
-                <div className={styles.stars}>
-                    {[1, 2, 3, 4, 5].map(i => <Star key={i} fill="black" size={24} color="black" />)}
-                </div>
-                <h3 className={styles.heading}>"The quality of the hoodies is unmatched. Fits perfectly and feels premium."</h3>
-                <p className={styles.author}>— Alex D. verified buyer</p>
-                <div className={styles.trustpilot}>
-                    <span>Excellent on</span> <strong>Trustpilot</strong>
-                </div>
-            </div>
+
 
             {/* Factory / Storytelling Part */}
             <div className={styles.factoryGrid}>

@@ -107,7 +107,7 @@ export default function ProductListing({
                     // If we are in a specific brand/category page, maybe we don't need category filters?
                     // The prompt implies we just want Brand filter on the /hoodies/all page.
                     // We can hide categories if we want, or keep them.
-                    categories={[]} // Simpler for now: Hide category filter to focus on Brand filter as requested
+                    categories={availableCategories}
                     selectedCategories={selectedCategories}
                     onCategoryChange={handleCategoryChange}
                 />

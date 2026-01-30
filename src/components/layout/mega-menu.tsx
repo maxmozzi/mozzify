@@ -10,6 +10,7 @@ const MENU_ITEMS = [
     { id: 'shop-all', label: 'Shop All', link: '/all' },
     { id: 'clothing', label: 'Clothing' },
     { id: 'brands', label: 'Brands' }, // Changed 'Shoes' to Brands or just generic updates? User said "Adapt Navbar of CLOTHING". Let's stick to their structure.
+    { id: 'sports', label: 'Sports' },
     { id: 'mystery', label: 'Mystery Box', link: '/mystery-box' },
 ];
 
@@ -47,6 +48,7 @@ export default function MegaMenu() {
                             {/* {activeMenu === 'gifts' && <GiftsContent />} */}
                             {activeMenu === 'clothing' && <ClothingContent />}
                             {activeMenu === 'brands' && <BrandsContent />}
+                            {activeMenu === 'sports' && <SportContent />}
                         </div>
                     </motion.div>
                 )}
@@ -62,8 +64,8 @@ function BrandsContent() {
             <div>
                 <h4 className={styles.columnTitle}>Main Brands</h4>
                 <ul className={styles.linkListGrid}>
-                    <li><Link href="/amiri/hoodies">Amiri</Link></li>
-                    <li><Link href="/amiparis/hoodies">Ami Paris</Link></li>
+                    <li><Link href="/amiri">Amiri</Link></li>
+                    <li><Link href="/amiparis">Ami Paris</Link></li>
                 </ul>
             </div>
         </div>
@@ -111,8 +113,8 @@ function ClothingContent() {
                      Let's stick to Categories for now.
                  */}
                 <ul className={styles.linkListGrid}>
-                    <li><Link href="/amiri/hoodies">Amiri</Link></li>
-                    <li><Link href="/amiparis/hoodies">Ami Paris</Link></li>
+                    <li><Link href="/amiri">Amiri</Link></li>
+                    <li><Link href="/amiparis">Ami Paris</Link></li>
                 </ul>
             </div>
         </div>
@@ -182,37 +184,13 @@ function AccessoriesContent() {
 
 function SportContent() {
     return (
-        <div className={styles.grid3}>
+        <div className={styles.grid2}>
             <div>
                 <h4 className={styles.columnTitle}>Categories</h4>
-                <ul className={styles.linkList}>
-                    <li><Link href="/sport-all">View All</Link></li>
-                    <li><Link href="/sport-clothing">Clothing</Link></li>
-                    <li><Link href="/sport-shoes">Sport Shoes</Link></li>
-                    <li><Link href="/sport-equip">Equipment</Link></li>
-                    <li><Link href="/sport-bags">Bags & Backpacks</Link></li>
-                </ul>
-            </div>
-            <div>
-                <h4 className={styles.columnTitle}>Sports</h4>
-                <ul className={styles.linkList}>
-                    <li><Link href="/s/running">Running</Link></li>
-                    <li><Link href="/s/gym">Gym</Link></li>
-                    <li><Link href="/s/football">Football</Link></li>
-                    <li><Link href="/s/basketball">Basketball</Link></li>
-                    <li><Link href="/s/mountain">Outdoor</Link></li>
-                    <li><Link href="/s/padel">Padel & Tennis</Link></li>
-                    <li><Link href="/s/cycling">Cycling</Link></li>
-                </ul>
-            </div>
-            <div>
-                <h4 className={styles.columnTitle}>Brands</h4>
-                <ul className={styles.linkList}>
-                    <li><Link href="/b/nike-pro">Nike Pro</Link></li>
-                    <li><Link href="/b/under-armour">Under Armour</Link></li>
-                    <li><Link href="/b/on-running">On Running</Link></li>
-                    <li><Link href="/b/hoka">Hoka</Link></li>
-                    <li><Link href="/b/salomon">Salomon</Link></li>
+                <ul className={styles.linkListGrid}>
+                    <li><Link href="/running/all">Running</Link></li>
+                    <li><Link href="/gym/all">Gym</Link></li>
+                    <li><Link href="/football/all">Football</Link></li>
                 </ul>
             </div>
         </div>
