@@ -6,11 +6,14 @@
 
 .title {
     text-align: center;
-    font-size: 2rem;
-    font-weight: 800;
-    text-transform: uppercase;
+    font-size: 20px;
+    /* Requested size */
+    font-weight: 400;
+    /* No bold */
+    text-transform: none;
+    /* No uppercase */
     margin-bottom: 4rem;
-    letter-spacing: -0.02em;
+    color: #000;
 }
 
 .carouselContainer {
@@ -23,9 +26,19 @@
 .track {
     display: flex;
     width: max-content;
-    gap: 1.5rem;
-    /* Tighter gap for "Train" look */
+    gap: 1rem;
+    /* Very tight gap for true "Train" look */
     animation: scroll 40s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* ... */
@@ -33,8 +46,8 @@
 .card {
     min-width: 325px;
     max-width: 325px;
-    height: 480px;
-    /* Increased height significantly */
+    height: 500px;
+    /* Reverted to 500px */
     background: transparent;
     border-radius: 0;
     overflow: visible;
@@ -44,15 +57,18 @@
 }
 
 .imageWrapper {
-    height: 325px;
-    width: 300px;
-    /* Wider/Larger photo */
-    height: 300px;
-    /* Taller photo */
+    position: relative;
+    /* Essential for next/image fill */
+    height: 400px;
+    /* Increased by 40px (was 360px) */
+    width: 310px;
+    /* Maximizing width within card */
     border-radius: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    /* Subtle premium border */
     margin-bottom: 1.5rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    /* Subtle, elegant shadow */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    /* Extremely subtle shadow */
     overflow: hidden;
     flex-shrink: 0;
 }
