@@ -105,6 +105,11 @@ export function FavoritesProvider({ children }: { children: React.ReactNode }) {
                 setTimeout(() => {
                     setShouldShowRedHeart(true);
                 }, 700); // Match pulse animation delay
+
+                // End flying animation after duration (0.8s)
+                setTimeout(() => {
+                    setFlyingAnimation(prev => ({ ...prev, isActive: false }));
+                }, 800);
             }
         }
     }, []);
