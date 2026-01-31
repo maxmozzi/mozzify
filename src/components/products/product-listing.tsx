@@ -93,7 +93,7 @@ export default function ProductListing({
     };
 
     return (
-        <div className={`container ${styles.listingContainer}`}>
+        <div className={styles.listingContainer}>
 
             <div style={{ marginBottom: '2rem' }}>
                 <h1 className="text-3xl font-bold uppercase mb-4">{title}</h1>
@@ -122,6 +122,7 @@ export default function ProductListing({
                     title=""
                     products={filteredProducts}
                     variant="visual"
+                    fullWidth={true}
                 />
 
                 {filteredProducts.length === 0 && (

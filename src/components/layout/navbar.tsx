@@ -25,6 +25,7 @@ const CategoryList = ({ layoutId }: { layoutId?: string }) => (
 export default function Navbar() {
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [activeDropdown, setActiveDropdown] = useState<'currency' | 'language' | null>(null);
     const { setNavbarHeartRef, flyingAnimation, shouldShowRedHeart, currentProductId, checkIsFavorite } = useFavorites();
     const pathname = usePathname();
 
@@ -32,10 +33,28 @@ export default function Navbar() {
     const isCurrentProductInFavorites = currentProductId != null && checkIsFavorite(currentProductId);
     const isNavbarHeartRed = shouldShowRedHeart || isCurrentProductInFavorites;
 
+    // Close dropdowns when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (activeDropdown && !(event.target as HTMLElement).closest(`.${styles.selectorWrapper}`)) {
+                setActiveDropdown(null);
+            }
+        };
+
+        if (activeDropdown) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [activeDropdown]);
+
     // Close mobile menu when route changes
     useEffect(() => {
         setIsMobileMenuOpen(false);
         setExpandedSection(null); // Reset expansion
+        setActiveDropdown(null); // Close dropdowns
     }, [pathname]);
 
     const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -71,11 +90,6 @@ export default function Navbar() {
                             </nav>
                         </div>
 
-                        import Image from 'next/image';
-                        import logoImg from '@/images/logo/logo.png';
-
-                        // ... (existing imports)
-
                         {/* CENTER: Logo */}
                         <div className={styles.centerArea}>
                             <Link href="/" className={styles.navLogo}>
@@ -83,7 +97,7 @@ export default function Navbar() {
                                     src={logoImg}
                                     alt="Mozzify Logo"
                                     height={50}
-                                    style={{ width: 'auto', mixBlendMode: 'multiply' }}
+                                    style={{ width: 'auto' }}
                                     priority
                                 />
                             </Link>
@@ -91,8 +105,57 @@ export default function Navbar() {
 
                         {/* RIGHT: Meta & Actions */}
                         <div className={styles.actions}>
-                            <Link href="/about" className={styles.textAction}>About Us</Link>
-                            {/* <button className={styles.iconBtn}><Globe size={18} /></button> */}
+                            <div className={styles.visualSelectors}>
+                                {/* CURRENCY DROPDOWN */}
+                                <div className={styles.selectorWrapper}>
+                                    <button
+                                        className={styles.selectorItem}
+                                        onClick={() => setActiveDropdown(activeDropdown === 'currency' ? null : 'currency')}
+                                    >
+                                        <span>EUR</span>
+                                        <ChevronDown size={14} className={activeDropdown === 'currency' ? styles.rotateIcon : ''} />
+                                    </button>
+                                    <AnimatePresence>
+                                        {activeDropdown === 'currency' && (
+                                            <motion.div
+                                                className={styles.dropdownMenu}
+                                                initial={{ opacity: 0, y: 10 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                exit={{ opacity: 0, y: 10 }}
+                                                transition={{ duration: 0.2 }}
+                                            >
+                                                <button className={styles.dropdownOption} onClick={() => setActiveDropdown(null)}>EUR</button>
+                                                <button className={styles.dropdownOption} onClick={() => setActiveDropdown(null)}>USD</button>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
+
+                                {/* LANGUAGE DROPDOWN */}
+                                <div className={styles.selectorWrapper}>
+                                    <button
+                                        className={styles.selectorItem}
+                                        onClick={() => setActiveDropdown(activeDropdown === 'language' ? null : 'language')}
+                                    >
+                                        <span>English</span>
+                                        <ChevronDown size={14} className={activeDropdown === 'language' ? styles.rotateIcon : ''} />
+                                    </button>
+                                    <AnimatePresence>
+                                        {activeDropdown === 'language' && (
+                                            <motion.div
+                                                className={styles.dropdownMenu}
+                                                initial={{ opacity: 0, y: 10 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                exit={{ opacity: 0, y: 10 }}
+                                                transition={{ duration: 0.2 }}
+                                            >
+                                                <button className={styles.dropdownOption} onClick={() => setActiveDropdown(null)}>English</button>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
+                            </div>
+
                             <button className={styles.iconBtn}><User size={18} /></button>
                             <Link href="/favorites">
                                 <button className={styles.iconBtn} ref={setNavbarHeartRef}>
@@ -280,7 +343,6 @@ export default function Navbar() {
                                     <div className={styles.mobileDivider} />
 
                                     <Link href="/mystery-box" className={styles.mobileMenuLink}>Mystery Box</Link>
-                                    <Link href="/about" className={styles.mobileMenuLink}>About Us</Link>
                                 </div>
                             </motion.div>
                         </>

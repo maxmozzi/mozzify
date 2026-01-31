@@ -1,7 +1,8 @@
 .footer {
-    background: #111;
-    color: white;
+    background: #ffffff;
+    color: black;
     padding: 4rem 0 1rem;
+    border-top: 1px solid #eee;
 }
 
 .grid {
@@ -21,7 +22,7 @@
 
 .desc {
     font-size: 0.9rem;
-    color: #aaa;
+    color: #666;
     line-height: 1.6;
     margin-bottom: 1.5rem;
     max-width: 300px;
@@ -30,7 +31,7 @@
 .socials {
     display: flex;
     gap: 1rem;
-    color: white;
+    color: black;
 }
 
 .heading {
@@ -50,19 +51,19 @@
 }
 
 .links a {
-    color: #aaa;
+    color: #666;
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.2s;
 }
 
 .links a:hover {
-    color: white;
+    color: black;
 }
 
 .smallText {
     font-size: 0.9rem;
-    color: #aaa;
+    color: #666;
     margin-bottom: 1rem;
 }
 
@@ -72,17 +73,17 @@
 }
 
 .input {
-    background: #222;
-    border: 1px solid #333;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
     padding: 0.8rem;
-    color: white;
+    color: black;
     width: 100%;
     outline: none;
 }
 
 .submitBtn {
-    background: white;
-    color: black;
+    background: black;
+    color: white;
     border: none;
     padding: 0 1.5rem;
     font-weight: 700;
@@ -90,7 +91,7 @@
 }
 
 .bottomBar {
-    border-top: 1px solid #222;
+    border-top: 1px solid #eee;
     padding-top: 2rem;
     display: flex;
     justify-content: space-between;

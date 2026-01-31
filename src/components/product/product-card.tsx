@@ -71,15 +71,37 @@ export default function ProductCard({ product }: { product: Product }) {
                 </button>
             </Link>
             <div className={styles.details}>
-                <h3 className={styles.title}>
-                    <Link href={productUrl}>{title}</Link>
-                </h3>
-                <p className={styles.price}>
-                    {price.toLocaleString('en-US', {
-                        style: 'currency',
-                        currency: 'EUR'
-                    })}
-                </p>
+                {/* STATIC INFO */}
+                <div className={styles.staticInfo}>
+                    <div className={styles.productMain}>
+                        <h3 className={styles.title}>
+                            <Link href={productUrl}>AmiParis Zipper Blue</Link>
+                        </h3>
+                        <p className={styles.price}>€108,40</p>
+                    </div>
+                    <div className={styles.colorOptions}>
+                        <span className={styles.colorCircle} style={{ backgroundColor: '#000000' }}></span>
+                        <span className={styles.colorCircle} style={{ backgroundColor: '#FFFFFF', border: '1px solid #eee' }}></span>
+                        <span className={styles.colorCircle} style={{ backgroundColor: '#1E40AF' }}></span>
+                        <span className={styles.colorCircle} style={{ backgroundColor: '#EF4444' }}></span>
+                        <span className={styles.colorCircle} style={{ backgroundColor: '#10B981' }}></span>
+                        <span className={styles.colorCircle} style={{ backgroundColor: '#F59E0B' }}></span>
+                        <span className={styles.colorCircle} style={{ backgroundColor: '#6B7280' }}></span>
+                    </div>
+                </div>
+
+                {/* HOVER INFO */}
+                <div className={styles.hoverInfo}>
+                    <button className={styles.addToCartBtn}>Add to Cart</button>
+                    <div className={styles.sizes}>
+                        <span>XS</span>
+                        <span>S</span>
+                        <span>M</span>
+                        <span>L</span>
+                        <span>XL</span>
+                        <span>XXL</span>
+                    </div>
+                </div>
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 .announcementBar {
     background-color: #000;
-    color: #fff;
+    color: #ffffff;
     font-size: 0.75rem;
     padding: 0.5rem 0;
     overflow: hidden;
@@ -28,11 +28,11 @@
 }
 
 .separator {
-    color: #555;
+    color: #888;
 }
 
 .content a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
 }
 

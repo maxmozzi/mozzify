@@ -622,16 +622,7 @@ import Img_164_Gal_30 from '@/images/burberry/hoodies/Burr_WSC-12BB057-2_9Items/
 import Img_164_Gal_31 from '@/images/burberry/hoodies/Burr_WSC-12BB057-2_9Items/Product (8).webp';
 import Img_164_Gal_32 from '@/images/burberry/hoodies/Burr_WSC-12BB057-2_9Items/Product (9).webp';
 import Img_164_Gal_33 from '@/images/burberry/hoodies/Burr_WSC-12BB057-2_9Items/Product.webp';
-import Img_165_Main from '@/images/burberry/hoodies/Burr_WSC-12BB808302_55E_3Items/Home (1).webp';
-import Img_165_Hover from '@/images/burberry/hoodies/Burr_WSC-12BB808302_55E_3Items/Home (1).webp';
-import Img_165_Gal_0 from '@/images/burberry/hoodies/Burr_WSC-12BB808302_55E_3Items/Home (1).webp';
-import Img_165_Gal_1 from '@/images/burberry/hoodies/Burr_WSC-12BB808302_55E_3Items/Home (2).webp';
-import Img_165_Gal_2 from '@/images/burberry/hoodies/Burr_WSC-12BB808302_55E_3Items/Home (3).webp';
-import Img_165_Gal_3 from '@/images/burberry/hoodies/Burr_WSC-12BB808302_55E_3Items/Home (4).webp';
-import Img_165_Gal_4 from '@/images/burberry/hoodies/Burr_WSC-12BB808302_55E_3Items/Product (1).webp';
-import Img_165_Gal_5 from '@/images/burberry/hoodies/Burr_WSC-12BB808302_55E_3Items/Product (2).webp';
-import Img_165_Gal_6 from '@/images/burberry/hoodies/Burr_WSC-12BB808302_55E_3Items/Product (3).webp';
-import Img_165_Gal_7 from '@/images/burberry/hoodies/Burr_WSC-12BB808302_55E_3Items/Product (4).webp';
+
 import Img_166_Main from '@/images/burberry/hoodies/Burr_WSC-12EK793657_7Items/Home (1).webp';
 import Img_166_Hover from '@/images/burberry/hoodies/Burr_WSC-12EK793657_7Items/Home (1).webp';
 import Img_166_Gal_0 from '@/images/burberry/hoodies/Burr_WSC-12EK793657_7Items/Home (1).webp';
@@ -2617,17 +2608,7 @@ export const products: Product[] = [
         brand: 'Burberry',
         slug: 'burberry-hoodies-burr_wsc-12bb057-2_9items'
     },
-    {
-        id: 'Burr_WSC-12BB808302_55E_3Items',
-        title: 'Burberry Hoodies Burr_WSC-12BB808302_55E_3Items',
-        price: 250,
-        image: Img_165_Main,
-        hoverImage: Img_165_Hover,
-        gallery: [Img_165_Gal_0, Img_165_Gal_1, Img_165_Gal_2, Img_165_Gal_3, Img_165_Gal_4, Img_165_Gal_5, Img_165_Gal_6, Img_165_Gal_7],
-        category: 'Hoodies',
-        brand: 'Burberry',
-        slug: 'burberry-hoodies-burr_wsc-12bb808302_55e_3items'
-    },
+
     {
         id: 'Burr_WSC-12EK793657_7Items',
         title: 'Burberry Hoodies Burr_WSC-12EK793657_7Items',

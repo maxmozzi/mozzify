@@ -1,8 +1,7 @@
 .listingContainer {
     display: block;
     /* Vertical layout */
-    padding-top: 1rem;
-    padding-bottom: 4rem;
+    padding: 1rem 2rem 4rem;
     position: relative;
 }
 

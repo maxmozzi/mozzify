@@ -115,8 +115,35 @@ export default function ProductCarousel({ title }: { title: string }) {
                                 </button>
                             </div>
                             <div className={styles.info}>
-                                <h3 className={styles.productName}>{product.title}</h3>
-                                <span className={styles.productPrice}>{product.price}€</span>
+                                {/* STATIC INFO */}
+                                <div className={styles.staticInfo}>
+                                    <div className={styles.productMain}>
+                                        <h3 className={styles.productName}>AmiParis Zipper Blue</h3>
+                                        <span className={styles.productPrice}>€108,40</span>
+                                    </div>
+                                    <div className={styles.colorOptions}>
+                                        <span className={styles.colorCircle} style={{ backgroundColor: '#000000' }}></span>
+                                        <span className={styles.colorCircle} style={{ backgroundColor: '#FFFFFF', border: '1px solid #eee' }}></span>
+                                        <span className={styles.colorCircle} style={{ backgroundColor: '#1E40AF' }}></span>
+                                        <span className={styles.colorCircle} style={{ backgroundColor: '#EF4444' }}></span>
+                                        <span className={styles.colorCircle} style={{ backgroundColor: '#10B981' }}></span>
+                                        <span className={styles.colorCircle} style={{ backgroundColor: '#F59E0B' }}></span>
+                                        <span className={styles.colorCircle} style={{ backgroundColor: '#6B7280' }}></span>
+                                    </div>
+                                </div>
+
+                                {/* HOVER INFO */}
+                                <div className={styles.hoverInfo}>
+                                    <button className={styles.addToCartBtn}>Add to Cart</button>
+                                    <div className={styles.sizes}>
+                                        <span>XS</span>
+                                        <span>S</span>
+                                        <span>M</span>
+                                        <span>L</span>
+                                        <span>XL</span>
+                                        <span>XXL</span>
+                                    </div>
+                                </div>
                             </div>
                         </Link>
                     );

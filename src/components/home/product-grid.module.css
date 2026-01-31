@@ -2,6 +2,13 @@
     padding: 4rem 2rem;
 }
 
+.fullWidth {
+    width: 100%;
+    max-width: 100% !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 .sectionTitle {
     text-align: center;
     font-size: 2rem;
@@ -11,7 +18,8 @@
     letter-spacing: 2px;
 }
 
-.grid {
+.grid,
+.visualGrid {
     display: grid;
     /* TASK: 4 Columns desktop */
     grid-template-columns: repeat(4, 1fr);
@@ -74,27 +82,108 @@
 }
 
 .productInfo {
-    text-align: center;
+    position: relative;
+    height: 48px;
+    /* Fixed height for consistency */
+    overflow: hidden;
+    margin-top: 0.2rem;
 }
 
-.brand {
-    display: block;
-    font-size: 0.75rem;
-    color: #888;
-    text-transform: uppercase;
-    margin-bottom: 0.25rem;
+.staticInfo,
+.hoverInfo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+.staticInfo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hoverInfo {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+.productCard:hover .staticInfo {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.productCard:hover .hoverInfo {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.productMain {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
 .productTitle {
-    font-size: 0.95rem;
-    font-weight: 500;
-    margin: 0 0 0.5rem 0;
-    text-transform: capitalize;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
 }
 
 .price {
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.colorOptions {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.colorCircle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.addToCartBtn {
+    background: none;
+    border: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0;
+    letter-spacing: 0.5px;
+    color: #000;
+}
+
+.sizes {
+    display: flex;
+    gap: 8px;
+    font-size: 0.7rem;
     font-weight: 600;
-    font-size: 0.9rem;
+    color: #666;
+}
+
+.sizes span {
+    cursor: default;
+}
+
+.sizes span:hover {
+    color: #000;
 }
 
 .viewAllWrapper {

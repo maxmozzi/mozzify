@@ -1,7 +1,7 @@
 .section {
     padding: 6rem 0;
-    background-color: var(--color-primary);
-    color: var(--color-bg-subtle);
+    background-color: #ffffff;
+    color: #000;
 }
 
 .container {
@@ -37,8 +37,8 @@
     letter-spacing: 0.1em;
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--color-bg-subtle);
-    border-bottom: 1px solid var(--color-secondary);
+    color: #000;
+    border-bottom: 1px solid #000;
     width: fit-content;
     padding-bottom: 2px;
 }

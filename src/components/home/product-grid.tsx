@@ -19,9 +19,10 @@ interface ProductGridProps {
     title: string;
     products: GridProduct[];
     variant?: 'standard' | 'visual';
+    fullWidth?: boolean;
 }
 
-export default function ProductGrid({ title, products, variant = 'standard' }: ProductGridProps) {
+export default function ProductGrid({ title, products, variant = 'standard', fullWidth = false }: ProductGridProps) {
     const isVisual = variant === 'visual';
     const { addToFavorites, removeFromFavorites, checkIsFavorite } = useFavorites();
 
@@ -39,7 +40,7 @@ export default function ProductGrid({ title, products, variant = 'standard' }: P
     };
 
     return (
-        <section className={`container ${styles.section}`}>
+        <section className={`${fullWidth ? styles.fullWidth : 'container'} ${styles.section}`}>
             {title && <h2 className={styles.sectionTitle}>{title}</h2>}
             <div className={`${styles.grid} ${isVisual ? styles.visualGrid : ''}`}>
                 {products.map((product, i) => {
@@ -69,13 +70,37 @@ export default function ProductGrid({ title, products, variant = 'standard' }: P
                                 </button>
                             </div>
 
-                            {!isVisual && (
-                                <div className={styles.productInfo}>
-                                    {product.brand && <span className={styles.brand}>{product.brand}</span>}
-                                    <h3 className={styles.productTitle}>{product.title}</h3>
-                                    <span className={styles.price}>{product.price.toFixed(2)}€</span>
+                            <div className={styles.productInfo}>
+                                {/* STATIC INFO */}
+                                <div className={styles.staticInfo}>
+                                    <div className={styles.productMain}>
+                                        <h3 className={styles.productTitle}>AmiParis Zipper Blue</h3>
+                                        <span className={styles.price}>€108,40</span>
+                                    </div>
+                                    <div className={styles.colorOptions}>
+                                        <span className={styles.colorCircle} style={{ backgroundColor: '#000000' }}></span>
+                                        <span className={styles.colorCircle} style={{ backgroundColor: '#FFFFFF', border: '1px solid #eee' }}></span>
+                                        <span className={styles.colorCircle} style={{ backgroundColor: '#1E40AF' }}></span>
+                                        <span className={styles.colorCircle} style={{ backgroundColor: '#EF4444' }}></span>
+                                        <span className={styles.colorCircle} style={{ backgroundColor: '#10B981' }}></span>
+                                        <span className={styles.colorCircle} style={{ backgroundColor: '#F59E0B' }}></span>
+                                        <span className={styles.colorCircle} style={{ backgroundColor: '#6B7280' }}></span>
+                                    </div>
                                 </div>
-                            )}
+
+                                {/* HOVER INFO */}
+                                <div className={styles.hoverInfo}>
+                                    <button className={styles.addToCartBtn}>Add to Cart</button>
+                                    <div className={styles.sizes}>
+                                        <span>XS</span>
+                                        <span>S</span>
+                                        <span>M</span>
+                                        <span>L</span>
+                                        <span>XL</span>
+                                        <span>XXL</span>
+                                    </div>
+                                </div>
+                            </div>
                         </Link>
                     );
                 })}
