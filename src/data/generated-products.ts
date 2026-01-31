@@ -584,16 +584,7 @@ import Img_159_Gal_1 from '@/images/amiri/tshirt/YKZ-65X049_1/front-750x930.webp
 import Img_160_Main from '@/images/burberry/hoodies/bru_original/front-600x750.webp';
 import Img_160_Hover from '@/images/burberry/hoodies/bru_original/front-600x750.webp';
 import Img_160_Gal_0 from '@/images/burberry/hoodies/bru_original/front-750x930.webp';
-import Img_161_Main from '@/images/burberry/hoodies/Burr_2024NewAutumnWinterSimpleHoodieKhaki_55E_2Items/Home (10).webp';
-import Img_161_Hover from '@/images/burberry/hoodies/Burr_2024NewAutumnWinterSimpleHoodieKhaki_55E_2Items/Home (10).webp';
-import Img_161_Gal_0 from '@/images/burberry/hoodies/Burr_2024NewAutumnWinterSimpleHoodieKhaki_55E_2Items/Home (10).webp';
-import Img_161_Gal_1 from '@/images/burberry/hoodies/Burr_2024NewAutumnWinterSimpleHoodieKhaki_55E_2Items/Home (7).webp';
-import Img_161_Gal_2 from '@/images/burberry/hoodies/Burr_2024NewAutumnWinterSimpleHoodieKhaki_55E_2Items/Home (8).webp';
-import Img_161_Gal_3 from '@/images/burberry/hoodies/Burr_2024NewAutumnWinterSimpleHoodieKhaki_55E_2Items/Home (9).webp';
-import Img_161_Gal_4 from '@/images/burberry/hoodies/Burr_2024NewAutumnWinterSimpleHoodieKhaki_55E_2Items/Product (10).webp';
-import Img_161_Gal_5 from '@/images/burberry/hoodies/Burr_2024NewAutumnWinterSimpleHoodieKhaki_55E_2Items/Product (7).webp';
-import Img_161_Gal_6 from '@/images/burberry/hoodies/Burr_2024NewAutumnWinterSimpleHoodieKhaki_55E_2Items/Product (8).webp';
-import Img_161_Gal_7 from '@/images/burberry/hoodies/Burr_2024NewAutumnWinterSimpleHoodieKhaki_55E_2Items/Product (9).webp';
+
 
 import Img_164_Main from '@/images/burberry/hoodies/Burr_WSC-12BB057-2_9Items/Home (10).webp';
 import Img_164_Hover from '@/images/burberry/hoodies/Burr_WSC-12BB057-2_9Items/Home (10).webp';
@@ -2612,17 +2603,7 @@ export const products: Product[] = [
         brand: 'Burberry',
         slug: 'burberry-hoodies-bru_original'
     },
-    {
-        id: 'Burr_2024NewAutumnWinterSimpleHoodieKhaki_55E_2Items',
-        title: 'Burberry Hoodies Burr_2024NewAutumnWinterSimpleHoodieKhaki_55E_2Items',
-        price: 250,
-        image: Img_161_Main,
-        hoverImage: Img_161_Hover,
-        gallery: [Img_161_Gal_0, Img_161_Gal_1, Img_161_Gal_2, Img_161_Gal_3, Img_161_Gal_4, Img_161_Gal_5, Img_161_Gal_6, Img_161_Gal_7],
-        category: 'Hoodies',
-        brand: 'Burberry',
-        slug: 'burberry-hoodies-burr_2024newautumnwintersimplehoodiekhaki_55e_2items'
-    },
+
 
 
     {

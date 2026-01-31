@@ -1,6 +1,9 @@
 "use client";
 import styles from './reviews-carousel.module.css';
 import { Star } from 'lucide-react';
+import Image from 'next/image';
+
+import { products } from '@/data/generated-products';
 
 // Mock Data
 const REVIEWS = [
@@ -22,15 +25,19 @@ const MARQUEE_ITEMS = [...REVIEWS, ...REVIEWS];
 export default function ReviewsCarousel() {
     return (
         <section className={styles.section}>
-            <h2 className={styles.title}>What They Say</h2>
+            <h2 className={styles.title}>Estos son algunos de los clientes que confiarón en nosotros</h2>
 
             <div className={styles.carouselContainer}>
                 <div className={styles.track}>
                     {MARQUEE_ITEMS.map((review, index) => (
                         <div key={`${review.id}-${index}`} className={styles.card}>
-                            {/* 1. Product Photo */}
+                            {/* 1. Product Photo (Rounded & Shadowed via CSS) */}
                             <div className={styles.imageWrapper}>
-                                <img src={review.image} alt="Product" className={styles.productImage} />
+                                <img
+                                    src={review.image as string}
+                                    alt="Product"
+                                    className={styles.productImage}
+                                />
                             </div>
 
                             <div className={styles.content}>
@@ -39,7 +46,7 @@ export default function ReviewsCarousel() {
                                     {Array.from({ length: 5 }).map((_, i) => (
                                         <Star
                                             key={i}
-                                            size={14}
+                                            size={16}
                                             fill={i < review.rating ? "#000" : "none"}
                                             color="#000"
                                             strokeWidth={1.5}
@@ -47,11 +54,11 @@ export default function ReviewsCarousel() {
                                     ))}
                                 </div>
 
-                                {/* 3. Comment */}
-                                <p className={styles.text}>"{review.text}"</p>
-
-                                {/* 4. User Name */}
+                                {/* 3. User Name */}
                                 <span className={styles.username}>{review.user}</span>
+
+                                {/* 4. Comment (Text) */}
+                                <p className={styles.text}>"{review.text}"</p>
                             </div>
                         </div>
                     ))}

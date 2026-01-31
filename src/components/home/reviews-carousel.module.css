@@ -23,84 +23,81 @@
 .track {
     display: flex;
     width: max-content;
-    gap: 2rem;
+    gap: 1.5rem;
+    /* Tighter gap for "Train" look */
     animation: scroll 40s linear infinite;
 }
 
-/* Pause animation on hover for readability */
-.track:hover {
-    animation-play-state: paused;
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
-}
+/* ... */
 
 .card {
-    min-width: 300px;
-    max-width: 300px;
-    background: #f9f9f9;
-    border-radius: 12px;
-    overflow: hidden;
+    min-width: 325px;
+    max-width: 325px;
+    height: 480px;
+    /* Increased height significantly */
+    background: transparent;
+    border-radius: 0;
+    overflow: visible;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .imageWrapper {
-    height: 320px;
-    width: 100%;
-    background: #eee;
+    height: 325px;
+    width: 300px;
+    /* Wider/Larger photo */
+    height: 300px;
+    /* Taller photo */
+    border-radius: 40px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    /* Subtle, elegant shadow */
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .productImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.card:hover .productImage {
-    transform: scale(1.05);
+    /* No scale transform on hover requested: "Al poner el cursor encima, no debe haber ningún efecto" */
 }
 
 .content {
-    padding: 1.5rem;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 0.8rem;
+    gap: 0.5rem;
+    width: 100%;
 }
 
 .stars {
     display: flex;
-    gap: 2px;
-}
-
-.text {
-    font-size: 0.95rem;
-    color: #333;
-    line-height: 1.5;
-    font-style: italic;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    gap: 4px;
+    margin-bottom: 0.2rem;
 }
 
 .username {
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #000;
-    margin-top: auto;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+}
+
+.text {
+    font-size: 20px;
+    font-weight: 400;
+    color: black;
+    line-height: 1.2;
+    font-style: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-top: 0.5rem;
 }

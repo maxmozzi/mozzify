@@ -7,7 +7,7 @@ import styles from './mega-menu.module.css';
 
 // Menu Configuration
 const MENU_ITEMS = [
-    { id: 'shop-all', label: 'Shop All', link: '/all' },
+    { id: 'best-sellers', label: 'BEST SELLERS', link: '/all' },
     { id: 'clothing', label: 'Clothing' },
     { id: 'brands', label: 'Brands' }, // Changed 'Shoes' to Brands or just generic updates? User said "Adapt Navbar of CLOTHING". Let's stick to their structure.
     { id: 'sports', label: 'Sports' },

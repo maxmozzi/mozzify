@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight, ChevronLeft, Heart } from 'lucide-react';
@@ -30,7 +30,12 @@ import { products } from '@/data/generated-products';
 
 export default function ProductCarousel({ title }: { title: string }) {
     const scrollRef = useRef<HTMLDivElement>(null);
-    const displayProducts = products.slice(0, Math.min(10, products.length)); // Take first 10 or all available
+    const [displayProducts, setDisplayProducts] = useState(products.slice(0, 20));
+
+    useEffect(() => {
+        // Shuffle on client side only to avoid hydration mismatch
+        setDisplayProducts([...products].sort(() => 0.5 - Math.random()).slice(0, 20));
+    }, []);
     const { addToFavorites, removeFromFavorites, checkIsFavorite } = useFavorites();
 
     const scroll = (direction: 'left' | 'right') => {

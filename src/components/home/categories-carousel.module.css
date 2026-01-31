@@ -1,0 +1,188 @@
+.section {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.viewAllLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: black;
+    transition: opacity 0.2s;
+}
+
+.viewAllLink:hover {
+    opacity: 0.7;
+}
+
+.carouselWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.carouselContainer {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 1rem;
+    scrollbar-width: none;
+    width: 100%;
+}
+
+.carouselContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    flex: 0 0 calc(25% - 15px);
+    /* 4 items minus gap */
+    height: 550px;
+    position: relative;
+    text-decoration: none;
+    color: white;
+}
+
+.imageWrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.image {
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card:hover .image {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%);
+}
+
+.labelContainer {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.label {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    line-height: 1;
+}
+
+.downArrow {
+    color: white;
+}
+
+/* Hover Navigation Arrows */
+.arrowBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.3s ease;
+    color: white;
+    /* Default color */
+}
+
+.arrowBtn:hover {
+    background: transparent;
+    color: white;
+    /* Keep white or change to accent if needed, user said 'solo flecha' */
+    transform: translateY(-50%) scale(1.2);
+    /* Slight scale up */
+    border: none;
+}
+
+.prevArrow {
+    left: 20px;
+}
+
+.nextArrow {
+    right: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50%) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+@media (max-width: 1024px) {
+    .card {
+        flex: 0 0 calc(33.333% - 14px);
+        /* 3 items */
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex: 0 0 calc(50% - 10px);
+        /* 2 items */
+        height: 400px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .arrowBtn {
+        width: 40px;
+        height: 40px;
+        display: none;
+        /* Hide hover arrows on mobile usually */
+    }
+
+    .carouselContainer {
+        padding-right: 1rem;
+        /* Padding for scroll visual */
+    }
+}

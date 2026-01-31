@@ -11,7 +11,8 @@
 
 .title {
     font-size: 1.8rem;
-    font-weight: 800;
+    font-weight: bold;
+    color: black;
     text-transform: uppercase;
     letter-spacing: 1px;
 }

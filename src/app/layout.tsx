@@ -6,6 +6,7 @@ import Footer from "@/components/layout/footer";
 import TransitionManager from "@/components/layout/transition-manager";
 import { FavoritesProvider } from "@/context/favorites-context";
 import FlyingHeart from "@/components/layout/flying-heart";
+import ChatbotIcon from "@/components/layout/chatbot-icon";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
           <TransitionManager>
             <Navbar />
             <FlyingHeart />
+            <ChatbotIcon />
             {children}
             <Footer />
           </TransitionManager>

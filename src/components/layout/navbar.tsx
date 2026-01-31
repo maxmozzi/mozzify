@@ -135,7 +135,7 @@ export default function Navbar() {
                                 </div>
 
                                 <div className={styles.mobileMenuContent}>
-                                    <Link href="/all" className={styles.mobileMenuLink}>Shop All</Link>
+                                    <Link href="/all" className={styles.mobileMenuLink}>BEST SELLERS</Link>
 
                                     <div className={styles.mobileDivider} />
 
