@@ -8,8 +8,10 @@ import styles from './mega-menu.module.css';
 // Menu Configuration
 const MENU_ITEMS = [
     { id: 'best-sellers', label: 'BEST SELLERS', link: '/all' },
+    { id: 'sale', label: 'SALE', link: '/sale', isRed: true }, // Added SALE
     { id: 'clothing', label: 'Clothing' },
-    { id: 'brands', label: 'Brands' }, // Changed 'Shoes' to Brands or just generic updates? User said "Adapt Navbar of CLOTHING". Let's stick to their structure.
+    { id: 'shoes', label: 'Shoes' }, // Added Shoes
+    { id: 'brands', label: 'Brands' },
     { id: 'sports', label: 'Sports' },
     { id: 'mystery', label: 'Mystery Box', link: '/mystery-box' },
 ];
@@ -27,7 +29,13 @@ export default function MegaMenu() {
                         onMouseEnter={() => setActiveMenu(item.id)}
                     >
                         {item.link ? (
-                            <Link href={item.link} className={styles.navLink}>{item.label}</Link>
+                            <Link
+                                href={item.link}
+                                className={styles.navLink}
+                                style={item.isRed ? { color: 'red' } : {}}
+                            >
+                                {item.label}
+                            </Link>
                         ) : (
                             <span className={styles.navLink}>{item.label}</span>
                         )}
@@ -36,7 +44,7 @@ export default function MegaMenu() {
             </ul>
 
             <AnimatePresence>
-                {activeMenu && activeMenu !== 'mystery' && (
+                {activeMenu && activeMenu !== 'mystery' && activeMenu !== 'sale' && activeMenu !== 'best-sellers' && (
                     <motion.div
                         className={styles.dropdown}
                         initial={{ opacity: 0, height: 0 }}
@@ -47,6 +55,7 @@ export default function MegaMenu() {
                         <div className={`container ${styles.dropdownContent}`}>
                             {/* {activeMenu === 'gifts' && <GiftsContent />} */}
                             {activeMenu === 'clothing' && <ClothingContent />}
+                            {activeMenu === 'shoes' && <ShoesContent />}
                             {activeMenu === 'brands' && <BrandsContent />}
                             {activeMenu === 'sports' && <SportContent />}
                         </div>

@@ -9,6 +9,8 @@ import styles from './navbar.module.css';
 import AnnouncementBar from './announcement-bar';
 import MiniCart from '@/components/cart/mini-cart';
 import MegaMenu from './mega-menu';
+import Image from 'next/image';
+import logoImg from '@/images/logo/logo.png';
 
 const CategoryList = ({ layoutId }: { layoutId?: string }) => (
     <motion.div
@@ -69,10 +71,21 @@ export default function Navbar() {
                             </nav>
                         </div>
 
+                        import Image from 'next/image';
+                        import logoImg from '@/images/logo/logo.png';
+
+                        // ... (existing imports)
+
                         {/* CENTER: Logo */}
                         <div className={styles.centerArea}>
                             <Link href="/" className={styles.navLogo}>
-                                MOZZIFY
+                                <Image
+                                    src={logoImg}
+                                    alt="Mozzify Logo"
+                                    height={50}
+                                    style={{ width: 'auto', mixBlendMode: 'multiply' }}
+                                    priority
+                                />
                             </Link>
                         </div>
 
@@ -136,6 +149,7 @@ export default function Navbar() {
 
                                 <div className={styles.mobileMenuContent}>
                                     <Link href="/all" className={styles.mobileMenuLink}>BEST SELLERS</Link>
+                                    <Link href="/sale" className={styles.mobileMenuLink} style={{ color: 'red' }}>SALE</Link>
 
                                     <div className={styles.mobileDivider} />
 
@@ -166,7 +180,37 @@ export default function Navbar() {
                                                     <Link href="/hoodies/all" className={styles.accordionLink}>Hoodies</Link>
                                                     <Link href="/tshirts/all" className={styles.accordionLink}>T-Shirts</Link>
                                                     <Link href="/jeans/all" className={styles.accordionLink}>Jeans</Link>
-                                                    <Link href="/shoes/all" className={styles.accordionLink}>Shoes</Link>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+
+                                    {/* SHOES ACCORDION */}
+                                    <div>
+                                        <button
+                                            className={styles.accordionBtn}
+                                            onClick={() => toggleSection('shoes')}
+                                        >
+                                            Shoes
+                                            <span style={{
+                                                transform: expandedSection === 'shoes' ? 'rotate(180deg)' : 'rotate(0)',
+                                                transition: 'transform 0.3s ease',
+                                                display: 'flex'
+                                            }}>
+                                                <ChevronDown size={20} />
+                                            </span>
+                                        </button>
+                                        <AnimatePresence>
+                                            {expandedSection === 'shoes' && (
+                                                <motion.div
+                                                    className={styles.accordionContent}
+                                                    initial={{ height: 0, opacity: 0 }}
+                                                    animate={{ height: 'auto', opacity: 1 }}
+                                                    exit={{ height: 0, opacity: 0 }}
+                                                >
+                                                    <Link href="/shoes" className={styles.accordionLink}>View All</Link>
+                                                    <Link href="/boots" className={styles.accordionLink}>Boots</Link>
+                                                    <Link href="/sneakers" className={styles.accordionLink}>Sneakers</Link>
                                                 </motion.div>
                                             )}
                                         </AnimatePresence>
