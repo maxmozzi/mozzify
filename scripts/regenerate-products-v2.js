@@ -24,7 +24,7 @@ function findProductFolders(dir, fileList = []) {
         fileList.push(dir);
     }
 
-    // Recurse
+    // Recursesd
     files.forEach(file => {
         const fullPath = path.join(dir, file);
         if (fs.statSync(fullPath).isDirectory()) {
