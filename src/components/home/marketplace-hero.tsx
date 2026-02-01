@@ -41,10 +41,10 @@ export default function MarketplaceHero() {
             ))}
 
             <div className={styles.contentContainer}>
-                <h1 className={styles.heroTitle}>NEW COLLECTION</h1>
-                <p className={styles.heroSubtitle}>DISCOVER THE LATEST TRENDS</p>
-                <Link href="/all" className={styles.ctaButton}>
-                    SHOP ALL
+                <h1 className={styles.heroTitle}>BEST SELLERS</h1>
+                <p className={styles.heroSubtitle}>SHOP OUR MOST LOVED ITEMS</p>
+                <Link href="/bestsellers" className={styles.ctaButton}>
+                    SHOP NOW
                 </Link>
             </div>
         </section>

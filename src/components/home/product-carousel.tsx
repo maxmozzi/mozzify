@@ -30,7 +30,14 @@ import { products } from '@/data/generated-products';
 
 export default function ProductCarousel({ title }: { title: string }) {
     const scrollRef = useRef<HTMLDivElement>(null);
-    const [displayProducts, setDisplayProducts] = useState(products.slice(0, 20));
+    // Filter for bestsellers products strictly
+    const bestsellersProducts = products.filter(
+        p => p.brand === 'Bestsellers' || p.category === 'Best Sellers'
+    );
+    // Fallback if no bestsellers found (shouldn't happen if folders exist)
+    const displaySource = bestsellersProducts.length > 0 ? bestsellersProducts : products;
+
+    const [displayProducts, setDisplayProducts] = useState(displaySource.slice(0, 20));
 
     useEffect(() => {
         // Shuffle on client side only to avoid hydration mismatch

@@ -45,76 +45,113 @@ function generate() {
         const brandName = formatBrandName(brandDir);
 
         // Get categories for each brand
-        const categories = fs.readdirSync(brandPath);
+        const contents = fs.readdirSync(brandPath);
 
-        categories.forEach(categoryDir => {
-            const categoryPath = path.join(brandPath, categoryDir);
-            if (!fs.statSync(categoryPath).isDirectory()) return;
+        contents.forEach(item => {
+            const itemPath = path.join(brandPath, item);
+            if (!fs.statSync(itemPath).isDirectory()) return;
 
-            // Normalize Category Name
-            const categoryName = CATEGORY_MAP[categoryDir.toLowerCase()] ||
-                categoryDir.charAt(0).toUpperCase() + categoryDir.slice(1);
+            // Check if this directory contains images directly (2-level: Brand/Product)
+            // or if it contains subdirectories (3-level: Brand/Category/Product)
+            const subItems = fs.readdirSync(itemPath);
+            const hasImagesDirectly = subItems.some(f => f.endsWith('.webp'));
 
-            // Get products
-            const productCodes = fs.readdirSync(categoryPath);
+            if (hasImagesDirectly) {
+                // CASE 1: 2-Level Structure (Brand/Product)
+                // 'item' is the Product Code, Brand is the Category context essentially
+                // We'll treat Brand as Category for these, or use a default 'Collection' category
 
-            productCodes.forEach(code => {
-                const productPath = path.join(categoryPath, code);
-                if (!fs.statSync(productPath).isDirectory()) return;
+                const productCode = item;
+                const categoryName = brandDir.toLowerCase() === 'bestsellers' ? 'Best Sellers' : brandName;
 
-                const files = fs.readdirSync(productPath);
-                const webpFiles = files.filter(f => f.endsWith('.webp'));
+                processProduct(brandDir, brandName, categoryName, productCode, itemPath);
 
-                if (webpFiles.length === 0) return;
+            } else {
+                // CASE 2: 3-Level Structure (Brand/Category/Product)
+                // 'item' is the Category
+                const categoryDir = item;
 
-                const productId = code;
+                // Normalize Category Name
+                const categoryName = CATEGORY_MAP[categoryDir.toLowerCase()] ||
+                    categoryDir.charAt(0).toUpperCase() + categoryDir.slice(1);
 
-                // Look for front/back images
-                const front600 = webpFiles.find(f => f.includes('front-600'));
-                const back600 = webpFiles.find(f => f.includes('back-600'));
+                const productCodes = subItems;
 
-                // Fallbacks if standard naming isn't used
-                const mainImgFile = front600 || webpFiles[0];
-                const hoverImgFile = back600 || front600 || webpFiles[0]; // Fallback to front if back missing
+                productCodes.forEach(code => {
+                    const productPath = path.join(itemPath, code);
+                    // Must be a directory in 3-level structure
+                    if (!fs.statSync(productPath).isDirectory()) return;
 
-                // Gallery: prefer 750px images, fallback to all webp
-                const galleryFiles = webpFiles.filter(f => f.includes('-750') || f.includes('Detail') || f.includes('detail'));
-                const finalGallery = galleryFiles.length > 0 ? galleryFiles : webpFiles;
-
-                const importPrefix = `Img_${importCounter++}`;
-                const mainImportName = `${importPrefix}_Main`;
-                const hoverImportName = `${importPrefix}_Hover`;
-
-                imports.push(`import ${mainImportName} from '@/images/${brandDir}/${categoryDir}/${code}/${mainImgFile}';`);
-                imports.push(`import ${hoverImportName} from '@/images/${brandDir}/${categoryDir}/${code}/${hoverImgFile}';`);
-
-                const galleryImports = finalGallery.map((f, idx) => {
-                    const name = `${importPrefix}_Gal_${idx}`;
-                    imports.push(`import ${name} from '@/images/${brandDir}/${categoryDir}/${code}/${f}';`);
-                    return name;
+                    processProduct(brandDir, brandName, categoryName, code, productPath);
                 });
-
-                // Generate consistent slug: brand-category-id
-                // Normalize slug parts to be url-safe
-                const safeBrand = brandDir.toLowerCase().replace(/_/g, '-');
-                const safeCat = categoryDir.toLowerCase().replace(/_/g, '-');
-                const safeId = code.toLowerCase();
-                const slug = `${safeBrand}-${safeCat}-${safeId}`;
-
-                products.push({
-                    id: productId,
-                    title: `${brandName} ${categoryName} ${code}`,
-                    price: 250, // Default price
-                    image: mainImportName,
-                    hoverImage: hoverImportName,
-                    gallery: `[${galleryImports.join(', ')}]`,
-                    category: categoryName,
-                    brand: brandName,
-                    slug: slug
-                });
-            });
+            }
         });
     });
+
+    function processProduct(brandDir, brandName, categoryName, code, productPath) {
+        const files = fs.readdirSync(productPath);
+        const webpFiles = files.filter(f => f.endsWith('.webp'));
+
+        if (webpFiles.length === 0) return;
+
+        const productId = code;
+
+        // Look for front/back images
+        const front600 = webpFiles.find(f => f.includes('front-600'));
+        const back600 = webpFiles.find(f => f.includes('back-600'));
+
+        // Fallbacks if standard naming isn't used
+        const mainImgFile = front600 || webpFiles[0];
+        const hoverImgFile = back600 || front600 || webpFiles[0]; // Fallback to front if back missing
+
+        // Gallery: prefer 750px images, fallback to all webp
+        const galleryFiles = webpFiles.filter(f => f.includes('-750') || f.includes('Detail') || f.includes('detail'));
+        const finalGallery = galleryFiles.length > 0 ? galleryFiles : webpFiles;
+
+        const importPrefix = `Img_${importCounter++}`;
+        const mainImportName = `${importPrefix}_Main`;
+        const hoverImportName = `${importPrefix}_Hover`;
+
+        // Construct relative path for import
+        // Need to reconstruct relative string based on productPath vs IMAGES_DIR
+        // Or simpler: just use regex or substring to get path relative to 'src/images'
+
+        // Quick/Dirty relativity:
+        // productPath is e.g. .../src/images/bestsellers/PROD001
+        // We need 'bestsellers/PROD001/file.webp'
+
+        const relativeToImages = path.relative(IMAGES_DIR, productPath).split(path.sep).join('/');
+
+        imports.push(`import ${mainImportName} from '@/images/${relativeToImages}/${mainImgFile}';`);
+        imports.push(`import ${hoverImportName} from '@/images/${relativeToImages}/${hoverImgFile}';`);
+
+        const galleryImports = finalGallery.map((f, idx) => {
+            const name = `${importPrefix}_Gal_${idx}`;
+            imports.push(`import ${name} from '@/images/${relativeToImages}/${f}';`);
+            return name;
+        });
+
+        // Generate consistent slug: brand-category-id
+        // Normalize slug parts to be url-safe
+        const safeBrand = brandDir.toLowerCase().replace(/_/g, '-');
+        const safeCat = categoryName.toLowerCase().replace(/ /g, '-').replace(/_/g, '-');
+        const safeId = code.toLowerCase();
+
+        // Unique slug to identify bestsellers specifically if needed
+        const slug = `${safeBrand}-${safeCat}-${safeId}`;
+
+        products.push({
+            id: productId,
+            title: `${brandName} ${code}`, // Simplified title for 2-level
+            price: 250, // Default price
+            image: mainImportName,
+            hoverImage: hoverImportName,
+            gallery: `[${galleryImports.join(', ')}]`,
+            category: categoryName,
+            brand: brandName,
+            slug: slug
+        });
+    }
 
     const fileContent = `import { StaticImageData } from 'next/image';
 
