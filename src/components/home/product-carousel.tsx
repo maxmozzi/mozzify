@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { ChevronRight, ChevronLeft, Heart } from 'lucide-react';
 import styles from './product-carousel.module.css';
 import { useFavorites } from '@/context/favorites-context';
-import { GridProduct } from '@/components/home/product-grid';
+import { GridProduct } from '@/types/product';
 
 // Mock Data for Visuals
 const CAROUSEL_PRODUCTS = Array.from({ length: 10 }).map((_, i) => ({
@@ -24,24 +24,18 @@ const CAROUSEL_PRODUCTS = Array.from({ length: 10 }).map((_, i) => ({
 
 // Quick import for demo visual - reusing one image for consistency or just distinct colors
 // In a real scenario, we'd pass real product data. For this "Visual/UI" task:
-import demoImg from '@/images/HomePage/HERO_DESK_RINOSEV.jpg'; // Just as a placeholder if specific not available, but user wants Marketplace look.
-// Better: Use `products` from data and take first 10
+import demoImg from '@/images/marketing/homepage/banner1.webp';
 import { products } from '@/data/generated-products';
 
 export default function ProductCarousel({ title }: { title: string }) {
+    console.log('ProductCarousel rendering');
     const scrollRef = useRef<HTMLDivElement>(null);
     // Filter for bestsellers products strictly
-    const bestsellersProducts = products.filter(
-        p => p.brand === 'Bestsellers' || p.category === 'Best Sellers'
-    );
-    // Fallback if no bestsellers found (shouldn't happen if folders exist)
-    const displaySource = bestsellersProducts.length > 0 ? bestsellersProducts : products;
-
-    const [displayProducts, setDisplayProducts] = useState(displaySource.slice(0, 20));
+    const [displayProducts, setDisplayProducts] = useState<any[]>(products.length > 0 ? products.slice(0, 10) : CAROUSEL_PRODUCTS);
 
     useEffect(() => {
         // Shuffle on client side only to avoid hydration mismatch
-        setDisplayProducts([...products].sort(() => 0.5 - Math.random()).slice(0, 20));
+        // setDisplayProducts([...products].sort(() => 0.5 - Math.random()).slice(0, 20));
     }, []);
     const { addToFavorites, removeFromFavorites, checkIsFavorite } = useFavorites();
 
@@ -125,8 +119,8 @@ export default function ProductCarousel({ title }: { title: string }) {
                                 {/* STATIC INFO */}
                                 <div className={styles.staticInfo}>
                                     <div className={styles.productMain}>
-                                        <h3 className={styles.productName}>AmiParis Zipper Blue</h3>
-                                        <span className={styles.productPrice}>€108,40</span>
+                                        <h3 className={styles.productName}>{product.title}</h3>
+                                        <span className={styles.productPrice}>€{product.price.toFixed(2)}</span>
                                     </div>
                                     <div className={styles.colorOptions}>
                                         <span className={styles.colorCircle} style={{ backgroundColor: '#000000' }}></span>

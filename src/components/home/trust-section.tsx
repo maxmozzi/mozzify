@@ -3,8 +3,8 @@ import styles from './trust-section.module.css';
 import Image from 'next/image';
 import { products } from '@/data/generated-products'; // Borrowing images for factory placeholders
 import WarehouseCarousel from './warehouse-carousel';
-import warehouse1 from '../../images/warehouse/warehouse1.webp';
-import warehouse2 from '../../images/warehouse/warehouse2.webp';
+import warehouse1 from '@/images/products/warehouse/warehouse1.webp';
+import warehouse2 from '@/images/products/warehouse/warehouse2.webp';
 
 export default function TrustSection() {
     return (

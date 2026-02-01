@@ -10,17 +10,8 @@ import AnnouncementBar from './announcement-bar';
 import MiniCart from '@/components/cart/mini-cart';
 import MegaMenu from './mega-menu';
 import Image from 'next/image';
-import logoImg from '@/images/logo/logo.png';
-
-const CategoryList = ({ layoutId }: { layoutId?: string }) => (
-    <motion.div
-        className={styles.categoriesWrapper}
-        layoutId={layoutId}
-        transition={{ type: "spring", bounce: 0, duration: 0.5 }}
-    >
-        <MegaMenu />
-    </motion.div>
-);
+import logoImg from '@/images/system/logo/logo.png';
+import { navigation } from '@/data/navigation';
 
 export default function Navbar() {
     const [isCartOpen, setIsCartOpen] = useState(false);
@@ -73,7 +64,6 @@ export default function Navbar() {
                     {/* --- LEVEL 1: TOP NAV (Static, Branding) --- */}
                     <div className={styles.topRow}>
 
-                        {/* LEFT: Gender Links */}
                         {/* LEFT: Gender Links (Desktop) & Hamburger (Mobile) */}
                         <div className={styles.leftSection}>
                             <button
@@ -84,9 +74,12 @@ export default function Navbar() {
                             </button>
 
                             <nav className={styles.genderNav}>
-                                <Link href="/women" className={styles.genderLink}>Women</Link>
-                                <span className={styles.divider}>|</span>
-                                <Link href="/men" className={styles.genderLink}>Men</Link>
+                                {navigation.top.map((item, index) => (
+                                    <span key={item.label} style={{ display: 'flex', alignItems: 'center' }}>
+                                        <Link href={item.href} className={styles.genderLink}>{item.label}</Link>
+                                        {index < navigation.top.length - 1 && <span className={styles.divider}>|</span>}
+                                    </span>
+                                ))}
                             </nav>
                         </div>
 
@@ -211,138 +204,65 @@ export default function Navbar() {
                                 </div>
 
                                 <div className={styles.mobileMenuContent}>
-                                    <Link href="/all" className={styles.mobileMenuLink}>BEST SELLERS</Link>
-                                    <Link href="/sale" className={styles.mobileMenuLink} style={{ color: 'red' }}>SALE</Link>
+                                    {navigation.main.map((item) => {
+                                        // If it has columns, render accordion
+                                        if (item.columns && item.columns.length > 0) {
+                                            return (
+                                                <div key={item.id}>
+                                                    <button
+                                                        className={styles.accordionBtn}
+                                                        onClick={() => toggleSection(item.id)}
+                                                    >
+                                                        {item.label}
+                                                        <span style={{
+                                                            transform: expandedSection === item.id ? 'rotate(180deg)' : 'rotate(0)',
+                                                            transition: 'transform 0.3s ease',
+                                                            display: 'flex'
+                                                        }}>
+                                                            <ChevronDown size={20} />
+                                                        </span>
+                                                    </button>
+                                                    <AnimatePresence>
+                                                        {expandedSection === item.id && (
+                                                            <motion.div
+                                                                className={styles.accordionContent}
+                                                                initial={{ height: 0, opacity: 0 }}
+                                                                animate={{ height: 'auto', opacity: 1 }}
+                                                                exit={{ height: 0, opacity: 0 }}
+                                                            >
+                                                                {item.columns.map((col, idx) => (
+                                                                    <div key={idx} style={{ marginBottom: '1rem' }}>
+                                                                        {/* Optional: Render column title if needed, or just links */}
+                                                                        {/* Mobile menu usually just lists links. Let's render title as small header if distinct */}
+                                                                        {/* <h5 style={{fontSize: '0.8rem', opacity: 0.6, marginBottom: '0.5rem', paddingLeft: '1rem'}}>{col.title}</h5> */}
 
-                                    <div className={styles.mobileDivider} />
-
-                                    {/* CLOTHING ACCORDION */}
-                                    <div>
-                                        <button
-                                            className={styles.accordionBtn}
-                                            onClick={() => toggleSection('clothing')}
-                                        >
-                                            Clothing
-                                            <span style={{
-                                                transform: expandedSection === 'clothing' ? 'rotate(180deg)' : 'rotate(0)',
-                                                transition: 'transform 0.3s ease',
-                                                display: 'flex'
-                                            }}>
-                                                <ChevronDown size={20} />
-                                            </span>
-                                        </button>
-                                        <AnimatePresence>
-                                            {expandedSection === 'clothing' && (
-                                                <motion.div
-                                                    className={styles.accordionContent}
-                                                    initial={{ height: 0, opacity: 0 }}
-                                                    animate={{ height: 'auto', opacity: 1 }}
-                                                    exit={{ height: 0, opacity: 0 }}
+                                                                        {col.items.map((link, lIdx) => (
+                                                                            <Link key={lIdx} href={link.href} className={styles.accordionLink}>
+                                                                                {link.label}
+                                                                            </Link>
+                                                                        ))}
+                                                                    </div>
+                                                                ))}
+                                                            </motion.div>
+                                                        )}
+                                                    </AnimatePresence>
+                                                </div>
+                                            );
+                                        } else if (item.href) {
+                                            // Direct link
+                                            return (
+                                                <Link
+                                                    key={item.id}
+                                                    href={item.href}
+                                                    className={styles.mobileMenuLink}
+                                                    style={item.isRed ? { color: 'red' } : {}}
                                                 >
-                                                    <Link href="/all" className={styles.accordionLink}>View All</Link>
-                                                    <Link href="/hoodies/all" className={styles.accordionLink}>Hoodies</Link>
-                                                    <Link href="/tshirts/all" className={styles.accordionLink}>T-Shirts</Link>
-                                                    <Link href="/jeans/all" className={styles.accordionLink}>Jeans</Link>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
-                                    </div>
-
-                                    {/* SHOES ACCORDION */}
-                                    <div>
-                                        <button
-                                            className={styles.accordionBtn}
-                                            onClick={() => toggleSection('shoes')}
-                                        >
-                                            Shoes
-                                            <span style={{
-                                                transform: expandedSection === 'shoes' ? 'rotate(180deg)' : 'rotate(0)',
-                                                transition: 'transform 0.3s ease',
-                                                display: 'flex'
-                                            }}>
-                                                <ChevronDown size={20} />
-                                            </span>
-                                        </button>
-                                        <AnimatePresence>
-                                            {expandedSection === 'shoes' && (
-                                                <motion.div
-                                                    className={styles.accordionContent}
-                                                    initial={{ height: 0, opacity: 0 }}
-                                                    animate={{ height: 'auto', opacity: 1 }}
-                                                    exit={{ height: 0, opacity: 0 }}
-                                                >
-                                                    <Link href="/shoes" className={styles.accordionLink}>View All</Link>
-                                                    <Link href="/boots" className={styles.accordionLink}>Boots</Link>
-                                                    <Link href="/sneakers" className={styles.accordionLink}>Sneakers</Link>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
-                                    </div>
-
-                                    {/* BRANDS ACCORDION */}
-                                    <div>
-                                        <button
-                                            className={styles.accordionBtn}
-                                            onClick={() => toggleSection('brands')}
-                                        >
-                                            Brands
-                                            <span style={{
-                                                transform: expandedSection === 'brands' ? 'rotate(180deg)' : 'rotate(0)',
-                                                transition: 'transform 0.3s ease',
-                                                display: 'flex'
-                                            }}>
-                                                <ChevronDown size={20} />
-                                            </span>
-                                        </button>
-                                        <AnimatePresence>
-                                            {expandedSection === 'brands' && (
-                                                <motion.div
-                                                    className={styles.accordionContent}
-                                                    initial={{ height: 0, opacity: 0 }}
-                                                    animate={{ height: 'auto', opacity: 1 }}
-                                                    exit={{ height: 0, opacity: 0 }}
-                                                >
-                                                    <Link href="/amiri" className={styles.accordionLink}>Amiri</Link>
-                                                    <Link href="/amiparis" className={styles.accordionLink}>Ami Paris</Link>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
-                                    </div>
-
-                                    {/* SPORTS ACCORDION */}
-                                    <div>
-                                        <button
-                                            className={styles.accordionBtn}
-                                            onClick={() => toggleSection('sports')}
-                                        >
-                                            Sports
-                                            <span style={{
-                                                transform: expandedSection === 'sports' ? 'rotate(180deg)' : 'rotate(0)',
-                                                transition: 'transform 0.3s ease',
-                                                display: 'flex'
-                                            }}>
-                                                <ChevronDown size={20} />
-                                            </span>
-                                        </button>
-                                        <AnimatePresence>
-                                            {expandedSection === 'sports' && (
-                                                <motion.div
-                                                    className={styles.accordionContent}
-                                                    initial={{ height: 0, opacity: 0 }}
-                                                    animate={{ height: 'auto', opacity: 1 }}
-                                                    exit={{ height: 0, opacity: 0 }}
-                                                >
-                                                    <Link href="/running/all" className={styles.accordionLink}>Running</Link>
-                                                    <Link href="/gym/all" className={styles.accordionLink}>Gym</Link>
-                                                    <Link href="/football/all" className={styles.accordionLink}>Football</Link>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
-                                    </div>
-
-                                    <div className={styles.mobileDivider} />
-
-                                    <Link href="/mystery-box" className={styles.mobileMenuLink}>Mystery Box</Link>
+                                                    {item.label}
+                                                </Link>
+                                            );
+                                        }
+                                        return null;
+                                    })}
                                 </div>
                             </motion.div>
                         </>

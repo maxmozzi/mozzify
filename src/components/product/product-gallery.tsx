@@ -3,7 +3,7 @@
 import Image, { StaticImageData } from 'next/image';
 import { Heart } from 'lucide-react';
 import { useFavorites } from '@/context/favorites-context';
-import { GridProduct } from '@/components/home/product-grid';
+import { GridProduct } from '@/types/product';
 import styles from './product-gallery.module.css';
 
 interface ProductGalleryProps {

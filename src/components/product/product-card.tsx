@@ -5,7 +5,7 @@ import Image, { StaticImageData } from 'next/image';
 import { Heart } from 'lucide-react';
 import styles from './product-card.module.css';
 import { useFavorites } from '@/context/favorites-context';
-import { GridProduct } from '@/components/home/product-grid';
+import { GridProduct } from '@/types/product';
 
 interface Product {
     id: string;

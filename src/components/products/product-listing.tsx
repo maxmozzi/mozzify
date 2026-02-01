@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useMemo, useEffect } from 'react';
-import ProductGrid, { GridProduct } from '@/components/home/product-grid';
+import ProductGrid from '@/components/home/product-grid';
+import { GridProduct } from '@/types/product';
 import FilterBar from './filter-bar';
 import styles from './product-listing.module.css';
 

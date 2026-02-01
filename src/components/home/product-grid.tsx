@@ -5,18 +5,7 @@ import { Heart } from 'lucide-react';
 import styles from './product-grid.module.css';
 import { useFavorites } from '@/context/favorites-context';
 
-// Minimal mock product for the grid
-export interface GridProduct {
-    id: string;
-    title: string;
-    price: number;
-    image: string | any; // Supports both URL strings and StaticImageData
-    hoverImage?: string | any;
-    category: string;
-    brand?: string;
-    gallery?: string[] | any[];
-    slug?: string;
-}
+import { GridProduct } from '@/types/product';
 
 interface ProductGridProps {
     title: string;
@@ -77,8 +66,8 @@ export default function ProductGrid({ title, products, variant = 'standard', ful
                                 {/* STATIC INFO */}
                                 <div className={styles.staticInfo}>
                                     <div className={styles.productMain}>
-                                        <h3 className={styles.productTitle}>AmiParis Zipper Blue</h3>
-                                        <span className={styles.price}>€108,40</span>
+                                        <h3 className={styles.productTitle}>{product.title}</h3>
+                                        <span className={styles.price}>€{product.price.toFixed(2)}</span>
                                     </div>
                                     <div className={styles.colorOptions}>
                                         <span className={styles.colorCircle} style={{ backgroundColor: '#000000' }}></span>

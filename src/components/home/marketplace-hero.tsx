@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import styles from './marketplace-hero.module.css';
-import heroImg1 from '@/images/HomePage/HERO_DESK_RINOSEV.jpg';
-import heroImg2 from '@/images/HomePage/DESKTOP_1_03bce624-fa0d-4614-a991-878c18a4d175.webp';
-import heroImg3 from '@/images/HomePage/DESKTOP_3_ca03987e-a0c0-44e9-ab16-6555f1709904.webp';
+import heroImg1 from '@/images/marketing/homepage/banner1.webp';
+import heroImg2 from '@/images/marketing/homepage/banner2.webp';
+import heroImg3 from '@/images/marketing/homepage/banner3.jpg';
 
 const SLIDES = [heroImg1, heroImg2, heroImg3];
 

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { GridProduct } from '@/components/home/product-grid';
+import { GridProduct } from '@/types/product';
 
 interface AnimationState {
     isActive: boolean;

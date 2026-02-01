@@ -23,7 +23,7 @@ export default function BestsellersPage() {
                 allProductsSource={bestsellers}
                 title="Best Sellers"
                 availableCategories={availableCategories}
-                showBrandFilter={false} // Since they are all 'bestsellers'
+                showBrandFilter={true}
                 isGlobalView={true}
             />
         </div>
