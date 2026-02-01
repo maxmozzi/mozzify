@@ -35,7 +35,20 @@ function ProductDetailContent({ product }: { product: any }) {
         <div className={styles.page}>
             <div className={`container ${styles.container}`}>
                 <div className={styles.layout}>
-                    <ProductGallery images={product.images.edges} />
+                    <ProductGallery
+                        images={product.images.edges.map((e: any) => e.node.url)}
+                        product={{
+                            id: product.id,
+                            title: product.title,
+                            price: parseFloat(product.priceRange.minVariantPrice.amount),
+                            image: product.featuredImage?.url,
+                            hoverImage: product.images.edges[1]?.node.url,
+                            gallery: product.images.edges.map((e: any) => e.node.url),
+                            category: "Legacy",
+                            brand: product.vendor,
+                            slug: product.handle
+                        }}
+                    />
                     <ProductInfo
                         title={product.title}
                         price={parseFloat(product.priceRange.minVariantPrice.amount)}

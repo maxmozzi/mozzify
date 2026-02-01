@@ -11,8 +11,11 @@ export interface GridProduct {
     title: string;
     price: number;
     image: string | any; // Supports both URL strings and StaticImageData
+    hoverImage?: string | any;
     category: string;
     brand?: string;
+    gallery?: string[] | any[];
+    slug?: string;
 }
 
 interface ProductGridProps {
