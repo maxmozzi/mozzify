@@ -49,6 +49,9 @@
 .factoryItem {
     position: relative;
     height: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    /* Ensure zoom doesn't break layout if we scaled container */
 }
 
 .imageWrapper {
@@ -59,8 +62,24 @@
 
 .factoryImg {
     object-fit: cover;
-    filter: brightness(0.8);
-    /* Darken for text */
+    /* Removed static brightness filter in favor of dynamic overlay */
+}
+
+/* Hover Overlay - Controls darkening */
+.hoverOverlay {
+    position: absolute;
+    inset: 0;
+    background-color: #000;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 5;
+    pointer-events: none;
+    /* Let clicks pass through */
+}
+
+.factoryItem:hover .hoverOverlay {
+    opacity: 0.5;
+    /* Darken roughly 50% on hover */
 }
 
 .textOverlay {
@@ -68,6 +87,10 @@
     bottom: 20%;
     left: 10%;
     color: white;
+    z-index: 10;
+    pointer-events: none;
+    /* Improve legibility always, even before hover */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 .textOverlay h4 {

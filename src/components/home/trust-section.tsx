@@ -2,6 +2,9 @@ import styles from './trust-section.module.css';
 
 import Image from 'next/image';
 import { products } from '@/data/generated-products'; // Borrowing images for factory placeholders
+import WarehouseCarousel from './warehouse-carousel';
+import warehouse1 from '../../images/warehouse/warehouse1.webp';
+import warehouse2 from '../../images/warehouse/warehouse2.webp';
 
 export default function TrustSection() {
     return (
@@ -14,9 +17,9 @@ export default function TrustSection() {
             <div className={styles.factoryGrid}>
                 <div className={styles.factoryItem}>
                     <div className={styles.imageWrapper}>
-                        {/* Placeholder image for factory */}
-                        <Image src={products[2]?.image || products[0]?.image || products[0].image} alt="Production" fill className={styles.factoryImg} />
+                        <WarehouseCarousel images={[warehouse1.src, warehouse1.src]} />
                     </div>
+                    <div className={styles.hoverOverlay} />
                     <div className={styles.textOverlay}>
                         <h4>ETHICAL PRODUCTION</h4>
                         <p>Crafted with care in Portugal</p>
@@ -24,8 +27,9 @@ export default function TrustSection() {
                 </div>
                 <div className={styles.factoryItem}>
                     <div className={styles.imageWrapper}>
-                        <Image src={products[3]?.image || products[1]?.image || products[0].image} alt="Quality" fill className={styles.factoryImg} />
+                        <WarehouseCarousel images={[warehouse2.src, warehouse2.src]} />
                     </div>
+                    <div className={styles.hoverOverlay} />
                     <div className={styles.textOverlay}>
                         <h4>PREMIUM MATERIALS</h4>
                         <p>100% Organic Cotton Heavyweight</p>
