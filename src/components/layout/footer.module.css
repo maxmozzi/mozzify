@@ -5,13 +5,93 @@
     border-top: 1px solid #eee;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 3rem;
-    margin-bottom: 4rem;
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: 1.5fr 0.6fr 0.6fr 2.3fr;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    align-items: start;
+}
+
+/* More About Section */
+.moreAboutSection {
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.sectionTitle {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.cardsRow {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.cardWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    group: hover;
+}
+
+.card {
+    width: 140px;
+    height: 80px;
+    /* Reduced height as requested */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cardBlack {
+    background: black;
+    color: white;
+    border: none;
+}
+
+.cardWrapper:hover .card {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.cardLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #444;
+}
+
+.cardText {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Existing styles */
 .logo {
     font-family: 'Times New Roman', serif;
     font-size: 1.5rem;
@@ -67,28 +147,7 @@
     margin-bottom: 1rem;
 }
 
-.form {
-    display: flex;
-    gap: 0.5rem;
-}
 
-.input {
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 0.8rem;
-    color: black;
-    width: 100%;
-    outline: none;
-}
-
-.submitBtn {
-    background: black;
-    color: white;
-    border: none;
-    padding: 0 1.5rem;
-    font-weight: 700;
-    cursor: pointer;
-}
 
 .bottomBar {
     border-top: 1px solid #eee;
@@ -97,16 +156,57 @@
     justify-content: space-between;
     align-items: center;
     color: #555;
-    font-size: 0.8rem;
-    max-width: 1600px;
-    margin: 0 auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-.legal {
+.legalList {
     display: flex;
     gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.legalList li a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.legalList li a:hover {
+    color: black;
+}
+
+/* Payment Methods */
+.paymentMethods {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.paymentIcon {
+    width: 38px;
+    height: 24px;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.5rem;
+    font-weight: 800;
+    color: #555;
+    background: #fff;
+    user-select: none;
+    transition: all 0.2s;
+}
+
+.paymentIcon:hover {
+    border-color: #999;
+    color: #000;
 }
 
 @media (max-width: 1024px) {
@@ -118,5 +218,20 @@
 @media (max-width: 640px) {
     .grid {
         grid-template-columns: 1fr;
+    }
+
+    .cardsRow {
+        justify-content: center;
+    }
+
+    .bottomBar {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .legalList {
+        justify-content: center;
+        gap: 1rem;
     }
 }

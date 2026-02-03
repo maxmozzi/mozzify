@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useFavorites } from '@/context/favorites-context';
 import { usePathname } from 'next/navigation';
-import { ShoppingBag, Search, User, Heart, Globe, Menu, X, ChevronDown } from 'lucide-react';
+import { ShoppingBag, Search, User, Heart, Globe, Menu, X, ChevronDown, Package, MapPin, LogOut } from 'lucide-react';
 import { motion, useScroll, useMotionValueEvent, LayoutGroup, AnimatePresence } from 'framer-motion';
 import styles from './navbar.module.css';
 import AnnouncementBar from './announcement-bar';
@@ -16,7 +16,7 @@ import { navigation } from '@/data/navigation';
 export default function Navbar() {
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [activeDropdown, setActiveDropdown] = useState<'currency' | 'language' | null>(null);
+    const [activeDropdown, setActiveDropdown] = useState<'currency' | 'language' | 'user' | null>(null);
     const { setNavbarHeartRef, flyingAnimation, shouldShowRedHeart, currentProductId, checkIsFavorite } = useFavorites();
     const pathname = usePathname();
 
@@ -149,7 +149,41 @@ export default function Navbar() {
                                 </div>
                             </div>
 
-                            <button className={styles.iconBtn}><User size={18} /></button>
+                            <div
+                                className={styles.userIconWrapper}
+                                onMouseEnter={() => setActiveDropdown('user' as any)}
+                                onMouseLeave={() => setActiveDropdown(null)}
+                            >
+                                <button className={styles.iconBtn} aria-label="User Account">
+                                    <User size={18} />
+                                </button>
+
+                                <AnimatePresence>
+                                    {activeDropdown === 'user' && (
+                                        <motion.div
+                                            className={styles.userDropdown}
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: 10 }}
+                                            transition={{ duration: 0.2 }}
+                                        >
+                                            <Link href="/account" className={styles.userDropdownItem}>
+                                                <User size={16} /> My Account
+                                            </Link>
+                                            <Link href="/account/orders" className={styles.userDropdownItem}>
+                                                <Package size={16} /> My Orders
+                                            </Link>
+                                            <Link href="/account/address" className={styles.userDropdownItem}>
+                                                <MapPin size={16} /> My Address
+                                            </Link>
+                                            <div style={{ borderTop: '1px solid #f0f0f0', margin: '0.5rem 0' }} />
+                                            <button className={styles.userDropdownItem} style={{ color: '#ff4d4f' }}>
+                                                <LogOut size={16} /> Sign Out
+                                            </button>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
                             <Link href="/favorites">
                                 <button className={styles.iconBtn} ref={setNavbarHeartRef}>
                                     <Heart
