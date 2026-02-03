@@ -1,0 +1,33 @@
+﻿
+> mozzify@0.1.0 build
+> next build
+
+Ôû▓ Next.js 16.1.1 (Turbopack)
+
+  Creating an optimized production build ...
+Ô£ô Compiled successfully in 3.3s
+  Running TypeScript ...
+node.exe : Failed to compile.
+En línea: 1 Carácter: 1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Failed to compile.:String) [], RemoteExceptio 
+   n
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+./src/app/[brand]/page.tsx:32:23
+Type error: Argument of type 'string | undefined' is not assignable to parameter of type 's
+tring'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[0m [90m 30 |[39m     [90m// 1. Try to find products by Brand[39m
+ [90m 31 |[39m     [36mlet[39m filteredProducts [33m=[39m allProducts[33m.[39mfilte
+r(p [33m=>[39m
+[31m[1m>[22m[39m[90m 32 |[39m         normalizeText(p[33m.[39mbrand)[33m.[39mtoLo
+werCase() [33m===[39m normalizedParam[33m.[39mtoLowerCase()
+ [90m    |[39m                       [31m[1m^[22m[39m
+ [90m 33 |[39m     )[33m;[39m
+ [90m 34 |[39m     [36mlet[39m title [33m=[39m normalizedParam[33m;[39m
+ [90m 35 |[39m     [36mlet[39m isBrand [33m=[39m [36mtrue[39m[33m;[39m[0m
+Next.js build worker exited with code: 1 and signal: null

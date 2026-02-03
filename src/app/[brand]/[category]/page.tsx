@@ -35,8 +35,8 @@ export default async function SmartCategoryPage({
     // We scan all products to see if param1 matches any 'brand' field or 'category' field
     const normalizedParam1 = normalizeText(param1);
 
-    const isBrand = allProducts.some(p => normalizeText(p.brand).toLowerCase() === normalizedParam1.toLowerCase());
-    const isCategory = allProducts.some(p => normalizeText(p.category).toLowerCase() === normalizedParam1.toLowerCase());
+    const isBrand = allProducts.some(p => normalizeText(p.brand || '').toLowerCase() === normalizedParam1.toLowerCase());
+    const isCategory = allProducts.some(p => normalizeText(p.category || '').toLowerCase() === normalizedParam1.toLowerCase());
 
     let filteredProducts = [];
     let pageTitle = '';
@@ -50,7 +50,7 @@ export default async function SmartCategoryPage({
             // CASE: /amiri/all -> Brand All View
             // User wants all products of this brand (any category)
             filteredProducts = allProducts.filter(p =>
-                normalizeText(p.brand).toLowerCase() === normalizedParam1.toLowerCase()
+                normalizeText(p.brand || '').toLowerCase() === normalizedParam1.toLowerCase()
             );
             pageTitle = `${normalizedParam1} - All Products`;
             initialBrand = normalizedParam1;
@@ -60,7 +60,7 @@ export default async function SmartCategoryPage({
             // CASE: /hoodies/all -> Global Category View (existing logic)
             // User wants all hoodies (any brand)
             filteredProducts = allProducts.filter(p =>
-                normalizeText(p.category).toLowerCase() === normalizedParam1.toLowerCase()
+                normalizeText(p.category || '').toLowerCase() === normalizedParam1.toLowerCase()
             );
             pageTitle = `${normalizedParam1}`;
             initialCategory = normalizedParam1;
@@ -74,8 +74,8 @@ export default async function SmartCategoryPage({
         const targetCategory = normalizeText(param2);
 
         filteredProducts = allProducts.filter(p =>
-            normalizeText(p.brand).toLowerCase() === targetBrand.toLowerCase() &&
-            normalizeText(p.category).toLowerCase() === targetCategory.toLowerCase()
+            normalizeText(p.brand || '').toLowerCase() === targetBrand.toLowerCase() &&
+            normalizeText(p.category || '').toLowerCase() === targetCategory.toLowerCase()
         );
 
         pageTitle = `${targetBrand} ${targetCategory}`;

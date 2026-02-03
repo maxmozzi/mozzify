@@ -29,7 +29,7 @@ export default async function BrandPage({
 
     // 1. Try to find products by Brand
     let filteredProducts = allProducts.filter(p =>
-        normalizeText(p.brand).toLowerCase() === normalizedParam.toLowerCase()
+        normalizeText(p.brand || '').toLowerCase() === normalizedParam.toLowerCase()
     );
     let title = normalizedParam;
     let isBrand = true;
@@ -38,7 +38,7 @@ export default async function BrandPage({
     // 2. If no products found by Brand, try Category
     if (filteredProducts.length === 0) {
         filteredProducts = allProducts.filter(p =>
-            normalizeText(p.category).toLowerCase() === normalizedParam.toLowerCase()
+            normalizeText(p.category || '').toLowerCase() === normalizedParam.toLowerCase()
         );
         isBrand = false;
 
