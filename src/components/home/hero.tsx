@@ -5,7 +5,7 @@ import styles from './hero.module.css';
 import { useScrollPosition } from '@/lib/hooks/use-scroll-position';
 import { useTransition } from '@/components/layout/transition-manager';
 
-export default function Hero() {
+export default function Hero({ title = "BEST SELLERS" }: { title?: string }) {
     const scrollPos = useScrollPosition();
     const { startTransition } = useTransition();
     const router = useRouter();
@@ -37,7 +37,7 @@ export default function Hero() {
                 </h1>
 
                 <div className={styles.heroText} style={{ opacity: 1 - progress }}>
-                    <h2 className={styles.tagline}>BEST SELLERS</h2>
+                    <h2 className={styles.tagline}>{title}</h2>
                     <button className={styles.primaryBtn}>
                         Shop Now
                     </button>

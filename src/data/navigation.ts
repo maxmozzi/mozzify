@@ -19,8 +19,8 @@ export interface MenuItem {
 
 export const navigation = {
     top: [
-        { label: 'Women', href: '/women' },
-        { label: 'Men', href: '/men' },
+        { label: 'Women', href: '/pages/shop-women' },
+        { label: 'Men', href: '/pages/shop-men' },
     ],
     main: [
         {

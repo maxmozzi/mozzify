@@ -162,6 +162,7 @@ for (const productDir of productFolders) {
         category: "${displayCategory}",
         brand: "${displayBrand}",
         slug: "${slug}",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["${displayBrand}", "${displayCategory}"]
     }`);
 }

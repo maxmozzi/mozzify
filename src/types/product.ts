@@ -11,6 +11,7 @@ export interface GridProduct {
     gallery?: (string | StaticImageData)[];
     slug?: string;
     tags?: string[];
+    gender?: 'men' | 'women' | 'unisex';
 }
 
 export interface Product extends GridProduct {

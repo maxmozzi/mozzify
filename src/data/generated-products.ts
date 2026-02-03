@@ -175,601 +175,651 @@ export const products: Product[] = [
     {
         id: 'amiparis-best-sellers-amiparis-hoodie-001', // Use slug as ID to ensure uniqueness
         title: "Amiparis-hoodie-",
-        price: 180,
+        price: 173,
         image: Img_1_Main,
         hoverImage: Img_1_Hover,
         gallery: [Img_1_Main, Img_1_Gal_1],
         category: "Best Sellers",
         brand: "Amiparis",
         slug: "amiparis-best-sellers-amiparis-hoodie-001",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Best Sellers"]
     },
     {
         id: 'amiparis-best-sellers-amiparis-hoodie-002', // Use slug as ID to ensure uniqueness
         title: "Amiparis-hoodie-",
-        price: 152,
+        price: 94,
         image: Img_2_Main,
         hoverImage: Img_2_Hover,
         gallery: [Img_2_Main, Img_2_Gal_1],
         category: "Best Sellers",
         brand: "Amiparis",
         slug: "amiparis-best-sellers-amiparis-hoodie-002",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Best Sellers"]
     },
     {
         id: 'amiparis-best-sellers-amiparis-hoodie-003', // Use slug as ID to ensure uniqueness
         title: "Amiparis-hoodie-",
-        price: 63,
+        price: 57,
         image: Img_3_Main,
         hoverImage: Img_3_Hover,
         gallery: [Img_3_Main, Img_3_Gal_1, Img_3_Gal_2, Img_3_Gal_3],
         category: "Best Sellers",
         brand: "Amiparis",
         slug: "amiparis-best-sellers-amiparis-hoodie-003",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Best Sellers"]
     },
     {
         id: 'amiparis-best-sellers-amiparis-hoodie-004', // Use slug as ID to ensure uniqueness
         title: "Amiparis-hoodie-",
-        price: 79,
+        price: 219,
         image: Img_4_Main,
         hoverImage: Img_4_Hover,
         gallery: [Img_4_Main, Img_4_Gal_1, Img_4_Gal_2, Img_4_Gal_3],
         category: "Best Sellers",
         brand: "Amiparis",
         slug: "amiparis-best-sellers-amiparis-hoodie-004",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Best Sellers"]
     },
     {
         id: 'amiparis-best-sellers-amiparis-hoodie-005', // Use slug as ID to ensure uniqueness
         title: "Amiparis-hoodie-",
-        price: 146,
+        price: 165,
         image: Img_5_Main,
         hoverImage: Img_5_Hover,
         gallery: [Img_5_Main, Img_5_Gal_1],
         category: "Best Sellers",
         brand: "Amiparis",
         slug: "amiparis-best-sellers-amiparis-hoodie-005",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Best Sellers"]
     },
     {
         id: 'amiparis-best-sellers-amiparis-hoodie-006', // Use slug as ID to ensure uniqueness
         title: "Amiparis-hoodie-",
-        price: 215,
+        price: 216,
         image: Img_6_Main,
         hoverImage: Img_6_Hover,
         gallery: [Img_6_Main, Img_6_Gal_1],
         category: "Best Sellers",
         brand: "Amiparis",
         slug: "amiparis-best-sellers-amiparis-hoodie-006",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Best Sellers"]
     },
     {
         id: 'amiparis-best-sellers-amiparis-hoodie-007', // Use slug as ID to ensure uniqueness
         title: "Amiparis-hoodie-",
-        price: 178,
+        price: 79,
         image: Img_7_Main,
         hoverImage: Img_7_Hover,
         gallery: [Img_7_Main, Img_7_Gal_1],
         category: "Best Sellers",
         brand: "Amiparis",
         slug: "amiparis-best-sellers-amiparis-hoodie-007",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Best Sellers"]
     },
     {
         id: 'amiparis-best-sellers-amiparis-hoodie-008', // Use slug as ID to ensure uniqueness
         title: "Amiparis-hoodie-",
-        price: 228,
+        price: 69,
         image: Img_8_Main,
         hoverImage: Img_8_Hover,
         gallery: [Img_8_Main, Img_8_Gal_1],
         category: "Best Sellers",
         brand: "Amiparis",
         slug: "amiparis-best-sellers-amiparis-hoodie-008",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Best Sellers"]
     },
     {
         id: 'amiparis-hoodies-amiparis-hoodie-001', // Use slug as ID to ensure uniqueness
         title: "Amiparis-hoodie-",
-        price: 224,
+        price: 193,
         image: Img_9_Main,
         hoverImage: Img_9_Hover,
         gallery: [Img_9_Main, Img_9_Gal_1],
         category: "Hoodies",
         brand: "Amiparis",
         slug: "amiparis-hoodies-amiparis-hoodie-001",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Hoodies"]
     },
     {
         id: 'amiparis-hoodies-amiparis-hoodie-002', // Use slug as ID to ensure uniqueness
         title: "Amiparis-hoodie-",
-        price: 172,
+        price: 66,
         image: Img_10_Main,
         hoverImage: Img_10_Hover,
         gallery: [Img_10_Main, Img_10_Gal_1],
         category: "Hoodies",
         brand: "Amiparis",
         slug: "amiparis-hoodies-amiparis-hoodie-002",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Hoodies"]
     },
     {
         id: 'amiparis-hoodies-amiparis-hoodie-003', // Use slug as ID to ensure uniqueness
         title: "Amiparis-hoodie-",
-        price: 230,
+        price: 195,
         image: Img_11_Main,
         hoverImage: Img_11_Hover,
         gallery: [Img_11_Main, Img_11_Gal_1, Img_11_Gal_2, Img_11_Gal_3],
         category: "Hoodies",
         brand: "Amiparis",
         slug: "amiparis-hoodies-amiparis-hoodie-003",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Hoodies"]
     },
     {
         id: 'amiparis-hoodies-amiparis-hoodie-004', // Use slug as ID to ensure uniqueness
         title: "Amiparis-hoodie-",
-        price: 58,
+        price: 167,
         image: Img_12_Main,
         hoverImage: Img_12_Hover,
         gallery: [Img_12_Main, Img_12_Gal_1, Img_12_Gal_2, Img_12_Gal_3],
         category: "Hoodies",
         brand: "Amiparis",
         slug: "amiparis-hoodies-amiparis-hoodie-004",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Hoodies"]
     },
     {
         id: 'amiparis-hoodies-amiparis-hoodie-005', // Use slug as ID to ensure uniqueness
         title: "Amiparis-hoodie-",
-        price: 241,
+        price: 121,
         image: Img_13_Main,
         hoverImage: Img_13_Hover,
         gallery: [Img_13_Main, Img_13_Gal_1],
         category: "Hoodies",
         brand: "Amiparis",
         slug: "amiparis-hoodies-amiparis-hoodie-005",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Hoodies"]
     },
     {
         id: 'amiparis-hoodies-amiparis-hoodie-006', // Use slug as ID to ensure uniqueness
         title: "Amiparis-hoodie-",
-        price: 216,
+        price: 53,
         image: Img_14_Main,
         hoverImage: Img_14_Hover,
         gallery: [Img_14_Main, Img_14_Gal_1],
         category: "Hoodies",
         brand: "Amiparis",
         slug: "amiparis-hoodies-amiparis-hoodie-006",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Hoodies"]
     },
     {
         id: 'amiparis-hoodies-amiparis-hoodie-007', // Use slug as ID to ensure uniqueness
         title: "Amiparis-hoodie-",
-        price: 214,
+        price: 147,
         image: Img_15_Main,
         hoverImage: Img_15_Hover,
         gallery: [Img_15_Main, Img_15_Gal_1],
         category: "Hoodies",
         brand: "Amiparis",
         slug: "amiparis-hoodies-amiparis-hoodie-007",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Hoodies"]
     },
     {
         id: 'amiparis-hoodies-amiparis-hoodie-008', // Use slug as ID to ensure uniqueness
         title: "Amiparis-hoodie-",
-        price: 70,
+        price: 210,
         image: Img_16_Main,
         hoverImage: Img_16_Hover,
         gallery: [Img_16_Main, Img_16_Gal_1],
         category: "Hoodies",
         brand: "Amiparis",
         slug: "amiparis-hoodies-amiparis-hoodie-008",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Hoodies"]
     },
     {
         id: 'amiparis-iphone-case-amiparis-iphone-case-001', // Use slug as ID to ensure uniqueness
         title: "Amiparis-iphone case-",
-        price: 124,
+        price: 76,
         image: Img_17_Main,
         hoverImage: Img_17_Hover,
         gallery: [Img_17_Main, Img_17_Gal_1],
         category: "Iphone case",
         brand: "Amiparis",
         slug: "amiparis-iphone-case-amiparis-iphone-case-001",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Iphone case"]
     },
     {
         id: 'amiparis-iphone-case-amiparis-iphone-case-002', // Use slug as ID to ensure uniqueness
         title: "Amiparis-iphone case-",
-        price: 226,
+        price: 86,
         image: Img_18_Main,
         hoverImage: Img_18_Hover,
         gallery: [Img_18_Main, Img_18_Gal_1],
         category: "Iphone case",
         brand: "Amiparis",
         slug: "amiparis-iphone-case-amiparis-iphone-case-002",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Iphone case"]
     },
     {
         id: 'amiparis-iphone-case-amiparis-iphone-case-003', // Use slug as ID to ensure uniqueness
         title: "Amiparis-iphone case-",
-        price: 125,
+        price: 155,
         image: Img_19_Main,
         hoverImage: Img_19_Hover,
         gallery: [Img_19_Main, Img_19_Gal_1, Img_19_Gal_2, Img_19_Gal_3, Img_19_Gal_4, Img_19_Gal_5],
         category: "Iphone case",
         brand: "Amiparis",
         slug: "amiparis-iphone-case-amiparis-iphone-case-003",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Iphone case"]
     },
     {
         id: 'amiparis-iphone-case-amiparis-iphone-case-004', // Use slug as ID to ensure uniqueness
         title: "Amiparis-iphone case-",
-        price: 174,
+        price: 92,
         image: Img_20_Main,
         hoverImage: Img_20_Hover,
         gallery: [Img_20_Main, Img_20_Gal_1, Img_20_Gal_2, Img_20_Gal_3, Img_20_Gal_4, Img_20_Gal_5],
         category: "Iphone case",
         brand: "Amiparis",
         slug: "amiparis-iphone-case-amiparis-iphone-case-004",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Iphone case"]
     },
     {
         id: 'amiparis-polo-amiparis-polo-001', // Use slug as ID to ensure uniqueness
         title: "Amiparis-polo-",
-        price: 123,
+        price: 228,
         image: Img_21_Main,
         hoverImage: Img_21_Hover,
         gallery: [Img_21_Main, Img_21_Gal_1],
         category: "Polo",
         brand: "Amiparis",
         slug: "amiparis-polo-amiparis-polo-001",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Polo"]
     },
     {
         id: 'amiparis-polo-amiparis-polo-002', // Use slug as ID to ensure uniqueness
         title: "Amiparis-polo-",
-        price: 242,
+        price: 199,
         image: Img_22_Main,
         hoverImage: Img_22_Hover,
         gallery: [Img_22_Main, Img_22_Gal_1],
         category: "Polo",
         brand: "Amiparis",
         slug: "amiparis-polo-amiparis-polo-002",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Polo"]
     },
     {
         id: 'amiparis-polo-amiparis-polo-003', // Use slug as ID to ensure uniqueness
         title: "Amiparis-polo-",
-        price: 213,
+        price: 149,
         image: Img_23_Main,
         hoverImage: Img_23_Hover,
         gallery: [Img_23_Main, Img_23_Gal_1],
         category: "Polo",
         brand: "Amiparis",
         slug: "amiparis-polo-amiparis-polo-003",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Polo"]
     },
     {
         id: 'amiparis-shorts-amiparis-shorts-001', // Use slug as ID to ensure uniqueness
         title: "Amiparis-shorts-",
-        price: 155,
+        price: 95,
         image: Img_24_Main,
         hoverImage: Img_24_Hover,
         gallery: [Img_24_Main, Img_24_Gal_1],
         category: "Shorts",
         brand: "Amiparis",
         slug: "amiparis-shorts-amiparis-shorts-001",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Shorts"]
     },
     {
         id: 'amiparis-shorts-amiparis-shorts-002', // Use slug as ID to ensure uniqueness
         title: "Amiparis-shorts-",
-        price: 95,
+        price: 78,
         image: Img_25_Main,
         hoverImage: Img_25_Hover,
         gallery: [Img_25_Main, Img_25_Gal_1],
         category: "Shorts",
         brand: "Amiparis",
         slug: "amiparis-shorts-amiparis-shorts-002",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Shorts"]
     },
     {
         id: 'amiparis-shorts-amiparis-shorts-003', // Use slug as ID to ensure uniqueness
         title: "Amiparis-shorts-",
-        price: 146,
+        price: 63,
         image: Img_26_Main,
         hoverImage: Img_26_Hover,
         gallery: [Img_26_Main, Img_26_Gal_1],
         category: "Shorts",
         brand: "Amiparis",
         slug: "amiparis-shorts-amiparis-shorts-003",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Shorts"]
     },
     {
         id: 'amiparis-shorts-amiparis-shorts-004', // Use slug as ID to ensure uniqueness
         title: "Amiparis-shorts-",
-        price: 173,
+        price: 150,
         image: Img_27_Main,
         hoverImage: Img_27_Hover,
         gallery: [Img_27_Main, Img_27_Gal_1],
         category: "Shorts",
         brand: "Amiparis",
         slug: "amiparis-shorts-amiparis-shorts-004",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Shorts"]
     },
     {
         id: 'amiparis-shorts-amiparis-shorts-005', // Use slug as ID to ensure uniqueness
         title: "Amiparis-shorts-",
-        price: 167,
+        price: 67,
         image: Img_28_Main,
         hoverImage: Img_28_Hover,
         gallery: [Img_28_Main, Img_28_Gal_1],
         category: "Shorts",
         brand: "Amiparis",
         slug: "amiparis-shorts-amiparis-shorts-005",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Shorts"]
     },
     {
         id: 'amiparis-shorts-amiparis-shorts-006', // Use slug as ID to ensure uniqueness
         title: "Amiparis-shorts-",
-        price: 141,
+        price: 239,
         image: Img_29_Main,
         hoverImage: Img_29_Hover,
         gallery: [Img_29_Main, Img_29_Gal_1],
         category: "Shorts",
         brand: "Amiparis",
         slug: "amiparis-shorts-amiparis-shorts-006",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Shorts"]
     },
     {
         id: 'amiparis-shorts-amiparis-shorts-007', // Use slug as ID to ensure uniqueness
         title: "Amiparis-shorts-",
-        price: 108,
+        price: 179,
         image: Img_30_Main,
         hoverImage: Img_30_Hover,
         gallery: [Img_30_Main, Img_30_Gal_1],
         category: "Shorts",
         brand: "Amiparis",
         slug: "amiparis-shorts-amiparis-shorts-007",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Shorts"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-001', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 71,
+        price: 244,
         image: Img_31_Main,
         hoverImage: Img_31_Hover,
         gallery: [Img_31_Main, Img_31_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-001",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-002', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 93,
+        price: 168,
         image: Img_32_Main,
         hoverImage: Img_32_Hover,
         gallery: [Img_32_Main, Img_32_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-002",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-003', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 234,
+        price: 68,
         image: Img_33_Main,
         hoverImage: Img_33_Hover,
         gallery: [Img_33_Main, Img_33_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-003",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-004', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 117,
+        price: 64,
         image: Img_34_Main,
         hoverImage: Img_34_Hover,
         gallery: [Img_34_Main, Img_34_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-004",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-005', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 110,
+        price: 223,
         image: Img_35_Main,
         hoverImage: Img_35_Hover,
         gallery: [Img_35_Main, Img_35_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-005",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-006', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 62,
+        price: 61,
         image: Img_36_Main,
         hoverImage: Img_36_Hover,
         gallery: [Img_36_Main, Img_36_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-006",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-007', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 54,
+        price: 241,
         image: Img_37_Main,
         hoverImage: Img_37_Hover,
         gallery: [Img_37_Main, Img_37_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-007",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-008', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 74,
+        price: 222,
         image: Img_38_Main,
         hoverImage: Img_38_Hover,
         gallery: [Img_38_Main, Img_38_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-008",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-009', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 230,
+        price: 69,
         image: Img_39_Main,
         hoverImage: Img_39_Hover,
         gallery: [Img_39_Main, Img_39_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-009",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-010', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 96,
+        price: 107,
         image: Img_40_Main,
         hoverImage: Img_40_Hover,
         gallery: [Img_40_Main, Img_40_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-010",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-011', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 152,
+        price: 155,
         image: Img_41_Main,
         hoverImage: Img_41_Hover,
         gallery: [Img_41_Main, Img_41_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-011",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-012', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 119,
+        price: 64,
         image: Img_42_Main,
         hoverImage: Img_42_Hover,
         gallery: [Img_42_Main, Img_42_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-012",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-013', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 62,
+        price: 108,
         image: Img_43_Main,
         hoverImage: Img_43_Hover,
         gallery: [Img_43_Main, Img_43_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-013",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-014', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 184,
+        price: 134,
         image: Img_44_Main,
         hoverImage: Img_44_Hover,
         gallery: [Img_44_Main, Img_44_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-014",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-015', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 105,
+        price: 110,
         image: Img_45_Main,
         hoverImage: Img_45_Hover,
         gallery: [Img_45_Main, Img_45_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-015",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-016', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 155,
+        price: 137,
         image: Img_46_Main,
         hoverImage: Img_46_Hover,
         gallery: [Img_46_Main, Img_46_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-016",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-017', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 137,
+        price: 82,
         image: Img_47_Main,
         hoverImage: Img_47_Hover,
         gallery: [Img_47_Main, Img_47_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-017",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-018', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 107,
+        price: 153,
         image: Img_48_Main,
         hoverImage: Img_48_Hover,
         gallery: [Img_48_Main, Img_48_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-018",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-019', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 82,
+        price: 59,
         image: Img_49_Main,
         hoverImage: Img_49_Hover,
         gallery: [Img_49_Main, Img_49_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-019",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     },
     {
         id: 'amiparis-sweater-amiparis-sweater-020', // Use slug as ID to ensure uniqueness
         title: "Amiparis-sweater-",
-        price: 189,
+        price: 224,
         image: Img_50_Main,
         hoverImage: Img_50_Hover,
         gallery: [Img_50_Main, Img_50_Gal_1],
         category: "Sweater",
         brand: "Amiparis",
         slug: "amiparis-sweater-amiparis-sweater-020",
+        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
         tags: ["Amiparis", "Sweater"]
     }
 ];
