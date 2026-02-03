@@ -1,237 +1,212 @@
 .footer {
     background: #ffffff;
     color: black;
-    padding: 4rem 0 1rem;
-    border-top: 1px solid #eee;
+    padding: 4rem 2rem 2rem;
+    border-top: 1px solid #e5e5e5;
+    font-family: 'Roboto', sans-serif;
+    /* Ensuring a clean sans-serif */
 }
 
 .container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 2rem;
 }
 
-.grid {
+/* Main Grid: 4 Columns (Help, Account, Pages, More About) */
+.mainGrid {
     display: grid;
-    grid-template-columns: 1.5fr 0.6fr 0.6fr 2.3fr;
+    grid-template-columns: 1fr 1fr 1fr 1.2fr;
+    /* Last column slightly wider for cards */
     gap: 2rem;
-    margin-bottom: 1.5rem;
-    align-items: start;
+    margin-bottom: 4rem;
 }
 
-/* More About Section */
-.moreAboutSection {
-    margin: 0;
-    padding: 0;
-    border: none;
-    display: flex;
-    flex-direction: column;
-}
-
-.sectionTitle {
-    font-size: 0.9rem;
+.columnTitle {
+    font-size: 1rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    letter-spacing: 1px;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #000;
 }
 
-.cardsRow {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.cardWrapper {
+.linkList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 0.8rem;
+}
+
+.linkList li a {
+    color: #555;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+.linkList li a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+/* "More about" Section Cards */
+.moreAboutGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    cursor: pointer;
-    group: hover;
+}
+
+.cardLink {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .card {
-    width: 140px;
-    height: 80px;
-    /* Reduced height as requested */
+    height: 100px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    border: 1px solid #e0e0e0;
-    transition: all 0.3s ease;
-    border-radius: 4px;
-    position: relative;
-    overflow: hidden;
-}
-
-.cardBlack {
-    background: black;
-    color: white;
-    border: none;
-}
-
-.cardWrapper:hover .card {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-}
-
-.cardLabel {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #444;
-}
-
-.cardText {
-    font-size: 0.8rem;
-    font-weight: 700;
+    align-items: center;
     text-align: center;
-    line-height: 1.2;
+    padding: 1rem;
+    border-radius: 2px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
 }
 
-/* Existing styles */
-.logo {
-    font-family: 'Times New Roman', serif;
-    font-size: 1.5rem;
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Style variations for cards */
+.blogCard {
+    background-color: #f5f5f5;
     font-weight: 700;
-    margin-bottom: 1rem;
-    letter-spacing: 2px;
-}
-
-.desc {
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    max-width: 300px;
-}
-
-.socials {
-    display: flex;
-    gap: 1rem;
-    color: black;
-}
-
-.heading {
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-size: 1.1rem;
     letter-spacing: 1px;
 }
 
-.links {
-    list-style: none;
-    padding: 0;
-}
-
-.links li {
-    margin-bottom: 0.8rem;
-}
-
-.links a {
-    color: #666;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.2s;
-}
-
-.links a:hover {
+.discountCard {
+    background-color: #ffda00;
+    /* Yellowish pop color commonly used for discounts */
     color: black;
-}
-
-.smallText {
+    font-weight: 800;
+    text-transform: uppercase;
     font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 1rem;
+    line-height: 1.2;
 }
 
+.emailCard {
+    background-color: black;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    grid-column: span 2;
+    /* Full width */
+    height: 60px;
+    /* Slimmer */
+    flex-direction: row;
+    gap: 0.5rem;
+}
 
+.cardLabel {
+    display: block;
+}
 
-.bottomBar {
-    border-top: 1px solid #eee;
+.socialIcons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    justify-content: flex-start;
+}
+
+.socialIcon {
+    color: #000;
+    transition: opacity 0.2s;
+}
+
+.socialIcon:hover {
+    opacity: 0.7;
+}
+
+/* Bottom Section */
+.bottomContainer {
     padding-top: 2rem;
+    border-top: 1px solid #f0f0f0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #555;
-    font-size: 0.75rem;
-    text-transform: uppercase;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
-.legalList {
+.legalLinks {
     display: flex;
-    gap: 2rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    gap: 1.5rem;
+    font-size: 0.75rem;
+    color: #888;
+    align-items: center;
     flex-wrap: wrap;
 }
 
-.legalList li a {
-    color: #666;
+.legalLinks a {
+    color: #888;
     text-decoration: none;
-    transition: color 0.2s;
 }
 
-.legalList li a:hover {
-    color: black;
+.legalLinks a:hover {
+    text-decoration: underline;
 }
 
-/* Payment Methods */
 .paymentMethods {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     align-items: center;
 }
 
 .paymentIcon {
-    width: 38px;
-    height: 24px;
+    width: 45px;
+    height: 30px;
+    background: #fff;
     border: 1px solid #e0e0e0;
-    border-radius: 3px;
+    border-radius: 2px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.5rem;
+    font-size: 0.6rem;
     font-weight: 800;
     color: #555;
-    background: #fff;
-    user-select: none;
-    transition: all 0.2s;
 }
 
-.paymentIcon:hover {
-    border-color: #999;
-    color: #000;
-}
-
+/* Responsive */
 @media (max-width: 1024px) {
-    .grid {
+    .mainGrid {
         grid-template-columns: 1fr 1fr;
     }
 }
 
 @media (max-width: 640px) {
-    .grid {
+    .mainGrid {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
-    .cardsRow {
-        justify-content: center;
-    }
-
-    .bottomBar {
+    .bottomContainer {
         flex-direction: column;
-        gap: 1.5rem;
+        align-items: center;
         text-align: center;
     }
 
-    .legalList {
+    .legalLinks {
         justify-content: center;
-        gap: 1rem;
     }
 }

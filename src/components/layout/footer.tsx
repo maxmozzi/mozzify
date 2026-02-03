@@ -1,102 +1,128 @@
 import Link from 'next/link';
 import styles from './footer.module.css';
-import { Instagram, Twitter, Facebook, Mail } from 'lucide-react';
-import Image from 'next/image';
+import {
+    Instagram,
+    Twitter,
+    Facebook,
+    Youtube,
+    Mail
+} from 'lucide-react';
 
 export default function Footer() {
     return (
         <footer className={styles.footer}>
             <div className={styles.container}>
-                <div className={styles.grid}>
 
-                    {/* Brand Column */}
-                    <div className={styles.column}>
-                        <h3 className={styles.logo}>MOZZIFY</h3>
-                        <p className={styles.desc}>
-                            Premium streetwear for the modern generation.
-                            Designed in Europe, worn worldwide.
-                        </p>
-                        <div className={styles.socials}>
-                            <Instagram size={20} />
-                            <Twitter size={20} />
-                            <Facebook size={20} />
-                        </div>
-                    </div>
+                {/* Main 4-Column Grid */}
+                <div className={styles.mainGrid}>
 
-                    {/* Links 1 */}
-                    <div className={styles.column}>
-                        <h4 className={styles.heading}>SHOP</h4>
-                        <ul className={styles.links}>
-                            <li><Link href="/hoodies">Hoodies</Link></li>
-                            <li><Link href="/new-arrivals">New Arrivals</Link></li>
-                            <li><Link href="/sale">Sale</Link></li>
-                            <li><Link href="/accessories">Accessories</Link></li>
-                        </ul>
-                    </div>
-
-                    {/* Links 2 */}
-                    <div className={styles.column}>
-                        <h4 className={styles.heading}>HELP</h4>
-                        <ul className={styles.links}>
+                    {/* COL 1: HELP */}
+                    <div>
+                        <h4 className={styles.columnTitle}>Help</h4>
+                        <ul className={styles.linkList}>
                             <li><Link href="/support">FAQ</Link></li>
                             <li><Link href="/support">Delivery Information</Link></li>
                             <li><Link href="/support">Returns Policy</Link></li>
-                            <li><Link href="#">Make A Return</Link></li>
-                            <li><Link href="#">Orders</Link></li>
+                            <li><Link href="/returns/new">Make A Return</Link></li>
+                            <li><Link href="/orders">Orders</Link></li>
                         </ul>
                     </div>
 
-                    {/* MORE ABOUT MOZZIFY SECTION */}
-                    <div className={styles.moreAboutSection}>
-                        <h4 className={styles.heading}>MORE ABOUT MOZZIFY</h4>
-                        <div className={styles.cardsRow}>
+                    {/* COL 2: MY ACCOUNT */}
+                    <div>
+                        <h4 className={styles.columnTitle}>My Account</h4>
+                        <ul className={styles.linkList}>
+                            <li><Link href="/login">Login</Link></li>
+                            <li><Link href="/register">Register</Link></li>
+                        </ul>
+                    </div>
 
-                            {/* Card 1: Blog */}
-                            <div className={styles.cardWrapper}>
-                                <div className={`${styles.card} ${styles.cardBlack}`}>
-                                    <h3 style={{ margin: 0, fontFamily: 'Times New Roman', letterSpacing: '2px', fontSize: '1rem' }}>MOZZIFY</h3>
+                    {/* COL 3: CUSTOMER SUPPORT */}
+                    <div>
+                        <h4 className={styles.columnTitle}>Customer Support</h4>
+                        <ul className={styles.linkList}>
+                            <li>
+                                <Link
+                                    href="/contact"
+                                    style={{ fontWeight: 600, textDecoration: 'underline' }}
+                                >
+                                    Email Us
+                                </Link>
+                            </li>
+                            <li style={{
+                                fontSize: '0.85rem',
+                                color: '#666',
+                                marginTop: '0.5rem',
+                                lineHeight: '1.4'
+                            }}>
+                                We will take up to 24 hours to respond to your email.
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* COL 4: MORE ABOUT MOZZIFY (Cards) */}
+                    <div>
+                        <h4 className={styles.columnTitle}>More about Mozzify</h4>
+                        <div className={styles.moreAboutGrid}>
+
+                            {/* Blog Card */}
+                            <Link href="/blog" className={styles.cardLink}>
+                                <div className={`${styles.card} ${styles.blogCard}`}>
+                                    <span className={styles.cardLabel}>Blog</span>
                                 </div>
-                                <span className={styles.cardLabel}>Blog</span>
-                            </div>
+                            </Link>
 
-                            {/* Card 2: Email */}
-                            <div className={styles.cardWrapper}>
-                                <div className={styles.card}>
-                                    <Mail size={20} strokeWidth={1.5} />
+                            {/* Discount Card */}
+                            <Link href="/student-discount" className={styles.cardLink}>
+                                <div className={`${styles.card} ${styles.discountCard}`}>
+                                    <span className={styles.cardLabel}>15% Student<br />Discount</span>
                                 </div>
-                                <span className={styles.cardLabel}>Email Sign Up</span>
-                            </div>
+                            </Link>
 
-                            {/* Card 3: Starter Pack */}
-                            <div className={styles.cardWrapper}>
-                                <div className={styles.card}>
-                                    <span className={styles.cardText} style={{ fontSize: '0.7rem' }}>
-                                        MOZZIFY<br />STARTER PACK
-                                    </span>
+                            {/* Email Card (Full Width) */}
+                            <Link href="/newsletter" className={`${styles.cardLink} ${styles.cardFullWidth}`} style={{ gridColumn: 'span 2' }}>
+                                <div className={`${styles.card} ${styles.emailCard}`}>
+                                    <Mail size={18} />
+                                    <span className={styles.cardLabel}>Email Sign Up</span>
                                 </div>
-                                <span className={styles.cardLabel}>10% Discount</span>
-                            </div>
-
+                            </Link>
                         </div>
-                        <div className={styles.paymentMethods} style={{ marginTop: '2rem' }}>
-                            <div className={styles.paymentIcon} title="Visa">VISA</div>
-                            <div className={styles.paymentIcon} title="Mastercard">MC</div>
-                            <div className={styles.paymentIcon} title="PayPal">PP</div>
-                            <div className={styles.paymentIcon} title="Revolut Pay">REV</div>
-                            <div className={styles.paymentIcon} title="Apple Pay">PAY</div>
+
+                        {/* Social Icons */}
+                        <div className={styles.socialIcons}>
+                            {/* Using basic lucide icons or fallbacks */}
+                            <Link href="https://instagram.com" target="_blank" className={styles.socialIcon}><Instagram size={24} /></Link>
+                            <Link href="https://twitter.com" target="_blank" className={styles.socialIcon}><Twitter size={24} /></Link>
+                            <Link href="https://facebook.com" target="_blank" className={styles.socialIcon}><Facebook size={24} /></Link>
+                            <Link href="https://youtube.com" target="_blank" className={styles.socialIcon}><Youtube size={24} /></Link>
+                            <Link href="https://pinterest.com" target="_blank" className={styles.socialIcon}>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><line x1="8" y1="12" x2="16" y2="12" /></svg>
+                            </Link>
                         </div>
                     </div>
+
                 </div>
 
-                <div className={styles.bottomBar}>
-                    <p>&copy; 2026 MOZZIFY.</p>
-                    <ul className={styles.legalList}>
-                        <li><Link href="#">Terms and Conditions</Link></li>
-                        <li><Link href="#">Terms of Use</Link></li>
-                        <li><Link href="#">Privacy Notice</Link></li>
-                        <li><Link href="#">Cookie Policy</Link></li>
-                        <li><Link href="#">Modern Slavery</Link></li>
-                    </ul>
+                {/* BOTTOM CONTAINER: Legal & Payment */}
+                <div className={styles.bottomContainer}>
+
+                    {/* Legal Links (Left) */}
+                    <div className={styles.legalLinks}>
+                        <span>&copy; {new Date().getFullYear()} Mozzify Limited</span>
+                        <Link href="/terms">Terms & Conditions</Link>
+                        <Link href="/privacy">Privacy Notice</Link>
+                        <Link href="/cookies">Cookie Policy</Link>
+                        <Link href="/slavery">Modern Slavery</Link>
+                    </div>
+
+                    {/* Payment Icons (Right) */}
+                    <div className={styles.paymentMethods}>
+                        <div className={styles.paymentIcon} title="Visa">VISA</div>
+                        <div className={styles.paymentIcon} title="Mastercard">MC</div>
+                        <div className={styles.paymentIcon} title="Amex">AMEX</div>
+                        <div className={styles.paymentIcon} title="PayPal">Paypal</div>
+                        <div className={styles.paymentIcon} title="Apple Pay">Apple Pay</div>
+                    </div>
                 </div>
             </div>
         </footer>
