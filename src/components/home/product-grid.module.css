@@ -63,19 +63,16 @@
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 10;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
-    pointer-events: none;
-}
-
-.productCard:hover .wishlistBtn {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    transition: all 0.3s ease;
     pointer-events: auto;
 }
+
+/* Removed hover dependency for visibility, kept hover effect on button itself below */
+
+/* .productCard:hover .wishlistBtn was removed */
 
 .wishlistBtn:hover {
     transform: scale(1.1) translateY(0) !important;

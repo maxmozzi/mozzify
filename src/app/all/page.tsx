@@ -14,6 +14,7 @@ export default function ShopAllPage() {
                 availableCategories={availableCategories}
                 showBrandFilter={true}
                 isGlobalView={true}
+                showCategoryCarousel={true}
             />
         </div>
     );

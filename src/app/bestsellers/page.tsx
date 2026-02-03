@@ -25,6 +25,7 @@ export default function BestsellersPage() {
                 availableCategories={availableCategories}
                 showBrandFilter={true}
                 isGlobalView={true}
+                showCategoryCarousel={true}
             />
         </div>
     );

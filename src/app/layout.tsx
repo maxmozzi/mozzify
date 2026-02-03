@@ -25,11 +25,13 @@ export default function RootLayout({
       <body className={inter.className}>
         <FavoritesProvider>
           <TransitionManager>
-            <Navbar />
-            <FlyingHeart />
-            <ChatbotIcon />
-            {children}
-            <Footer />
+            <div id="site-wrapper" style={{ transition: 'filter 0.3s ease' }}>
+              <Navbar />
+              <FlyingHeart />
+              <ChatbotIcon />
+              {children}
+              <Footer />
+            </div>
           </TransitionManager>
         </FavoritesProvider>
       </body>

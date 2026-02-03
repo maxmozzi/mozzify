@@ -1,18 +1,19 @@
+'use client';
+
 import ProductListing from '@/components/products/product-listing';
 import { products as allProducts } from '@/data/generated-products';
 
-export default function SalePage() {
-    // Simulating sale by filtering products with price < 1500 or just showing all
-    // Let's show a subset to make it look different
-    const saleProducts = allProducts.filter(p => p.price < 1500);
-    const availableCategories = Array.from(new Set(saleProducts.map(p => p.category))).sort();
+export default function BrandsPage() {
+    // Show all products, but maybe sorted by brand or just a list
+    // For now, listing all products under "Brands" title
+    const availableCategories = Array.from(new Set(allProducts.map(p => p.category))).sort();
 
     return (
         <div style={{ paddingTop: '80px', paddingBottom: '4rem' }}>
             <ProductListing
-                initialProducts={saleProducts.length > 0 ? saleProducts : allProducts}
+                initialProducts={allProducts}
                 allProductsSource={allProducts}
-                title="Sale"
+                title="Brands"
                 availableCategories={availableCategories}
                 showBrandFilter={true}
                 isGlobalView={true}

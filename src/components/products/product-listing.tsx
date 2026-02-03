@@ -1,9 +1,13 @@
 "use client";
 
 import { useState, useMemo, useEffect } from 'react';
+import Link from 'next/link';
 import ProductGrid from '@/components/home/product-grid';
 import { GridProduct } from '@/types/product';
-import FilterBar from './filter-bar';
+// New Components
+import CategoryHeader from '@/components/products/category-header';
+import StickyFilterBar from '@/components/products/sticky-filter-bar';
+import FilterDrawer from '@/components/products/filter-drawer';
 import styles from './product-listing.module.css';
 
 interface ProductListingProps {
@@ -16,6 +20,7 @@ interface ProductListingProps {
     initialFilteredProducts?: GridProduct[]; // (Deprecated in favor of smart logic, but kept for compat if needed)
     showBrandFilter?: boolean; // New prop to toggle brand filter visibility
     isGlobalView?: boolean; // New prop to indicating we are in /category/all
+    showCategoryCarousel?: boolean;
 }
 
 export default function ProductListing({
@@ -26,25 +31,19 @@ export default function ProductListing({
     initialCategory,
     availableCategories = [],
     showBrandFilter = false,
-    isGlobalView = false
+    isGlobalView = false,
+    showCategoryCarousel = false
 }: ProductListingProps) {
     const [selectedBrands, setSelectedBrands] = useState<string[]>(
         initialBrand ? [initialBrand] : []
     );
-    // If we are in global view, we shouldn't lock the category filter, but effectively we are "in" that category.
-    // However, the user might want to switch categories? The requirement says "The filter must affect only visible products".
-    // For now, let's assume we stick to the current category in Global View.
     const [selectedCategories, setSelectedCategories] = useState<string[]>(
         initialCategory ? [initialCategory] : []
     );
 
-    // Resolve the "Source of Truth" products data.
-    // In Global View (/hoodies/all), we technically want to be able to filter ALL hoodies by brand.
-    // 'initialProducts' passed from server are ALREADY filtered by category=Hoodies.
-    // So 'initialProducts' is the correct pool for the Global View.
-
-    // In Brand View (/amiri/hoodies), 'initialProducts' are ONLY Amiri Hoodies.
-    // If the user wants to filter... well, they are already filtered.
+    // New State for Layout
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [currentSort, setCurrentSort] = useState('Relevancy');
 
     // Determine the pool of products we are filtering against.
     const productPool = initialProducts;
@@ -59,33 +58,32 @@ export default function ProductListing({
         }
 
         // Category Filter
-        // If we are in Global View, productPool is likely ALREADY just that category.
-        // But if we allow multi-category selection later, this logic stands.
         if (selectedCategories.length > 0) {
             result = result.filter(p => p.category && selectedCategories.includes(p.category));
         }
 
+        // Sorting Logic
+        if (currentSort === 'Price: Low to High') {
+            result = [...result].sort((a, b) => a.price - b.price);
+        } else if (currentSort === 'Price: High to Low') {
+            result = [...result].sort((a, b) => b.price - a.price);
+        } else if (currentSort === 'Newest') {
+            // Assuming newer products are added later or have a date field?
+            // For now, we don't have a date field, so we just reverse (assuming latest are last) or keep as is.
+            result = [...result].reverse();
+        }
+
         return result;
-    }, [productPool, selectedBrands, selectedCategories]);
+    }, [productPool, selectedBrands, selectedCategories, currentSort]);
 
 
-    // Extract available brands dynamically from the CURRENT pool (or the initial full pool of this page)
+    // Extract available brands dynamically
     const availableBrands = useMemo(() => {
         const brands = new Set(productPool.map(p => p.brand).filter(Boolean) as string[]);
         return Array.from(brands).sort();
     }, [productPool]);
 
-    const handleBrandChange = (brand: string) => {
-        setSelectedBrands(prev =>
-            prev.includes(brand)
-                ? prev.filter(b => b !== brand)
-                : [...prev, brand]
-        );
-    };
-
     const handleCategoryChange = (category: string) => {
-        // If we are in a strict category page, maybe navigate? 
-        // For now, just client filter.
         setSelectedCategories(prev =>
             prev.includes(category)
                 ? prev.filter(c => c !== category)
@@ -94,31 +92,33 @@ export default function ProductListing({
     };
 
     return (
-        <div className={styles.listingContainer}>
+        <div style={{ position: 'relative' }}>
 
-            <div style={{ marginBottom: '2rem' }}>
-                <h1 className="text-3xl font-bold uppercase mb-4">{title}</h1>
-
-                {/* Horizontal Filter Bar */}
-                {/* We pass only what we want to show. If showBrandFilter is true, we pass brands. */}
-                <FilterBar
-                    brands={showBrandFilter ? availableBrands : []}
-                    selectedBrands={selectedBrands}
-                    onBrandChange={handleBrandChange}
-                    // If we are in a specific brand/category page, maybe we don't need category filters?
-                    // The prompt implies we just want Brand filter on the /hoodies/all page.
-                    // We can hide categories if we want, or keep them.
-                    categories={availableCategories}
-                    selectedCategories={selectedCategories}
-                    onCategoryChange={handleCategoryChange}
-                />
-            </div>
-
-            <div className={styles.mainContent}>
-                <div style={{ marginBottom: '1rem', fontSize: '0.9rem', color: '#666' }}>
-                    {filteredProducts.length} Products Found
+            {/* 1. Category Header (Replaces old Title) */}
+            {/* We pass the filtered count or total count? Usually total. */}
+            {showCategoryCarousel && (
+                <CategoryHeader title={title} productCount={filteredProducts.length} />
+            )}
+            {!showCategoryCarousel && (
+                <div className="container" style={{ marginBottom: '1.5rem', marginTop: '1rem', padding: '0 2rem' }}>
+                    <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '0.5rem' }}>
+                        {filteredProducts.length} Products
+                    </p>
+                    <h1 style={{ fontSize: '1.5rem', fontWeight: 700, textTransform: 'uppercase' }}>
+                        {title}
+                    </h1>
                 </div>
+            )}
 
+            {/* 2. Sticky Filter Bar */}
+            <StickyFilterBar
+                onFilterClick={() => setIsDrawerOpen(true)}
+                currentSort={currentSort}
+                onSortChange={setCurrentSort}
+            />
+
+            {/* 3. Product Grid */}
+            <div className={styles.mainContent} style={{ padding: '2rem 0', minHeight: '600px' }}>
                 <ProductGrid
                     title=""
                     products={filteredProducts}
@@ -132,7 +132,6 @@ export default function ProductListing({
                         <button
                             onClick={() => {
                                 setSelectedBrands([]);
-                                // Don't reset category if it's the main page context
                                 if (!initialCategory) setSelectedCategories([]);
                             }}
                             className={styles.resetBtn}
@@ -142,6 +141,19 @@ export default function ProductListing({
                     </div>
                 )}
             </div>
+
+            {/* 4. Filter Drawer */}
+            <FilterDrawer
+                isOpen={isDrawerOpen}
+                onClose={() => setIsDrawerOpen(false)}
+                currentSort={currentSort}
+                onSortChange={setCurrentSort}
+                availableCategories={availableCategories}
+                selectedCategories={selectedCategories}
+                onCategoryChange={handleCategoryChange}
+            />
         </div>
     );
 }
+// Add new imports at top if not present, but replace_file handles the block.
+// Wait, I need to make sure imports are there. I will use multi replace to ensure imports.
