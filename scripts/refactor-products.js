@@ -1,152 +1,111 @@
+
 const fs = require('fs');
 const path = require('path');
 
-const IMAGES_DIR = path.join(__dirname, '../src/images');
+const IMAGES_DIR = path.join(__dirname, '../src/images/products');
 const OUTPUT_FILE = path.join(__dirname, '../src/data/generated-products.ts');
 
-function getAllFiles(dirPath, arrayOfFiles) {
-    const files = fs.readdirSync(dirPath);
-
-    arrayOfFiles = arrayOfFiles || [];
-
-    files.forEach(function (file) {
-        if (fs.statSync(dirPath + "/" + file).isDirectory()) {
-            arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles);
-        } else {
-            arrayOfFiles.push(path.join(dirPath, "/", file));
-        }
-    });
-
-    return arrayOfFiles;
+if (!fs.existsSync(IMAGES_DIR)) {
+    console.error(`Directory not found: ${IMAGES_DIR}`);
+    process.exit(1);
 }
 
-const allFiles = getAllFiles(IMAGES_DIR);
-const imageFiles = allFiles.filter(file => /\.(webp|png|jpg|jpeg)$/i.test(file));
+const brands = fs.readdirSync(IMAGES_DIR).filter(f => fs.statSync(path.join(IMAGES_DIR, f)).isDirectory());
 
-// Group by folder
-const productsByPath = {};
-
-imageFiles.forEach(file => {
-    const dir = path.dirname(file);
-    if (!productsByPath[dir]) {
-        productsByPath[dir] = [];
-    }
-    productsByPath[dir].push(file);
-});
-
-// Generate content
 let importStatements = [];
 let productEntries = [];
 let importCounter = 0;
 
-// Specialized logic for Hoodies (Man/Hoodies)
-const HOODIES_ROOT = path.join(IMAGES_DIR, 'Man', 'Hoodies');
 
-// Check if Hoodies root exists
-if (fs.existsSync(HOODIES_ROOT)) {
-    const brands = fs.readdirSync(HOODIES_ROOT).filter(f => fs.statSync(path.join(HOODIES_ROOT, f)).isDirectory());
+// Track global category counts
+const categoryCounts = {};
 
-    brands.forEach(brand => {
-        const brandDir = path.join(HOODIES_ROOT, brand);
-        const products = fs.readdirSync(brandDir).filter(f => fs.statSync(path.join(brandDir, f)).isDirectory());
+brands.forEach(brand => {
+    const brandPath = path.join(IMAGES_DIR, brand);
+    const categories = fs.readdirSync(brandPath).filter(f => fs.statSync(path.join(brandPath, f)).isDirectory());
 
-        products.forEach(productFolder => {
-            const productDir = path.join(brandDir, productFolder);
-            const files = fs.readdirSync(productDir)
+    categories.forEach(category => {
+        // Normalize: iphone_case -> Iphone Case, tshirt -> Tshirt
+        const catName = category
+            .replace(/_/g, ' ')
+            .split(' ')
+            .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+            .join(' ');
+
+        const categoryPath = path.join(brandPath, category);
+        const productFolders = fs.readdirSync(categoryPath).filter(f => fs.statSync(path.join(categoryPath, f)).isDirectory());
+
+        productFolders.forEach(productFolder => {
+            // Check global limit for this category
+            if ((categoryCounts[catName] || 0) >= 10) return;
+
+            const productDirPath = path.join(categoryPath, productFolder);
+            const files = fs.readdirSync(productDirPath)
                 .filter(f => /\.(webp|png|jpg|jpeg)$/i.test(f))
-                .map(f => path.join(productDir, f));
+                .map(f => path.join(productDirPath, f));
 
             if (files.length === 0) return;
 
-            const slug = productFolder.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+            // Increment count for this category
+            categoryCounts[catName] = (categoryCounts[catName] || 0) + 1;
 
-            // Identify Images
-            const homeImages = files.filter(f => path.basename(f).toLowerCase().startsWith('home'));
-            const productImages = files.filter(f => path.basename(f).toLowerCase().startsWith('product'));
-
-            let mainImageFile = homeImages[0] || files[0];
-            let galleryFiles = files; // Request: "Mostrar las imágenes... No limitar"
-
-            // Create Imports
             importCounter++;
-            const mainImportName = `img_${importCounter}_main`;
-            const relativeMainPath = path.relative(path.dirname(OUTPUT_FILE), mainImageFile).replace(/\\/g, '/');
-            importStatements.push(`import ${mainImportName} from '${relativeMainPath}';`);
+            const slug = `${brand.toLowerCase()}-${category.toLowerCase()}-${productFolder.toLowerCase().replace(/\s+/g, '-')}`.replace(/[^a-z0-9-]/g, '-');
 
-            const galleryImportNames = [];
-            galleryFiles.forEach((gf, gIdx) => {
-                const gName = `img_${importCounter}_gal_${gIdx}`;
-                const relativeGPath = path.relative(path.dirname(OUTPUT_FILE), gf).replace(/\\/g, '/');
-                importStatements.push(`import ${gName} from '${relativeGPath}';`);
-                galleryImportNames.push(gName);
+            // Find best images
+            const frontImage = files.find(f => f.toLowerCase().includes('front')) || files[0];
+            const hoverImage = files.find(f => f.toLowerCase().includes('back') || (f !== frontImage)) || files[0];
+
+            // Create imports
+            const mainImportName = `Img_${importCounter}_Main`;
+            const hoverImportName = `Img_${importCounter}_Hover`;
+
+            importStatements.push(`import ${mainImportName} from '@/images/products/${brand}/${category}/${productFolder}/${path.basename(frontImage)}';`);
+            importStatements.push(`import ${hoverImportName} from '@/images/products/${brand}/${category}/${productFolder}/${path.basename(hoverImage)}';`);
+
+            const galleryImports = [];
+            files.slice(0, 4).forEach((file, idx) => {
+                const gName = `Img_${importCounter}_Gal_${idx}`;
+                importStatements.push(`import ${gName} from '@/images/products/${brand}/${category}/${productFolder}/${path.basename(file)}';`);
+                galleryImports.push(gName);
             });
 
             // Clean Title
             let cleanTitle = productFolder
                 .replace(/_/g, ' ')
-                .replace(/(\d+[A-Z]+)/g, '')
-                .trim();
-
-            if (!cleanTitle) cleanTitle = `${brand} Hoodie`;
+                .replace(/-/g, ' ')
+                .split(' ')
+                .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+                .join(' ');
 
             productEntries.push(`
     {
-        id: '${importCounter}',
+        id: '${slug}',
         title: "${cleanTitle}",
-        price: ${Math.floor(Math.random() * (200 - 50 + 1) + 50)},
+        price: ${Math.floor(Math.random() * (250 - 45 + 1) + 45)},
         image: ${mainImportName},
-        gallery: [${galleryImportNames.join(', ')}],
-        category: "Hoodies",
-        gender: "Man",
+        hoverImage: ${hoverImportName},
+        gallery: [${galleryImports.join(', ')}],
+        category: "${catName}",
         brand: "${brand}",
         slug: "${slug}",
-        tags: ["${brand}", "Hoodie"]
+        gender: "unisex",
+        tags: ["${brand}", "${catName}"]
     }`);
         });
     });
-}
+});
 
-// Process other folders safely if they exist (optional fallback for non-hoodies items if needed)
-// For now, focusing strictly on fulfilling the Hoodies request as primary data source.
-// If previous logic is still needed for other items, we can keep it or separate it.
-// Given the request is specific to Hoodies structure, I will append other items ONLY if they are NOT in Hoodies path to avoid duplicates.
-
-Object.keys(productsByPath).forEach((dir, index) => {
-    // Skip if inside Man/Hoodies
-    if (dir.includes('Man' + path.sep + 'Hoodies')) return;
-
-    // ... existing logic for non-hoodie items ...
-    const files = productsByPath[dir];
-    // Shortened for brevity, ensuring no duplicates from Hoodies
-
-
-}); // Close forEach(dir)
-
-const fileContent = `/**
- * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
- * Generated by scripts/refactor-products.js
- */
+const content = `// AUTO-GENERATED FILE - DO NOT EDIT
 import { StaticImageData } from 'next/image';
+import { Product } from '@/types/product';
 
 ${importStatements.join('\n')}
 
-export interface Product {
-    id: string;
-    title: string;
-    price: number;
-    image: StaticImageData;
-    gallery: StaticImageData[];
-    category: string;
-    gender: string;
-    brand: string;
-    slug?: string;
-    tags?: string[];
-}
-
-export const products: Product[] = [
+export const products: any[] = [
 ${productEntries.join(',\n')}
 ];
 `;
 
-fs.writeFileSync(OUTPUT_FILE, fileContent);
-console.log(`Generated ${productEntries.length} products to ${OUTPUT_FILE}`);
+fs.writeFileSync(OUTPUT_FILE, content);
+console.log(`Successfully generated ${productEntries.length} products to ${OUTPUT_FILE}`);

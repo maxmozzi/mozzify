@@ -19,7 +19,18 @@ const CATEGORIES = [
     { name: 'Accessories', slug: 'accessories', image: products.find(p => p.category === 'Accessories' || p.category === 'Iphone case')?.image },
 ];
 
-export default function CategoryHeader({ title, productCount }: { title: string, productCount: number }) {
+
+export default function CategoryHeader({
+    title,
+    productCount,
+    categories = CATEGORIES,
+    onCategoryClick
+}: {
+    title: string,
+    productCount: number,
+    categories?: any[],
+    onCategoryClick?: (slug: string) => void
+}) {
     const scrollRef = useRef<HTMLDivElement>(null);
     const [showLeftArrow, setShowLeftArrow] = useState(false);
     const [showRightArrow, setShowRightArrow] = useState(true);
@@ -43,18 +54,15 @@ export default function CategoryHeader({ title, productCount }: { title: string,
 
     return (
         <div style={{
-            marginBottom: '10px',
-            padding: '2rem 34px 0 34px', // 24px padding on sides, 0 on bottom, 2rem on top
+            marginBottom: '-5px',
+            padding: '2rem 34px 0 34px',
             backgroundColor: '#ffffff'
         }}>
             {/* Header Info */}
-            <div className="container" style={{ marginBottom: '1.5rem', padding: '0' }}>
+            <div style={{ marginBottom: '1.5rem', padding: '0' }}>
                 <h1 style={{ fontSize: '44px', fontWeight: 'bold', textTransform: 'uppercase', lineHeight: '1.2' }}>
                     {title}
                 </h1>
-                <p style={{ fontSize: '12px', color: '#666', marginTop: '0.5rem', fontWeight: 'normal' }}>
-                    {productCount} Products
-                </p>
                 {/* Optional description text similar to Gymshark if needed */}
                 <p style={{ marginTop: '0.5rem', color: '#444', maxWidth: '800px', fontSize: '0.95rem' }}>
                     Tireless looks that keep up with your every move. Throw them on and head out.
@@ -95,8 +103,8 @@ export default function CategoryHeader({ title, productCount }: { title: string,
                     }}
                     className="no-scrollbar" // Utility class for hiding scrollbar
                 >
-                    {CATEGORIES.map((cat, idx) => (
-                        <CategoryCard key={idx} cat={cat} />
+                    {categories.map((cat, idx) => (
+                        <CategoryCard key={idx} cat={cat} onClick={onCategoryClick} />
                     ))}
                 </div>
             </div>
@@ -104,30 +112,28 @@ export default function CategoryHeader({ title, productCount }: { title: string,
     );
 }
 
-function CategoryCard({ cat }: { cat: any }) {
+function CategoryCard({ cat, onClick }: { cat: any, onClick?: (slug: string) => void }) {
     const isViewAll = cat.isViewAll;
     const width = '350px';
     const imageHeight = '430px';
 
-    return (
-        <Link
-            href={`/${cat.slug}`}
-            style={{
-                minWidth: width,
-                width: width,
-                textDecoration: 'none',
-                color: 'black',
-                display: 'flex',
-                flexDirection: 'column',
-                border: '1px solid #e5e5e5',
-                // borderRadius: '4px', // Optional: if they want slightly rounded corners like a card
-            }}
-        >
+    const cardStyle: React.CSSProperties = {
+        minWidth: width,
+        width: width,
+        textDecoration: 'none',
+        color: 'black',
+        display: 'flex',
+        flexDirection: 'column',
+        border: '1px solid #e5e5e5',
+        cursor: 'pointer'
+    };
+
+    const content = (
+        <>
             <div style={{
                 position: 'relative',
                 height: imageHeight,
                 backgroundColor: '#f5f5f5',
-                // marginBottom: '1rem', // Removed margin to attach text directly or with padding inside card
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
@@ -161,19 +167,34 @@ function CategoryCard({ cat }: { cat: any }) {
             </div>
 
             <div style={{
-                height: 'auto', // Allow it to fit content, was 60px fixed
+                height: 'auto',
                 minHeight: '60px',
                 display: 'flex',
-                alignItems: 'center', // Vertically center text in the footer area
+                alignItems: 'center',
                 fontWeight: 600,
                 fontSize: '1rem',
-                padding: '1rem' // Add padding inside the card for the text
+                padding: '1rem'
             }}>
                 {cat.name}
             </div>
+        </>
+    );
+
+    if (onClick) {
+        return (
+            <div style={cardStyle} onClick={() => onClick(cat.slug)}>
+                {content}
+            </div>
+        );
+    }
+
+    return (
+        <Link href={`/${cat.slug}`} style={cardStyle}>
+            {content}
         </Link>
     );
 }
+
 
 const arrowButtonStyle = (position: 'left' | 'right') => ({
     position: 'absolute' as const,

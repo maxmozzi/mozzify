@@ -23,30 +23,33 @@ export const navigation = {
         { label: 'Men', href: '/pages/shop-men' },
     ],
     main: [
+
         {
             id: 'new-arrivals',
             label: 'NEW ARRIVALS',
-            href: '/new-arrivals'
+            href: '/collections/new-arrivals/mens'
         },
         {
             id: 'best-sellers',
             label: 'BEST SELLERS',
-            href: '/bestsellers'
+            href: '/collections/best-sellers/mens'
         },
         {
             id: 'sale',
             label: 'SALE',
-            href: '/sale',
+            href: '/collections/sale/mens',
             isRed: true
         },
+
         {
             id: 'clothing',
             label: 'Clothing',
+            href: '/collections/clothing/unisex',
             columns: [
                 {
                     title: 'Categories',
                     items: [
-                        { label: 'View All', href: '/all' },
+                        { label: 'View All', href: '/collections/clothing/unisex' },
                         { label: 'Hoodies', href: '/hoodies/all' },
                         { label: 'T-Shirts', href: '/tshirts/all' },
                         { label: 'Polo', href: '/polo/all' },

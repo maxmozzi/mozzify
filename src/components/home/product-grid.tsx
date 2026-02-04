@@ -14,6 +14,10 @@ interface ProductGridProps {
     fullWidth?: boolean;
 }
 
+import { motion } from 'framer-motion';
+
+const MotionLink = motion(Link);
+
 export default function ProductGrid({ title, products, variant = 'standard', fullWidth = false }: ProductGridProps) {
     const isVisual = variant === 'visual';
     const { addToFavorites, removeFromFavorites, checkIsFavorite } = useFavorites();
@@ -41,7 +45,15 @@ export default function ProductGrid({ title, products, variant = 'standard', ful
                     const isFavorite = checkIsFavorite(product.id);
 
                     return (
-                        <Link href={productUrl} key={`${product.id}-${i}`} className={`${styles.productCard} ${isVisual ? styles.visualCard : ''}`}>
+                        <MotionLink
+                            href={productUrl}
+                            key={`${product.id}-${i}`}
+                            className={`${styles.productCard} ${isVisual ? styles.visualCard : ''}`}
+                            initial={{ opacity: 0, y: 16 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                        >
                             <div className={styles.imageWrapper}>
                                 <Image
                                     src={product.image}
@@ -93,7 +105,7 @@ export default function ProductGrid({ title, products, variant = 'standard', ful
                                     </div>
                                 </div>
                             </div>
-                        </Link>
+                        </MotionLink>
                     );
                 })}
             </div>
