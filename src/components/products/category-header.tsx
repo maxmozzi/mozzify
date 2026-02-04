@@ -42,15 +42,19 @@ export default function CategoryHeader({ title, productCount }: { title: string,
     };
 
     return (
-        <div style={{ marginBottom: '2rem' }}>
+        <div style={{
+            marginBottom: '10px',
+            padding: '2rem 34px 0 34px', // 24px padding on sides, 0 on bottom, 2rem on top
+            backgroundColor: '#ffffff'
+        }}>
             {/* Header Info */}
-            <div className="container" style={{ marginBottom: '1.5rem', marginTop: '1rem', padding: '0 2rem' }}>
-                <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '0.5rem' }}>
-                    {productCount} Products
-                </p>
-                <h1 style={{ fontSize: '1.5rem', fontWeight: 700, textTransform: 'uppercase' }}>
+            <div className="container" style={{ marginBottom: '1.5rem', padding: '0' }}>
+                <h1 style={{ fontSize: '44px', fontWeight: 'bold', textTransform: 'uppercase', lineHeight: '1.2' }}>
                     {title}
                 </h1>
+                <p style={{ fontSize: '12px', color: '#666', marginTop: '0.5rem', fontWeight: 'normal' }}>
+                    {productCount} Products
+                </p>
                 {/* Optional description text similar to Gymshark if needed */}
                 <p style={{ marginTop: '0.5rem', color: '#444', maxWidth: '800px', fontSize: '0.95rem' }}>
                     Tireless looks that keep up with your every move. Throw them on and head out.
@@ -58,7 +62,7 @@ export default function CategoryHeader({ title, productCount }: { title: string,
             </div>
 
             {/* Visual Carousel */}
-            <div style={{ position: 'relative', padding: '0 1rem' }}>
+            <div style={{ position: 'relative' }}>
 
                 {showLeftArrow && (
                     <button
@@ -114,14 +118,16 @@ function CategoryCard({ cat }: { cat: any }) {
                 textDecoration: 'none',
                 color: 'black',
                 display: 'flex',
-                flexDirection: 'column'
+                flexDirection: 'column',
+                border: '1px solid #e5e5e5',
+                // borderRadius: '4px', // Optional: if they want slightly rounded corners like a card
             }}
         >
             <div style={{
                 position: 'relative',
                 height: imageHeight,
                 backgroundColor: '#f5f5f5',
-                marginBottom: '1rem',
+                // marginBottom: '1rem', // Removed margin to attach text directly or with padding inside card
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
@@ -155,11 +161,13 @@ function CategoryCard({ cat }: { cat: any }) {
             </div>
 
             <div style={{
-                height: '60px',
+                height: 'auto', // Allow it to fit content, was 60px fixed
+                minHeight: '60px',
                 display: 'flex',
-                alignItems: 'flex-start',
+                alignItems: 'center', // Vertically center text in the footer area
                 fontWeight: 600,
-                fontSize: '1rem'
+                fontSize: '1rem',
+                padding: '1rem' // Add padding inside the card for the text
             }}>
                 {cat.name}
             </div>
