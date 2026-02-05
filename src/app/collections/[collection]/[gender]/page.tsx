@@ -48,7 +48,7 @@ export default async function CollectionPage(props: PageProps) {
     // 3. Define the "Collection Context"
     // First, try to find products with actual tags for this collection
     let taggedProducts = genderPool.filter(p => {
-        const hasTag = p.tags?.some(t => t.toLowerCase() === targetCollection.toLowerCase());
+        const hasTag = p.tags?.some((t: string) => t.toLowerCase() === targetCollection.toLowerCase());
         const isCategory = p.category?.toLowerCase() === targetCollection.toLowerCase();
         return hasTag || isCategory;
     });
@@ -69,6 +69,24 @@ export default async function CollectionPage(props: PageProps) {
         collectionPool = genderPool.filter(p => {
             const cat = (p.category || '').toLowerCase();
             return !excludedCategories.some(excluded => cat.includes(excluded));
+        });
+    }
+
+    // 3.2 Special Handling for "Shoes" collection to ONLY include shoe-related categories
+    if (collection === 'shoes') {
+        const shoeCategories = ['shoe', 'sneaker', 'boot', 'loafer', 'slide'];
+        collectionPool = genderPool.filter(p => {
+            const cat = (p.category || '').toLowerCase();
+            return shoeCategories.some(shoeCat => cat.includes(shoeCat));
+        });
+    }
+
+    // 3.3 Special Handling for "Sports" collection
+    if (collection === 'sports') {
+        const sportsCategories = ['running', 'gym', 'football', 'basketball', 'training', 'sports'];
+        collectionPool = genderPool.filter(p => {
+            const cat = (p.category || '').toLowerCase();
+            return sportsCategories.some(sportCat => cat.includes(sportCat));
         });
     }
 

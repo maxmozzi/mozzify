@@ -75,11 +75,12 @@ export const navigation = {
         {
             id: 'shoes',
             label: 'Shoes',
+            href: '/collections/shoes/unisex',
             columns: [
                 {
                     title: 'Categories',
                     items: [
-                        { label: 'View All', href: '/shoes' },
+                        { label: 'View All', href: '/collections/shoes/unisex' },
                         { label: 'Boots', href: '/boots' },
                         { label: 'Sneakers', href: '/sneakers' },
                         { label: 'Loafers', href: '/loafers' },
@@ -118,13 +119,15 @@ export const navigation = {
         {
             id: 'sports',
             label: 'Sports',
+            href: '/collections/sports/unisex',
             columns: [
                 {
                     title: 'Categories',
                     items: [
-                        { label: 'Running', href: '/running/all' },
-                        { label: 'Gym', href: '/gym/all' },
-                        { label: 'Football', href: '/football/all' },
+                        { label: 'View All', href: '/collections/sports/unisex' },
+                        { label: 'Running', href: '/collections/sports/unisex?collections=running' },
+                        { label: 'Gym', href: '/collections/sports/unisex?collections=gym' },
+                        { label: 'Football', href: '/collections/sports/unisex?collections=football' },
                     ]
                 }
             ]

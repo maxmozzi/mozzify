@@ -37,6 +37,22 @@ const CATEGORIES = [
     { name: 'Iphone Case', slug: 'iphone_case' },
 ];
 
+const SHOES_CATEGORIES = [
+    { name: 'View All', slug: 'all', isViewAll: true },
+    { name: 'Sneakers', slug: 'sneakers' },
+    { name: 'Boots', slug: 'boots' },
+    { name: 'Loafers', slug: 'loafers' },
+    { name: 'Slides', slug: 'slides' },
+];
+
+const SPORTS_CATEGORIES = [
+    { name: 'View All', slug: 'all', isViewAll: true },
+    { name: 'Football', slug: 'football' },
+    { name: 'Basketball', slug: 'basketball' },
+    { name: 'Running', slug: 'running' },
+    { name: 'Training & Gym', slug: 'gym' },
+];
+
 export default function CollectionListing({
     initialProducts,
     baseProducts,
@@ -58,6 +74,12 @@ export default function CollectionListing({
             return CATEGORIES.filter(cat =>
                 cat.slug !== 'shoes' && cat.slug !== 'iphone_case'
             );
+        }
+        if (collectionSlug === 'shoes') {
+            return SHOES_CATEGORIES;
+        }
+        if (collectionSlug === 'sports') {
+            return SPORTS_CATEGORIES;
         }
         return CATEGORIES;
     }, [collectionSlug]);
@@ -117,7 +139,7 @@ export default function CollectionListing({
                 title={collectionTitle}
                 productCount={initialProducts.length}
                 categories={carouselCategories}
-                onCategoryClick={(slug) => handleCategoryChange(slug)}
+                onCategoryClick={(collectionSlug === 'shoes' || collectionSlug === 'sports') ? undefined : (slug) => handleCategoryChange(slug)}
             />
 
 
