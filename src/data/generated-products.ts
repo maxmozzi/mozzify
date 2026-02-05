@@ -1,6 +1,6 @@
 // AUTO-GENERATED FILE - DO NOT EDIT
 import { StaticImageData } from 'next/image';
-import { Product } from '@/types/product';
+import { Product } from '../types/product';
 
 import Img_1_Main from '@/images/products/amiparis/hoodies/amiparis-hoodie-001/front-600x750.webp';
 import Img_1_Hover from '@/images/products/amiparis/hoodies/amiparis-hoodie-001/front-750x930.webp';
@@ -730,64 +730,8 @@ import Img_144_Gal_0 from '@/images/products/CasaBlanca/pants/casab-pants-004/ba
 import Img_144_Gal_1 from '@/images/products/CasaBlanca/pants/casab-pants-004/back-750x930.webp';
 import Img_144_Gal_2 from '@/images/products/CasaBlanca/pants/casab-pants-004/front-600x750.webp';
 import Img_144_Gal_3 from '@/images/products/CasaBlanca/pants/casab-pants-004/front-750x930.webp';
-import Img_145_Main from '@/images/products/Essentials/bags/YA-346Z9G01/front-600x750.webp';
-import Img_145_Hover from '@/images/products/Essentials/bags/YA-346Z9G01/detail1-600x750.webp';
-import Img_145_Gal_0 from '@/images/products/Essentials/bags/YA-346Z9G01/detail1-600x750.webp';
-import Img_145_Gal_1 from '@/images/products/Essentials/bags/YA-346Z9G01/detail1-750x930.webp';
-import Img_145_Gal_2 from '@/images/products/Essentials/bags/YA-346Z9G01/detail2-600x750.webp';
-import Img_145_Gal_3 from '@/images/products/Essentials/bags/YA-346Z9G01/detail2-750x930.webp';
-import Img_146_Main from '@/images/products/Essentials/bags/YA-346Z9G02/front-600x750.webp';
-import Img_146_Hover from '@/images/products/Essentials/bags/YA-346Z9G02/detail1-600x750.webp';
-import Img_146_Gal_0 from '@/images/products/Essentials/bags/YA-346Z9G02/detail1-600x750.webp';
-import Img_146_Gal_1 from '@/images/products/Essentials/bags/YA-346Z9G02/detail1-750x930.webp';
-import Img_146_Gal_2 from '@/images/products/Essentials/bags/YA-346Z9G02/detail2-600x750.webp';
-import Img_146_Gal_3 from '@/images/products/Essentials/bags/YA-346Z9G02/detail2-750x930.webp';
-import Img_147_Main from '@/images/products/Essentials/bags/YA-50DLV402/front-600x750.webp';
-import Img_147_Hover from '@/images/products/Essentials/bags/YA-50DLV402/front-750x930.webp';
-import Img_147_Gal_0 from '@/images/products/Essentials/bags/YA-50DLV402/front-600x750.webp';
-import Img_147_Gal_1 from '@/images/products/Essentials/bags/YA-50DLV402/front-750x930.webp';
-import Img_148_Main from '@/images/products/Essentials/pants/YKZ-65KZ2004/front-600x750.webp';
-import Img_148_Hover from '@/images/products/Essentials/pants/YKZ-65KZ2004/back-600x750.webp';
-import Img_148_Gal_0 from '@/images/products/Essentials/pants/YKZ-65KZ2004/back-600x750.webp';
-import Img_148_Gal_1 from '@/images/products/Essentials/pants/YKZ-65KZ2004/back-750x930.webp';
-import Img_148_Gal_2 from '@/images/products/Essentials/pants/YKZ-65KZ2004/front-600x750.webp';
-import Img_148_Gal_3 from '@/images/products/Essentials/pants/YKZ-65KZ2004/front-750x930.webp';
-import Img_149_Main from '@/images/products/Essentials/sets/YA-13TRJX01/front-600x750.webp';
-import Img_149_Hover from '@/images/products/Essentials/sets/YA-13TRJX01/detail1-600x750.webp';
-import Img_149_Gal_0 from '@/images/products/Essentials/sets/YA-13TRJX01/detail1-600x750.webp';
-import Img_149_Gal_1 from '@/images/products/Essentials/sets/YA-13TRJX01/detail1-750x930.webp';
-import Img_149_Gal_2 from '@/images/products/Essentials/sets/YA-13TRJX01/detail2-600x750.webp';
-import Img_149_Gal_3 from '@/images/products/Essentials/sets/YA-13TRJX01/detail2-750x930.webp';
-import Img_150_Main from '@/images/products/Essentials/sets/YA-13TRJX02/front-600x750.webp';
-import Img_150_Hover from '@/images/products/Essentials/sets/YA-13TRJX02/front-750x930.webp';
-import Img_150_Gal_0 from '@/images/products/Essentials/sets/YA-13TRJX02/front-600x750.webp';
-import Img_150_Gal_1 from '@/images/products/Essentials/sets/YA-13TRJX02/front-750x930.webp';
-import Img_151_Main from '@/images/products/Essentials/sets/YA-13TRJX03/front-600x750.webp';
-import Img_151_Hover from '@/images/products/Essentials/sets/YA-13TRJX03/detail1-600x750.webp';
-import Img_151_Gal_0 from '@/images/products/Essentials/sets/YA-13TRJX03/detail1-600x750.webp';
-import Img_151_Gal_1 from '@/images/products/Essentials/sets/YA-13TRJX03/detail1-750x930.webp';
-import Img_151_Gal_2 from '@/images/products/Essentials/sets/YA-13TRJX03/detail2-600x750.webp';
-import Img_151_Gal_3 from '@/images/products/Essentials/sets/YA-13TRJX03/detail2-750x930.webp';
-import Img_152_Main from '@/images/products/Essentials/sets/YA-13TRJX04/front-600x750.webp';
-import Img_152_Hover from '@/images/products/Essentials/sets/YA-13TRJX04/detail1-600x750.webp';
-import Img_152_Gal_0 from '@/images/products/Essentials/sets/YA-13TRJX04/detail1-600x750.webp';
-import Img_152_Gal_1 from '@/images/products/Essentials/sets/YA-13TRJX04/detail1-750x930.webp';
-import Img_152_Gal_2 from '@/images/products/Essentials/sets/YA-13TRJX04/detail2-600x750.webp';
-import Img_152_Gal_3 from '@/images/products/Essentials/sets/YA-13TRJX04/detail2-750x930.webp';
-import Img_153_Main from '@/images/products/Essentials/sets/YA-13TRJX05/front-600x750.webp';
-import Img_153_Hover from '@/images/products/Essentials/sets/YA-13TRJX05/detail1-600x750.webp';
-import Img_153_Gal_0 from '@/images/products/Essentials/sets/YA-13TRJX05/detail1-600x750.webp';
-import Img_153_Gal_1 from '@/images/products/Essentials/sets/YA-13TRJX05/detail1-750x930.webp';
-import Img_153_Gal_2 from '@/images/products/Essentials/sets/YA-13TRJX05/detail2-600x750.webp';
-import Img_153_Gal_3 from '@/images/products/Essentials/sets/YA-13TRJX05/detail2-750x930.webp';
-import Img_154_Main from '@/images/products/Essentials/sets/YA-13TRJX06/front-600x750.webp';
-import Img_154_Hover from '@/images/products/Essentials/sets/YA-13TRJX06/detail1-600x750.webp';
-import Img_154_Gal_0 from '@/images/products/Essentials/sets/YA-13TRJX06/detail1-600x750.webp';
-import Img_154_Gal_1 from '@/images/products/Essentials/sets/YA-13TRJX06/detail1-750x930.webp';
-import Img_154_Gal_2 from '@/images/products/Essentials/sets/YA-13TRJX06/detail2-600x750.webp';
-import Img_154_Gal_3 from '@/images/products/Essentials/sets/YA-13TRJX06/detail2-750x930.webp';
 
-export const products: any[] = [
+export const products: Product[] = [
 
     {
         id: 'amiparis-hoodies-amiparis-hoodie-001',
@@ -2805,143 +2749,18 @@ export const products: any[] = [
         tags: ["CasaBlanca", "Pants"]
     },
 
-    {
-        id: 'essentials-bags-ya-346z9g01',
-        title: "YA 346Z9G01",
-        price: 114,
-        image: Img_145_Main,
-        hoverImage: Img_145_Hover,
-        gallery: [Img_145_Gal_0, Img_145_Gal_1, Img_145_Gal_2, Img_145_Gal_3],
-        category: "Bags",
-        brand: "Essentials",
-        slug: "essentials-bags-ya-346z9g01",
-        gender: "unisex",
-        tags: ["Essentials", "Bags"]
-    },
 
     {
-        id: 'essentials-bags-ya-346z9g02',
-        title: "YA 346Z9G02",
-        price: 119,
-        image: Img_146_Main,
-        hoverImage: Img_146_Hover,
-        gallery: [Img_146_Gal_0, Img_146_Gal_1, Img_146_Gal_2, Img_146_Gal_3],
-        category: "Bags",
-        brand: "Essentials",
-        slug: "essentials-bags-ya-346z9g02",
-        gender: "unisex",
-        tags: ["Essentials", "Bags"]
-    },
-
-    {
-        id: 'essentials-bags-ya-50dlv402',
-        title: "YA 50DLV402",
-        price: 161,
-        image: Img_147_Main,
-        hoverImage: Img_147_Hover,
-        gallery: [Img_147_Gal_0, Img_147_Gal_1],
-        category: "Bags",
-        brand: "Essentials",
-        slug: "essentials-bags-ya-50dlv402",
-        gender: "unisex",
-        tags: ["Essentials", "Bags"]
-    },
-
-    {
-        id: 'essentials-pants-ykz-65kz2004',
-        title: "YKZ 65KZ2004",
-        price: 65,
-        image: Img_148_Main,
-        hoverImage: Img_148_Hover,
-        gallery: [Img_148_Gal_0, Img_148_Gal_1, Img_148_Gal_2, Img_148_Gal_3],
+        id: 'casablanca-pants-casab-pants-004',
+        title: "Casab Pants 004",
+        price: 237,
+        image: Img_144_Main,
+        hoverImage: Img_144_Hover,
+        gallery: [Img_144_Gal_0, Img_144_Gal_1, Img_144_Gal_2, Img_144_Gal_3],
         category: "Pants",
-        brand: "Essentials",
-        slug: "essentials-pants-ykz-65kz2004",
+        brand: "CasaBlanca",
+        slug: "casablanca-pants-casab-pants-004",
         gender: "unisex",
-        tags: ["Essentials", "Pants"]
-    },
-
-    {
-        id: 'essentials-sets-ya-13trjx01',
-        title: "YA 13TRJX01",
-        price: 197,
-        image: Img_149_Main,
-        hoverImage: Img_149_Hover,
-        gallery: [Img_149_Gal_0, Img_149_Gal_1, Img_149_Gal_2, Img_149_Gal_3],
-        category: "Sets",
-        brand: "Essentials",
-        slug: "essentials-sets-ya-13trjx01",
-        gender: "unisex",
-        tags: ["Essentials", "Sets"]
-    },
-
-    {
-        id: 'essentials-sets-ya-13trjx02',
-        title: "YA 13TRJX02",
-        price: 231,
-        image: Img_150_Main,
-        hoverImage: Img_150_Hover,
-        gallery: [Img_150_Gal_0, Img_150_Gal_1],
-        category: "Sets",
-        brand: "Essentials",
-        slug: "essentials-sets-ya-13trjx02",
-        gender: "unisex",
-        tags: ["Essentials", "Sets"]
-    },
-
-    {
-        id: 'essentials-sets-ya-13trjx03',
-        title: "YA 13TRJX03",
-        price: 126,
-        image: Img_151_Main,
-        hoverImage: Img_151_Hover,
-        gallery: [Img_151_Gal_0, Img_151_Gal_1, Img_151_Gal_2, Img_151_Gal_3],
-        category: "Sets",
-        brand: "Essentials",
-        slug: "essentials-sets-ya-13trjx03",
-        gender: "unisex",
-        tags: ["Essentials", "Sets"]
-    },
-
-    {
-        id: 'essentials-sets-ya-13trjx04',
-        title: "YA 13TRJX04",
-        price: 63,
-        image: Img_152_Main,
-        hoverImage: Img_152_Hover,
-        gallery: [Img_152_Gal_0, Img_152_Gal_1, Img_152_Gal_2, Img_152_Gal_3],
-        category: "Sets",
-        brand: "Essentials",
-        slug: "essentials-sets-ya-13trjx04",
-        gender: "unisex",
-        tags: ["Essentials", "Sets"]
-    },
-
-    {
-        id: 'essentials-sets-ya-13trjx05',
-        title: "YA 13TRJX05",
-        price: 111,
-        image: Img_153_Main,
-        hoverImage: Img_153_Hover,
-        gallery: [Img_153_Gal_0, Img_153_Gal_1, Img_153_Gal_2, Img_153_Gal_3],
-        category: "Sets",
-        brand: "Essentials",
-        slug: "essentials-sets-ya-13trjx05",
-        gender: "unisex",
-        tags: ["Essentials", "Sets"]
-    },
-
-    {
-        id: 'essentials-sets-ya-13trjx06',
-        title: "YA 13TRJX06",
-        price: 82,
-        image: Img_154_Main,
-        hoverImage: Img_154_Hover,
-        gallery: [Img_154_Gal_0, Img_154_Gal_1, Img_154_Gal_2, Img_154_Gal_3],
-        category: "Sets",
-        brand: "Essentials",
-        slug: "essentials-sets-ya-13trjx06",
-        gender: "unisex",
-        tags: ["Essentials", "Sets"]
+        tags: ["CasaBlanca", "Pants"]
     }
 ];
