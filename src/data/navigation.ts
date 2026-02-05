@@ -106,10 +106,12 @@ export const navigation = {
         {
             id: 'brands',
             label: 'Brands',
+            href: '/brands',
             columns: [
                 {
                     title: 'Main Brands',
                     items: [
+                        { label: 'View All', href: '/brands' },
                         { label: 'Amiri', href: '/amiri' },
                         { label: 'Ami Paris', href: '/amiparis' },
                     ]

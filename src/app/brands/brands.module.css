@@ -1,0 +1,100 @@
+.container {
+    padding: 120px 34px 80px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 3rem;
+    max-width: 700px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.brandCard {
+    position: relative;
+    aspect-ratio: 4/5;
+    background-color: #f7f7f7;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+    text-decoration: none;
+    color: black;
+}
+
+.brandCard:hover {
+    transform: translateY(-5px);
+}
+
+.imageWrapper {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+}
+
+.brandImage {
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.brandCard:hover .brandImage {
+    transform: scale(1.05);
+}
+
+.brandInfo {
+    padding: 1.5rem;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brandName {
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.productCount {
+    font-size: 0.85rem;
+    color: #999;
+    font-weight: 500;
+}
+
+.arrow {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.brandCard:hover .arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 32px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1rem;
+    }
+}

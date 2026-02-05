@@ -72,10 +72,10 @@ export default function Footer() {
                                 </div>
                             </Link>
 
-                            {/* Discount Card */}
-                            <Link href="/student-discount" className={styles.cardLink}>
+                            {/* Mozzify Club Card */}
+                            <Link href="/account/club" className={styles.cardLink}>
                                 <div className={`${styles.card} ${styles.discountCard}`}>
-                                    <span className={styles.cardLabel}>15% Student<br />Discount</span>
+                                    <span className={styles.cardLabel}>MOZZIFY CLUB</span>
                                 </div>
                             </Link>
 

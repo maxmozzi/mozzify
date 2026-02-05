@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ChevronLeft } from 'lucide-react';
+import { ChevronLeft, Package, Eye } from 'lucide-react';
 import styles from '@/styles/account.module.css';
 
 export default function OrdersPage() {
@@ -34,13 +34,18 @@ export default function OrdersPage() {
                                 <th style={{ padding: '1rem', fontWeight: 600, textTransform: 'uppercase', fontSize: '0.8rem' }}>Date</th>
                                 <th style={{ padding: '1rem', fontWeight: 600, textTransform: 'uppercase', fontSize: '0.8rem' }}>Status</th>
                                 <th style={{ padding: '1rem', fontWeight: 600, textTransform: 'uppercase', fontSize: '0.8rem' }}>Items</th>
-                                <th style={{ padding: '1rem', fontWeight: 600, textTransform: 'uppercase', fontSize: '0.8rem', textAlign: 'right' }}>Total</th>
+                                <th style={{ padding: '1rem', fontWeight: 600, textTransform: 'uppercase', fontSize: '0.8rem' }}>Total</th>
+                                <th style={{ padding: '1rem', fontWeight: 600, textTransform: 'uppercase', fontSize: '0.8rem', textAlign: 'right' }}></th>
                             </tr>
                         </thead>
                         <tbody>
                             {orders.map(order => (
                                 <tr key={order.id} style={{ borderBottom: '1px solid var(--color-border)' }}>
-                                    <td style={{ padding: '1.5rem 1rem', fontWeight: 500 }}>{order.id}</td>
+                                    <td style={{ padding: '1.5rem 1rem', fontWeight: 500 }}>
+                                        <Link href={`/account/orders/${encodeURIComponent(order.id)}`} className={styles.link} style={{ fontWeight: 600 }}>
+                                            {order.id}
+                                        </Link>
+                                    </td>
                                     <td style={{ padding: '1.5rem 1rem', color: 'var(--color-secondary)' }}>{order.date}</td>
                                     <td style={{ padding: '1.5rem 1rem' }}>
                                         <span className={`${styles.status} ${order.status === 'Delivered' ? styles.statusDelivered : styles.statusProcessing}`}>
@@ -48,7 +53,41 @@ export default function OrdersPage() {
                                         </span>
                                     </td>
                                     <td style={{ padding: '1.5rem 1rem' }}>{order.items}</td>
-                                    <td style={{ padding: '1.5rem 1rem', textAlign: 'right', fontWeight: 500 }}>{order.total}</td>
+                                    <td style={{ padding: '1.5rem 1rem', fontWeight: 500 }}>{order.total}</td>
+                                    <td style={{ padding: '1.5rem 1rem', textAlign: 'right' }}>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'flex-end' }}>
+                                            <Link
+                                                href="#"
+                                                className={styles.link}
+                                                style={{
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    gap: '0.5rem',
+                                                    fontSize: '0.8rem',
+                                                    color: 'var(--color-primary)',
+                                                    fontWeight: 600,
+                                                    textDecoration: 'none'
+                                                }}
+                                            >
+                                                <Package size={14} /> Track Order
+                                            </Link>
+                                            <Link
+                                                href={`/account/orders/${encodeURIComponent(order.id)}`}
+                                                className={styles.link}
+                                                style={{
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    gap: '0.5rem',
+                                                    fontSize: '0.8rem',
+                                                    color: '#666',
+                                                    fontWeight: 500,
+                                                    textDecoration: 'none'
+                                                }}
+                                            >
+                                                <Eye size={14} /> View Details
+                                            </Link>
+                                        </div>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>

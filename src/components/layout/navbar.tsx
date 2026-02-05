@@ -17,7 +17,7 @@ export default function Navbar() {
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<'currency' | 'language' | 'user' | null>(null);
-    const { setNavbarHeartRef, flyingAnimation, shouldShowRedHeart, currentProductId, checkIsFavorite } = useFavorites();
+    const { setNavbarHeartRef, shouldShowRedHeart, currentProductId, checkIsFavorite } = useFavorites();
     const pathname = usePathname();
 
     // Navbar heart is red only when: (1) temporary after adding to favorites, or (2) we're on a product page and that product is in favorites
@@ -177,6 +177,30 @@ export default function Navbar() {
                                                 <MapPin size={16} /> My Address
                                             </Link>
                                             <div style={{ borderTop: '1px solid #f0f0f0', margin: '0.5rem 0' }} />
+
+                                            {/* MOZZI CLUB SECTION (CLICKABLE) */}
+                                            <Link href="/account/club" className={styles.clubSection}>
+                                                <div className={styles.clubHeader}>
+                                                    <span className={styles.clubTitle}>Mozzi Club</span>
+                                                    <span className={`${styles.levelBadge} ${styles.tierBronze}`}>Bronze</span>
+                                                </div>
+                                                <div className={styles.clubProgressWrapper}>
+                                                    <div className={styles.progressBarContainer}>
+                                                        <motion.div
+                                                            className={styles.progressBar}
+                                                            initial={{ width: 0 }}
+                                                            animate={{ width: '45%' }}
+                                                            transition={{ duration: 1, ease: 'easeOut' }}
+                                                        />
+                                                    </div>
+                                                    <div className={styles.clubFooter}>
+                                                        <span>Bronze</span>
+                                                        <span className={styles.pointsText}>450 / 1000 pts</span>
+                                                    </div>
+                                                </div>
+                                            </Link>
+
+                                            <div style={{ borderTop: '1px solid #f0f0f0', margin: '0.5rem 0' }} />
                                             <button className={styles.userDropdownItem} style={{ color: '#ff4d4f' }}>
                                                 <LogOut size={16} /> Sign Out
                                             </button>
@@ -190,7 +214,6 @@ export default function Navbar() {
                                         size={18}
                                         fill={isNavbarHeartRed ? "red" : "none"}
                                         color={isNavbarHeartRed ? "red" : "black"}
-                                        className={flyingAnimation.isActive ? styles.heartPulse : ''}
                                     />
                                 </button>
                             </Link>
