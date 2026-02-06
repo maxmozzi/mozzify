@@ -50,17 +50,17 @@ export const navigation = {
                     title: 'Categories',
                     items: [
                         { label: 'View All', href: '/collections/clothing/unisex' },
-                        { label: 'Hoodies', href: '/hoodies/all' },
-                        { label: 'T-Shirts', href: '/tshirts/all' },
-                        { label: 'Polo', href: '/polo/all' },
-                        { label: 'Shorts', href: '/shorts/all' },
-                        { label: 'Jeans', href: '/jeans/all' },
-                        { label: 'Sweater', href: '/sweater/all' },
-                        { label: 'Sweatshirts', href: '/sweatshirts/all' },
-                        { label: 'Jacket', href: '/jacket/all' },
-                        { label: 'Sets', href: '/sets/all' },
-                        { label: 'Shoes', href: '/shoes/all' }, // Legacy link in clothing?
-                        { label: 'iPhone Case', href: '/iphone_case/all' },
+                        { label: 'Hoodies', href: '/collections/clothing/unisex/hoodies' },
+                        { label: 'T-Shirts', href: '/collections/clothing/unisex/tshirt' },
+                        { label: 'Polo', href: '/collections/clothing/unisex/polo' },
+                        { label: 'Shorts', href: '/collections/clothing/unisex/shorts' },
+                        { label: 'Jeans', href: '/collections/clothing/unisex/jeans' },
+                        { label: 'Sweater', href: '/collections/clothing/unisex/sweater' },
+                        { label: 'Sweatshirts', href: '/collections/clothing/unisex/sweatshirt' },
+                        { label: 'Jacket', href: '/collections/clothing/unisex/jacket' },
+                        { label: 'Sets', href: '/collections/clothing/unisex/sets' },
+                        { label: 'Shoes', href: '/collections/clothing/unisex/shoes' },
+                        { label: 'iPhone Case', href: '/collections/clothing/unisex/iphone_case' },
                     ]
                 },
                 {

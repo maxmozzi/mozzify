@@ -11,13 +11,13 @@ import { products } from '@/data/generated-products';
 // Ensuring we have enough items to scroll (8 items for 2 pages of 4)
 const CATEGORIES = [
     { name: 'HOODIES', slug: 'hoodies', image: products.find(p => p.category === 'Hoodie')?.image },
-    { name: 'T-SHIRTS', slug: 'tshirts', image: products.find(p => p.category === 'T-Shirt')?.image },
+    { name: 'T-SHIRTS', slug: 'tshirt', image: products.find(p => p.category === 'T-Shirt')?.image },
     { name: 'JEANS', slug: 'jeans', image: products.find(p => p.category === 'Jeans')?.image },
     { name: 'SHOES', slug: 'shoes', image: products.find(p => p.category === 'Shoes')?.image },
-    { name: 'ACCESSORIES', slug: 'accessories', image: products.find(p => p.category === 'Accessories')?.image },
-    { name: 'JACKETS', slug: 'jackets', image: products.find(p => p.category === 'Jacket')?.image },
-    { name: 'SWEATS', slug: 'sweatshirts', image: products.find(p => p.category === 'Sweatshirt')?.image },
-    { name: 'HATS', slug: 'hats', image: products.find(p => p.category === 'Accessories')?.image },
+    { name: 'ACCESSORIES', slug: 'accessory', image: products.find(p => p.category === 'Accessories')?.image },
+    { name: 'JACKETS', slug: 'jacket', image: products.find(p => p.category === 'Jacket')?.image },
+    { name: 'SWEATS', slug: 'sweatshirt', image: products.find(p => p.category === 'Sweatshirt')?.image },
+    { name: 'HATS', slug: 'accessory', image: products.find(p => p.category === 'Accessories')?.image },
 ];
 
 export default function CategoriesCarousel() {
@@ -71,7 +71,7 @@ export default function CategoriesCarousel() {
 
                         return (
                             <Link
-                                href={`/${cat.slug}/all`}
+                                href={`/collections/clothing/unisex/${cat.slug}`}
                                 key={`${cat.name}-${idx}`}
                                 className={styles.card}
                             >
