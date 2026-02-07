@@ -133,55 +133,155 @@
     font-size: 0.95rem;
 }
 
-.filterSection {
-    margin-bottom: 1.5rem;
-}
-
-.filterTitle {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    margin-bottom: 0.8rem;
-    color: #444;
-}
-
-.checkboxList {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
+/* SIZE FILTER */
 .sizeGrid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 per row looks neat */
+    gap: 0.8rem;
 }
 
-.sizeOption {
+.sizeBtn {
     border: 1px solid #e5e5e5;
-    text-align: center;
+    background: transparent;
     padding: 0.8rem;
     cursor: pointer;
     font-size: 0.9rem;
-    border-radius: 2px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.sizeOption:hover {
+.sizeBtn:hover {
     border-color: black;
 }
 
-.hiddenCheck {
-    display: none;
+.sizeBtnActive {
+    background: black;
+    color: white;
+    border-color: black;
 }
 
+/* COLOR FILTER */
 .colorGrid {
     display: flex;
-    gap: 0.8rem;
+    gap: 1rem;
     flex-wrap: wrap;
 }
 
 .colorBtn {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     cursor: pointer;
+    border: 1px solid transparent;
+    /* Default border */
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.colorBtn:hover {
+    transform: scale(1.1);
+}
+
+/* Active state for color: Ring effect */
+.colorBtnActive {
+    box-shadow: 0 0 0 2px white, 0 0 0 4px black;
+}
+
+/* PRICE FILTER */
+.priceContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.priceInputs {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.inputGroup label {
+    font-size: 0.8rem;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.priceInput {
+    padding: 0.8rem;
+    border: 1px solid #e5e5e5;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.sliderContainer {
+    position: relative;
+    height: 40px;
+    /* Space for slider thumbs */
+    display: flex;
+    align-items: center;
+}
+
+.rangeSlider {
+    position: absolute;
+    width: 100%;
+    pointer-events: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    z-index: 10;
+}
+
+/* Slider Track */
+.sliderContainer::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: #e5e5e5;
+    border-radius: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+/* Webkit Slider Thumb */
+.rangeSlider::-webkit-slider-thumb {
+    pointer-events: auto;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: black;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    margin-top: -8px;
+    /* Center it */
+}
+
+/* Firefox Slider Thumb */
+.rangeSlider::-moz-range-thumb {
+    pointer-events: auto;
+    width: 20px;
+    height: 20px;
+    background: black;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Firefox Track (reset) */
+.rangeSlider::-moz-range-track {
+    background: transparent;
 }

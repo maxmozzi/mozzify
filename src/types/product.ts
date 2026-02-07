@@ -12,6 +12,8 @@ export interface GridProduct {
     slug?: string;
     tags?: string[];
     gender?: 'men' | 'women' | 'unisex';
+    sizes?: string[]; // Added for filtering
+    colors?: string[]; // Added for filtering
 }
 
 export interface Product extends GridProduct {

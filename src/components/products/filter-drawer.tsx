@@ -8,21 +8,32 @@ import styles from './filter-drawer.module.css';
 interface FilterDrawerProps {
     isOpen: boolean;
     onClose: () => void;
-    currentSort: string;
-    onSortChange: (sort: string) => void;
     availableCategories: string[];
     selectedCategories: string[];
     onCategoryChange: (category: string) => void;
+    // New Props
+    selectedSizes: string[];
+    onSizeChange: (size: string) => void;
+    selectedColors: string[];
+    onColorChange: (color: string) => void;
+    priceRange: { min: number; max: number };
+    onPriceChange: (range: { min: number; max: number }) => void;
+    onClearAll: () => void;
 }
 
 export default function FilterDrawer({
     isOpen,
     onClose,
-    currentSort,
-    onSortChange,
     availableCategories,
     selectedCategories,
-    onCategoryChange
+    onCategoryChange,
+    selectedSizes,
+    onSizeChange,
+    selectedColors,
+    onColorChange,
+    priceRange,
+    onPriceChange,
+    onClearAll
 }: FilterDrawerProps) {
     const [mounted, setMounted] = useState(false);
     const drawerRef = useRef<HTMLDivElement>(null);
@@ -37,8 +48,6 @@ export default function FilterDrawer({
         const siteWrapper = document.getElementById('site-wrapper');
         if (isOpen && siteWrapper) {
             siteWrapper.style.filter = 'blur(5px)';
-            // Note: We intentionally do NOT lock body scroll or pointer events here
-            // to allow the user to see the page "alive" and scroll if needed.
         } else if (siteWrapper) {
             siteWrapper.style.filter = 'none';
         }
@@ -60,7 +69,6 @@ export default function FilterDrawer({
             }
         };
 
-        // Use mousedown to capture intent before click completes (better feel)
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
@@ -69,17 +77,15 @@ export default function FilterDrawer({
 
     if (!mounted || !isOpen) return null;
 
-    // Use Portal to render outside site-wrapper so it doesn't get blurred
     return createPortal(
         <div className={styles.overlay} style={{ zIndex: 9999 }}>
-            {/* Backdrop is now non-interactive via CSS to allow clicks through */}
             <div className={styles.backdrop} />
             <div className={styles.drawer} ref={drawerRef}>
                 {/* Header */}
                 <div className={styles.header}>
                     <h2>FILTER & SORT</h2>
                     <div className={styles.headerActions}>
-                        <button className={styles.clearBtn} onClick={() => { }}>Clear All</button>
+                        <button className={styles.clearBtn} onClick={onClearAll}>CLEAR ALL</button>
                         <button onClick={onClose} className={styles.closeBtn}>
                             <X size={24} />
                         </button>
@@ -89,64 +95,108 @@ export default function FilterDrawer({
                 {/* Content */}
                 <div className={styles.content}>
 
-                    <Accordion title="Sort By">
-                        <div className={styles.list}>
-                            {['Reliability', 'Newest', 'Price: Low to High', 'Price: High to Low'].map(opt => (
-                                <label key={opt} className={styles.radioLabel}>
-                                    <input
-                                        type="radio"
-                                        name="sort"
-                                        className={styles.radioInput}
-                                        checked={currentSort === opt}
-                                        onChange={() => onSortChange(opt)}
-                                    />
-                                    <span>{opt}</span>
-                                </label>
-                            ))}
+                    {/* SIZE */}
+                    <Accordion title="SIZE">
+                        <div className={styles.sizeGrid}>
+                            {['XS', 'S', 'M', 'L', 'XL', 'XXL'].map(size => {
+                                const isSelected = selectedSizes.includes(size);
+                                return (
+                                    <button
+                                        key={size}
+                                        className={`${styles.sizeBtn} ${isSelected ? styles.sizeBtnActive : ''}`}
+                                        onClick={() => onSizeChange(size)}
+                                    >
+                                        {size}
+                                    </button>
+                                );
+                            })}
                         </div>
                     </Accordion>
 
-                    <Accordion title="Filter">
-                        {/* Custom "Product Type" mapped to Categories */}
-                        <div className={styles.filterSection}>
-                            <h4 className={styles.filterTitle}>Product Type</h4>
-                            <div className={styles.checkboxList}>
-                                {availableCategories.length > 0 ? availableCategories.map(type => (
-                                    <label key={type} className={styles.checkboxLabel}>
-                                        <input
-                                            type="checkbox"
-                                            checked={selectedCategories.includes(type)}
-                                            onChange={() => onCategoryChange(type)}
-                                        />
-                                        <span>{type}</span>
-                                    </label>
-                                )) : <p style={{ color: '#999', fontSize: '0.9rem' }}>No categories available</p>}
-                            </div>
-                        </div>
-
-                        <div className={styles.filterSection}>
-                            <h4 className={styles.filterTitle}>Size</h4>
-                            <div className={styles.sizeGrid}>
-                                {['XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL', 'No Size'].map(size => (
-                                    <label key={size} className={styles.sizeOption}>
-                                        <input type="checkbox" className={styles.hiddenCheck} />
-                                        <span>{size}</span>
-                                    </label>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className={styles.filterSection}>
-                            <h4 className={styles.filterTitle}>Color</h4>
-                            <div className={styles.colorGrid}>
-                                {['black', 'white', 'grey', 'blue', 'red', 'green', 'beige'].map(color => (
+                    {/* COLOR */}
+                    <Accordion title="COLOR">
+                        <div className={styles.colorGrid}>
+                            {['black', 'white', 'grey', 'blue', 'red', 'green', 'beige'].map(color => {
+                                const isSelected = selectedColors.includes(color);
+                                return (
                                     <button
                                         key={color}
-                                        className={styles.colorBtn}
-                                        style={{ background: color, border: color === 'white' ? '1px solid #ddd' : 'none' }}
+                                        className={`${styles.colorBtn} ${isSelected ? styles.colorBtnActive : ''}`}
+                                        style={{ backgroundColor: color }}
+                                        onClick={() => onColorChange(color)}
+                                        aria-label={`Select color ${color}`}
+                                    >
+                                        {/* Visual indicator for white or selection if needed, but CSS handles active state ring */}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </Accordion>
+
+                    {/* PRICE */}
+                    <Accordion title="PRICE">
+                        <div className={styles.priceContainer}>
+                            <div className={styles.priceInputs}>
+                                <div className={styles.inputGroup}>
+                                    <label>From</label>
+                                    <input
+                                        type="number"
+                                        value={priceRange.min}
+                                        onChange={(e) => onPriceChange({ ...priceRange, min: Number(e.target.value) })}
+                                        className={styles.priceInput}
                                     />
-                                ))}
+                                </div>
+                                <div className={styles.inputGroup}>
+                                    <label>To</label>
+                                    <input
+                                        type="number"
+                                        value={priceRange.max}
+                                        onChange={(e) => onPriceChange({ ...priceRange, max: Number(e.target.value) })}
+                                        className={styles.priceInput}
+                                    />
+                                </div>
                             </div>
+                            <div className={styles.sliderContainer}>
+                                <input
+                                    type="range"
+                                    min="0"
+                                    max="1000"
+                                    value={priceRange.min}
+                                    onChange={(e) => {
+                                        const val = Number(e.target.value);
+                                        if (val <= priceRange.max) onPriceChange({ ...priceRange, min: val });
+                                    }}
+                                    className={`${styles.rangeSlider} ${styles.rangeSliderMin}`}
+                                />
+                                <input
+                                    type="range"
+                                    min="0"
+                                    max="1000"
+                                    value={priceRange.max}
+                                    onChange={(e) => {
+                                        const val = Number(e.target.value);
+                                        if (val >= priceRange.min) onPriceChange({ ...priceRange, max: val });
+                                    }}
+                                    className={`${styles.rangeSlider} ${styles.rangeSliderMax}`}
+                                />
+                                {/* Visual Track Logic would go here in CSS or via a styled div background if needed, leveraging standardized range inputs for now */}
+                            </div>
+                        </div>
+                    </Accordion>
+
+                    {/* CATEGORY (Product Type) */}
+                    <Accordion title="PRODUCT TYPE">
+                        <div className={styles.checkboxList}>
+                            {availableCategories.length > 0 ? availableCategories.map(type => (
+                                <label key={type} className={styles.checkboxLabel}>
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedCategories.includes(type)}
+                                        onChange={() => onCategoryChange(type)}
+                                    />
+                                    <span>{type}</span>
+                                </label>
+                            )) : <p style={{ color: '#999', fontSize: '0.9rem' }}>No categories available</p>}
                         </div>
                     </Accordion>
                 </div>
@@ -154,7 +204,7 @@ export default function FilterDrawer({
                 {/* Footer Actions */}
                 <div className={styles.footer}>
                     <button className={styles.applyBtn} onClick={onClose}>
-                        View Items
+                        VIEW ITEMS
                     </button>
                 </div>
             </div>

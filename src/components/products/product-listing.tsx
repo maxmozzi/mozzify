@@ -43,13 +43,27 @@ export default function ProductListing({
     const [selectedCategories, setSelectedCategories] = useState<string[]>(
         initialCategory ? [initialCategory] : []
     );
+    // New Filter States
+    const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
+    const [selectedColors, setSelectedColors] = useState<string[]>([]);
+    const [priceRange, setPriceRange] = useState<{ min: number; max: number }>({ min: 0, max: 1000 });
 
     // New State for Layout
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [currentSort, setCurrentSort] = useState('Relevancy');
 
+    // Simulate/Enrich Data with missing fields (Size/Color)
+    const enrichedProducts = useMemo(() => {
+        return initialProducts.map(p => ({
+            ...p,
+            // Assign random traits if missing, for demo purposes
+            sizes: p.sizes || ['XS', 'S', 'M', 'L', 'XL'].filter(() => Math.random() > 0.5),
+            colors: p.colors || ['black', 'white', 'blue', 'beige'].filter(() => Math.random() > 0.7)
+        }));
+    }, [initialProducts]);
+
     // Determine the pool of products we are filtering against.
-    const productPool = initialProducts;
+    const productPool = enrichedProducts;
 
     // Filter logic
     const filteredProducts = useMemo(() => {
@@ -72,19 +86,40 @@ export default function ProductListing({
             result = result.filter(p => p.category && selectedCategories.includes(p.category));
         }
 
-        // Sorting Logic
+        // Size Filter (OR logic within sizes) - Check if product has ANY of the selected sizes
+        if (selectedSizes.length > 0) {
+            result = result.filter(p => p.sizes && p.sizes.some(s => selectedSizes.includes(s)));
+        }
+
+        // Color Filter (OR logic within colors)
+        if (selectedColors.length > 0) {
+            result = result.filter(p => p.colors && p.colors.some(c => selectedColors.includes(c)));
+        }
+
+        // Price Filter
+        result = result.filter(p => p.price >= priceRange.min && p.price <= priceRange.max);
+
+        // Sorting Logic (This sorting happens AFTER filtering)
         if (currentSort === 'Price: Low to High') {
             result = [...result].sort((a, b) => a.price - b.price);
         } else if (currentSort === 'Price: High to Low') {
             result = [...result].sort((a, b) => b.price - a.price);
         } else if (currentSort === 'Newest') {
-            // Assuming newer products are added later or have a date field?
-            // For now, we don't have a date field, so we just reverse (assuming latest are last) or keep as is.
             result = [...result].reverse();
         }
 
         return result;
-    }, [productPool, selectedBrands, selectedCategories, currentSort]);
+    }, [productPool, selectedBrands, selectedCategories, selectedSizes, selectedColors, priceRange, currentSort, gender]);
+
+    // Clear All Handler
+    const handleClearAll = () => {
+        setSelectedBrands([]);
+        if (!initialCategory) setSelectedCategories([]);
+        setSelectedSizes([]);
+        setSelectedColors([]);
+        setPriceRange({ min: 0, max: 1000 });
+        setCurrentSort('Relevancy');
+    };
 
 
     // Extract available brands dynamically
@@ -156,11 +191,20 @@ export default function ProductListing({
             <FilterDrawer
                 isOpen={isDrawerOpen}
                 onClose={() => setIsDrawerOpen(false)}
-                currentSort={currentSort}
-                onSortChange={setCurrentSort}
+                // Sort removed from drawer, but we might still pass it if needed, or removing it from Drawer props entirely.
+                // The plan says remove sort from drawer.
+                // We pass current values for display/logic if needed, but mainly we pass the new filters.
                 availableCategories={availableCategories}
                 selectedCategories={selectedCategories}
                 onCategoryChange={handleCategoryChange}
+                // New Props
+                selectedSizes={selectedSizes}
+                onSizeChange={(size) => setSelectedSizes(prev => prev.includes(size) ? prev.filter(s => s !== size) : [...prev, size])}
+                selectedColors={selectedColors}
+                onColorChange={(color) => setSelectedColors(prev => prev.includes(color) ? prev.filter(c => c !== color) : [...prev, color])}
+                priceRange={priceRange}
+                onPriceChange={setPriceRange}
+                onClearAll={handleClearAll}
             />
         </div>
     );
