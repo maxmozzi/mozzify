@@ -90,6 +90,15 @@ export default async function CollectionPage(props: PageProps) {
         });
     }
 
+    // 3.4 Special Handling for "Accessories" collection
+    if (collection === 'accessories') {
+        const accCategories = ['bag', 'belt', 'cap', 'hat', 'wallet', 'scarf', 'mask', 'sunglass'];
+        collectionPool = genderPool.filter(p => {
+            const cat = (p.category || '').toLowerCase();
+            return accCategories.some(acc => cat.includes(acc));
+        });
+    }
+
     // 4. Final Filtering
     // If user selected a subcategory (e.g. Hoodies), we search the WHOLE genderPool 
     // to ensure we find 10 products of that type.

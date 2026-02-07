@@ -53,6 +53,18 @@ const SPORTS_CATEGORIES = [
     { name: 'Training & Gym', slug: 'gym' },
 ];
 
+const ACCESSORIES_CATEGORIES = [
+    { name: 'View All', slug: 'all', isViewAll: true },
+    { name: 'Bags', slug: 'bags' },
+    { name: 'Belts', slug: 'belts' },
+    { name: 'Caps', slug: 'caps' },
+    { name: 'Hats', slug: 'hats' },
+    { name: 'Wallets', slug: 'wallets' },
+    { name: 'Scarves', slug: 'scarves' },
+    { name: 'Ski Mask', slug: 'ski_mask' },
+    { name: 'Sunglasses', slug: 'sunglasses' },
+];
+
 export default function CollectionListing({
     initialProducts,
     baseProducts,
@@ -80,6 +92,9 @@ export default function CollectionListing({
         }
         if (collectionSlug === 'sports') {
             return SPORTS_CATEGORIES;
+        }
+        if (collectionSlug === 'accessories') {
+            return ACCESSORIES_CATEGORIES;
         }
         return CATEGORIES;
     }, [collectionSlug]);

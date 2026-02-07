@@ -51,7 +51,7 @@ export default async function SmartCategoryPage({
             // User wants all products of this brand (any category)
             filteredProducts = allProducts.filter(p =>
                 normalizeText(p.brand || '').toLowerCase() === normalizedParam1.toLowerCase()
-            );
+            ).slice(0, 10);
             pageTitle = `${normalizedParam1} - All Products`;
             initialBrand = normalizedParam1;
             showBrandFilter = false; // Already filtered by brand
@@ -61,7 +61,7 @@ export default async function SmartCategoryPage({
             // User wants all hoodies (any brand)
             filteredProducts = allProducts.filter(p =>
                 normalizeText(p.category || '').toLowerCase() === normalizedParam1.toLowerCase()
-            );
+            ).slice(0, 10);
             pageTitle = `${normalizedParam1}`;
             initialCategory = normalizedParam1;
             showBrandFilter = true; // Allow filtering by brand
@@ -76,7 +76,7 @@ export default async function SmartCategoryPage({
         filteredProducts = allProducts.filter(p =>
             normalizeText(p.brand || '').toLowerCase() === targetBrand.toLowerCase() &&
             normalizeText(p.category || '').toLowerCase() === targetCategory.toLowerCase()
-        );
+        ).slice(0, 10);
 
         pageTitle = `${targetBrand} ${targetCategory}`;
         initialBrand = targetBrand;

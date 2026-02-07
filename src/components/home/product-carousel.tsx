@@ -27,11 +27,14 @@ const CAROUSEL_PRODUCTS = Array.from({ length: 10 }).map((_, i) => ({
 import demoImg from '@/images/marketing/homepage/banner1.webp';
 import { products } from '@/data/generated-products';
 
-export default function ProductCarousel({ title }: { title: string }) {
+export default function ProductCarousel({ title, products: sourceProducts }: { title: string, products?: any[] }) {
     console.log('ProductCarousel rendering');
     const scrollRef = useRef<HTMLDivElement>(null);
     // Filter for bestsellers products strictly
-    const [displayProducts, setDisplayProducts] = useState<any[]>(products.length > 0 ? products.slice(0, 10) : CAROUSEL_PRODUCTS);
+    const [displayProducts, setDisplayProducts] = useState<any[]>(
+        sourceProducts && sourceProducts.length > 0 ? sourceProducts :
+            (products.length > 0 ? products.slice(0, 10) : CAROUSEL_PRODUCTS)
+    );
 
     useEffect(() => {
         // Shuffle on client side only to avoid hydration mismatch

@@ -8,21 +8,35 @@ import heroImg1 from '@/images/marketing/homepage/banner1.webp';
 import heroImg2 from '@/images/marketing/homepage/banner2.webp';
 import heroImg3 from '@/images/marketing/homepage/banner3.jpg';
 
-const SLIDES = [heroImg1, heroImg2, heroImg3];
+const DEFAULT_SLIDES = [heroImg1, heroImg2, heroImg3];
 
-export default function MarketplaceHero() {
+interface MarketplaceHeroProps {
+    slides?: StaticImageData[];
+    title?: string;
+    subtitle?: string;
+    link?: string;
+    linkText?: string;
+}
+
+export default function MarketplaceHero({
+    slides = DEFAULT_SLIDES,
+    title = "BEST SELLERS",
+    subtitle = "SHOP OUR MOST LOVED ITEMS",
+    link = "/bestsellers",
+    linkText = "SHOP NOW"
+}: MarketplaceHeroProps) {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
+            setCurrentSlide((prev) => (prev + 1) % slides.length);
         }, 6000);
         return () => clearInterval(interval);
-    }, []);
+    }, [slides.length]);
 
     return (
         <section className={styles.heroSection}>
-            {SLIDES.map((slide, index) => (
+            {slides.map((slide, index) => (
                 <div
                     key={index}
                     className={`${styles.imageWrapper} ${index === currentSlide ? styles.active : ''}`}
@@ -41,10 +55,10 @@ export default function MarketplaceHero() {
             ))}
 
             <div className={styles.contentContainer}>
-                <h1 className={styles.heroTitle}>BEST SELLERS</h1>
-                <p className={styles.heroSubtitle}>SHOP OUR MOST LOVED ITEMS</p>
-                <Link href="/bestsellers" className={styles.ctaButton}>
-                    SHOP NOW
+                <h1 className={styles.heroTitle}>{title}</h1>
+                <p className={styles.heroSubtitle}>{subtitle}</p>
+                <Link href={link} className={styles.ctaButton}>
+                    {linkText}
                 </Link>
             </div>
         </section>

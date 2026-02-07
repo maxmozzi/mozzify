@@ -19,16 +19,11 @@ export interface MenuItem {
 
 export const navigation = {
     top: [
-        { label: 'Women', href: '/pages/shop-women' },
-        { label: 'Men', href: '/pages/shop-men' },
+        { label: 'Women', href: '/women' },
+        { label: 'Men', href: '/men' },
     ],
     main: [
 
-        {
-            id: 'new-arrivals',
-            label: 'NEW ARRIVALS',
-            href: '/collections/new-arrivals/mens'
-        },
         {
             id: 'best-sellers',
             label: 'BEST SELLERS',
@@ -99,6 +94,26 @@ export const navigation = {
                         { label: 'Hoff', href: '/b/hoff' },
                         { label: 'Premiata', href: '/b/premiata' },
                         { label: 'Diadora', href: '/b/diadora' },
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'accessories',
+            label: 'Accessories',
+            href: '/collections/accessories/unisex',
+            columns: [
+                {
+                    title: 'Categories',
+                    items: [
+                        { label: 'Bags', href: '/collections/accessories/unisex/bags' },
+                        { label: 'Belts', href: '/collections/accessories/unisex/belts' },
+                        { label: 'Caps', href: '/collections/accessories/unisex/caps' },
+                        { label: 'Hats', href: '/collections/accessories/unisex/hats' },
+                        { label: 'Wallets', href: '/collections/accessories/unisex/wallets' },
+                        { label: 'Scarves', href: '/collections/accessories/unisex/scarves' },
+                        { label: 'Ski Mask', href: '/collections/accessories/unisex/ski_mask' },
+                        { label: 'Sunglasses', href: '/collections/accessories/unisex/sunglasses' },
                     ]
                 }
             ]

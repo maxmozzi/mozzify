@@ -28,7 +28,15 @@ const CATEGORY_MAP: Record<string, string> = {
     'jacket': 'Jacket',
     'sets': 'Sets',
     'shoes': 'Shoes',
-    'hoodies': 'Hoodies'
+    'hoodies': 'Hoodies',
+    'bags': 'Bags',
+    'belts': 'Belts',
+    'caps': 'Caps',
+    'hats': 'Hats',
+    'wallets': 'Wallets',
+    'scarves': 'Scarves',
+    'ski_mask': 'Ski Mask',
+    'sunglasses': 'Sunglasses'
 };
 
 interface PageProps {
@@ -88,6 +96,15 @@ export default async function CategoryCollectionPage(props: PageProps) {
         });
     }
 
+    // Special Handling for "Accessories"
+    if (collection === 'accessories') {
+        const accCategories = ['bag', 'belt', 'cap', 'hat', 'wallet', 'scarf', 'mask', 'sunglass'];
+        collectionPool = genderPool.filter(p => {
+            const cat = (p.category || '').toLowerCase();
+            return accCategories.some(acc => cat.includes(acc));
+        });
+    }
+
     // Special Handling for "Sports"
     if (collection === 'sports') {
         const sportsCategories = ['running', 'gym', 'football', 'basketball', 'training', 'sports'];
@@ -139,6 +156,10 @@ export default async function CategoryCollectionPage(props: PageProps) {
     // Get available categories for the sidebar (all categories in the gender pool)
     const availableCategories = Array.from(new Set(genderPool.map(p => p.category).filter(Boolean))).sort() as string[];
 
+    // Fix: Use the actual category from the matched products to ensure the client-side filter works.
+    // The displayCategory (e.g. "T-Shirts") might not match the data category (e.g. "Tshirt").
+    const actualCategory = finalProducts.length > 0 ? (finalProducts[0].category || displayCategory) : displayCategory;
+
     return (
         <main className="min-h-screen">
             <div style={{ paddingTop: '80px', paddingBottom: '4rem' }}>
@@ -146,7 +167,7 @@ export default async function CategoryCollectionPage(props: PageProps) {
                     initialProducts={finalProducts}
                     allProductsSource={genderPool}
                     title={displayCategory}
-                    initialCategory={displayCategory}
+                    initialCategory={actualCategory}
                     availableCategories={availableCategories}
                     showCategoryCarousel={false}
                 />
