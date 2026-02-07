@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import TransitionManager from "@/components/layout/transition-manager";
 import { FavoritesProvider } from "@/context/favorites-context";
+import { GenderProvider } from "@/context/gender-context";
 import ChatbotIcon from "@/components/layout/chatbot-icon";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,14 +24,16 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <FavoritesProvider>
-          <TransitionManager>
-            <div id="site-wrapper" style={{ transition: 'filter 0.3s ease' }}>
-              <Navbar />
-              <ChatbotIcon />
-              {children}
-              <Footer />
-            </div>
-          </TransitionManager>
+          <GenderProvider>
+            <TransitionManager>
+              <div id="site-wrapper" style={{ transition: 'filter 0.3s ease' }}>
+                <Navbar />
+                <ChatbotIcon />
+                {children}
+                <Footer />
+              </div>
+            </TransitionManager>
+          </GenderProvider>
         </FavoritesProvider>
       </body>
     </html>

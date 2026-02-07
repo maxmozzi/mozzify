@@ -27,12 +27,12 @@ export const navigation = {
         {
             id: 'best-sellers',
             label: 'BEST SELLERS',
-            href: '/collections/best-sellers/mens'
+            href: '/collections/best-sellers/unisex'
         },
         {
             id: 'sale',
             label: 'SALE',
-            href: '/collections/sale/mens',
+            href: '/collections/sale/unisex',
             isRed: true
         },
 

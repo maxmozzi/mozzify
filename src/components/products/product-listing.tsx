@@ -9,6 +9,7 @@ import CategoryHeader from '@/components/products/category-header';
 import StickyFilterBar from '@/components/products/sticky-filter-bar';
 import FilterDrawer from '@/components/products/filter-drawer';
 import styles from './product-listing.module.css';
+import { useGender } from '@/context/gender-context';
 
 interface ProductListingProps {
     initialProducts: GridProduct[]; // The products to initially display matching the server route
@@ -34,6 +35,8 @@ export default function ProductListing({
     isGlobalView = false,
     showCategoryCarousel = false
 }: ProductListingProps) {
+    const { gender } = useGender(); // New: Get active gender context
+
     const [selectedBrands, setSelectedBrands] = useState<string[]>(
         initialBrand ? [initialBrand] : []
     );
@@ -51,6 +54,13 @@ export default function ProductListing({
     // Filter logic
     const filteredProducts = useMemo(() => {
         let result = productPool;
+
+        // Gender Context Filter
+        if (gender === 'men') {
+            result = result.filter(p => p.gender === 'men' || p.gender === 'unisex');
+        } else if (gender === 'women') {
+            result = result.filter(p => p.gender === 'women' || p.gender === 'unisex');
+        }
 
         // Brand Filter
         if (selectedBrands.length > 0) {

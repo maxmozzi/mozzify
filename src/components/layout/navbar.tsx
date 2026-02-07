@@ -12,6 +12,7 @@ import MegaMenu from './mega-menu';
 import Image from 'next/image';
 import logoImg from '@/images/system/logo/logo.png';
 import { navigation } from '@/data/navigation';
+import { useGender } from '@/context/gender-context';
 
 export default function Navbar() {
     const [isCartOpen, setIsCartOpen] = useState(false);
@@ -52,6 +53,16 @@ export default function Navbar() {
 
     const toggleSection = (section: string) => {
         setExpandedSection(prev => prev === section ? null : section);
+    };
+
+    const { gender } = useGender();
+
+    const getLinkWithGender = (path: string) => {
+        if (!path) return path;
+        if (gender !== 'unisex') {
+            return path.replace('/unisex', `/${gender}`);
+        }
+        return path;
     };
 
     return (
@@ -310,7 +321,7 @@ export default function Navbar() {
                                             return (
                                                 <Link
                                                     key={item.id}
-                                                    href={item.href}
+                                                    href={getLinkWithGender(item.href)}
                                                     className={styles.mobileMenuLink}
                                                     style={item.isRed ? { color: 'red' } : {}}
                                                 >

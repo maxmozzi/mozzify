@@ -9,6 +9,10 @@ import bannerImg1 from '@/images/marketing/womenpage/banner1.jpg';
 import bannerImg2 from '@/images/marketing/womenpage/banner2.jpg';
 import bannerImg3 from '@/images/marketing/womenpage/banner3.jpg';
 
+import SetGender from '@/components/utils/set-gender';
+
+// ... imports
+
 const WOMEN_SLIDES = [bannerImg1, bannerImg2, bannerImg3];
 
 export default function WomenPage() {
@@ -21,6 +25,7 @@ export default function WomenPage() {
 
     return (
         <main style={{ background: '#fff' }}>
+            <SetGender gender="women" />
             <MarketplaceHero
                 slides={WOMEN_SLIDES}
                 title="WOMEN'S COLLECTION"

@@ -4,9 +4,19 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './mega-menu.module.css';
 import { navigation, MenuItem } from '@/data/navigation';
+import { useGender } from '@/context/gender-context';
 
 export default function MegaMenu() {
     const [activeMenu, setActiveMenu] = useState<string | null>(null);
+    const { gender } = useGender();
+
+    const getLinkWithGender = (path: string) => {
+        if (!path) return path;
+        if (gender !== 'unisex') {
+            return path.replace('/unisex', `/${gender}`);
+        }
+        return path;
+    };
 
     return (
         <nav className={styles.megaNav} onMouseLeave={() => setActiveMenu(null)}>
@@ -19,7 +29,7 @@ export default function MegaMenu() {
                     >
                         {item.href ? (
                             <Link
-                                href={item.href}
+                                href={getLinkWithGender(item.href)}
                                 className={styles.navLink}
                                 style={item.isRed ? { color: 'red' } : {}}
                             >
@@ -37,6 +47,7 @@ export default function MegaMenu() {
                     <MenuDropdown
                         activeId={activeMenu}
                         items={navigation.main}
+                        gender={gender}
                     />
                 )}
             </AnimatePresence>
@@ -44,15 +55,20 @@ export default function MegaMenu() {
     );
 }
 
-function MenuDropdown({ activeId, items }: { activeId: string, items: MenuItem[] }) {
+function MenuDropdown({ activeId, items, gender }: { activeId: string, items: MenuItem[], gender: string }) {
     const activeItem = items.find(item => item.id === activeId);
 
-    // If item has no columns (it's a direct link or empty), don't render dropdown or render empty
-    // The previous logic suppressed dropdown for 'best-sellers', 'sale', 'mystery' etc.
-    // Here we check if 'columns' exists.
     if (!activeItem || !activeItem.columns || activeItem.columns.length === 0) {
         return null;
     }
+
+    const getLinkWithGender = (path: string) => {
+        if (!path) return path;
+        if (gender !== 'unisex') {
+            return path.replace('/unisex', `/${gender}`);
+        }
+        return path;
+    };
 
     return (
         <motion.div
@@ -70,7 +86,7 @@ function MenuDropdown({ activeId, items }: { activeId: string, items: MenuItem[]
                             <ul className={column.title === 'Brands' ? styles.linkListGrid : styles.linkList}>
                                 {column.items.map((link, linkIdx) => (
                                     <li key={linkIdx}>
-                                        <Link href={link.href}>{link.label}</Link>
+                                        <Link href={getLinkWithGender(link.href)}>{link.label}</Link>
                                     </li>
                                 ))}
                             </ul>
