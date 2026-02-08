@@ -22,6 +22,7 @@ interface ProductListingProps {
     showBrandFilter?: boolean; // New prop to toggle brand filter visibility
     isGlobalView?: boolean; // New prop to indicating we are in /category/all
     showCategoryCarousel?: boolean;
+    customCategories?: { name: string; slug: string; image?: string; isViewAll?: boolean }[]; // New prop for custom carousel items
 }
 
 export default function ProductListing({
@@ -33,7 +34,8 @@ export default function ProductListing({
     availableCategories = [],
     showBrandFilter = false,
     isGlobalView = false,
-    showCategoryCarousel = false
+    showCategoryCarousel = false,
+    customCategories
 }: ProductListingProps) {
     const { gender } = useGender(); // New: Get active gender context
 
@@ -142,7 +144,11 @@ export default function ProductListing({
             {/* 1. Category Header (Replaces old Title) */}
             {/* We pass the filtered count or total count? Usually total. */}
             {showCategoryCarousel && (
-                <CategoryHeader title={title} productCount={filteredProducts.length} />
+                <CategoryHeader
+                    title={title}
+                    productCount={filteredProducts.length}
+                    categories={customCategories}
+                />
             )}
             {!showCategoryCarousel && (
                 <div className="container" style={{ marginBottom: '1.5rem', marginTop: '1rem', padding: '0 2rem' }}>
