@@ -285,3 +285,33 @@
 .rangeSlider::-moz-range-track {
     background: transparent;
 }
+
+.sortOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sortOption {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    background: none;
+    border: 1px solid #eee;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.sortOption:hover {
+    border-color: #333;
+}
+
+.sortOptionActive {
+    border-color: #333;
+    background-color: #f9f9f9;
+    font-weight: 500;
+}

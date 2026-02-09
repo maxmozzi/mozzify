@@ -79,6 +79,28 @@ export default function CollectionListing({
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [currentSort, setCurrentSort] = useState('Relevancy');
+    const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
+    const [selectedColors, setSelectedColors] = useState<string[]>([]);
+    const [priceRange, setPriceRange] = useState({ min: 0, max: 1000 });
+
+    const handleSizeChange = (size: string) => {
+        setSelectedSizes(prev =>
+            prev.includes(size) ? prev.filter(s => s !== size) : [...prev, size]
+        );
+    };
+
+    const handleColorChange = (color: string) => {
+        setSelectedColors(prev =>
+            prev.includes(color) ? prev.filter(c => c !== color) : [...prev, color]
+        );
+    };
+
+    const handleClearAll = () => {
+        setSelectedSizes([]);
+        setSelectedColors([]);
+        setPriceRange({ min: 0, max: 1000 });
+        handleCategoryChange('all');
+    };
 
     // Filter CATEGORIES based on collection context
     const filteredCategories = useMemo(() => {
@@ -101,21 +123,28 @@ export default function CollectionListing({
 
     // Mapped categories for the visual carousel (using global products for consistent images)
     const carouselCategories = useMemo(() => {
-        return filteredCategories.map(cat => {
+        return filteredCategories.map((cat, idx) => {
             if (cat.isViewAll) return cat;
 
             // Find a product globally that matches this category name loosely
-            const sampleProduct = products.find(p =>
+            let sampleProduct = products.find(p =>
                 p.category?.toLowerCase().replace(/[\s-]/g, '') === cat.slug.replace(/_/g, '') ||
                 p.category?.toLowerCase().replace(/[\s-]/g, '') === cat.name.toLowerCase().replace(/[\s-]/g, '')
             );
+
+            // Fallback: Use a random product image as placeholder if no direct match found
+            // This is useful for "Sports" where we don't have products yet
+            if (!sampleProduct && products.length > 0) {
+                // Use a deterministic "random" based on index
+                sampleProduct = products[idx % products.length];
+            }
 
             return {
                 ...cat,
                 image: sampleProduct?.image
             };
         });
-    }, []); // No dependencies needed as 'products' is static
+    }, [filteredCategories]); // Depend on filteredCategories since they change per collectionSlug
 
 
     const availableCategories = useMemo(() => {
@@ -154,7 +183,7 @@ export default function CollectionListing({
                 title={collectionTitle}
                 productCount={initialProducts.length}
                 categories={carouselCategories}
-                onCategoryClick={(collectionSlug === 'shoes' || collectionSlug === 'sports') ? undefined : (slug) => handleCategoryChange(slug)}
+                onCategoryClick={(slug) => handleCategoryChange(slug)}
             />
 
 
@@ -189,11 +218,18 @@ export default function CollectionListing({
             <FilterDrawer
                 isOpen={isDrawerOpen}
                 onClose={() => setIsDrawerOpen(false)}
-                currentSort={currentSort}
-                onSortChange={setCurrentSort}
                 availableCategories={availableCategories}
                 selectedCategories={activeSubcategory ? [availableCategories.find(c => c.toLowerCase().replace(/\s+/g, '_') === activeSubcategory) || ''] : []}
                 onCategoryChange={(cat) => handleCategoryChange(cat.toLowerCase().replace(/\s+/g, '_'))}
+                selectedSizes={selectedSizes}
+                onSizeChange={handleSizeChange}
+                selectedColors={selectedColors}
+                onColorChange={handleColorChange}
+                priceRange={priceRange}
+                onPriceChange={setPriceRange}
+                onClearAll={handleClearAll}
+                currentSort={currentSort}
+                onSortChange={setCurrentSort}
             />
         </div>
     );

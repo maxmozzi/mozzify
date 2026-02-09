@@ -19,6 +19,8 @@ interface FilterDrawerProps {
     priceRange: { min: number; max: number };
     onPriceChange: (range: { min: number; max: number }) => void;
     onClearAll: () => void;
+    currentSort: string;
+    onSortChange: (sort: string) => void;
 }
 
 export default function FilterDrawer({
@@ -33,7 +35,9 @@ export default function FilterDrawer({
     onColorChange,
     priceRange,
     onPriceChange,
-    onClearAll
+    onClearAll,
+    currentSort,
+    onSortChange
 }: FilterDrawerProps) {
     const [mounted, setMounted] = useState(false);
     const drawerRef = useRef<HTMLDivElement>(null);
@@ -181,6 +185,22 @@ export default function FilterDrawer({
                                 />
                                 {/* Visual Track Logic would go here in CSS or via a styled div background if needed, leveraging standardized range inputs for now */}
                             </div>
+                        </div>
+                    </Accordion>
+
+                    {/* SORT */}
+                    <Accordion title="SORT BY">
+                        <div className={styles.sortOptions}>
+                            {['Relevancy', 'Newest', 'Price: Low to High', 'Price: High to Low'].map(option => (
+                                <button
+                                    key={option}
+                                    className={`${styles.sortOption} ${currentSort === option ? styles.sortOptionActive : ''}`}
+                                    onClick={() => onSortChange(option)}
+                                >
+                                    <span>{option}</span>
+                                    {currentSort === option && <Check size={16} />}
+                                </button>
+                            ))}
                         </div>
                     </Accordion>
 
