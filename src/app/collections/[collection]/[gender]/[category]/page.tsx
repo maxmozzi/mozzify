@@ -122,13 +122,12 @@ export default async function CategoryCollectionPage(props: PageProps) {
     // We follow the parent page's subcategory filtering logic for consistency.
     // We search the WHOLE genderPool to ensure we find 10 products of that type.
     const normalizedParam = category.toLowerCase().replace(/[\s\-_]/g, '');
-
     const finalProducts = genderPool.filter(p => {
         const prodCat = (p.category || '').toLowerCase();
         const normProdCat = prodCat.replace(/[\s\-_]/g, '');
         const prodTags = (p.tags || []).map(t => t.toLowerCase().replace(/[\s\-_]/g, ''));
 
-        // 1. Direct normalized match (e.g. "tshirt" === "tshirt")
+        // 1. Direct normalized match
         if (normProdCat === normalizedParam || prodTags.includes(normalizedParam)) {
             // Special check: if we are looking for tshirt, don't return sweatshirt
             if (normalizedParam === 'tshirt' && normProdCat.includes('sweat')) return false;

@@ -104,8 +104,29 @@ export default async function CollectionPage(props: PageProps) {
     // to ensure we find 10 products of that type.
     const filteredProducts = (subcategoryFilter
         ? genderPool.filter(p => {
-            const productSlug = (p.category || '').toLowerCase().replace(/\s+/g, '_');
-            return productSlug === subcategoryFilter;
+            const prodCat = (p.category || '').toLowerCase();
+            const normProdCat = prodCat.replace(/[\s\-_]/g, '');
+            const normalizedParam = subcategoryFilter.replace(/[\s\-_]/g, '');
+
+            // 1. Direct normalized match
+            if (normProdCat === normalizedParam) {
+                // Special check: if we are looking for tshirt, don't return sweatshirt
+                if (normalizedParam === 'tshirt' && normProdCat.includes('sweat')) return false;
+                return true;
+            }
+
+            // 2. Extra robust check for T-Shirt variations
+            if (normalizedParam === 'tshirt') {
+                return prodCat === 't-shirt' || prodCat === 't-shirts' ||
+                    prodCat.includes('t-shirt') || prodCat.includes('tshirt');
+            }
+
+            // 3. Extra robust check for Sweatshirt variations
+            if (normalizedParam === 'sweatshirt') {
+                return prodCat.includes('sweatshirt');
+            }
+
+            return false;
         })
         : collectionPool
     ).slice(0, 10); // LIMIT TO 10 AS REQUESTED
