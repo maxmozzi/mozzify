@@ -21,6 +21,7 @@ export const PAGE_CATEGORIES = {
         { name: 'Pants', slug: 'pants', filterValue: 'Pants' },
         { name: 'Shorts', slug: 'shorts', filterValue: 'Shorts' },
         { name: 'Jeans', slug: 'jeans', filterValue: 'Jeans' },
+        { name: 'Shirts', slug: 'shirts', filterValue: 'Shirts' },
         { name: 'Shoes', slug: 'shoes', filterValue: 'Shoes' }
     ],
 
@@ -36,7 +37,8 @@ export const PAGE_CATEGORIES = {
         { name: 'Sets', slug: 'sets', filterValue: 'Sets' },
         { name: 'Pants', slug: 'pants', filterValue: 'Pants' },
         { name: 'Shorts', slug: 'shorts', filterValue: 'Shorts' },
-        { name: 'Jeans', slug: 'jeans', filterValue: 'Jeans' }
+        { name: 'Jeans', slug: 'jeans', filterValue: 'Jeans' },
+        { name: 'Shirts', slug: 'shirts', filterValue: 'Shirts' }
     ],
 
     // 3. Shoes Page: Specific subset

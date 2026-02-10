@@ -118,7 +118,12 @@ export default async function CollectionPage(props: PageProps) {
 
             // 2. Robust check for variations (Strict)
             if (normalizedParam === 'tshirt' || normalizedParam === 'tshirts') {
+                if (prodCat === 'shirt' || prodCat === 'shirts') return false; // Strict exclusion
                 return prodCat === 't-shirt' || prodCat === 't-shirts' || prodCat === 'tshirts';
+            }
+            if (normalizedParam === 'shirt' || normalizedParam === 'shirts') {
+                if (prodCat.includes('t-shirt') || prodCat.includes('tshirt')) return false; // Strict exclusion
+                return prodCat === 'shirt' || prodCat === 'shirts';
             }
             if (normalizedParam === 'sweatshirt' || normalizedParam === 'sweatshirts') {
                 return prodCat === 'sweatshirt' || prodCat === 'sweatshirts';

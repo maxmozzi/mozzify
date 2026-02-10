@@ -243,7 +243,7 @@ for (const productDir of productFolders) {
                 'tee': 'T-Shirts',
                 'tshirt': 'T-Shirts',
                 'tshirts': 'T-Shirts',
-                'shirt': 'T-Shirts',
+                'shirt': 'Shirts',
                 'jacket': 'Jackets',
                 'jackets': 'Jackets',
                 'jeans': 'Jeans',
@@ -268,7 +268,7 @@ for (const productDir of productFolders) {
         if (!finalTags.includes('Best Sellers')) finalTags.push('Best Sellers');
     } else {
         // Force Best Seller for Jackets, Pants, Sets to ensure at least 5 appear as requested
-        if (finalTags.includes('Jackets') || finalTags.includes('Sets') || finalTags.includes('Pants') || finalTags.includes('Tracksuits') || finalTags.includes('Jeans')) {
+        if (finalTags.includes('Jackets') || finalTags.includes('Sets') || finalTags.includes('Pants') || finalTags.includes('Tracksuits') || finalTags.includes('Jeans') || finalTags.includes('Shirts')) {
             if (Math.random() < 0.7) { // 70% chance to force it
                 finalTags.push('Best Sellers');
             }
@@ -314,7 +314,7 @@ for (const productDir of productFolders) {
 }
 
 // POST-PROCESSING: ENSURE 10 ITEMS PER CATEGORY
-const TARGET_CATEGORIES = ['T-Shirts', 'Hoodies', 'Sweatshirts', 'Sweaters', 'Jackets', 'Polos', 'Sets', 'Pants', 'Shorts', 'Jeans'];
+const TARGET_CATEGORIES = ['T-Shirts', 'Hoodies', 'Sweatshirts', 'Sweaters', 'Jackets', 'Polos', 'Sets', 'Pants', 'Shorts', 'Jeans', 'Shirts'];
 const TARGET_COUNT = 10;
 
 // Helper to get random item from list

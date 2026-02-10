@@ -91,9 +91,14 @@ export default async function CategoryCollectionPage(props: PageProps) {
             return true;
         }
 
-        // 2. Exact match variations for T-Shirts/Sweatshirts
+        // 2. Exact match variations for T-Shirts/Sweatshirts/Shirts
         if (normalizedParam === 'tshirt' || normalizedParam === 'tshirts') {
+            if (prodCat === 'shirt' || prodCat === 'shirts') return false; // Strict exclusion
             if (prodCat === 't-shirt' || prodCat === 't-shirts' || prodCat === 'tshirts') return true;
+        }
+        if (normalizedParam === 'shirt' || normalizedParam === 'shirts') {
+            if (prodCat.includes('t-shirt') || prodCat.includes('tshirt')) return false; // Strict exclusion
+            if (prodCat === 'shirt' || prodCat === 'shirts') return true;
         }
         if (normalizedParam === 'sweatshirt' || normalizedParam === 'sweatshirts') {
             if (prodCat === 'sweatshirt' || prodCat === 'sweatshirts') return true;

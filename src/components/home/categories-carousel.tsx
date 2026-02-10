@@ -16,6 +16,7 @@ const CATEGORIES = [
     { name: 'JACKETS', slug: 'jackets', image: products.find(p => p.category === 'Jackets')?.image },
     { name: 'SWEATS', slug: 'sweatshirts', image: products.find(p => p.category === 'Sweatshirts')?.image },
     { name: 'SETS', slug: 'sets', image: products.find(p => p.category === 'Sets')?.image },
+    { name: 'SHIRTS', slug: 'shirts', image: products.find(p => p.category === 'Shirts')?.image },
 ];
 
 export default function CategoriesCarousel() {
