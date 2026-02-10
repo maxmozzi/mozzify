@@ -4,6 +4,7 @@ export interface GridProduct {
     id: string;
     title: string;
     price: number;
+    compareAtPrice?: number; // Added for sale logic
     image: string | StaticImageData; // Supports both URL strings and StaticImageData
     hoverImage?: string | StaticImageData;
     category: string;

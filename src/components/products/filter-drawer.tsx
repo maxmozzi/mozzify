@@ -21,6 +21,11 @@ interface FilterDrawerProps {
     onClearAll: () => void;
     currentSort: string;
     onSortChange: (sort: string) => void;
+    // New Props for Tagging System
+    selectedSports: string[];
+    onSportChange: (sport: string) => void;
+    isSaleSelected: boolean;
+    onSaleChange: (isSale: boolean) => void;
 }
 
 export default function FilterDrawer({
@@ -37,7 +42,11 @@ export default function FilterDrawer({
     onPriceChange,
     onClearAll,
     currentSort,
-    onSortChange
+    onSortChange,
+    selectedSports,
+    onSportChange,
+    isSaleSelected,
+    onSaleChange
 }: FilterDrawerProps) {
     const [mounted, setMounted] = useState(false);
     const drawerRef = useRef<HTMLDivElement>(null);
@@ -98,6 +107,36 @@ export default function FilterDrawer({
 
                 {/* Content */}
                 <div className={styles.content}>
+
+                    {/* STATUS (Sale) */}
+                    <Accordion title="STATUS">
+                        <div className={styles.checkboxList}>
+                            <label className={styles.checkboxLabel}>
+                                <input
+                                    type="checkbox"
+                                    checked={isSaleSelected}
+                                    onChange={(e) => onSaleChange(e.target.checked)}
+                                />
+                                <span style={{ color: '#ef4444', fontWeight: 600 }}>On Sale</span>
+                            </label>
+                        </div>
+                    </Accordion>
+
+                    {/* SPORTS */}
+                    <Accordion title="SPORTS">
+                        <div className={styles.checkboxList}>
+                            {['football', 'basketball', 'running', 'gym'].map(sport => (
+                                <label key={sport} className={styles.checkboxLabel}>
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedSports.includes(sport)}
+                                        onChange={() => onSportChange(sport)}
+                                    />
+                                    <span style={{ textTransform: 'capitalize' }}>{sport}</span>
+                                </label>
+                            ))}
+                        </div>
+                    </Accordion>
 
                     {/* SIZE */}
                     <Accordion title="SIZE">

@@ -1,191 +1,150 @@
 .card {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
-    /* group: hover removed */
+    gap: 12px;
+    width: 100%;
 }
 
 .imageWrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 3/4;
+    aspect-ratio: 3 / 4;
+    background-color: #f3f4f6;
     overflow: hidden;
-    background-color: var(--color-bg-subtle);
+    border-radius: 4px;
 }
 
 .image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.5s ease;
 }
 
-.card:hover .image {
-    transform: scale(1.1);
-}
-
-.details {
-    position: relative;
-    height: 40px;
-    /* fixed height to prevent layout shift */
-    overflow: hidden;
-}
-
-.staticInfo,
-.hoverInfo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-}
-
-.staticInfo {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.hoverInfo {
-    opacity: 0;
-    transform: translateY(20px);
-    pointer-events: none;
-}
-
-.card:hover .staticInfo {
-    opacity: 0;
-    transform: translateY(-20px);
-}
-
-.card:hover .hoverInfo {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-
-.productMain {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.title {
-    font-size: 0.85rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.price {
-    font-size: 0.8rem;
-    color: #666;
-    font-weight: 400;
-}
-
-.colorOptions {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-}
-
-.colorCircle {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-}
-
-.addToCartBtn {
-    background: none;
-    border: none;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    cursor: pointer;
-    padding: 0;
-    letter-spacing: 0.5px;
-    color: #000;
-}
-
-.sizes {
-    display: flex;
-    gap: 8px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: #666;
-}
-
-.sizes span {
-    cursor: default;
-}
-
-.sizes span:hover {
-    color: #000;
+.imageWrapper:hover .image {
+    transform: scale(1.05);
 }
 
 .overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.card:hover .overlay {
+.imageWrapper:hover .overlay {
     opacity: 1;
 }
 
 .quickView {
-    background: white;
+    background-color: white;
     color: black;
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
     transform: translateY(10px);
     transition: transform 0.3s ease;
 }
 
-.card:hover .quickView {
+.imageWrapper:hover .quickView {
     transform: translateY(0);
 }
 
 .wishlistBtn {
     position: absolute;
-    bottom: 1rem;
-    right: 1rem;
+    top: 10px;
+    right: 10px;
     background: white;
     border: none;
-    width: 36px;
-    height: 36px;
     border-radius: 50%;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 10;
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    transition: all 0.3s ease;
-    pointer-events: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Removed hover dependency for visibility */
-
-/* .card:hover .wishlistBtn was removed */
+.imageWrapper:hover .wishlistBtn {
+    opacity: 1;
+}
 
 .wishlistBtn:hover {
-    transform: scale(1.1) translateY(0) !important;
+    transform: scale(1.1);
 }
+
+/* Sale Badge */
+.saleBadge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ef4444;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 2px;
+    z-index: 10;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.productMain {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #111;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.priceWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.price {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111;
+    margin: 0;
+}
+
+.comparePrice {
+    font-size: 12px;
+    color: #9ca3af;
+    text-decoration: line-through;
+    margin: 0;
+}
+
+.hoverInfo {
+    display: none;
+    /* Hidden by default, or implement your hover logic */
+}
+
+/* Add simplified hover logic for Add to Cart if needed */

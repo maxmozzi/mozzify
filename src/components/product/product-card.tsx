@@ -11,6 +11,7 @@ interface Product {
     id: string;
     title: string;
     price: number;
+    compareAtPrice?: number;
     image: string | StaticImageData;
     category: string;
     handle?: string;
@@ -19,10 +20,11 @@ interface Product {
 }
 
 export default function ProductCard({ product }: { product: Product }) {
-    const { image, title, price, category, id, brand } = product;
+    const { image, title, price, compareAtPrice, category, id, brand } = product;
     const productUrl = `/product/${category.toLowerCase()}/${id}`;
     const { addToFavorites, removeFromFavorites, checkIsFavorite } = useFavorites();
     const isFavorite = checkIsFavorite(id);
+    const isOnSale = compareAtPrice && compareAtPrice > price;
 
     const handleFavoriteClick = (e: React.MouseEvent) => {
         e.preventDefault();
@@ -32,6 +34,7 @@ export default function ProductCard({ product }: { product: Product }) {
             id,
             title,
             price,
+            compareAtPrice,
             image,
             category,
             brand
@@ -59,6 +62,9 @@ export default function ProductCard({ product }: { product: Product }) {
                 <div className={styles.overlay}>
                     <span className={styles.quickView}>Quick View</span>
                 </div>
+                {isOnSale && (
+                    <span className={styles.saleBadge}>SALE</span>
+                )}
                 <button
                     className={styles.wishlistBtn}
                     onClick={handleFavoriteClick}
@@ -71,36 +77,25 @@ export default function ProductCard({ product }: { product: Product }) {
                 </button>
             </Link>
             <div className={styles.details}>
-                {/* STATIC INFO */}
+                {/* DYNAMIC INFO */}
                 <div className={styles.staticInfo}>
                     <div className={styles.productMain}>
                         <h3 className={styles.title}>
-                            <Link href={productUrl}>AmiParis Zipper Blue</Link>
+                            <Link href={productUrl}>{title}</Link>
                         </h3>
-                        <p className={styles.price}>€108,40</p>
+                        <div className={styles.priceWrapper}>
+                            <p className={styles.price}>€{price}</p>
+                            {isOnSale && (
+                                <p className={styles.comparePrice}>€{compareAtPrice}</p>
+                            )}
+                        </div>
                     </div>
-                    <div className={styles.colorOptions}>
-                        <span className={styles.colorCircle} style={{ backgroundColor: '#000000' }}></span>
-                        <span className={styles.colorCircle} style={{ backgroundColor: '#FFFFFF', border: '1px solid #eee' }}></span>
-                        <span className={styles.colorCircle} style={{ backgroundColor: '#1E40AF' }}></span>
-                        <span className={styles.colorCircle} style={{ backgroundColor: '#EF4444' }}></span>
-                        <span className={styles.colorCircle} style={{ backgroundColor: '#10B981' }}></span>
-                        <span className={styles.colorCircle} style={{ backgroundColor: '#F59E0B' }}></span>
-                        <span className={styles.colorCircle} style={{ backgroundColor: '#6B7280' }}></span>
-                    </div>
+                    {/* Colors removed since they are not in product data yet, or keep static if design requires */}
                 </div>
 
                 {/* HOVER INFO */}
                 <div className={styles.hoverInfo}>
                     <button className={styles.addToCartBtn}>Add to Cart</button>
-                    <div className={styles.sizes}>
-                        <span>XS</span>
-                        <span>S</span>
-                        <span>M</span>
-                        <span>L</span>
-                        <span>XL</span>
-                        <span>XXL</span>
-                    </div>
                 </div>
             </div>
         </div>

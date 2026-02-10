@@ -55,42 +55,63 @@ for (const productDir of productFolders) {
     let brand, category, title;
 
     // New structure: products/[brand]/[category]/[id] OR curated/[bestseller/sale]/[id]
+    // OR deeper: curated/sports/football/jordan/trucksuits/jordan-trucksuits-001
+
+    // Strategy: Look at the folder name itself as the ID/Title source, 
+    // and its parent folders for Category/Brand
+
+    const folderName = parts[parts.length - 1]; // e.g. amiparis-hoodie-001 or jordan-trucksuits-001
+
     if (parts[0] === 'products') {
+        // Standard: products/amiparis/hoodies/amiparis-hoodie-001
         if (parts.length >= 4) {
             brand = parts[1];
             category = parts[2];
-            title = parts[3];
+            title = folderName;
         } else if (parts.length === 3) {
             brand = parts[1];
             category = parts[2];
-            title = parts[2];
-        } else if (parts.length === 2) {
-            brand = parts[1];
-            category = 'General';
-            title = parts[1];
-        } else {
-            continue; // products root or similar
-        }
-    } else if (parts[0] === 'curated') {
-        if (parts.length >= 3) {
-            // Example: curated/bestsellers/amiparis-hoodie-001
-            const type = parts[1]; // bestsellers, sale, etc.
-            title = parts[2];
-
-            // Try to extract brand from title if possible (e.g. amiparis-hoodie-001 -> Amiparis)
-            const titleParts = title.split('-');
-            brand = titleParts[0];
-
-            if (type === 'bestsellers') {
-                category = 'Best Sellers';
-            } else {
-                category = type;
-            }
+            title = folderName;
         } else {
             continue;
         }
+    } else if (parts[0] === 'curated') {
+        // Complex: curated/sports/football/jordan/trucksuits/jordan-trucksuits-001
+        // OR: curated/bestsellers/amiparis-hoodie-001
+
+        if (parts[1] === 'sports') {
+            // curated/sports/[sport]/[brand]/[category]/[id]
+            // or curated/sports/[sport]/[category]/[id]
+            // We need to valid parts length. 
+            // Let's rely on the folder name for title and try to extract others.
+
+            // Simple fallback: 
+            // Brand = try to extract from folder name or parent
+            // Category = parent folder name
+
+            const parentFolder = parts[parts.length - 2];
+            category = parentFolder; // e.g. trucksuits
+            title = folderName;
+
+            // Try to extract brand from title (jordan-trucksuits...)
+            const titleParts = folderName.split('-');
+            brand = titleParts[0]; // jordan
+
+            // Override category if it's a sport name, maybe go one level up
+            // specific fix for the user's issue:
+            // curated/sports/football/jordan/trucksuits/jordan-trucksuits-001
+            // parts: [curated, sports, football, jordan, trucksuits, jordan-trucksuits-001]
+            if (parts.includes('jordan')) brand = 'Jordan';
+
+        } else {
+            // curated/bestsellers/xxx
+            const type = parts[1];
+            category = type === 'bestsellers' ? 'Best Sellers' : type;
+            title = folderName;
+            const titleParts = folderName.split('-');
+            brand = titleParts[0];
+        }
     } else {
-        // Skip non-product folders (brand-assets, system, marketing)
         continue;
     }
 
@@ -143,27 +164,80 @@ for (const productDir of productFolders) {
     });
 
     // Clean brand/category for display
-    const formatStr = (s) => s.charAt(0).toUpperCase() + s.slice(1).replace(/_/g, ' ');
+    const formatStr = (s) => s ? s.charAt(0).toUpperCase() + s.slice(1).replace(/_/g, ' ') : 'General';
     const displayBrand = formatStr(brand);
-    const displayCategory = formatStr(category);
-    const displayTitle = formatStr(title).replace(/(\d{3,}|\.webp|\.jpg)/g, '').trim() || `${displayBrand} Item`;
-    const price = 50 + Math.floor(Math.random() * 200);
 
-    // Slug
-    const slug = `${brand}-${category}-${title}`.toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-');
+    // Normalize Category
+    let displayCategory = formatStr(category);
+    // Fix specific categories to match frontend Map
+    if (displayCategory.toLowerCase().includes('shirt') && !displayCategory.toLowerCase().includes('t-shirt') && !displayCategory.toLowerCase().includes('sweat')) displayCategory = 'T-Shirts';
+    if (category.toLowerCase() === 'tshirts' || category.toLowerCase() === 'tshirt') displayCategory = 'T-Shirts';
+    if (category.toLowerCase() === 'hoodies') displayCategory = 'Hoodies';
+    // ... add more as needed
+
+    const displayTitle = formatStr(title).replace(/(\d{3,}|\.webp|\.jpg)/g, '').trim() || `${displayBrand} Item`;
+
+    // Price logic with Sale
+    const basePrice = 50 + Math.floor(Math.random() * 200);
+    let price = basePrice;
+    let compareAtPrice = undefined;
+
+    // 20% chance of being on sale
+    const isSale = Math.random() < 0.2;
+    if (isSale) {
+        compareAtPrice = Math.floor(basePrice * 1.2) + 10; // Original price higher
+        // price remains basePrice (the discounted one)
+    }
+
+    // Sports Tags Logic
+    const sportTags = ['football', 'basketball', 'running', 'gym'];
+    const assignedSports = [];
+
+    // If path contains sport name, force it
+    let forcedSport = null;
+    if (parts.includes('sports')) {
+        if (parts.includes('football')) forcedSport = 'football';
+        else if (parts.includes('basketball')) forcedSport = 'basketball';
+        else if (parts.includes('running')) forcedSport = 'running';
+        else if (parts.includes('gym')) forcedSport = 'gym';
+    }
+
+    if (forcedSport) {
+        assignedSports.push(forcedSport);
+    } else {
+        // Random distribution for others
+        const numSports = 1 + Math.floor(Math.random() * 2);
+        const shuffledSports = [...sportTags].sort(() => 0.5 - Math.random());
+        for (let i = 0; i < numSports; i++) {
+            assignedSports.push(shuffledSports[i]);
+        }
+    }
+
+    // Build finalized tags
+    const finalTags = [displayBrand, displayCategory, ...assignedSports];
+    if (isSale) {
+        finalTags.push('sale');
+    }
+
+    // Slug & ID Generation (Ensure Uniqueness)
+    // Add importCounter to slug/id to guarantee uniqueness even if names collide
+    const rawSlug = `${brand}-${category}-${title}`;
+    const cleanSlug = rawSlug.toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-');
+    const uniqueId = `${cleanSlug}-${importCounter}`; // GUARANTEE UNIQUENESS
 
     productEntries.push(`    {
-        id: '${slug}', // Use slug as ID to ensure uniqueness
+        id: '${uniqueId}', 
         title: "${displayTitle}",
         price: ${price},
+        ${compareAtPrice ? `compareAtPrice: ${compareAtPrice},` : ''}
         image: ${mainImportName},
         hoverImage: ${hoverImportName},
         gallery: [${galleryImports.join(', ')}],
         category: "${displayCategory}",
         brand: "${displayBrand}",
-        slug: "${slug}",
-        gender: "unisex", // Defaulting to unisex as requested to avoid duplication
-        tags: ["${displayBrand}", "${displayCategory}"]
+        slug: "${uniqueId}", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ${JSON.stringify(finalTags)}
     }`);
 }
 

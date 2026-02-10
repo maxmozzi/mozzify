@@ -82,6 +82,8 @@ export default function CollectionListing({
     const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
     const [selectedColors, setSelectedColors] = useState<string[]>([]);
     const [priceRange, setPriceRange] = useState({ min: 0, max: 1000 });
+    const [selectedSports, setSelectedSports] = useState<string[]>([]);
+    const [isSaleSelected, setIsSaleSelected] = useState(false);
 
     const handleSizeChange = (size: string) => {
         setSelectedSizes(prev =>
@@ -95,10 +97,18 @@ export default function CollectionListing({
         );
     };
 
+    const handleSportChange = (sport: string) => {
+        setSelectedSports(prev =>
+            prev.includes(sport) ? prev.filter(s => s !== sport) : [...prev, sport]
+        );
+    };
+
     const handleClearAll = () => {
         setSelectedSizes([]);
         setSelectedColors([]);
         setPriceRange({ min: 0, max: 1000 });
+        setSelectedSports([]);
+        setIsSaleSelected(false);
         handleCategoryChange('all');
     };
 
@@ -127,10 +137,26 @@ export default function CollectionListing({
             if (cat.isViewAll) return cat;
 
             // Find a product globally that matches this category name loosely
-            let sampleProduct = products.find(p =>
-                p.category?.toLowerCase().replace(/[\s-]/g, '') === cat.slug.replace(/_/g, '') ||
-                p.category?.toLowerCase().replace(/[\s-]/g, '') === cat.name.toLowerCase().replace(/[\s-]/g, '')
-            );
+            // Find a product globally that matches this category name loosely
+            let sampleProduct = products.find(p => {
+                const cleanCatSlug = cat.slug.replace(/_/g, '').toLowerCase();
+                const cleanCatName = cat.name.replace(/[\s-]/g, '').toLowerCase();
+                const cleanProdCat = (p.category || '').replace(/[\s-]/g, '').toLowerCase();
+
+                // 1. Direct Category Match
+                if (cleanProdCat === cleanCatSlug || cleanProdCat === cleanCatName) return true;
+
+                // 2. Singular/Plural Match (simple heuristic)
+                if (cleanProdCat + 's' === cleanCatSlug || cleanProdCat === cleanCatSlug + 's') return true;
+
+                // 3. Tag Match (for Sports and others)
+                if (p.tags && p.tags.some(t => {
+                    const cleanTag = t.replace(/[\s-]/g, '').toLowerCase();
+                    return cleanTag === cleanCatSlug || cleanTag === cleanCatName;
+                })) return true;
+
+                return false;
+            });
 
             // Fallback: Use a random product image as placeholder if no direct match found
             // This is useful for "Sports" where we don't have products yet
@@ -166,6 +192,25 @@ export default function CollectionListing({
 
     const sortedProducts = useMemo(() => {
         let result = [...initialProducts];
+
+        // 1. Price Filter
+        result = result.filter(p => p.price >= priceRange.min && p.price <= priceRange.max);
+
+        // 2. Tags Filter (Sports)
+        if (selectedSports.length > 0) {
+            result = result.filter(p =>
+                p.tags && p.tags.some(t => selectedSports.includes(t.toLowerCase()))
+            );
+        }
+
+        // 3. Sale Filter using tag or compareAtPrice
+        if (isSaleSelected) {
+            result = result.filter(p =>
+                (p.tags && p.tags.includes('sale')) || (p.compareAtPrice && p.compareAtPrice > p.price)
+            );
+        }
+
+        // 4. Sort
         if (currentSort === 'Price: Low to High') {
             result.sort((a, b) => a.price - b.price);
         } else if (currentSort === 'Price: High to Low') {
@@ -174,7 +219,7 @@ export default function CollectionListing({
             result.reverse();
         }
         return result;
-    }, [initialProducts, currentSort]);
+    }, [initialProducts, currentSort, priceRange, selectedSports, isSaleSelected]);
 
     return (
         <div>
@@ -192,7 +237,7 @@ export default function CollectionListing({
                     {gender} / {collectionTitle} {activeSubcategory ? ` / ${activeSubcategory.replace('_', ' ')}` : ''}
                 </p>
                 <p style={{ fontSize: '12px', color: '#666', marginTop: '0.2rem', fontWeight: 'normal' }}>
-                    {initialProducts.length} Products
+                    {sortedProducts.length} Products
                 </p>
             </div>
 
@@ -227,6 +272,10 @@ export default function CollectionListing({
                 onColorChange={handleColorChange}
                 priceRange={priceRange}
                 onPriceChange={setPriceRange}
+                selectedSports={selectedSports}
+                onSportChange={handleSportChange}
+                isSaleSelected={isSaleSelected}
+                onSaleChange={setIsSaleSelected}
                 onClearAll={handleClearAll}
                 currentSort={currentSort}
                 onSortChange={setCurrentSort}
