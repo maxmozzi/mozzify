@@ -11,7 +11,6 @@ const OUTPUT_FILE = path.join(__dirname, '../src/data/generated-products.ts');
 function getProductFolders(dir, fileList = []) {
     const files = fs.readdirSync(dir);
     let hasImages = false;
-    // Collect ALL images in this folder
     const images = [];
 
     files.forEach((file) => {

@@ -5,12 +5,12 @@ import { products as allProducts } from '@/data/generated-products';
 
 // Define Sports Categories for the Carousel
 const SPORTS_CATEGORIES = [
-    { name: 'Football', slug: 'sports/football', image: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1000&auto=format&fit=crop' },
-    { name: 'Basketball', slug: 'sports/basketball', image: 'https://images.unsplash.com/photo-1519861531473-92002639313a?q=80&w=1000&auto=format&fit=crop' },
-    { name: 'Running', slug: 'sports/running', image: 'https://images.unsplash.com/photo-1552674605-46fd2697b0a8?q=80&w=1000&auto=format&fit=crop' },
-    { name: 'Gym', slug: 'sports/gym', image: 'https://images.unsplash.com/photo-1540497077202-7c8a3ca8e0df?q=80&w=1000&auto=format&fit=crop' },
-    { name: 'Yoga', slug: 'sports/yoga', image: 'https://images.unsplash.com/photo-1544367563-12123d8959c9?q=80&w=1000&auto=format&fit=crop' },
-    { name: 'Tennis', slug: 'sports/tennis', image: 'https://images.unsplash.com/photo-1587280501635-68a6e82cd5ff?q=80&w=1000&auto=format&fit=crop' },
+    { name: 'Football', slug: 'sports/football', image: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1000&auto=format&fit=crop', filterValue: 'football' },
+    { name: 'Basketball', slug: 'sports/basketball', image: 'https://images.unsplash.com/photo-1519861531473-92002639313a?q=80&w=1000&auto=format&fit=crop', filterValue: 'basketball' },
+    { name: 'Running', slug: 'sports/running', image: 'https://images.unsplash.com/photo-1552674605-46fd2697b0a8?q=80&w=1000&auto=format&fit=crop', filterValue: 'running' },
+    { name: 'Gym', slug: 'sports/gym', image: 'https://images.unsplash.com/photo-1540497077202-7c8a3ca8e0df?q=80&w=1000&auto=format&fit=crop', filterValue: 'gym' },
+    { name: 'Yoga', slug: 'sports/yoga', image: 'https://images.unsplash.com/photo-1544367563-12123d8959c9?q=80&w=1000&auto=format&fit=crop', filterValue: 'yoga' },
+    { name: 'Tennis', slug: 'sports/tennis', image: 'https://images.unsplash.com/photo-1587280501635-68a6e82cd5ff?q=80&w=1000&auto=format&fit=crop', filterValue: 'tennis' },
 ];
 
 export default function SportsPage() {

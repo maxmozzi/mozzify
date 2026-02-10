@@ -21,49 +21,18 @@ interface CollectionListingProps {
     collectionSlug?: string;
 }
 
-// Fixed categories to match "as before"
-const CATEGORIES = [
-    { name: 'View All', slug: 'all', isViewAll: true },
-    { name: 'Hoodies', slug: 'hoodies' },
-    { name: 'T-Shirts', slug: 'tshirt' },
-    { name: 'Polo', slug: 'polo' },
-    { name: 'Shorts', slug: 'shorts' },
-    { name: 'Jeans', slug: 'jeans' },
-    { name: 'Sweater', slug: 'sweater' },
-    { name: 'Sweatshirt', slug: 'sweatshirt' },
-    { name: 'Jacket', slug: 'jacket' },
-    { name: 'Sets', slug: 'sets' },
-    { name: 'Shoes', slug: 'shoes' },
-    { name: 'Iphone Case', slug: 'iphone_case' },
-];
+import { PAGE_CATEGORIES } from '@/data/category-config';
 
-const SHOES_CATEGORIES = [
-    { name: 'View All', slug: 'all', isViewAll: true },
-    { name: 'Sneakers', slug: 'sneakers' },
-    { name: 'Boots', slug: 'boots' },
-    { name: 'Loafers', slug: 'loafers' },
-    { name: 'Slides', slug: 'slides' },
-];
+// Helper to find image for category
+const findCategoryImage = (cat: any, products: GridProduct[]) => {
+    return products.find(p =>
+        (p.category === cat.filterValue) ||
+        (p.tags && p.tags.includes(cat.filterValue)) ||
+        (cat.slug === 'sweatshirts' && p.category === 'Sweaters')
+    )?.image;
+};
 
-const SPORTS_CATEGORIES = [
-    { name: 'View All', slug: 'all', isViewAll: true },
-    { name: 'Football', slug: 'football' },
-    { name: 'Basketball', slug: 'basketball' },
-    { name: 'Running', slug: 'running' },
-    { name: 'Training & Gym', slug: 'gym' },
-];
 
-const ACCESSORIES_CATEGORIES = [
-    { name: 'View All', slug: 'all', isViewAll: true },
-    { name: 'Bags', slug: 'bags' },
-    { name: 'Belts', slug: 'belts' },
-    { name: 'Caps', slug: 'caps' },
-    { name: 'Hats', slug: 'hats' },
-    { name: 'Wallets', slug: 'wallets' },
-    { name: 'Scarves', slug: 'scarves' },
-    { name: 'Ski Mask', slug: 'ski_mask' },
-    { name: 'Sunglasses', slug: 'sunglasses' },
-];
 
 export default function CollectionListing({
     initialProducts,
@@ -85,11 +54,30 @@ export default function CollectionListing({
     const [selectedSports, setSelectedSports] = useState<string[]>([]);
     const [isSaleSelected, setIsSaleSelected] = useState(false);
 
+    // Filter CATEGORIES based on collection context
+    const filteredCategories = useMemo(() => {
+        if (collectionSlug === 'clothing') return PAGE_CATEGORIES.CLOTHING;
+        if (collectionSlug === 'shoes') return PAGE_CATEGORIES.SHOES;
+        if (collectionSlug === 'sports') return PAGE_CATEGORIES.SPORTS;
+        // Default
+        return PAGE_CATEGORIES.FULL_CATALOG;
+    }, [collectionSlug]);
+
+    // Mapped categories for the visual carousel
+    const carouselCategories = useMemo(() => {
+        return filteredCategories.map((cat) => ({
+            ...cat,
+            image: findCategoryImage(cat, products)
+        }));
+    }, [filteredCategories]);
+
     const handleSizeChange = (size: string) => {
         setSelectedSizes(prev =>
             prev.includes(size) ? prev.filter(s => s !== size) : [...prev, size]
         );
     };
+
+
 
     const handleColorChange = (color: string) => {
         setSelectedColors(prev =>
@@ -111,67 +99,6 @@ export default function CollectionListing({
         setIsSaleSelected(false);
         handleCategoryChange('all');
     };
-
-    // Filter CATEGORIES based on collection context
-    const filteredCategories = useMemo(() => {
-        if (collectionSlug === 'clothing') {
-            return CATEGORIES.filter(cat =>
-                cat.slug !== 'shoes' && cat.slug !== 'iphone_case'
-            );
-        }
-        if (collectionSlug === 'shoes') {
-            return SHOES_CATEGORIES;
-        }
-        if (collectionSlug === 'sports') {
-            return SPORTS_CATEGORIES;
-        }
-        if (collectionSlug === 'accessories') {
-            return ACCESSORIES_CATEGORIES;
-        }
-        return CATEGORIES;
-    }, [collectionSlug]);
-
-    // Mapped categories for the visual carousel (using global products for consistent images)
-    const carouselCategories = useMemo(() => {
-        return filteredCategories.map((cat, idx) => {
-            if (cat.isViewAll) return cat;
-
-            // Find a product globally that matches this category name loosely
-            // Find a product globally that matches this category name loosely
-            let sampleProduct = products.find(p => {
-                const cleanCatSlug = cat.slug.replace(/_/g, '').toLowerCase();
-                const cleanCatName = cat.name.replace(/[\s-]/g, '').toLowerCase();
-                const cleanProdCat = (p.category || '').replace(/[\s-]/g, '').toLowerCase();
-
-                // 1. Direct Category Match
-                if (cleanProdCat === cleanCatSlug || cleanProdCat === cleanCatName) return true;
-
-                // 2. Singular/Plural Match (simple heuristic)
-                if (cleanProdCat + 's' === cleanCatSlug || cleanProdCat === cleanCatSlug + 's') return true;
-
-                // 3. Tag Match (for Sports and others)
-                if (p.tags && p.tags.some(t => {
-                    const cleanTag = t.replace(/[\s-]/g, '').toLowerCase();
-                    return cleanTag === cleanCatSlug || cleanTag === cleanCatName;
-                })) return true;
-
-                return false;
-            });
-
-            // Fallback: Use a random product image as placeholder if no direct match found
-            // This is useful for "Sports" where we don't have products yet
-            if (!sampleProduct && products.length > 0) {
-                // Use a deterministic "random" based on index
-                sampleProduct = products[idx % products.length];
-            }
-
-            return {
-                ...cat,
-                image: sampleProduct?.image
-            };
-        });
-    }, [filteredCategories]); // Depend on filteredCategories since they change per collectionSlug
-
 
     const availableCategories = useMemo(() => {
         const cats = new Set(baseProducts.map(p => p.category).filter(Boolean));

@@ -3,7 +3,7 @@ const path = require('path');
 
 const IMAGES_DIR = path.join(__dirname, '../src/images');
 const OUTPUT_FILE = path.join(__dirname, '../src/data/generated-products.ts');
-const PRODUCT_LIMIT = 50; // Limit products during dev to prevent bundler crash
+const PRODUCT_LIMIT = 150; // Increased to ensure coverage for all categories
 
 // Valid extensions
 const VALID_EXTS = ['.webp', '.png', '.jpg', '.jpeg', '.svg'];
@@ -215,6 +215,82 @@ for (const productDir of productFolders) {
 
     // Build finalized tags
     const finalTags = [displayBrand, displayCategory, ...assignedSports];
+
+    // Extract implicit type from folder name parts (e.g. amiparis-hoodie-001 -> hoodie -> Hoodies)
+    if (folderName) {
+        const parts = folderName.split('-');
+        if (parts.length > 1) {
+            const potentialType = parts[1].toLowerCase();
+            // Map common types
+            const typeMap = {
+                'hoodie': 'Hoodies',
+                'hoodies': 'Hoodies',
+                'sweater': 'Sweaters',
+                'sweaters': 'Sweaters',
+                'sweatshirt': 'Sweatshirts',
+                'sweatshirts': 'Sweatshirts',
+                'polo': 'Polos',
+                'polos': 'Polos',
+                'short': 'Shorts',
+                'shorts': 'Shorts',
+                'pant': 'Pants',
+                'pants': 'Pants',
+                'tank': 'Tanks',
+                'tanks': 'Tanks',
+                'tee': 'T-Shirts',
+                'tshirt': 'T-Shirts',
+                'tshirts': 'T-Shirts',
+                'shirt': 'T-Shirts',
+                'jacket': 'Jackets',
+                'jackets': 'Jackets',
+                'jeans': 'Jeans',
+                'denim': 'Jeans'
+            };
+
+            if (typeMap[potentialType]) {
+                const typeTag = typeMap[potentialType];
+                if (!finalTags.includes(typeTag)) {
+                    finalTags.push(typeTag);
+                }
+            }
+        }
+    }
+
+    // 50% chance to be a Best Seller (simulated for demo)
+    const isBestSeller = category === 'Best Sellers' || parts[1] === 'bestsellers' || Math.random() < 0.5;
+
+    if (isBestSeller) {
+        if (!finalTags.includes('Best Sellers')) finalTags.push('Best Sellers');
+        // Randomly assign types to Best Sellers to ensure we hav coverage for all carousel categories
+        const demoTypes = ['T-Shirts', 'Hoodies', 'Sweatshirts', 'Sweaters', 'Jackets', 'Polos', 'Pants', 'Shorts', 'Sneakers', 'Boots', 'Loafers', 'Slides', 'Trucksuits', 'Accessories', 'Shoes'];
+
+        // Pick 3 random types to ensure overlap and hit 10 products per cat
+        for (let k = 0; k < 3; k++) {
+            const randomType = demoTypes[Math.floor(Math.random() * demoTypes.length)];
+            if (!finalTags.includes(randomType)) {
+                finalTags.push(randomType);
+            }
+        }
+    } else {
+        // Randomly assign Shoe types to other products to populate Shoes page for testing
+        // 40% chance to be a shoe if not already
+        if (Math.random() < 0.4) {
+            const shoeTypes = ['Sneakers', 'Boots', 'Loafers', 'Slides'];
+            // Pick 2 random shoe types
+            for (let k = 0; k < 2; k++) {
+                const randomShoe = shoeTypes[Math.floor(Math.random() * shoeTypes.length)];
+                if (!finalTags.includes(randomShoe)) finalTags.push(randomShoe);
+            }
+            if (!finalTags.includes('Shoes')) finalTags.push('Shoes');
+        }
+    }
+
+    // FINAL FIX: Ensure "Shoes" tag if any shoe-type is present
+    const shoeKeywords = ['Sneakers', 'Boots', 'Loafers', 'Slides'];
+    if (finalTags.some(t => shoeKeywords.includes(t)) && !finalTags.includes('Shoes')) {
+        finalTags.push('Shoes');
+    }
+
     if (isSale) {
         finalTags.push('sale');
     }

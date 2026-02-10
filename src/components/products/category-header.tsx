@@ -8,22 +8,11 @@ import { products } from '@/data/generated-products';
 
 // Data for Visual Categories
 // Data for Visual Categories
-const CATEGORIES = [
-    { name: 'View All', slug: 'all', isViewAll: true },
-    { name: 'Hoodies', slug: 'hoodies', image: products.find(p => p.category === 'Hoodies')?.image },
-    { name: 'Sweaters', slug: 'sweaters', image: products.find(p => p.category === 'Sweater')?.image },
-    { name: 'Polos', slug: 'polos', image: products.find(p => p.category === 'Polo')?.image },
-    { name: 'Shorts', slug: 'shorts', image: products.find(p => p.category === 'Shorts')?.image },
-    // Fallbacks or other categories if they exist
-    { name: 'Denim', slug: 'jeans', image: products.find(p => p.category === 'Jeans' || p.category === 'Denim Jeans')?.image },
-    { name: 'Accessories', slug: 'accessories', image: products.find(p => p.category === 'Accessories' || p.category === 'Iphone case')?.image },
-];
-
 
 export default function CategoryHeader({
     title,
     productCount,
-    categories = CATEGORIES,
+    categories = [],
     onCategoryClick
 }: {
     title: string,
@@ -182,7 +171,7 @@ function CategoryCard({ cat, onClick }: { cat: any, onClick?: (slug: string) => 
 
     if (onClick) {
         return (
-            <div style={cardStyle} onClick={() => onClick(cat.slug)}>
+            <div style={cardStyle} onClick={() => onClick(cat.filterValue || cat.name || cat.slug)}>
                 {content}
             </div>
         );
@@ -213,3 +202,4 @@ const arrowButtonStyle = (position: 'left' | 'right') => ({
     cursor: 'pointer',
     boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
 });
+

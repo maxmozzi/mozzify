@@ -22,7 +22,7 @@ interface ProductListingProps {
     showBrandFilter?: boolean; // New prop to toggle brand filter visibility
     isGlobalView?: boolean; // New prop to indicating we are in /category/all
     showCategoryCarousel?: boolean;
-    customCategories?: { name: string; slug: string; image?: string; isViewAll?: boolean }[]; // New prop for custom carousel items
+    customCategories?: { name: string; slug: string; image?: any; isViewAll?: boolean; filterValue?: string }[]; // New prop for custom carousel items
 }
 
 export default function ProductListing({
@@ -53,6 +53,8 @@ export default function ProductListing({
     // New State for Layout
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [currentSort, setCurrentSort] = useState('Relevancy');
+
+    const [isSaleSelected, setIsSaleSelected] = useState(false);
 
     // Simulate/Enrich Data with missing fields (Size/Color)
     const enrichedProducts = useMemo(() => {
@@ -85,7 +87,17 @@ export default function ProductListing({
 
         // Category Filter
         if (selectedCategories.length > 0) {
-            result = result.filter(p => p.category && selectedCategories.includes(p.category));
+            result = result.filter(p => {
+                // Check Category (Strict or Case-Insensitive)
+                const categoryMatch = p.category && selectedCategories.some(sc => sc.toLowerCase() === p.category.toLowerCase());
+
+                // Check Tags (Case-Insensitive)
+                const tagMatch = p.tags && p.tags.some(tag =>
+                    selectedCategories.some(sc => sc.toLowerCase() === tag.toLowerCase())
+                );
+
+                return categoryMatch || tagMatch;
+            });
         }
 
         // Size Filter (OR logic within sizes) - Check if product has ANY of the selected sizes
@@ -96,6 +108,11 @@ export default function ProductListing({
         // Color Filter (OR logic within colors)
         if (selectedColors.length > 0) {
             result = result.filter(p => p.colors && p.colors.some(c => selectedColors.includes(c)));
+        }
+
+        // Sale Filter
+        if (isSaleSelected) {
+            result = result.filter(p => p.tags && p.tags.map(t => t.toLowerCase()).includes('sale'));
         }
 
         // Price Filter
@@ -110,8 +127,13 @@ export default function ProductListing({
             result = [...result].reverse();
         }
 
+        // Limit to 10 if specific categories are selected
+        if (selectedCategories.length > 0) {
+            result = result.slice(0, 10);
+        }
+
         return result;
-    }, [productPool, selectedBrands, selectedCategories, selectedSizes, selectedColors, priceRange, currentSort, gender]);
+    }, [productPool, selectedBrands, selectedCategories, selectedSizes, selectedColors, priceRange, currentSort, gender, isSaleSelected]);
 
     // Clear All Handler
     const handleClearAll = () => {
@@ -121,6 +143,7 @@ export default function ProductListing({
         setSelectedColors([]);
         setPriceRange({ min: 0, max: 1000 });
         setCurrentSort('Relevancy');
+        setIsSaleSelected(false);
     };
 
 
@@ -138,6 +161,20 @@ export default function ProductListing({
         );
     };
 
+    const handleCarouselClick = (value: string) => {
+        if (value === 'all' || value === 'View All') {
+            if (initialCategory) {
+                // If we are on a page that is strictly one category (unlikely here if using carousel for sub-filter), 
+                // we might want to reset to initial. But here 'all' usually means clear sub-filters.
+                setSelectedCategories([initialCategory]);
+            } else {
+                setSelectedCategories([]);
+            }
+        } else {
+            setSelectedCategories([value]);
+        }
+    };
+
     return (
         <div style={{ position: 'relative' }}>
 
@@ -148,6 +185,7 @@ export default function ProductListing({
                     title={title}
                     productCount={filteredProducts.length}
                     categories={customCategories}
+                    onCategoryClick={handleCarouselClick}
                 />
             )}
             {!showCategoryCarousel && (
@@ -211,6 +249,12 @@ export default function ProductListing({
                 priceRange={priceRange}
                 onPriceChange={setPriceRange}
                 onClearAll={handleClearAll}
+                currentSort={currentSort}
+                onSortChange={setCurrentSort}
+                selectedSports={selectedCategories} // Reusing category selection for sports tags
+                onSportChange={handleCategoryChange}
+                isSaleSelected={isSaleSelected}
+                onSaleChange={setIsSaleSelected}
             />
         </div>
     );

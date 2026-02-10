@@ -22,117 +22,369 @@ import Img_7_Main from '@/images/curated/bestsellers/amiparis-hoodie-007/front.w
 const Img_7_Hover = Img_7_Main;
 import Img_8_Main from '@/images/curated/bestsellers/amiparis-hoodie-008/front.webp';
 const Img_8_Hover = Img_8_Main;
-import Img_9_Main from '@/images/curated/sports/football/jordan/hoodies/jordan-hoodies-001/front.webp';
-import Img_9_Hover from '@/images/curated/sports/football/jordan/hoodies/jordan-hoodies-001/back.webp';
-import Img_9_Gal_1 from '@/images/curated/sports/football/jordan/hoodies/jordan-hoodies-001/back.webp';
-import Img_10_Main from '@/images/curated/sports/football/jordan/hoodies/jordan-hoodies-002/front.webp';
-import Img_10_Hover from '@/images/curated/sports/football/jordan/hoodies/jordan-hoodies-002/back.webp';
-import Img_10_Gal_1 from '@/images/curated/sports/football/jordan/hoodies/jordan-hoodies-002/back.webp';
-import Img_11_Main from '@/images/curated/sports/football/jordan/pants/jordan-pants-001/front.webp';
-import Img_11_Hover from '@/images/curated/sports/football/jordan/pants/jordan-pants-001/back.webp';
-import Img_11_Gal_1 from '@/images/curated/sports/football/jordan/pants/jordan-pants-001/back.webp';
-import Img_12_Main from '@/images/curated/sports/football/jordan/pants/jordan-pants-002/front.webp';
-import Img_12_Hover from '@/images/curated/sports/football/jordan/pants/jordan-pants-002/back.webp';
-import Img_12_Gal_1 from '@/images/curated/sports/football/jordan/pants/jordan-pants-002/back.webp';
-import Img_13_Main from '@/images/curated/sports/football/jordan/trucksuits/jordan-trucksuits-001/front.webp';
-import Img_13_Hover from '@/images/curated/sports/football/jordan/trucksuits/jordan-trucksuits-001/back.webp';
-import Img_13_Gal_1 from '@/images/curated/sports/football/jordan/trucksuits/jordan-trucksuits-001/back.webp';
-import Img_14_Main from '@/images/curated/sports/football/jordan/trucksuits/jordan-trucksuits-002/front.webp';
-import Img_14_Hover from '@/images/curated/sports/football/jordan/trucksuits/jordan-trucksuits-002/back.webp';
-import Img_14_Gal_1 from '@/images/curated/sports/football/jordan/trucksuits/jordan-trucksuits-002/back.webp';
-import Img_15_Main from '@/images/curated/sports/football/jordan/trucksuits/jordan-trucksuits-003/front.webp';
-import Img_15_Hover from '@/images/curated/sports/football/jordan/trucksuits/jordan-trucksuits-003/back.webp';
-import Img_15_Gal_1 from '@/images/curated/sports/football/jordan/trucksuits/jordan-trucksuits-003/back.webp';
-import Img_16_Main from '@/images/curated/sports/gym/jordan/shorts/jordan-shorts-001/front.webp';
-import Img_16_Hover from '@/images/curated/sports/gym/jordan/shorts/jordan-shorts-001/back.webp';
-import Img_16_Gal_1 from '@/images/curated/sports/gym/jordan/shorts/jordan-shorts-001/back.webp';
-import Img_17_Main from '@/images/curated/sports/gym/jordan/shorts/jordan-shorts-002/front.webp';
-import Img_17_Hover from '@/images/curated/sports/gym/jordan/shorts/jordan-shorts-002/back.webp';
-import Img_17_Gal_1 from '@/images/curated/sports/gym/jordan/shorts/jordan-shorts-002/back.webp';
-import Img_18_Main from '@/images/curated/sports/gym/jordan/shorts/jordan-shorts-003/front.webp';
-import Img_18_Hover from '@/images/curated/sports/gym/jordan/shorts/jordan-shorts-003/back.webp';
-import Img_18_Gal_1 from '@/images/curated/sports/gym/jordan/shorts/jordan-shorts-003/back.webp';
-import Img_19_Main from '@/images/curated/sports/gym/jordan/tanks/jordan-tanks-001/front.webp';
-import Img_19_Hover from '@/images/curated/sports/gym/jordan/tanks/jordan-tanks-001/back.webp';
-import Img_19_Gal_1 from '@/images/curated/sports/gym/jordan/tanks/jordan-tanks-001/back.webp';
-import Img_20_Main from '@/images/curated/sports/gym/jordan/tanks/jordan-tanks-002/front.webp';
-import Img_20_Hover from '@/images/curated/sports/gym/jordan/tanks/jordan-tanks-002/back.webp';
-import Img_20_Gal_1 from '@/images/curated/sports/gym/jordan/tanks/jordan-tanks-002/back.webp';
-import Img_21_Main from '@/images/curated/sports/gym/jordan/tshirts/jordan-tshirts-001/front.webp';
-import Img_21_Hover from '@/images/curated/sports/gym/jordan/tshirts/jordan-tshirts-001/back.webp';
-import Img_21_Gal_1 from '@/images/curated/sports/gym/jordan/tshirts/jordan-tshirts-001/back.webp';
-import Img_22_Main from '@/images/curated/sports/gym/jordan/tshirts/jordan-tshirts-002/front.webp';
-import Img_22_Hover from '@/images/curated/sports/gym/jordan/tshirts/jordan-tshirts-002/back.webp';
-import Img_22_Gal_1 from '@/images/curated/sports/gym/jordan/tshirts/jordan-tshirts-002/back.webp';
-import Img_23_Main from '@/images/products/amiparis/hoodies/amiparis-hoodie-001/front.webp';
+import Img_9_Main from '@/images/products/amiparis/hoodies/amiparis-hoodie-001/front.webp';
+const Img_9_Hover = Img_9_Main;
+import Img_10_Main from '@/images/products/amiparis/hoodies/amiparis-hoodie-002/front.webp';
+const Img_10_Hover = Img_10_Main;
+import Img_11_Main from '@/images/products/amiparis/hoodies/amiparis-hoodie-003/front.webp';
+import Img_11_Hover from '@/images/products/amiparis/hoodies/amiparis-hoodie-003/back.webp';
+import Img_11_Gal_1 from '@/images/products/amiparis/hoodies/amiparis-hoodie-003/back.webp';
+import Img_12_Main from '@/images/products/amiparis/hoodies/amiparis-hoodie-004/front.webp';
+import Img_12_Hover from '@/images/products/amiparis/hoodies/amiparis-hoodie-004/back.webp';
+import Img_12_Gal_1 from '@/images/products/amiparis/hoodies/amiparis-hoodie-004/back.webp';
+import Img_13_Main from '@/images/products/amiparis/hoodies/amiparis-hoodie-005/front.webp';
+const Img_13_Hover = Img_13_Main;
+import Img_14_Main from '@/images/products/amiparis/hoodies/amiparis-hoodie-006/front.webp';
+const Img_14_Hover = Img_14_Main;
+import Img_15_Main from '@/images/products/amiparis/hoodies/amiparis-hoodie-007/front.webp';
+const Img_15_Hover = Img_15_Main;
+import Img_16_Main from '@/images/products/amiparis/hoodies/amiparis-hoodie-008/front.webp';
+const Img_16_Hover = Img_16_Main;
+import Img_17_Main from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-001/front.webp';
+const Img_17_Hover = Img_17_Main;
+import Img_18_Main from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-002/front.webp';
+const Img_18_Hover = Img_18_Main;
+import Img_19_Main from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-003/front.webp';
+import Img_19_Hover from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-003/detail1.webp';
+import Img_19_Gal_1 from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-003/detail1.webp';
+import Img_19_Gal_2 from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-003/detail2.webp';
+import Img_20_Main from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-004/front.webp';
+import Img_20_Hover from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-004/detail1.webp';
+import Img_20_Gal_1 from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-004/detail1.webp';
+import Img_20_Gal_2 from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-004/detail2.webp';
+import Img_21_Main from '@/images/products/amiparis/polos/amiparis-polo-001/front.webp';
+const Img_21_Hover = Img_21_Main;
+import Img_22_Main from '@/images/products/amiparis/polos/amiparis-polo-002/front.webp';
+const Img_22_Hover = Img_22_Main;
+import Img_23_Main from '@/images/products/amiparis/polos/amiparis-polo-003/front.webp';
 const Img_23_Hover = Img_23_Main;
-import Img_24_Main from '@/images/products/amiparis/hoodies/amiparis-hoodie-002/front.webp';
+import Img_24_Main from '@/images/products/amiparis/shorts/amiparis-shorts-001/front.webp';
 const Img_24_Hover = Img_24_Main;
-import Img_25_Main from '@/images/products/amiparis/hoodies/amiparis-hoodie-003/front.webp';
-import Img_25_Hover from '@/images/products/amiparis/hoodies/amiparis-hoodie-003/back.webp';
-import Img_25_Gal_1 from '@/images/products/amiparis/hoodies/amiparis-hoodie-003/back.webp';
-import Img_26_Main from '@/images/products/amiparis/hoodies/amiparis-hoodie-004/front.webp';
-import Img_26_Hover from '@/images/products/amiparis/hoodies/amiparis-hoodie-004/back.webp';
-import Img_26_Gal_1 from '@/images/products/amiparis/hoodies/amiparis-hoodie-004/back.webp';
-import Img_27_Main from '@/images/products/amiparis/hoodies/amiparis-hoodie-005/front.webp';
+import Img_25_Main from '@/images/products/amiparis/shorts/amiparis-shorts-002/front.webp';
+const Img_25_Hover = Img_25_Main;
+import Img_26_Main from '@/images/products/amiparis/shorts/amiparis-shorts-003/front.webp';
+const Img_26_Hover = Img_26_Main;
+import Img_27_Main from '@/images/products/amiparis/shorts/amiparis-shorts-004/front.webp';
 const Img_27_Hover = Img_27_Main;
-import Img_28_Main from '@/images/products/amiparis/hoodies/amiparis-hoodie-006/front.webp';
+import Img_28_Main from '@/images/products/amiparis/shorts/amiparis-shorts-005/front.webp';
 const Img_28_Hover = Img_28_Main;
-import Img_29_Main from '@/images/products/amiparis/hoodies/amiparis-hoodie-007/front.webp';
+import Img_29_Main from '@/images/products/amiparis/shorts/amiparis-shorts-006/front.webp';
 const Img_29_Hover = Img_29_Main;
-import Img_30_Main from '@/images/products/amiparis/hoodies/amiparis-hoodie-008/front.webp';
+import Img_30_Main from '@/images/products/amiparis/shorts/amiparis-shorts-007/front.webp';
 const Img_30_Hover = Img_30_Main;
-import Img_31_Main from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-001/front.webp';
+import Img_31_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-001/front.webp';
 const Img_31_Hover = Img_31_Main;
-import Img_32_Main from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-002/front.webp';
+import Img_32_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-002/front.webp';
 const Img_32_Hover = Img_32_Main;
-import Img_33_Main from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-003/front.webp';
-import Img_33_Hover from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-003/detail1.webp';
-import Img_33_Gal_1 from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-003/detail1.webp';
-import Img_33_Gal_2 from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-003/detail2.webp';
-import Img_34_Main from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-004/front.webp';
-import Img_34_Hover from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-004/detail1.webp';
-import Img_34_Gal_1 from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-004/detail1.webp';
-import Img_34_Gal_2 from '@/images/products/amiparis/iphone_case/amiparis-iphone_case-004/detail2.webp';
-import Img_35_Main from '@/images/products/amiparis/polos/amiparis-polo-001/front.webp';
+import Img_33_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-003/front.webp';
+const Img_33_Hover = Img_33_Main;
+import Img_34_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-004/front.webp';
+const Img_34_Hover = Img_34_Main;
+import Img_35_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-005/front.webp';
 const Img_35_Hover = Img_35_Main;
-import Img_36_Main from '@/images/products/amiparis/polos/amiparis-polo-002/front.webp';
+import Img_36_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-006/front.webp';
 const Img_36_Hover = Img_36_Main;
-import Img_37_Main from '@/images/products/amiparis/polos/amiparis-polo-003/front.webp';
+import Img_37_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-007/front.webp';
 const Img_37_Hover = Img_37_Main;
-import Img_38_Main from '@/images/products/amiparis/shorts/amiparis-shorts-001/front.webp';
+import Img_38_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-008/front.webp';
 const Img_38_Hover = Img_38_Main;
-import Img_39_Main from '@/images/products/amiparis/shorts/amiparis-shorts-002/front.webp';
+import Img_39_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-009/front.webp';
 const Img_39_Hover = Img_39_Main;
-import Img_40_Main from '@/images/products/amiparis/shorts/amiparis-shorts-003/front.webp';
+import Img_40_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-010/front.webp';
 const Img_40_Hover = Img_40_Main;
-import Img_41_Main from '@/images/products/amiparis/shorts/amiparis-shorts-004/front.webp';
+import Img_41_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-011/front.webp';
 const Img_41_Hover = Img_41_Main;
-import Img_42_Main from '@/images/products/amiparis/shorts/amiparis-shorts-005/front.webp';
+import Img_42_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-012/front.webp';
 const Img_42_Hover = Img_42_Main;
-import Img_43_Main from '@/images/products/amiparis/shorts/amiparis-shorts-006/front.webp';
+import Img_43_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-013/front.webp';
 const Img_43_Hover = Img_43_Main;
-import Img_44_Main from '@/images/products/amiparis/shorts/amiparis-shorts-007/front.webp';
+import Img_44_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-014/front.webp';
 const Img_44_Hover = Img_44_Main;
-import Img_45_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-001/front.webp';
+import Img_45_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-015/front.webp';
 const Img_45_Hover = Img_45_Main;
-import Img_46_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-002/front.webp';
+import Img_46_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-016/front.webp';
 const Img_46_Hover = Img_46_Main;
-import Img_47_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-003/front.webp';
+import Img_47_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-017/front.webp';
 const Img_47_Hover = Img_47_Main;
-import Img_48_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-004/front.webp';
+import Img_48_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-018/front.webp';
 const Img_48_Hover = Img_48_Main;
-import Img_49_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-005/front.webp';
+import Img_49_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-019/front.webp';
 const Img_49_Hover = Img_49_Main;
-import Img_50_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-006/front.webp';
+import Img_50_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-020/front.webp';
 const Img_50_Hover = Img_50_Main;
+import Img_51_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-021/front.webp';
+const Img_51_Hover = Img_51_Main;
+import Img_52_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-022/front.webp';
+const Img_52_Hover = Img_52_Main;
+import Img_53_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-023/front.webp';
+const Img_53_Hover = Img_53_Main;
+import Img_54_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-024/front.webp';
+const Img_54_Hover = Img_54_Main;
+import Img_55_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-025/front.webp';
+const Img_55_Hover = Img_55_Main;
+import Img_56_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-026/front.webp';
+const Img_56_Hover = Img_56_Main;
+import Img_57_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-027/front.webp';
+const Img_57_Hover = Img_57_Main;
+import Img_58_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-028/front.webp';
+const Img_58_Hover = Img_58_Main;
+import Img_59_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-029/front.webp';
+const Img_59_Hover = Img_59_Main;
+import Img_60_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-030/front.webp';
+const Img_60_Hover = Img_60_Main;
+import Img_61_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-031/front.webp';
+const Img_61_Hover = Img_61_Main;
+import Img_62_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-032/front.webp';
+const Img_62_Hover = Img_62_Main;
+import Img_63_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-033/front.webp';
+const Img_63_Hover = Img_63_Main;
+import Img_64_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-034/front.webp';
+const Img_64_Hover = Img_64_Main;
+import Img_65_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-035/front.webp';
+const Img_65_Hover = Img_65_Main;
+import Img_66_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-036/front.webp';
+const Img_66_Hover = Img_66_Main;
+import Img_67_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-037/front.webp';
+const Img_67_Hover = Img_67_Main;
+import Img_68_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-038/front.webp';
+const Img_68_Hover = Img_68_Main;
+import Img_69_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-039/front.webp';
+const Img_69_Hover = Img_69_Main;
+import Img_70_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-040/front.webp';
+const Img_70_Hover = Img_70_Main;
+import Img_71_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-041/front.webp';
+const Img_71_Hover = Img_71_Main;
+import Img_72_Main from '@/images/products/amiparis/sweaters/amiparis-sweater-042/front.webp';
+const Img_72_Hover = Img_72_Main;
+import Img_73_Main from '@/images/products/amiparis/sweatshirts/amiparis-sweatshirt-001/front.webp';
+const Img_73_Hover = Img_73_Main;
+import Img_74_Main from '@/images/products/amiparis/sweatshirts/amiparis-sweatshirt-002/front.webp';
+const Img_74_Hover = Img_74_Main;
+import Img_75_Main from '@/images/products/amiparis/sweatshirts/amiparis-sweatshirt-003/front.webp';
+const Img_75_Hover = Img_75_Main;
+import Img_76_Main from '@/images/products/amiparis/sweatshirts/amiparis-sweatshirt-004/front.webp';
+const Img_76_Hover = Img_76_Main;
+import Img_77_Main from '@/images/products/amiparis/sweatshirts/amiparis-sweatshirt-005/front.webp';
+const Img_77_Hover = Img_77_Main;
+import Img_78_Main from '@/images/products/amiparis/sweatshirts/amiparis-sweatshirt-006/front.webp';
+const Img_78_Hover = Img_78_Main;
+import Img_79_Main from '@/images/products/amiparis/tshirt/amiparis-tshirt-001/front.webp';
+const Img_79_Hover = Img_79_Main;
+import Img_80_Main from '@/images/products/amiparis/tshirt/amiparis-tshirt-002/front.webp';
+const Img_80_Hover = Img_80_Main;
+import Img_81_Main from '@/images/products/amiparis/tshirt/amiparis-tshirt-003/front.webp';
+const Img_81_Hover = Img_81_Main;
+import Img_82_Main from '@/images/products/amiparis/tshirt/amiparis-tshirt-004/front.webp';
+const Img_82_Hover = Img_82_Main;
+import Img_83_Main from '@/images/products/amiparis/tshirt/amiparis-tshirt-005/front.webp';
+const Img_83_Hover = Img_83_Main;
+import Img_84_Main from '@/images/products/amiparis/tshirt/amiparis-tshirt-006/front.webp';
+const Img_84_Hover = Img_84_Main;
+import Img_85_Main from '@/images/products/amiparis/tshirt/amiparis-tshirt-007/front.webp';
+const Img_85_Hover = Img_85_Main;
+import Img_86_Main from '@/images/products/amiparis/tshirt/amiparis-tshirt-008/front.webp';
+const Img_86_Hover = Img_86_Main;
+import Img_87_Main from '@/images/products/amiparis/tshirt/amiparis-tshirt-009/front.webp';
+import Img_87_Hover from '@/images/products/amiparis/tshirt/amiparis-tshirt-009/back.webp';
+import Img_87_Gal_1 from '@/images/products/amiparis/tshirt/amiparis-tshirt-009/back.webp';
+import Img_88_Main from '@/images/products/amiparis/tshirt/amiparis-tshirt-010/front.webp';
+import Img_88_Hover from '@/images/products/amiparis/tshirt/amiparis-tshirt-010/back.webp';
+import Img_88_Gal_1 from '@/images/products/amiparis/tshirt/amiparis-tshirt-010/back.webp';
+import Img_89_Main from '@/images/products/amiri/hoodies/amiri-hoodies-001/front.webp';
+import Img_89_Hover from '@/images/products/amiri/hoodies/amiri-hoodies-001/back.webp';
+import Img_89_Gal_1 from '@/images/products/amiri/hoodies/amiri-hoodies-001/back.webp';
+import Img_90_Main from '@/images/products/amiri/hoodies/amiri-hoodies-002/front.webp';
+import Img_90_Hover from '@/images/products/amiri/hoodies/amiri-hoodies-002/back.webp';
+import Img_90_Gal_1 from '@/images/products/amiri/hoodies/amiri-hoodies-002/back.webp';
+import Img_91_Main from '@/images/products/amiri/hoodies/amiri-hoodies-003/front.webp';
+import Img_91_Hover from '@/images/products/amiri/hoodies/amiri-hoodies-003/back.webp';
+import Img_91_Gal_1 from '@/images/products/amiri/hoodies/amiri-hoodies-003/back.webp';
+import Img_92_Main from '@/images/products/amiri/hoodies/amiri-hoodies-004/front.webp';
+const Img_92_Hover = Img_92_Main;
+import Img_93_Main from '@/images/products/amiri/jeans/amiri-jeans-001/front.webp';
+import Img_93_Hover from '@/images/products/amiri/jeans/amiri-jeans-001/back.webp';
+import Img_93_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-001/back.webp';
+import Img_94_Main from '@/images/products/amiri/jeans/amiri-jeans-002/front.webp';
+import Img_94_Hover from '@/images/products/amiri/jeans/amiri-jeans-002/back.webp';
+import Img_94_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-002/back.webp';
+import Img_95_Main from '@/images/products/amiri/jeans/amiri-jeans-003/front.webp';
+import Img_95_Hover from '@/images/products/amiri/jeans/amiri-jeans-003/back.webp';
+import Img_95_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-003/back.webp';
+import Img_96_Main from '@/images/products/amiri/jeans/amiri-jeans-004/front.webp';
+import Img_96_Hover from '@/images/products/amiri/jeans/amiri-jeans-004/back.webp';
+import Img_96_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-004/back.webp';
+import Img_97_Main from '@/images/products/amiri/jeans/amiri-jeans-005/front.webp';
+import Img_97_Hover from '@/images/products/amiri/jeans/amiri-jeans-005/back.webp';
+import Img_97_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-005/back.webp';
+import Img_98_Main from '@/images/products/amiri/jeans/amiri-jeans-006/front.webp';
+import Img_98_Hover from '@/images/products/amiri/jeans/amiri-jeans-006/back.webp';
+import Img_98_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-006/back.webp';
+import Img_99_Main from '@/images/products/amiri/jeans/amiri-jeans-007/front.webp';
+import Img_99_Hover from '@/images/products/amiri/jeans/amiri-jeans-007/back.webp';
+import Img_99_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-007/back.webp';
+import Img_100_Main from '@/images/products/amiri/jeans/amiri-jeans-008/front.webp';
+import Img_100_Hover from '@/images/products/amiri/jeans/amiri-jeans-008/back.webp';
+import Img_100_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-008/back.webp';
+import Img_101_Main from '@/images/products/amiri/jeans/amiri-jeans-009/front.webp';
+import Img_101_Hover from '@/images/products/amiri/jeans/amiri-jeans-009/back.webp';
+import Img_101_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-009/back.webp';
+import Img_102_Main from '@/images/products/amiri/jeans/amiri-jeans-010/front.webp';
+import Img_102_Hover from '@/images/products/amiri/jeans/amiri-jeans-010/back.webp';
+import Img_102_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-010/back.webp';
+import Img_103_Main from '@/images/products/amiri/jeans/amiri-jeans-011/front.webp';
+import Img_103_Hover from '@/images/products/amiri/jeans/amiri-jeans-011/back.webp';
+import Img_103_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-011/back.webp';
+import Img_104_Main from '@/images/products/amiri/jeans/amiri-jeans-012/front.webp';
+import Img_104_Hover from '@/images/products/amiri/jeans/amiri-jeans-012/back.webp';
+import Img_104_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-012/back.webp';
+import Img_105_Main from '@/images/products/amiri/jeans/amiri-jeans-013/front.webp';
+import Img_105_Hover from '@/images/products/amiri/jeans/amiri-jeans-013/back.webp';
+import Img_105_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-013/back.webp';
+import Img_106_Main from '@/images/products/amiri/jeans/amiri-jeans-014/front.webp';
+import Img_106_Hover from '@/images/products/amiri/jeans/amiri-jeans-014/back.webp';
+import Img_106_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-014/back.webp';
+import Img_107_Main from '@/images/products/amiri/jeans/amiri-jeans-015/front.webp';
+import Img_107_Hover from '@/images/products/amiri/jeans/amiri-jeans-015/back.webp';
+import Img_107_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-015/back.webp';
+import Img_108_Main from '@/images/products/amiri/jeans/amiri-jeans-016/front.webp';
+import Img_108_Hover from '@/images/products/amiri/jeans/amiri-jeans-016/back.webp';
+import Img_108_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-016/back.webp';
+import Img_109_Main from '@/images/products/amiri/jeans/amiri-jeans-017/front.webp';
+import Img_109_Hover from '@/images/products/amiri/jeans/amiri-jeans-017/back.webp';
+import Img_109_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-017/back.webp';
+import Img_110_Main from '@/images/products/amiri/jeans/amiri-jeans-018/front.webp';
+import Img_110_Hover from '@/images/products/amiri/jeans/amiri-jeans-018/back.webp';
+import Img_110_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-018/back.webp';
+import Img_111_Main from '@/images/products/amiri/jeans/amiri-jeans-019/front.webp';
+import Img_111_Hover from '@/images/products/amiri/jeans/amiri-jeans-019/back.webp';
+import Img_111_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-019/back.webp';
+import Img_112_Main from '@/images/products/amiri/jeans/amiri-jeans-020/front.webp';
+import Img_112_Hover from '@/images/products/amiri/jeans/amiri-jeans-020/back.webp';
+import Img_112_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-020/back.webp';
+import Img_113_Main from '@/images/products/amiri/jeans/amiri-jeans-021/front.webp';
+const Img_113_Hover = Img_113_Main;
+import Img_114_Main from '@/images/products/amiri/polos/amiri-polo-001/front.webp';
+import Img_114_Hover from '@/images/products/amiri/polos/amiri-polo-001/back.webp';
+import Img_114_Gal_1 from '@/images/products/amiri/polos/amiri-polo-001/back.webp';
+import Img_115_Main from '@/images/products/amiri/polos/amiri-polo-002/front.webp';
+import Img_115_Hover from '@/images/products/amiri/polos/amiri-polo-002/back.webp';
+import Img_115_Gal_1 from '@/images/products/amiri/polos/amiri-polo-002/back.webp';
+import Img_116_Main from '@/images/products/amiri/polos/amiri-polo-003/front.webp';
+import Img_116_Hover from '@/images/products/amiri/polos/amiri-polo-003/back.webp';
+import Img_116_Gal_1 from '@/images/products/amiri/polos/amiri-polo-003/back.webp';
+import Img_117_Main from '@/images/products/amiri/polos/amiri-polo-004/front.webp';
+import Img_117_Hover from '@/images/products/amiri/polos/amiri-polo-004/back.webp';
+import Img_117_Gal_1 from '@/images/products/amiri/polos/amiri-polo-004/back.webp';
+import Img_118_Main from '@/images/products/amiri/polos/amiri-polo-005/front.webp';
+import Img_118_Hover from '@/images/products/amiri/polos/amiri-polo-005/back.webp';
+import Img_118_Gal_1 from '@/images/products/amiri/polos/amiri-polo-005/back.webp';
+import Img_119_Main from '@/images/products/amiri/polos/amiri-polo-006/front.webp';
+import Img_119_Hover from '@/images/products/amiri/polos/amiri-polo-006/back.webp';
+import Img_119_Gal_1 from '@/images/products/amiri/polos/amiri-polo-006/back.webp';
+import Img_120_Main from '@/images/products/amiri/polos/amiri-polo-007/front.webp';
+import Img_120_Hover from '@/images/products/amiri/polos/amiri-polo-007/back.webp';
+import Img_120_Gal_1 from '@/images/products/amiri/polos/amiri-polo-007/back.webp';
+import Img_121_Main from '@/images/products/amiri/polos/amiri-polo-008/front.webp';
+import Img_121_Hover from '@/images/products/amiri/polos/amiri-polo-008/back.webp';
+import Img_121_Gal_1 from '@/images/products/amiri/polos/amiri-polo-008/back.webp';
+import Img_122_Main from '@/images/products/amiri/polos/amiri-polo-009/front.webp';
+import Img_122_Hover from '@/images/products/amiri/polos/amiri-polo-009/back.webp';
+import Img_122_Gal_1 from '@/images/products/amiri/polos/amiri-polo-009/back.webp';
+import Img_123_Main from '@/images/products/amiri/sets/amiri-sets-001/front.webp';
+import Img_123_Hover from '@/images/products/amiri/sets/amiri-sets-001/back.webp';
+import Img_123_Gal_1 from '@/images/products/amiri/sets/amiri-sets-001/back.webp';
+import Img_124_Main from '@/images/products/amiri/sets/amiri-sets-002/front.webp';
+import Img_124_Hover from '@/images/products/amiri/sets/amiri-sets-002/back.webp';
+import Img_124_Gal_1 from '@/images/products/amiri/sets/amiri-sets-002/back.webp';
+import Img_125_Main from '@/images/products/amiri/sets/amiri-sets-003/front.webp';
+const Img_125_Hover = Img_125_Main;
+import Img_126_Main from '@/images/products/amiri/sets/amiri-sets-004/front.webp';
+const Img_126_Hover = Img_126_Main;
+import Img_127_Main from '@/images/products/amiri/shirts/amiri-shirts-001/front.webp';
+import Img_127_Hover from '@/images/products/amiri/shirts/amiri-shirts-001/back.webp';
+import Img_127_Gal_1 from '@/images/products/amiri/shirts/amiri-shirts-001/back.webp';
+import Img_128_Main from '@/images/products/amiri/shirts/amiri-shirts-002/front.webp';
+import Img_128_Hover from '@/images/products/amiri/shirts/amiri-shirts-002/back.webp';
+import Img_128_Gal_1 from '@/images/products/amiri/shirts/amiri-shirts-002/back.webp';
+import Img_129_Main from '@/images/products/amiri/shoes/amiri-shoes-001/front.webp';
+import Img_129_Hover from '@/images/products/amiri/shoes/amiri-shoes-001/back.webp';
+import Img_129_Gal_1 from '@/images/products/amiri/shoes/amiri-shoes-001/back.webp';
+import Img_129_Gal_2 from '@/images/products/amiri/shoes/amiri-shoes-001/detail1.webp';
+import Img_129_Gal_3 from '@/images/products/amiri/shoes/amiri-shoes-001/detail2.webp';
+import Img_130_Main from '@/images/products/amiri/shoes/amiri-shoes-002/front.webp';
+import Img_130_Hover from '@/images/products/amiri/shoes/amiri-shoes-002/back.webp';
+import Img_130_Gal_1 from '@/images/products/amiri/shoes/amiri-shoes-002/back.webp';
+import Img_131_Main from '@/images/products/amiri/shoes/amiri-shoes-003/front.webp';
+import Img_131_Hover from '@/images/products/amiri/shoes/amiri-shoes-003/back.webp';
+import Img_131_Gal_1 from '@/images/products/amiri/shoes/amiri-shoes-003/back.webp';
+import Img_131_Gal_2 from '@/images/products/amiri/shoes/amiri-shoes-003/detail1.webp';
+import Img_131_Gal_3 from '@/images/products/amiri/shoes/amiri-shoes-003/detail2.webp';
+import Img_132_Main from '@/images/products/amiri/shoes/amiri-shoes-004/front.webp';
+import Img_132_Hover from '@/images/products/amiri/shoes/amiri-shoes-004/back.webp';
+import Img_132_Gal_1 from '@/images/products/amiri/shoes/amiri-shoes-004/back.webp';
+import Img_132_Gal_2 from '@/images/products/amiri/shoes/amiri-shoes-004/detail1.webp';
+import Img_132_Gal_3 from '@/images/products/amiri/shoes/amiri-shoes-004/detail2.webp';
+import Img_133_Main from '@/images/products/amiri/shoes/amiri-shoes-005/front.webp';
+import Img_133_Hover from '@/images/products/amiri/shoes/amiri-shoes-005/back.webp';
+import Img_133_Gal_1 from '@/images/products/amiri/shoes/amiri-shoes-005/back.webp';
+import Img_133_Gal_2 from '@/images/products/amiri/shoes/amiri-shoes-005/detail1.webp';
+import Img_133_Gal_3 from '@/images/products/amiri/shoes/amiri-shoes-005/detail2.webp';
+import Img_134_Main from '@/images/products/amiri/shorts/amiri-shorts-001/front.webp';
+import Img_134_Hover from '@/images/products/amiri/shorts/amiri-shorts-001/back.webp';
+import Img_134_Gal_1 from '@/images/products/amiri/shorts/amiri-shorts-001/back.webp';
+import Img_135_Main from '@/images/products/amiri/shorts/amiri-shorts-002/front.webp';
+import Img_135_Hover from '@/images/products/amiri/shorts/amiri-shorts-002/back.webp';
+import Img_135_Gal_1 from '@/images/products/amiri/shorts/amiri-shorts-002/back.webp';
+import Img_136_Main from '@/images/products/amiri/shorts/amiri-shorts-003/front.webp';
+import Img_136_Hover from '@/images/products/amiri/shorts/amiri-shorts-003/back.webp';
+import Img_136_Gal_1 from '@/images/products/amiri/shorts/amiri-shorts-003/back.webp';
+import Img_137_Main from '@/images/products/amiri/shorts/amiri-shorts-004/front.webp';
+import Img_137_Hover from '@/images/products/amiri/shorts/amiri-shorts-004/back.webp';
+import Img_137_Gal_1 from '@/images/products/amiri/shorts/amiri-shorts-004/back.webp';
+import Img_138_Main from '@/images/products/amiri/shorts/amiri-shorts-005/front.webp';
+import Img_138_Hover from '@/images/products/amiri/shorts/amiri-shorts-005/back.webp';
+import Img_138_Gal_1 from '@/images/products/amiri/shorts/amiri-shorts-005/back.webp';
+import Img_139_Main from '@/images/products/amiri/shorts/amiri-shorts-006/back.webp';
+const Img_139_Hover = Img_139_Main;
+import Img_140_Main from '@/images/products/amiri/shorts/amiri-shorts-007/back.webp';
+const Img_140_Hover = Img_140_Main;
+import Img_141_Main from '@/images/products/amiri/shorts/amiri-shorts-008/front.webp';
+import Img_141_Hover from '@/images/products/amiri/shorts/amiri-shorts-008/back.webp';
+import Img_141_Gal_1 from '@/images/products/amiri/shorts/amiri-shorts-008/back.webp';
+import Img_142_Main from '@/images/products/amiri/shorts/amiri-shorts-009/front.webp';
+import Img_142_Hover from '@/images/products/amiri/shorts/amiri-shorts-009/back.webp';
+import Img_142_Gal_1 from '@/images/products/amiri/shorts/amiri-shorts-009/back.webp';
+import Img_143_Main from '@/images/products/amiri/shorts/amiri-shorts-010/front.webp';
+import Img_143_Hover from '@/images/products/amiri/shorts/amiri-shorts-010/back.webp';
+import Img_143_Gal_1 from '@/images/products/amiri/shorts/amiri-shorts-010/back.webp';
+import Img_144_Main from '@/images/products/amiri/shorts/amiri-shorts-011/front.webp';
+import Img_144_Hover from '@/images/products/amiri/shorts/amiri-shorts-011/back.webp';
+import Img_144_Gal_1 from '@/images/products/amiri/shorts/amiri-shorts-011/back.webp';
+import Img_145_Main from '@/images/products/amiri/tshirts/amiri-tshirt-001/front.webp';
+import Img_145_Hover from '@/images/products/amiri/tshirts/amiri-tshirt-001/back.webp';
+import Img_145_Gal_1 from '@/images/products/amiri/tshirts/amiri-tshirt-001/back.webp';
+import Img_146_Main from '@/images/products/amiri/tshirts/amiri-tshirt-002/front.webp';
+import Img_146_Hover from '@/images/products/amiri/tshirts/amiri-tshirt-002/back.webp';
+import Img_146_Gal_1 from '@/images/products/amiri/tshirts/amiri-tshirt-002/back.webp';
+import Img_147_Main from '@/images/products/amiri/tshirts/amiri-tshirt-003/front.webp';
+import Img_147_Hover from '@/images/products/amiri/tshirts/amiri-tshirt-003/back.webp';
+import Img_147_Gal_1 from '@/images/products/amiri/tshirts/amiri-tshirt-003/back.webp';
+import Img_148_Main from '@/images/products/amiri/tshirts/amiri-tshirt-004/front.webp';
+import Img_148_Hover from '@/images/products/amiri/tshirts/amiri-tshirt-004/back.webp';
+import Img_148_Gal_1 from '@/images/products/amiri/tshirts/amiri-tshirt-004/back.webp';
+import Img_149_Main from '@/images/products/amiri/tshirts/amiri-tshirt-005/front.webp';
+import Img_149_Hover from '@/images/products/amiri/tshirts/amiri-tshirt-005/back.webp';
+import Img_149_Gal_1 from '@/images/products/amiri/tshirts/amiri-tshirt-005/back.webp';
+import Img_150_Main from '@/images/products/amiri/tshirts/amiri-tshirt-006/front.webp';
+import Img_150_Hover from '@/images/products/amiri/tshirts/amiri-tshirt-006/back.webp';
+import Img_150_Gal_1 from '@/images/products/amiri/tshirts/amiri-tshirt-006/back.webp';
 
 export const products: Product[] = [
     {
         id: 'amiparis-best-sellers-amiparis-hoodie-001-1', 
         title: "Amiparis-hoodie-",
-        price: 85,
-        
+        price: 140,
+        compareAtPrice: 178,
         image: Img_1_Main,
         hoverImage: Img_1_Hover,
         gallery: [Img_1_Main],
@@ -140,12 +392,12 @@ export const products: Product[] = [
         brand: "Amiparis",
         slug: "amiparis-best-sellers-amiparis-hoodie-001-1", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Best Sellers","football"]
+        tags: ["Amiparis","Best Sellers","football","gym","Hoodies","Loafers","Trucksuits","Sneakers","Shoes","sale"]
     },
     {
         id: 'amiparis-best-sellers-amiparis-hoodie-002-2', 
         title: "Amiparis-hoodie-",
-        price: 72,
+        price: 248,
         
         image: Img_2_Main,
         hoverImage: Img_2_Hover,
@@ -154,13 +406,13 @@ export const products: Product[] = [
         brand: "Amiparis",
         slug: "amiparis-best-sellers-amiparis-hoodie-002-2", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Best Sellers","football"]
+        tags: ["Amiparis","Best Sellers","gym","Hoodies","Trucksuits","Jackets"]
     },
     {
         id: 'amiparis-best-sellers-amiparis-hoodie-003-3', 
         title: "Amiparis-hoodie-",
-        price: 127,
-        compareAtPrice: 162,
+        price: 139,
+        compareAtPrice: 176,
         image: Img_3_Main,
         hoverImage: Img_3_Hover,
         gallery: [Img_3_Main, Img_3_Gal_1],
@@ -168,12 +420,12 @@ export const products: Product[] = [
         brand: "Amiparis",
         slug: "amiparis-best-sellers-amiparis-hoodie-003-3", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Best Sellers","football","sale"]
+        tags: ["Amiparis","Best Sellers","basketball","Hoodies","Sneakers","Trucksuits","Shoes","sale"]
     },
     {
         id: 'amiparis-best-sellers-amiparis-hoodie-004-4', 
         title: "Amiparis-hoodie-",
-        price: 239,
+        price: 235,
         
         image: Img_4_Main,
         hoverImage: Img_4_Hover,
@@ -182,12 +434,12 @@ export const products: Product[] = [
         brand: "Amiparis",
         slug: "amiparis-best-sellers-amiparis-hoodie-004-4", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Best Sellers","football"]
+        tags: ["Amiparis","Best Sellers","gym","running","Hoodies","Sweatshirts"]
     },
     {
         id: 'amiparis-best-sellers-amiparis-hoodie-005-5', 
         title: "Amiparis-hoodie-",
-        price: 74,
+        price: 138,
         
         image: Img_5_Main,
         hoverImage: Img_5_Hover,
@@ -196,12 +448,12 @@ export const products: Product[] = [
         brand: "Amiparis",
         slug: "amiparis-best-sellers-amiparis-hoodie-005-5", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Best Sellers","football","gym"]
+        tags: ["Amiparis","Best Sellers","gym","football","Hoodies","Pants","Polos","Sneakers","Shoes"]
     },
     {
         id: 'amiparis-best-sellers-amiparis-hoodie-006-6', 
         title: "Amiparis-hoodie-",
-        price: 75,
+        price: 235,
         
         image: Img_6_Main,
         hoverImage: Img_6_Hover,
@@ -210,13 +462,13 @@ export const products: Product[] = [
         brand: "Amiparis",
         slug: "amiparis-best-sellers-amiparis-hoodie-006-6", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Best Sellers","football"]
+        tags: ["Amiparis","Best Sellers","football","Hoodies","Accessories","Sweatshirts","Sneakers","Shoes"]
     },
     {
         id: 'amiparis-best-sellers-amiparis-hoodie-007-7', 
         title: "Amiparis-hoodie-",
-        price: 186,
-        
+        price: 151,
+        compareAtPrice: 191,
         image: Img_7_Main,
         hoverImage: Img_7_Hover,
         gallery: [Img_7_Main],
@@ -224,13 +476,13 @@ export const products: Product[] = [
         brand: "Amiparis",
         slug: "amiparis-best-sellers-amiparis-hoodie-007-7", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Best Sellers","basketball","football"]
+        tags: ["Amiparis","Best Sellers","gym","running","Hoodies","Jackets","Slides","Pants","Shoes","sale"]
     },
     {
         id: 'amiparis-best-sellers-amiparis-hoodie-008-8', 
         title: "Amiparis-hoodie-",
-        price: 179,
-        compareAtPrice: 224,
+        price: 224,
+        
         image: Img_8_Main,
         hoverImage: Img_8_Hover,
         gallery: [Img_8_Main],
@@ -238,594 +490,1994 @@ export const products: Product[] = [
         brand: "Amiparis",
         slug: "amiparis-best-sellers-amiparis-hoodie-008-8", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Best Sellers","gym","running","sale"]
+        tags: ["Amiparis","Best Sellers","football","Hoodies","Loafers","Shorts","Pants","Shoes"]
     },
     {
-        id: 'jordan-hoodies-jordan-hoodies-001-9', 
-        title: "Jordan-hoodies-",
-        price: 62,
-        
+        id: 'amiparis-hoodies-amiparis-hoodie-001-9', 
+        title: "Amiparis-hoodie-",
+        price: 103,
+        compareAtPrice: 133,
         image: Img_9_Main,
         hoverImage: Img_9_Hover,
-        gallery: [Img_9_Main, Img_9_Gal_1],
-        category: "Hoodies",
-        brand: "Jordan",
-        slug: "jordan-hoodies-jordan-hoodies-001-9", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Jordan","Hoodies","football"]
-    },
-    {
-        id: 'jordan-hoodies-jordan-hoodies-002-10', 
-        title: "Jordan-hoodies-",
-        price: 196,
-        
-        image: Img_10_Main,
-        hoverImage: Img_10_Hover,
-        gallery: [Img_10_Main, Img_10_Gal_1],
-        category: "Hoodies",
-        brand: "Jordan",
-        slug: "jordan-hoodies-jordan-hoodies-002-10", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Jordan","Hoodies","football"]
-    },
-    {
-        id: 'jordan-pants-jordan-pants-001-11', 
-        title: "Jordan-pants-",
-        price: 226,
-        
-        image: Img_11_Main,
-        hoverImage: Img_11_Hover,
-        gallery: [Img_11_Main, Img_11_Gal_1],
-        category: "Pants",
-        brand: "Jordan",
-        slug: "jordan-pants-jordan-pants-001-11", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Jordan","Pants","football"]
-    },
-    {
-        id: 'jordan-pants-jordan-pants-002-12', 
-        title: "Jordan-pants-",
-        price: 105,
-        
-        image: Img_12_Main,
-        hoverImage: Img_12_Hover,
-        gallery: [Img_12_Main, Img_12_Gal_1],
-        category: "Pants",
-        brand: "Jordan",
-        slug: "jordan-pants-jordan-pants-002-12", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Jordan","Pants","football"]
-    },
-    {
-        id: 'jordan-trucksuits-jordan-trucksuits-001-13', 
-        title: "Jordan-trucksuits-",
-        price: 114,
-        compareAtPrice: 146,
-        image: Img_13_Main,
-        hoverImage: Img_13_Hover,
-        gallery: [Img_13_Main, Img_13_Gal_1],
-        category: "Trucksuits",
-        brand: "Jordan",
-        slug: "jordan-trucksuits-jordan-trucksuits-001-13", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Jordan","Trucksuits","football","sale"]
-    },
-    {
-        id: 'jordan-trucksuits-jordan-trucksuits-002-14', 
-        title: "Jordan-trucksuits-",
-        price: 53,
-        
-        image: Img_14_Main,
-        hoverImage: Img_14_Hover,
-        gallery: [Img_14_Main, Img_14_Gal_1],
-        category: "Trucksuits",
-        brand: "Jordan",
-        slug: "jordan-trucksuits-jordan-trucksuits-002-14", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Jordan","Trucksuits","football"]
-    },
-    {
-        id: 'jordan-trucksuits-jordan-trucksuits-003-15', 
-        title: "Jordan-trucksuits-",
-        price: 243,
-        
-        image: Img_15_Main,
-        hoverImage: Img_15_Hover,
-        gallery: [Img_15_Main, Img_15_Gal_1],
-        category: "Trucksuits",
-        brand: "Jordan",
-        slug: "jordan-trucksuits-jordan-trucksuits-003-15", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Jordan","Trucksuits","football"]
-    },
-    {
-        id: 'jordan-shorts-jordan-shorts-001-16', 
-        title: "Jordan-shorts-",
-        price: 52,
-        compareAtPrice: 72,
-        image: Img_16_Main,
-        hoverImage: Img_16_Hover,
-        gallery: [Img_16_Main, Img_16_Gal_1],
-        category: "Shorts",
-        brand: "Jordan",
-        slug: "jordan-shorts-jordan-shorts-001-16", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Jordan","Shorts","gym","sale"]
-    },
-    {
-        id: 'jordan-shorts-jordan-shorts-002-17', 
-        title: "Jordan-shorts-",
-        price: 160,
-        compareAtPrice: 202,
-        image: Img_17_Main,
-        hoverImage: Img_17_Hover,
-        gallery: [Img_17_Main, Img_17_Gal_1],
-        category: "Shorts",
-        brand: "Jordan",
-        slug: "jordan-shorts-jordan-shorts-002-17", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Jordan","Shorts","gym","sale"]
-    },
-    {
-        id: 'jordan-shorts-jordan-shorts-003-18', 
-        title: "Jordan-shorts-",
-        price: 186,
-        
-        image: Img_18_Main,
-        hoverImage: Img_18_Hover,
-        gallery: [Img_18_Main, Img_18_Gal_1],
-        category: "Shorts",
-        brand: "Jordan",
-        slug: "jordan-shorts-jordan-shorts-003-18", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Jordan","Shorts","gym"]
-    },
-    {
-        id: 'jordan-tanks-jordan-tanks-001-19', 
-        title: "Jordan-tanks-",
-        price: 171,
-        
-        image: Img_19_Main,
-        hoverImage: Img_19_Hover,
-        gallery: [Img_19_Main, Img_19_Gal_1],
-        category: "Tanks",
-        brand: "Jordan",
-        slug: "jordan-tanks-jordan-tanks-001-19", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Jordan","Tanks","gym"]
-    },
-    {
-        id: 'jordan-tanks-jordan-tanks-002-20', 
-        title: "Jordan-tanks-",
-        price: 155,
-        compareAtPrice: 196,
-        image: Img_20_Main,
-        hoverImage: Img_20_Hover,
-        gallery: [Img_20_Main, Img_20_Gal_1],
-        category: "Tanks",
-        brand: "Jordan",
-        slug: "jordan-tanks-jordan-tanks-002-20", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Jordan","Tanks","gym","sale"]
-    },
-    {
-        id: 'jordan-tshirts-jordan-tshirts-001-21', 
-        title: "Jordan-tshirts-",
-        price: 166,
-        
-        image: Img_21_Main,
-        hoverImage: Img_21_Hover,
-        gallery: [Img_21_Main, Img_21_Gal_1],
-        category: "T-Shirts",
-        brand: "Jordan",
-        slug: "jordan-tshirts-jordan-tshirts-001-21", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Jordan","T-Shirts","gym"]
-    },
-    {
-        id: 'jordan-tshirts-jordan-tshirts-002-22', 
-        title: "Jordan-tshirts-",
-        price: 153,
-        
-        image: Img_22_Main,
-        hoverImage: Img_22_Hover,
-        gallery: [Img_22_Main, Img_22_Gal_1],
-        category: "T-Shirts",
-        brand: "Jordan",
-        slug: "jordan-tshirts-jordan-tshirts-002-22", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Jordan","T-Shirts","gym"]
-    },
-    {
-        id: 'amiparis-hoodies-amiparis-hoodie-001-23', 
-        title: "Amiparis-hoodie-",
-        price: 145,
-        
-        image: Img_23_Main,
-        hoverImage: Img_23_Hover,
-        gallery: [Img_23_Main],
+        gallery: [Img_9_Main],
         category: "Hoodies",
         brand: "Amiparis",
-        slug: "amiparis-hoodies-amiparis-hoodie-001-23", // Use uniqueId as slug too
+        slug: "amiparis-hoodies-amiparis-hoodie-001-9", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Hoodies","football"]
+        tags: ["Amiparis","Hoodies","gym","running","Sneakers","Shoes","sale"]
     },
     {
-        id: 'amiparis-hoodies-amiparis-hoodie-002-24', 
-        title: "Amiparis-hoodie-",
-        price: 141,
-        
-        image: Img_24_Main,
-        hoverImage: Img_24_Hover,
-        gallery: [Img_24_Main],
-        category: "Hoodies",
-        brand: "Amiparis",
-        slug: "amiparis-hoodies-amiparis-hoodie-002-24", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Amiparis","Hoodies","football","basketball"]
-    },
-    {
-        id: 'amiparis-hoodies-amiparis-hoodie-003-25', 
+        id: 'amiparis-hoodies-amiparis-hoodie-002-10', 
         title: "Amiparis-hoodie-",
         price: 172,
         
-        image: Img_25_Main,
-        hoverImage: Img_25_Hover,
-        gallery: [Img_25_Main, Img_25_Gal_1],
+        image: Img_10_Main,
+        hoverImage: Img_10_Hover,
+        gallery: [Img_10_Main],
         category: "Hoodies",
         brand: "Amiparis",
-        slug: "amiparis-hoodies-amiparis-hoodie-003-25", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Amiparis","Hoodies","gym"]
-    },
-    {
-        id: 'amiparis-hoodies-amiparis-hoodie-004-26', 
-        title: "Amiparis-hoodie-",
-        price: 150,
-        
-        image: Img_26_Main,
-        hoverImage: Img_26_Hover,
-        gallery: [Img_26_Main, Img_26_Gal_1],
-        category: "Hoodies",
-        brand: "Amiparis",
-        slug: "amiparis-hoodies-amiparis-hoodie-004-26", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Amiparis","Hoodies","football","basketball"]
-    },
-    {
-        id: 'amiparis-hoodies-amiparis-hoodie-005-27', 
-        title: "Amiparis-hoodie-",
-        price: 240,
-        
-        image: Img_27_Main,
-        hoverImage: Img_27_Hover,
-        gallery: [Img_27_Main],
-        category: "Hoodies",
-        brand: "Amiparis",
-        slug: "amiparis-hoodies-amiparis-hoodie-005-27", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Amiparis","Hoodies","gym","running"]
-    },
-    {
-        id: 'amiparis-hoodies-amiparis-hoodie-006-28', 
-        title: "Amiparis-hoodie-",
-        price: 216,
-        
-        image: Img_28_Main,
-        hoverImage: Img_28_Hover,
-        gallery: [Img_28_Main],
-        category: "Hoodies",
-        brand: "Amiparis",
-        slug: "amiparis-hoodies-amiparis-hoodie-006-28", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Amiparis","Hoodies","football"]
-    },
-    {
-        id: 'amiparis-hoodies-amiparis-hoodie-007-29', 
-        title: "Amiparis-hoodie-",
-        price: 127,
-        
-        image: Img_29_Main,
-        hoverImage: Img_29_Hover,
-        gallery: [Img_29_Main],
-        category: "Hoodies",
-        brand: "Amiparis",
-        slug: "amiparis-hoodies-amiparis-hoodie-007-29", // Use uniqueId as slug too
+        slug: "amiparis-hoodies-amiparis-hoodie-002-10", // Use uniqueId as slug too
         gender: "unisex", 
         tags: ["Amiparis","Hoodies","running"]
     },
     {
-        id: 'amiparis-hoodies-amiparis-hoodie-008-30', 
+        id: 'amiparis-hoodies-amiparis-hoodie-003-11', 
         title: "Amiparis-hoodie-",
-        price: 230,
-        compareAtPrice: 286,
-        image: Img_30_Main,
-        hoverImage: Img_30_Hover,
-        gallery: [Img_30_Main],
+        price: 222,
+        
+        image: Img_11_Main,
+        hoverImage: Img_11_Hover,
+        gallery: [Img_11_Main, Img_11_Gal_1],
         category: "Hoodies",
         brand: "Amiparis",
-        slug: "amiparis-hoodies-amiparis-hoodie-008-30", // Use uniqueId as slug too
+        slug: "amiparis-hoodies-amiparis-hoodie-003-11", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Hoodies","running","sale"]
+        tags: ["Amiparis","Hoodies","football","Best Sellers","Pants","Accessories","Trucksuits"]
     },
     {
-        id: 'amiparis-iphone-case-amiparis-iphone-case-001-31', 
-        title: "Amiparis-iphone case-",
-        price: 141,
+        id: 'amiparis-hoodies-amiparis-hoodie-004-12', 
+        title: "Amiparis-hoodie-",
+        price: 178,
         
-        image: Img_31_Main,
-        hoverImage: Img_31_Hover,
-        gallery: [Img_31_Main],
-        category: "Iphone case",
+        image: Img_12_Main,
+        hoverImage: Img_12_Hover,
+        gallery: [Img_12_Main, Img_12_Gal_1],
+        category: "Hoodies",
         brand: "Amiparis",
-        slug: "amiparis-iphone-case-amiparis-iphone-case-001-31", // Use uniqueId as slug too
+        slug: "amiparis-hoodies-amiparis-hoodie-004-12", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Iphone case","basketball"]
+        tags: ["Amiparis","Hoodies","running","Best Sellers","T-Shirts","Trucksuits","Boots","Shoes"]
     },
     {
-        id: 'amiparis-iphone-case-amiparis-iphone-case-002-32', 
-        title: "Amiparis-iphone case-",
-        price: 126,
-        compareAtPrice: 161,
-        image: Img_32_Main,
-        hoverImage: Img_32_Hover,
-        gallery: [Img_32_Main],
-        category: "Iphone case",
-        brand: "Amiparis",
-        slug: "amiparis-iphone-case-amiparis-iphone-case-002-32", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ["Amiparis","Iphone case","gym","sale"]
-    },
-    {
-        id: 'amiparis-iphone-case-amiparis-iphone-case-003-33', 
-        title: "Amiparis-iphone case-",
-        price: 58,
+        id: 'amiparis-hoodies-amiparis-hoodie-005-13', 
+        title: "Amiparis-hoodie-",
+        price: 213,
         
-        image: Img_33_Main,
-        hoverImage: Img_33_Hover,
-        gallery: [Img_33_Main, Img_33_Gal_1, Img_33_Gal_2],
-        category: "Iphone case",
+        image: Img_13_Main,
+        hoverImage: Img_13_Hover,
+        gallery: [Img_13_Main],
+        category: "Hoodies",
         brand: "Amiparis",
-        slug: "amiparis-iphone-case-amiparis-iphone-case-003-33", // Use uniqueId as slug too
+        slug: "amiparis-hoodies-amiparis-hoodie-005-13", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Iphone case","running"]
+        tags: ["Amiparis","Hoodies","football","basketball","Boots","Sneakers","Shoes"]
     },
     {
-        id: 'amiparis-iphone-case-amiparis-iphone-case-004-34', 
-        title: "Amiparis-iphone case-",
-        price: 51,
+        id: 'amiparis-hoodies-amiparis-hoodie-006-14', 
+        title: "Amiparis-hoodie-",
+        price: 67,
         
-        image: Img_34_Main,
-        hoverImage: Img_34_Hover,
-        gallery: [Img_34_Main, Img_34_Gal_1, Img_34_Gal_2],
-        category: "Iphone case",
+        image: Img_14_Main,
+        hoverImage: Img_14_Hover,
+        gallery: [Img_14_Main],
+        category: "Hoodies",
         brand: "Amiparis",
-        slug: "amiparis-iphone-case-amiparis-iphone-case-004-34", // Use uniqueId as slug too
+        slug: "amiparis-hoodies-amiparis-hoodie-006-14", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Iphone case","gym"]
+        tags: ["Amiparis","Hoodies","basketball","football","Best Sellers","Jackets","Shoes"]
     },
     {
-        id: 'amiparis-polos-amiparis-polo-001-35', 
+        id: 'amiparis-hoodies-amiparis-hoodie-007-15', 
+        title: "Amiparis-hoodie-",
+        price: 107,
+        
+        image: Img_15_Main,
+        hoverImage: Img_15_Hover,
+        gallery: [Img_15_Main],
+        category: "Hoodies",
+        brand: "Amiparis",
+        slug: "amiparis-hoodies-amiparis-hoodie-007-15", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Hoodies","football","basketball","Best Sellers","Loafers","Trucksuits","Polos","Shoes"]
+    },
+    {
+        id: 'amiparis-hoodies-amiparis-hoodie-008-16', 
+        title: "Amiparis-hoodie-",
+        price: 193,
+        
+        image: Img_16_Main,
+        hoverImage: Img_16_Hover,
+        gallery: [Img_16_Main],
+        category: "Hoodies",
+        brand: "Amiparis",
+        slug: "amiparis-hoodies-amiparis-hoodie-008-16", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Hoodies","running","basketball"]
+    },
+    {
+        id: 'amiparis-iphone-case-amiparis-iphone-case-001-17', 
+        title: "Amiparis-iphone case-",
+        price: 179,
+        
+        image: Img_17_Main,
+        hoverImage: Img_17_Hover,
+        gallery: [Img_17_Main],
+        category: "Iphone case",
+        brand: "Amiparis",
+        slug: "amiparis-iphone-case-amiparis-iphone-case-001-17", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Iphone case","football","basketball"]
+    },
+    {
+        id: 'amiparis-iphone-case-amiparis-iphone-case-002-18', 
+        title: "Amiparis-iphone case-",
+        price: 181,
+        compareAtPrice: 227,
+        image: Img_18_Main,
+        hoverImage: Img_18_Hover,
+        gallery: [Img_18_Main],
+        category: "Iphone case",
+        brand: "Amiparis",
+        slug: "amiparis-iphone-case-amiparis-iphone-case-002-18", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Iphone case","football","running","Loafers","Sneakers","Shoes","sale"]
+    },
+    {
+        id: 'amiparis-iphone-case-amiparis-iphone-case-003-19', 
+        title: "Amiparis-iphone case-",
+        price: 96,
+        
+        image: Img_19_Main,
+        hoverImage: Img_19_Hover,
+        gallery: [Img_19_Main, Img_19_Gal_1, Img_19_Gal_2],
+        category: "Iphone case",
+        brand: "Amiparis",
+        slug: "amiparis-iphone-case-amiparis-iphone-case-003-19", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Iphone case","gym","running","Best Sellers","Jackets","Shorts","Slides","Shoes"]
+    },
+    {
+        id: 'amiparis-iphone-case-amiparis-iphone-case-004-20', 
+        title: "Amiparis-iphone case-",
+        price: 76,
+        
+        image: Img_20_Main,
+        hoverImage: Img_20_Hover,
+        gallery: [Img_20_Main, Img_20_Gal_1, Img_20_Gal_2],
+        category: "Iphone case",
+        brand: "Amiparis",
+        slug: "amiparis-iphone-case-amiparis-iphone-case-004-20", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Iphone case","basketball","football"]
+    },
+    {
+        id: 'amiparis-polos-amiparis-polo-001-21', 
         title: "Amiparis-polo-",
-        price: 141,
+        price: 185,
         
-        image: Img_35_Main,
-        hoverImage: Img_35_Hover,
-        gallery: [Img_35_Main],
+        image: Img_21_Main,
+        hoverImage: Img_21_Hover,
+        gallery: [Img_21_Main],
         category: "Polos",
         brand: "Amiparis",
-        slug: "amiparis-polos-amiparis-polo-001-35", // Use uniqueId as slug too
+        slug: "amiparis-polos-amiparis-polo-001-21", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Polos","football","basketball"]
+        tags: ["Amiparis","Polos","gym"]
     },
     {
-        id: 'amiparis-polos-amiparis-polo-002-36', 
+        id: 'amiparis-polos-amiparis-polo-002-22', 
         title: "Amiparis-polo-",
-        price: 131,
-        compareAtPrice: 167,
-        image: Img_36_Main,
-        hoverImage: Img_36_Hover,
-        gallery: [Img_36_Main],
+        price: 236,
+        
+        image: Img_22_Main,
+        hoverImage: Img_22_Hover,
+        gallery: [Img_22_Main],
         category: "Polos",
         brand: "Amiparis",
-        slug: "amiparis-polos-amiparis-polo-002-36", // Use uniqueId as slug too
+        slug: "amiparis-polos-amiparis-polo-002-22", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Polos","running","sale"]
+        tags: ["Amiparis","Polos","running","Slides","Sneakers","Shoes"]
     },
     {
-        id: 'amiparis-polos-amiparis-polo-003-37', 
+        id: 'amiparis-polos-amiparis-polo-003-23', 
         title: "Amiparis-polo-",
-        price: 54,
-        
-        image: Img_37_Main,
-        hoverImage: Img_37_Hover,
-        gallery: [Img_37_Main],
+        price: 72,
+        compareAtPrice: 96,
+        image: Img_23_Main,
+        hoverImage: Img_23_Hover,
+        gallery: [Img_23_Main],
         category: "Polos",
         brand: "Amiparis",
-        slug: "amiparis-polos-amiparis-polo-003-37", // Use uniqueId as slug too
+        slug: "amiparis-polos-amiparis-polo-003-23", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Polos","football"]
+        tags: ["Amiparis","Polos","football","sale"]
     },
     {
-        id: 'amiparis-shorts-amiparis-shorts-001-38', 
+        id: 'amiparis-shorts-amiparis-shorts-001-24', 
         title: "Amiparis-shorts-",
-        price: 165,
+        price: 68,
         
-        image: Img_38_Main,
-        hoverImage: Img_38_Hover,
-        gallery: [Img_38_Main],
+        image: Img_24_Main,
+        hoverImage: Img_24_Hover,
+        gallery: [Img_24_Main],
         category: "Shorts",
         brand: "Amiparis",
-        slug: "amiparis-shorts-amiparis-shorts-001-38", // Use uniqueId as slug too
+        slug: "amiparis-shorts-amiparis-shorts-001-24", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Shorts","gym","running"]
+        tags: ["Amiparis","Shorts","gym","football","Best Sellers","Sneakers","Loafers","Shoes"]
     },
     {
-        id: 'amiparis-shorts-amiparis-shorts-002-39', 
+        id: 'amiparis-shorts-amiparis-shorts-002-25', 
         title: "Amiparis-shorts-",
-        price: 231,
+        price: 150,
         
-        image: Img_39_Main,
-        hoverImage: Img_39_Hover,
-        gallery: [Img_39_Main],
+        image: Img_25_Main,
+        hoverImage: Img_25_Hover,
+        gallery: [Img_25_Main],
         category: "Shorts",
         brand: "Amiparis",
-        slug: "amiparis-shorts-amiparis-shorts-002-39", // Use uniqueId as slug too
+        slug: "amiparis-shorts-amiparis-shorts-002-25", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Shorts","football","gym"]
+        tags: ["Amiparis","Shorts","gym","running","Best Sellers","Loafers","Sneakers","Pants","Shoes"]
     },
     {
-        id: 'amiparis-shorts-amiparis-shorts-003-40', 
+        id: 'amiparis-shorts-amiparis-shorts-003-26', 
         title: "Amiparis-shorts-",
-        price: 145,
+        price: 167,
         
-        image: Img_40_Main,
-        hoverImage: Img_40_Hover,
-        gallery: [Img_40_Main],
+        image: Img_26_Main,
+        hoverImage: Img_26_Hover,
+        gallery: [Img_26_Main],
         category: "Shorts",
         brand: "Amiparis",
-        slug: "amiparis-shorts-amiparis-shorts-003-40", // Use uniqueId as slug too
+        slug: "amiparis-shorts-amiparis-shorts-003-26", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Shorts","gym","running","Best Sellers","Loafers","Sweaters","Slides","Shoes"]
+    },
+    {
+        id: 'amiparis-shorts-amiparis-shorts-004-27', 
+        title: "Amiparis-shorts-",
+        price: 95,
+        compareAtPrice: 124,
+        image: Img_27_Main,
+        hoverImage: Img_27_Hover,
+        gallery: [Img_27_Main],
+        category: "Shorts",
+        brand: "Amiparis",
+        slug: "amiparis-shorts-amiparis-shorts-004-27", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Shorts","gym","Best Sellers","Sneakers","Boots","Hoodies","Shoes","sale"]
+    },
+    {
+        id: 'amiparis-shorts-amiparis-shorts-005-28', 
+        title: "Amiparis-shorts-",
+        price: 52,
+        
+        image: Img_28_Main,
+        hoverImage: Img_28_Hover,
+        gallery: [Img_28_Main],
+        category: "Shorts",
+        brand: "Amiparis",
+        slug: "amiparis-shorts-amiparis-shorts-005-28", // Use uniqueId as slug too
         gender: "unisex", 
         tags: ["Amiparis","Shorts","basketball"]
     },
     {
-        id: 'amiparis-shorts-amiparis-shorts-004-41', 
+        id: 'amiparis-shorts-amiparis-shorts-006-29', 
         title: "Amiparis-shorts-",
-        price: 179,
+        price: 206,
+        
+        image: Img_29_Main,
+        hoverImage: Img_29_Hover,
+        gallery: [Img_29_Main],
+        category: "Shorts",
+        brand: "Amiparis",
+        slug: "amiparis-shorts-amiparis-shorts-006-29", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Shorts","running","basketball","Best Sellers","Accessories","Trucksuits"]
+    },
+    {
+        id: 'amiparis-shorts-amiparis-shorts-007-30', 
+        title: "Amiparis-shorts-",
+        price: 158,
+        compareAtPrice: 199,
+        image: Img_30_Main,
+        hoverImage: Img_30_Hover,
+        gallery: [Img_30_Main],
+        category: "Shorts",
+        brand: "Amiparis",
+        slug: "amiparis-shorts-amiparis-shorts-007-30", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Shorts","gym","running","Loafers","Boots","Shoes","sale"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-001-31', 
+        title: "Amiparis-sweater-",
+        price: 75,
+        
+        image: Img_31_Main,
+        hoverImage: Img_31_Hover,
+        gallery: [Img_31_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-001-31", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","football"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-002-32', 
+        title: "Amiparis-sweater-",
+        price: 148,
+        
+        image: Img_32_Main,
+        hoverImage: Img_32_Hover,
+        gallery: [Img_32_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-002-32", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","running","basketball","Sneakers","Slides","Shoes"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-003-33', 
+        title: "Amiparis-sweater-",
+        price: 196,
+        compareAtPrice: 245,
+        image: Img_33_Main,
+        hoverImage: Img_33_Hover,
+        gallery: [Img_33_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-003-33", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","gym","running","sale"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-004-34', 
+        title: "Amiparis-sweater-",
+        price: 96,
+        
+        image: Img_34_Main,
+        hoverImage: Img_34_Hover,
+        gallery: [Img_34_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-004-34", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","gym","Best Sellers","Pants","Sweatshirts","Slides","Shoes"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-005-35', 
+        title: "Amiparis-sweater-",
+        price: 182,
+        compareAtPrice: 228,
+        image: Img_35_Main,
+        hoverImage: Img_35_Hover,
+        gallery: [Img_35_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-005-35", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","football","basketball","Best Sellers","Sneakers","Shoes","Accessories","sale"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-006-36', 
+        title: "Amiparis-sweater-",
+        price: 83,
+        
+        image: Img_36_Main,
+        hoverImage: Img_36_Hover,
+        gallery: [Img_36_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-006-36", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","football","Loafers","Sneakers","Shoes"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-007-37', 
+        title: "Amiparis-sweater-",
+        price: 118,
+        compareAtPrice: 151,
+        image: Img_37_Main,
+        hoverImage: Img_37_Hover,
+        gallery: [Img_37_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-007-37", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","gym","running","sale"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-008-38', 
+        title: "Amiparis-sweater-",
+        price: 157,
+        
+        image: Img_38_Main,
+        hoverImage: Img_38_Hover,
+        gallery: [Img_38_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-008-38", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","football","basketball","Sneakers","Slides","Shoes"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-009-39', 
+        title: "Amiparis-sweater-",
+        price: 138,
+        
+        image: Img_39_Main,
+        hoverImage: Img_39_Hover,
+        gallery: [Img_39_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-009-39", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","basketball","Best Sellers","Hoodies","Polos","T-Shirts"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-010-40', 
+        title: "Amiparis-sweater-",
+        price: 143,
+        
+        image: Img_40_Main,
+        hoverImage: Img_40_Hover,
+        gallery: [Img_40_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-010-40", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","football","Best Sellers","Pants","Accessories","Hoodies"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-011-41', 
+        title: "Amiparis-sweater-",
+        price: 136,
         
         image: Img_41_Main,
         hoverImage: Img_41_Hover,
         gallery: [Img_41_Main],
-        category: "Shorts",
+        category: "Sweaters",
         brand: "Amiparis",
-        slug: "amiparis-shorts-amiparis-shorts-004-41", // Use uniqueId as slug too
+        slug: "amiparis-sweaters-amiparis-sweater-011-41", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Shorts","gym"]
+        tags: ["Amiparis","Sweaters","basketball","football","Boots","Sneakers","Shoes"]
     },
     {
-        id: 'amiparis-shorts-amiparis-shorts-005-42', 
-        title: "Amiparis-shorts-",
-        price: 94,
-        
+        id: 'amiparis-sweaters-amiparis-sweater-012-42', 
+        title: "Amiparis-sweater-",
+        price: 112,
+        compareAtPrice: 144,
         image: Img_42_Main,
         hoverImage: Img_42_Hover,
         gallery: [Img_42_Main],
-        category: "Shorts",
+        category: "Sweaters",
         brand: "Amiparis",
-        slug: "amiparis-shorts-amiparis-shorts-005-42", // Use uniqueId as slug too
+        slug: "amiparis-sweaters-amiparis-sweater-012-42", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Shorts","gym","basketball"]
+        tags: ["Amiparis","Sweaters","gym","football","Best Sellers","Slides","Boots","Polos","Shoes","sale"]
     },
     {
-        id: 'amiparis-shorts-amiparis-shorts-006-43', 
-        title: "Amiparis-shorts-",
-        price: 233,
-        
+        id: 'amiparis-sweaters-amiparis-sweater-013-43', 
+        title: "Amiparis-sweater-",
+        price: 181,
+        compareAtPrice: 227,
         image: Img_43_Main,
         hoverImage: Img_43_Hover,
         gallery: [Img_43_Main],
-        category: "Shorts",
+        category: "Sweaters",
         brand: "Amiparis",
-        slug: "amiparis-shorts-amiparis-shorts-006-43", // Use uniqueId as slug too
+        slug: "amiparis-sweaters-amiparis-sweater-013-43", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Shorts","gym","football"]
+        tags: ["Amiparis","Sweaters","gym","running","sale"]
     },
     {
-        id: 'amiparis-shorts-amiparis-shorts-007-44', 
-        title: "Amiparis-shorts-",
-        price: 87,
+        id: 'amiparis-sweaters-amiparis-sweater-014-44', 
+        title: "Amiparis-sweater-",
+        price: 84,
         
         image: Img_44_Main,
         hoverImage: Img_44_Hover,
         gallery: [Img_44_Main],
-        category: "Shorts",
+        category: "Sweaters",
         brand: "Amiparis",
-        slug: "amiparis-shorts-amiparis-shorts-007-44", // Use uniqueId as slug too
+        slug: "amiparis-sweaters-amiparis-sweater-014-44", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Shorts","football"]
+        tags: ["Amiparis","Sweaters","running","basketball","Best Sellers","Shoes","Polos","Accessories"]
     },
     {
-        id: 'amiparis-sweaters-amiparis-sweater-001-45', 
+        id: 'amiparis-sweaters-amiparis-sweater-015-45', 
         title: "Amiparis-sweater-",
-        price: 58,
-        compareAtPrice: 79,
+        price: 102,
+        
         image: Img_45_Main,
         hoverImage: Img_45_Hover,
         gallery: [Img_45_Main],
         category: "Sweaters",
         brand: "Amiparis",
-        slug: "amiparis-sweaters-amiparis-sweater-001-45", // Use uniqueId as slug too
+        slug: "amiparis-sweaters-amiparis-sweater-015-45", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Sweaters","football","sale"]
+        tags: ["Amiparis","Sweaters","gym","Best Sellers","Polos"]
     },
     {
-        id: 'amiparis-sweaters-amiparis-sweater-002-46', 
+        id: 'amiparis-sweaters-amiparis-sweater-016-46', 
         title: "Amiparis-sweater-",
-        price: 177,
-        compareAtPrice: 222,
+        price: 244,
+        
         image: Img_46_Main,
         hoverImage: Img_46_Hover,
         gallery: [Img_46_Main],
         category: "Sweaters",
         brand: "Amiparis",
-        slug: "amiparis-sweaters-amiparis-sweater-002-46", // Use uniqueId as slug too
+        slug: "amiparis-sweaters-amiparis-sweater-016-46", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Sweaters","gym","running","sale"]
+        tags: ["Amiparis","Sweaters","basketball","gym","Slides","Sneakers","Shoes"]
     },
     {
-        id: 'amiparis-sweaters-amiparis-sweater-003-47', 
+        id: 'amiparis-sweaters-amiparis-sweater-017-47', 
         title: "Amiparis-sweater-",
-        price: 167,
+        price: 73,
         
         image: Img_47_Main,
         hoverImage: Img_47_Hover,
         gallery: [Img_47_Main],
         category: "Sweaters",
         brand: "Amiparis",
-        slug: "amiparis-sweaters-amiparis-sweater-003-47", // Use uniqueId as slug too
+        slug: "amiparis-sweaters-amiparis-sweater-017-47", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Sweaters","football"]
+        tags: ["Amiparis","Sweaters","football","basketball"]
     },
     {
-        id: 'amiparis-sweaters-amiparis-sweater-004-48', 
+        id: 'amiparis-sweaters-amiparis-sweater-018-48', 
         title: "Amiparis-sweater-",
-        price: 59,
-        compareAtPrice: 80,
+        price: 56,
+        
         image: Img_48_Main,
         hoverImage: Img_48_Hover,
         gallery: [Img_48_Main],
         category: "Sweaters",
         brand: "Amiparis",
-        slug: "amiparis-sweaters-amiparis-sweater-004-48", // Use uniqueId as slug too
+        slug: "amiparis-sweaters-amiparis-sweater-018-48", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Sweaters","football","basketball","sale"]
+        tags: ["Amiparis","Sweaters","basketball","Best Sellers","Sweatshirts","T-Shirts","Sneakers","Shoes"]
     },
     {
-        id: 'amiparis-sweaters-amiparis-sweater-005-49', 
+        id: 'amiparis-sweaters-amiparis-sweater-019-49', 
         title: "Amiparis-sweater-",
-        price: 65,
+        price: 130,
         
         image: Img_49_Main,
         hoverImage: Img_49_Hover,
         gallery: [Img_49_Main],
         category: "Sweaters",
         brand: "Amiparis",
-        slug: "amiparis-sweaters-amiparis-sweater-005-49", // Use uniqueId as slug too
+        slug: "amiparis-sweaters-amiparis-sweater-019-49", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Sweaters","football","basketball"]
+        tags: ["Amiparis","Sweaters","running","basketball","Best Sellers","Accessories","Slides","T-Shirts","Shoes"]
     },
     {
-        id: 'amiparis-sweaters-amiparis-sweater-006-50', 
+        id: 'amiparis-sweaters-amiparis-sweater-020-50', 
         title: "Amiparis-sweater-",
-        price: 61,
+        price: 114,
         
         image: Img_50_Main,
         hoverImage: Img_50_Hover,
         gallery: [Img_50_Main],
         category: "Sweaters",
         brand: "Amiparis",
-        slug: "amiparis-sweaters-amiparis-sweater-006-50", // Use uniqueId as slug too
+        slug: "amiparis-sweaters-amiparis-sweater-020-50", // Use uniqueId as slug too
         gender: "unisex", 
-        tags: ["Amiparis","Sweaters","running","basketball"]
+        tags: ["Amiparis","Sweaters","football","basketball"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-021-51', 
+        title: "Amiparis-sweater-",
+        price: 164,
+        
+        image: Img_51_Main,
+        hoverImage: Img_51_Hover,
+        gallery: [Img_51_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-021-51", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","running","gym"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-022-52', 
+        title: "Amiparis-sweater-",
+        price: 246,
+        
+        image: Img_52_Main,
+        hoverImage: Img_52_Hover,
+        gallery: [Img_52_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-022-52", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","football","Best Sellers","T-Shirts","Jackets","Loafers","Shoes"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-023-53', 
+        title: "Amiparis-sweater-",
+        price: 122,
+        compareAtPrice: 156,
+        image: Img_53_Main,
+        hoverImage: Img_53_Hover,
+        gallery: [Img_53_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-023-53", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","running","gym","Best Sellers","Hoodies","Shoes","Boots","sale"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-024-54', 
+        title: "Amiparis-sweater-",
+        price: 243,
+        
+        image: Img_54_Main,
+        hoverImage: Img_54_Hover,
+        gallery: [Img_54_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-024-54", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","running","gym","Best Sellers","Accessories","T-Shirts"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-025-55', 
+        title: "Amiparis-sweater-",
+        price: 156,
+        
+        image: Img_55_Main,
+        hoverImage: Img_55_Hover,
+        gallery: [Img_55_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-025-55", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","gym","Best Sellers","Slides","T-Shirts","Jackets","Shoes"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-026-56', 
+        title: "Amiparis-sweater-",
+        price: 161,
+        compareAtPrice: 203,
+        image: Img_56_Main,
+        hoverImage: Img_56_Hover,
+        gallery: [Img_56_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-026-56", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","football","sale"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-027-57', 
+        title: "Amiparis-sweater-",
+        price: 240,
+        
+        image: Img_57_Main,
+        hoverImage: Img_57_Hover,
+        gallery: [Img_57_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-027-57", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","football","Best Sellers","Pants","Loafers","Shoes"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-028-58', 
+        title: "Amiparis-sweater-",
+        price: 155,
+        
+        image: Img_58_Main,
+        hoverImage: Img_58_Hover,
+        gallery: [Img_58_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-028-58", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","gym"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-029-59', 
+        title: "Amiparis-sweater-",
+        price: 202,
+        compareAtPrice: 252,
+        image: Img_59_Main,
+        hoverImage: Img_59_Hover,
+        gallery: [Img_59_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-029-59", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","gym","Best Sellers","Trucksuits","Pants","Sneakers","Shoes","sale"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-030-60', 
+        title: "Amiparis-sweater-",
+        price: 171,
+        
+        image: Img_60_Main,
+        hoverImage: Img_60_Hover,
+        gallery: [Img_60_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-030-60", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","gym"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-031-61', 
+        title: "Amiparis-sweater-",
+        price: 242,
+        
+        image: Img_61_Main,
+        hoverImage: Img_61_Hover,
+        gallery: [Img_61_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-031-61", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","gym","Best Sellers","Sneakers","Trucksuits","Shorts","Shoes"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-032-62', 
+        title: "Amiparis-sweater-",
+        price: 192,
+        
+        image: Img_62_Main,
+        hoverImage: Img_62_Hover,
+        gallery: [Img_62_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-032-62", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","gym","Slides","Shoes"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-033-63', 
+        title: "Amiparis-sweater-",
+        price: 241,
+        
+        image: Img_63_Main,
+        hoverImage: Img_63_Hover,
+        gallery: [Img_63_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-033-63", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","football","Best Sellers","Trucksuits","Sneakers","Shoes"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-034-64', 
+        title: "Amiparis-sweater-",
+        price: 195,
+        
+        image: Img_64_Main,
+        hoverImage: Img_64_Hover,
+        gallery: [Img_64_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-034-64", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","football","Best Sellers","Jackets","Loafers","Sweatshirts","Shoes"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-035-65', 
+        title: "Amiparis-sweater-",
+        price: 205,
+        
+        image: Img_65_Main,
+        hoverImage: Img_65_Hover,
+        gallery: [Img_65_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-035-65", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","running","basketball","Slides","Sneakers","Shoes"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-036-66', 
+        title: "Amiparis-sweater-",
+        price: 84,
+        
+        image: Img_66_Main,
+        hoverImage: Img_66_Hover,
+        gallery: [Img_66_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-036-66", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","gym","running","Boots","Shoes"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-037-67', 
+        title: "Amiparis-sweater-",
+        price: 208,
+        
+        image: Img_67_Main,
+        hoverImage: Img_67_Hover,
+        gallery: [Img_67_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-037-67", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","running","football","Loafers","Slides","Shoes"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-038-68', 
+        title: "Amiparis-sweater-",
+        price: 145,
+        
+        image: Img_68_Main,
+        hoverImage: Img_68_Hover,
+        gallery: [Img_68_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-038-68", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","gym","football"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-039-69', 
+        title: "Amiparis-sweater-",
+        price: 93,
+        
+        image: Img_69_Main,
+        hoverImage: Img_69_Hover,
+        gallery: [Img_69_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-039-69", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","gym"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-040-70', 
+        title: "Amiparis-sweater-",
+        price: 60,
+        
+        image: Img_70_Main,
+        hoverImage: Img_70_Hover,
+        gallery: [Img_70_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-040-70", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","basketball","football"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-041-71', 
+        title: "Amiparis-sweater-",
+        price: 188,
+        
+        image: Img_71_Main,
+        hoverImage: Img_71_Hover,
+        gallery: [Img_71_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-041-71", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","running","football"]
+    },
+    {
+        id: 'amiparis-sweaters-amiparis-sweater-042-72', 
+        title: "Amiparis-sweater-",
+        price: 195,
+        
+        image: Img_72_Main,
+        hoverImage: Img_72_Hover,
+        gallery: [Img_72_Main],
+        category: "Sweaters",
+        brand: "Amiparis",
+        slug: "amiparis-sweaters-amiparis-sweater-042-72", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweaters","gym","Best Sellers","Shoes","Accessories","Polos"]
+    },
+    {
+        id: 'amiparis-sweatshirts-amiparis-sweatshirt-001-73', 
+        title: "Amiparis-sweatshirt-",
+        price: 193,
+        
+        image: Img_73_Main,
+        hoverImage: Img_73_Hover,
+        gallery: [Img_73_Main],
+        category: "Sweatshirts",
+        brand: "Amiparis",
+        slug: "amiparis-sweatshirts-amiparis-sweatshirt-001-73", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweatshirts","gym","running"]
+    },
+    {
+        id: 'amiparis-sweatshirts-amiparis-sweatshirt-002-74', 
+        title: "Amiparis-sweatshirt-",
+        price: 155,
+        compareAtPrice: 196,
+        image: Img_74_Main,
+        hoverImage: Img_74_Hover,
+        gallery: [Img_74_Main],
+        category: "Sweatshirts",
+        brand: "Amiparis",
+        slug: "amiparis-sweatshirts-amiparis-sweatshirt-002-74", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweatshirts","basketball","football","Boots","Shoes","sale"]
+    },
+    {
+        id: 'amiparis-sweatshirts-amiparis-sweatshirt-003-75', 
+        title: "Amiparis-sweatshirt-",
+        price: 75,
+        compareAtPrice: 100,
+        image: Img_75_Main,
+        hoverImage: Img_75_Hover,
+        gallery: [Img_75_Main],
+        category: "Sweatshirts",
+        brand: "Amiparis",
+        slug: "amiparis-sweatshirts-amiparis-sweatshirt-003-75", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweatshirts","football","sale"]
+    },
+    {
+        id: 'amiparis-sweatshirts-amiparis-sweatshirt-004-76', 
+        title: "Amiparis-sweatshirt-",
+        price: 91,
+        
+        image: Img_76_Main,
+        hoverImage: Img_76_Hover,
+        gallery: [Img_76_Main],
+        category: "Sweatshirts",
+        brand: "Amiparis",
+        slug: "amiparis-sweatshirts-amiparis-sweatshirt-004-76", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweatshirts","football","basketball","Slides","Loafers","Shoes"]
+    },
+    {
+        id: 'amiparis-sweatshirts-amiparis-sweatshirt-005-77', 
+        title: "Amiparis-sweatshirt-",
+        price: 101,
+        
+        image: Img_77_Main,
+        hoverImage: Img_77_Hover,
+        gallery: [Img_77_Main],
+        category: "Sweatshirts",
+        brand: "Amiparis",
+        slug: "amiparis-sweatshirts-amiparis-sweatshirt-005-77", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweatshirts","gym","running","Best Sellers","Loafers","Jackets","Hoodies","Shoes"]
+    },
+    {
+        id: 'amiparis-sweatshirts-amiparis-sweatshirt-006-78', 
+        title: "Amiparis-sweatshirt-",
+        price: 182,
+        
+        image: Img_78_Main,
+        hoverImage: Img_78_Hover,
+        gallery: [Img_78_Main],
+        category: "Sweatshirts",
+        brand: "Amiparis",
+        slug: "amiparis-sweatshirts-amiparis-sweatshirt-006-78", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","Sweatshirts","running","basketball"]
+    },
+    {
+        id: 'amiparis-tshirt-amiparis-tshirt-001-79', 
+        title: "Amiparis-tshirt-",
+        price: 215,
+        
+        image: Img_79_Main,
+        hoverImage: Img_79_Hover,
+        gallery: [Img_79_Main],
+        category: "T-Shirts",
+        brand: "Amiparis",
+        slug: "amiparis-tshirt-amiparis-tshirt-001-79", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","T-Shirts","running","basketball","Best Sellers","Hoodies","Jackets","Trucksuits"]
+    },
+    {
+        id: 'amiparis-tshirt-amiparis-tshirt-002-80', 
+        title: "Amiparis-tshirt-",
+        price: 138,
+        
+        image: Img_80_Main,
+        hoverImage: Img_80_Hover,
+        gallery: [Img_80_Main],
+        category: "T-Shirts",
+        brand: "Amiparis",
+        slug: "amiparis-tshirt-amiparis-tshirt-002-80", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","T-Shirts","football","basketball"]
+    },
+    {
+        id: 'amiparis-tshirt-amiparis-tshirt-003-81', 
+        title: "Amiparis-tshirt-",
+        price: 87,
+        
+        image: Img_81_Main,
+        hoverImage: Img_81_Hover,
+        gallery: [Img_81_Main],
+        category: "T-Shirts",
+        brand: "Amiparis",
+        slug: "amiparis-tshirt-amiparis-tshirt-003-81", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","T-Shirts","football","basketball","Best Sellers","Sneakers","Accessories","Shoes"]
+    },
+    {
+        id: 'amiparis-tshirt-amiparis-tshirt-004-82', 
+        title: "Amiparis-tshirt-",
+        price: 243,
+        compareAtPrice: 301,
+        image: Img_82_Main,
+        hoverImage: Img_82_Hover,
+        gallery: [Img_82_Main],
+        category: "T-Shirts",
+        brand: "Amiparis",
+        slug: "amiparis-tshirt-amiparis-tshirt-004-82", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","T-Shirts","football","basketball","sale"]
+    },
+    {
+        id: 'amiparis-tshirt-amiparis-tshirt-005-83', 
+        title: "Amiparis-tshirt-",
+        price: 175,
+        
+        image: Img_83_Main,
+        hoverImage: Img_83_Hover,
+        gallery: [Img_83_Main],
+        category: "T-Shirts",
+        brand: "Amiparis",
+        slug: "amiparis-tshirt-amiparis-tshirt-005-83", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","T-Shirts","gym","running","Best Sellers","Sweaters","Sneakers","Shoes"]
+    },
+    {
+        id: 'amiparis-tshirt-amiparis-tshirt-006-84', 
+        title: "Amiparis-tshirt-",
+        price: 115,
+        
+        image: Img_84_Main,
+        hoverImage: Img_84_Hover,
+        gallery: [Img_84_Main],
+        category: "T-Shirts",
+        brand: "Amiparis",
+        slug: "amiparis-tshirt-amiparis-tshirt-006-84", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","T-Shirts","football","basketball","Best Sellers","Loafers","Jackets","Trucksuits","Shoes"]
+    },
+    {
+        id: 'amiparis-tshirt-amiparis-tshirt-007-85', 
+        title: "Amiparis-tshirt-",
+        price: 197,
+        
+        image: Img_85_Main,
+        hoverImage: Img_85_Hover,
+        gallery: [Img_85_Main],
+        category: "T-Shirts",
+        brand: "Amiparis",
+        slug: "amiparis-tshirt-amiparis-tshirt-007-85", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","T-Shirts","football","Best Sellers","Slides","Jackets","Shoes"]
+    },
+    {
+        id: 'amiparis-tshirt-amiparis-tshirt-008-86', 
+        title: "Amiparis-tshirt-",
+        price: 236,
+        
+        image: Img_86_Main,
+        hoverImage: Img_86_Hover,
+        gallery: [Img_86_Main],
+        category: "T-Shirts",
+        brand: "Amiparis",
+        slug: "amiparis-tshirt-amiparis-tshirt-008-86", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","T-Shirts","basketball","football","Best Sellers","Sweatshirts","Trucksuits","Sweaters"]
+    },
+    {
+        id: 'amiparis-tshirt-amiparis-tshirt-009-87', 
+        title: "Amiparis-tshirt-",
+        price: 103,
+        
+        image: Img_87_Main,
+        hoverImage: Img_87_Hover,
+        gallery: [Img_87_Main, Img_87_Gal_1],
+        category: "T-Shirts",
+        brand: "Amiparis",
+        slug: "amiparis-tshirt-amiparis-tshirt-009-87", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","T-Shirts","running"]
+    },
+    {
+        id: 'amiparis-tshirt-amiparis-tshirt-010-88', 
+        title: "Amiparis-tshirt-",
+        price: 100,
+        
+        image: Img_88_Main,
+        hoverImage: Img_88_Hover,
+        gallery: [Img_88_Main, Img_88_Gal_1],
+        category: "T-Shirts",
+        brand: "Amiparis",
+        slug: "amiparis-tshirt-amiparis-tshirt-010-88", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiparis","T-Shirts","football","basketball"]
+    },
+    {
+        id: 'amiri-hoodies-amiri-hoodies-001-89', 
+        title: "Amiri-hoodies-",
+        price: 195,
+        
+        image: Img_89_Main,
+        hoverImage: Img_89_Hover,
+        gallery: [Img_89_Main, Img_89_Gal_1],
+        category: "Hoodies",
+        brand: "Amiri",
+        slug: "amiri-hoodies-amiri-hoodies-001-89", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Hoodies","football","Best Sellers","Pants","Polos","Boots","Shoes"]
+    },
+    {
+        id: 'amiri-hoodies-amiri-hoodies-002-90', 
+        title: "Amiri-hoodies-",
+        price: 136,
+        
+        image: Img_90_Main,
+        hoverImage: Img_90_Hover,
+        gallery: [Img_90_Main, Img_90_Gal_1],
+        category: "Hoodies",
+        brand: "Amiri",
+        slug: "amiri-hoodies-amiri-hoodies-002-90", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Hoodies","gym"]
+    },
+    {
+        id: 'amiri-hoodies-amiri-hoodies-003-91', 
+        title: "Amiri-hoodies-",
+        price: 82,
+        compareAtPrice: 108,
+        image: Img_91_Main,
+        hoverImage: Img_91_Hover,
+        gallery: [Img_91_Main, Img_91_Gal_1],
+        category: "Hoodies",
+        brand: "Amiri",
+        slug: "amiri-hoodies-amiri-hoodies-003-91", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Hoodies","football","gym","sale"]
+    },
+    {
+        id: 'amiri-hoodies-amiri-hoodies-004-92', 
+        title: "Amiri-hoodies-",
+        price: 101,
+        
+        image: Img_92_Main,
+        hoverImage: Img_92_Hover,
+        gallery: [Img_92_Main],
+        category: "Hoodies",
+        brand: "Amiri",
+        slug: "amiri-hoodies-amiri-hoodies-004-92", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Hoodies","gym"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-001-93', 
+        title: "Amiri-jeans-",
+        price: 73,
+        
+        image: Img_93_Main,
+        hoverImage: Img_93_Hover,
+        gallery: [Img_93_Main, Img_93_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-001-93", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","gym","running"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-002-94', 
+        title: "Amiri-jeans-",
+        price: 160,
+        compareAtPrice: 202,
+        image: Img_94_Main,
+        hoverImage: Img_94_Hover,
+        gallery: [Img_94_Main, Img_94_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-002-94", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","football","Best Sellers","Sweaters","Slides","Loafers","Shoes","sale"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-003-95', 
+        title: "Amiri-jeans-",
+        price: 146,
+        
+        image: Img_95_Main,
+        hoverImage: Img_95_Hover,
+        gallery: [Img_95_Main, Img_95_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-003-95", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","running"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-004-96', 
+        title: "Amiri-jeans-",
+        price: 87,
+        
+        image: Img_96_Main,
+        hoverImage: Img_96_Hover,
+        gallery: [Img_96_Main, Img_96_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-004-96", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","gym"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-005-97', 
+        title: "Amiri-jeans-",
+        price: 207,
+        
+        image: Img_97_Main,
+        hoverImage: Img_97_Hover,
+        gallery: [Img_97_Main, Img_97_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-005-97", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","running","basketball","Best Sellers","Polos","Jackets","Hoodies"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-006-98', 
+        title: "Amiri-jeans-",
+        price: 70,
+        compareAtPrice: 94,
+        image: Img_98_Main,
+        hoverImage: Img_98_Hover,
+        gallery: [Img_98_Main, Img_98_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-006-98", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","football","basketball","sale"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-007-99', 
+        title: "Amiri-jeans-",
+        price: 156,
+        
+        image: Img_99_Main,
+        hoverImage: Img_99_Hover,
+        gallery: [Img_99_Main, Img_99_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-007-99", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","basketball","Best Sellers","Slides","Sneakers","Shoes"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-008-100', 
+        title: "Amiri-jeans-",
+        price: 178,
+        compareAtPrice: 223,
+        image: Img_100_Main,
+        hoverImage: Img_100_Hover,
+        gallery: [Img_100_Main, Img_100_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-008-100", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","football","basketball","Best Sellers","Slides","Accessories","Hoodies","Shoes","sale"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-009-101', 
+        title: "Amiri-jeans-",
+        price: 133,
+        
+        image: Img_101_Main,
+        hoverImage: Img_101_Hover,
+        gallery: [Img_101_Main, Img_101_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-009-101", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","gym","Best Sellers","Pants","Sneakers","Loafers","Shoes"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-010-102', 
+        title: "Amiri-jeans-",
+        price: 85,
+        compareAtPrice: 112,
+        image: Img_102_Main,
+        hoverImage: Img_102_Hover,
+        gallery: [Img_102_Main, Img_102_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-010-102", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","football","Best Sellers","Jackets","Polos","Shorts","sale"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-011-103', 
+        title: "Amiri-jeans-",
+        price: 176,
+        
+        image: Img_103_Main,
+        hoverImage: Img_103_Hover,
+        gallery: [Img_103_Main, Img_103_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-011-103", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","running"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-012-104', 
+        title: "Amiri-jeans-",
+        price: 236,
+        
+        image: Img_104_Main,
+        hoverImage: Img_104_Hover,
+        gallery: [Img_104_Main, Img_104_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-012-104", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","running","basketball","Best Sellers","Accessories","Loafers","T-Shirts","Shoes"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-013-105', 
+        title: "Amiri-jeans-",
+        price: 104,
+        compareAtPrice: 134,
+        image: Img_105_Main,
+        hoverImage: Img_105_Hover,
+        gallery: [Img_105_Main, Img_105_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-013-105", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","football","basketball","Best Sellers","Shoes","Shorts","sale"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-014-106', 
+        title: "Amiri-jeans-",
+        price: 113,
+        
+        image: Img_106_Main,
+        hoverImage: Img_106_Hover,
+        gallery: [Img_106_Main, Img_106_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-014-106", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","football","Boots","Sneakers","Shoes"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-015-107', 
+        title: "Amiri-jeans-",
+        price: 112,
+        
+        image: Img_107_Main,
+        hoverImage: Img_107_Hover,
+        gallery: [Img_107_Main, Img_107_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-015-107", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","gym","running","Best Sellers","Sweaters","Sneakers","T-Shirts","Shoes"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-016-108', 
+        title: "Amiri-jeans-",
+        price: 230,
+        compareAtPrice: 286,
+        image: Img_108_Main,
+        hoverImage: Img_108_Hover,
+        gallery: [Img_108_Main, Img_108_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-016-108", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","gym","running","Best Sellers","Sneakers","T-Shirts","Trucksuits","Shoes","sale"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-017-109', 
+        title: "Amiri-jeans-",
+        price: 195,
+        compareAtPrice: 244,
+        image: Img_109_Main,
+        hoverImage: Img_109_Hover,
+        gallery: [Img_109_Main, Img_109_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-017-109", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","basketball","sale"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-018-110', 
+        title: "Amiri-jeans-",
+        price: 169,
+        
+        image: Img_110_Main,
+        hoverImage: Img_110_Hover,
+        gallery: [Img_110_Main, Img_110_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-018-110", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","running","gym","Best Sellers","Trucksuits","Jackets","Pants"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-019-111', 
+        title: "Amiri-jeans-",
+        price: 154,
+        
+        image: Img_111_Main,
+        hoverImage: Img_111_Hover,
+        gallery: [Img_111_Main, Img_111_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-019-111", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","football","basketball","Sneakers","Shoes"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-020-112', 
+        title: "Amiri-jeans-",
+        price: 61,
+        
+        image: Img_112_Main,
+        hoverImage: Img_112_Hover,
+        gallery: [Img_112_Main, Img_112_Gal_1],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-020-112", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","gym"]
+    },
+    {
+        id: 'amiri-jeans-amiri-jeans-021-113', 
+        title: "Amiri-jeans-",
+        price: 246,
+        
+        image: Img_113_Main,
+        hoverImage: Img_113_Hover,
+        gallery: [Img_113_Main],
+        category: "Jeans",
+        brand: "Amiri",
+        slug: "amiri-jeans-amiri-jeans-021-113", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Jeans","gym","Loafers","Sneakers","Shoes"]
+    },
+    {
+        id: 'amiri-polos-amiri-polo-001-114', 
+        title: "Amiri-polo-",
+        price: 238,
+        
+        image: Img_114_Main,
+        hoverImage: Img_114_Hover,
+        gallery: [Img_114_Main, Img_114_Gal_1],
+        category: "Polos",
+        brand: "Amiri",
+        slug: "amiri-polos-amiri-polo-001-114", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Polos","gym","running","Best Sellers","Shoes","Jackets","Sweaters"]
+    },
+    {
+        id: 'amiri-polos-amiri-polo-002-115', 
+        title: "Amiri-polo-",
+        price: 178,
+        
+        image: Img_115_Main,
+        hoverImage: Img_115_Hover,
+        gallery: [Img_115_Main, Img_115_Gal_1],
+        category: "Polos",
+        brand: "Amiri",
+        slug: "amiri-polos-amiri-polo-002-115", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Polos","football"]
+    },
+    {
+        id: 'amiri-polos-amiri-polo-003-116', 
+        title: "Amiri-polo-",
+        price: 105,
+        compareAtPrice: 136,
+        image: Img_116_Main,
+        hoverImage: Img_116_Hover,
+        gallery: [Img_116_Main, Img_116_Gal_1],
+        category: "Polos",
+        brand: "Amiri",
+        slug: "amiri-polos-amiri-polo-003-116", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Polos","football","basketball","Loafers","Shoes","sale"]
+    },
+    {
+        id: 'amiri-polos-amiri-polo-004-117', 
+        title: "Amiri-polo-",
+        price: 182,
+        
+        image: Img_117_Main,
+        hoverImage: Img_117_Hover,
+        gallery: [Img_117_Main, Img_117_Gal_1],
+        category: "Polos",
+        brand: "Amiri",
+        slug: "amiri-polos-amiri-polo-004-117", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Polos","basketball","running"]
+    },
+    {
+        id: 'amiri-polos-amiri-polo-005-118', 
+        title: "Amiri-polo-",
+        price: 224,
+        
+        image: Img_118_Main,
+        hoverImage: Img_118_Hover,
+        gallery: [Img_118_Main, Img_118_Gal_1],
+        category: "Polos",
+        brand: "Amiri",
+        slug: "amiri-polos-amiri-polo-005-118", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Polos","basketball"]
+    },
+    {
+        id: 'amiri-polos-amiri-polo-006-119', 
+        title: "Amiri-polo-",
+        price: 245,
+        compareAtPrice: 304,
+        image: Img_119_Main,
+        hoverImage: Img_119_Hover,
+        gallery: [Img_119_Main, Img_119_Gal_1],
+        category: "Polos",
+        brand: "Amiri",
+        slug: "amiri-polos-amiri-polo-006-119", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Polos","running","sale"]
+    },
+    {
+        id: 'amiri-polos-amiri-polo-007-120', 
+        title: "Amiri-polo-",
+        price: 130,
+        compareAtPrice: 166,
+        image: Img_120_Main,
+        hoverImage: Img_120_Hover,
+        gallery: [Img_120_Main, Img_120_Gal_1],
+        category: "Polos",
+        brand: "Amiri",
+        slug: "amiri-polos-amiri-polo-007-120", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Polos","running","Best Sellers","Hoodies","Loafers","Sweatshirts","Shoes","sale"]
+    },
+    {
+        id: 'amiri-polos-amiri-polo-008-121', 
+        title: "Amiri-polo-",
+        price: 181,
+        
+        image: Img_121_Main,
+        hoverImage: Img_121_Hover,
+        gallery: [Img_121_Main, Img_121_Gal_1],
+        category: "Polos",
+        brand: "Amiri",
+        slug: "amiri-polos-amiri-polo-008-121", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Polos","football","Best Sellers","Shorts","Boots","Pants","Shoes"]
+    },
+    {
+        id: 'amiri-polos-amiri-polo-009-122', 
+        title: "Amiri-polo-",
+        price: 80,
+        
+        image: Img_122_Main,
+        hoverImage: Img_122_Hover,
+        gallery: [Img_122_Main, Img_122_Gal_1],
+        category: "Polos",
+        brand: "Amiri",
+        slug: "amiri-polos-amiri-polo-009-122", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Polos","basketball","Slides","Sneakers","Shoes"]
+    },
+    {
+        id: 'amiri-sets-amiri-sets-001-123', 
+        title: "Amiri-sets-",
+        price: 236,
+        compareAtPrice: 293,
+        image: Img_123_Main,
+        hoverImage: Img_123_Hover,
+        gallery: [Img_123_Main, Img_123_Gal_1],
+        category: "Sets",
+        brand: "Amiri",
+        slug: "amiri-sets-amiri-sets-001-123", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Sets","running","basketball","Best Sellers","Jackets","Hoodies","Loafers","Shoes","sale"]
+    },
+    {
+        id: 'amiri-sets-amiri-sets-002-124', 
+        title: "Amiri-sets-",
+        price: 130,
+        
+        image: Img_124_Main,
+        hoverImage: Img_124_Hover,
+        gallery: [Img_124_Main, Img_124_Gal_1],
+        category: "Sets",
+        brand: "Amiri",
+        slug: "amiri-sets-amiri-sets-002-124", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Sets","running","football","Best Sellers","Loafers","Polos","Sweatshirts","Shoes"]
+    },
+    {
+        id: 'amiri-sets-amiri-sets-003-125', 
+        title: "Amiri-sets-",
+        price: 186,
+        
+        image: Img_125_Main,
+        hoverImage: Img_125_Hover,
+        gallery: [Img_125_Main],
+        category: "Sets",
+        brand: "Amiri",
+        slug: "amiri-sets-amiri-sets-003-125", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Sets","football","running","Best Sellers","Jackets","Shoes","Sweaters"]
+    },
+    {
+        id: 'amiri-sets-amiri-sets-004-126', 
+        title: "Amiri-sets-",
+        price: 176,
+        
+        image: Img_126_Main,
+        hoverImage: Img_126_Hover,
+        gallery: [Img_126_Main],
+        category: "Sets",
+        brand: "Amiri",
+        slug: "amiri-sets-amiri-sets-004-126", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Sets","running","Best Sellers","Accessories","Shoes"]
+    },
+    {
+        id: 'amiri-shirts-amiri-shirts-001-127', 
+        title: "Amiri-shirts-",
+        price: 197,
+        
+        image: Img_127_Main,
+        hoverImage: Img_127_Hover,
+        gallery: [Img_127_Main, Img_127_Gal_1],
+        category: "T-Shirts",
+        brand: "Amiri",
+        slug: "amiri-shirts-amiri-shirts-001-127", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","T-Shirts","football","basketball","Best Sellers","Sneakers","Boots","Loafers","Shoes"]
+    },
+    {
+        id: 'amiri-shirts-amiri-shirts-002-128', 
+        title: "Amiri-shirts-",
+        price: 165,
+        compareAtPrice: 208,
+        image: Img_128_Main,
+        hoverImage: Img_128_Hover,
+        gallery: [Img_128_Main, Img_128_Gal_1],
+        category: "T-Shirts",
+        brand: "Amiri",
+        slug: "amiri-shirts-amiri-shirts-002-128", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","T-Shirts","football","basketball","Sneakers","Loafers","Shoes","sale"]
+    },
+    {
+        id: 'amiri-shoes-amiri-shoes-001-129', 
+        title: "Amiri-shoes-",
+        price: 223,
+        compareAtPrice: 277,
+        image: Img_129_Main,
+        hoverImage: Img_129_Hover,
+        gallery: [Img_129_Main, Img_129_Gal_1, Img_129_Gal_2, Img_129_Gal_3],
+        category: "Shoes",
+        brand: "Amiri",
+        slug: "amiri-shoes-amiri-shoes-001-129", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Shoes","gym","sale"]
+    },
+    {
+        id: 'amiri-shoes-amiri-shoes-002-130', 
+        title: "Amiri-shoes-",
+        price: 168,
+        
+        image: Img_130_Main,
+        hoverImage: Img_130_Hover,
+        gallery: [Img_130_Main, Img_130_Gal_1],
+        category: "Shoes",
+        brand: "Amiri",
+        slug: "amiri-shoes-amiri-shoes-002-130", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Shoes","running"]
+    },
+    {
+        id: 'amiri-shoes-amiri-shoes-003-131', 
+        title: "Amiri-shoes-",
+        price: 142,
+        
+        image: Img_131_Main,
+        hoverImage: Img_131_Hover,
+        gallery: [Img_131_Main, Img_131_Gal_1, Img_131_Gal_2, Img_131_Gal_3],
+        category: "Shoes",
+        brand: "Amiri",
+        slug: "amiri-shoes-amiri-shoes-003-131", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Shoes","football","basketball","Best Sellers","Slides","Sneakers","Pants"]
+    },
+    {
+        id: 'amiri-shoes-amiri-shoes-004-132', 
+        title: "Amiri-shoes-",
+        price: 70,
+        
+        image: Img_132_Main,
+        hoverImage: Img_132_Hover,
+        gallery: [Img_132_Main, Img_132_Gal_1, Img_132_Gal_2, Img_132_Gal_3],
+        category: "Shoes",
+        brand: "Amiri",
+        slug: "amiri-shoes-amiri-shoes-004-132", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Shoes","football","basketball","Boots"]
+    },
+    {
+        id: 'amiri-shoes-amiri-shoes-005-133', 
+        title: "Amiri-shoes-",
+        price: 227,
+        
+        image: Img_133_Main,
+        hoverImage: Img_133_Hover,
+        gallery: [Img_133_Main, Img_133_Gal_1, Img_133_Gal_2, Img_133_Gal_3],
+        category: "Shoes",
+        brand: "Amiri",
+        slug: "amiri-shoes-amiri-shoes-005-133", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Shoes","basketball","running","Best Sellers","Boots","T-Shirts"]
+    },
+    {
+        id: 'amiri-shorts-amiri-shorts-001-134', 
+        title: "Amiri-shorts-",
+        price: 167,
+        
+        image: Img_134_Main,
+        hoverImage: Img_134_Hover,
+        gallery: [Img_134_Main, Img_134_Gal_1],
+        category: "Shorts",
+        brand: "Amiri",
+        slug: "amiri-shorts-amiri-shorts-001-134", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Shorts","football","Best Sellers","Sweatshirts","Boots","Hoodies","Shoes"]
+    },
+    {
+        id: 'amiri-shorts-amiri-shorts-002-135', 
+        title: "Amiri-shorts-",
+        price: 119,
+        
+        image: Img_135_Main,
+        hoverImage: Img_135_Hover,
+        gallery: [Img_135_Main, Img_135_Gal_1],
+        category: "Shorts",
+        brand: "Amiri",
+        slug: "amiri-shorts-amiri-shorts-002-135", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Shorts","gym","basketball","Best Sellers","T-Shirts","Loafers","Polos","Shoes"]
+    },
+    {
+        id: 'amiri-shorts-amiri-shorts-003-136', 
+        title: "Amiri-shorts-",
+        price: 209,
+        
+        image: Img_136_Main,
+        hoverImage: Img_136_Hover,
+        gallery: [Img_136_Main, Img_136_Gal_1],
+        category: "Shorts",
+        brand: "Amiri",
+        slug: "amiri-shorts-amiri-shorts-003-136", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Shorts","football","Best Sellers","Trucksuits","Shoes"]
+    },
+    {
+        id: 'amiri-shorts-amiri-shorts-004-137', 
+        title: "Amiri-shorts-",
+        price: 95,
+        
+        image: Img_137_Main,
+        hoverImage: Img_137_Hover,
+        gallery: [Img_137_Main, Img_137_Gal_1],
+        category: "Shorts",
+        brand: "Amiri",
+        slug: "amiri-shorts-amiri-shorts-004-137", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Shorts","gym","Loafers","Slides","Shoes"]
+    },
+    {
+        id: 'amiri-shorts-amiri-shorts-005-138', 
+        title: "Amiri-shorts-",
+        price: 204,
+        
+        image: Img_138_Main,
+        hoverImage: Img_138_Hover,
+        gallery: [Img_138_Main, Img_138_Gal_1],
+        category: "Shorts",
+        brand: "Amiri",
+        slug: "amiri-shorts-amiri-shorts-005-138", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Shorts","running","Best Sellers","Slides","Boots","T-Shirts","Shoes"]
+    },
+    {
+        id: 'amiri-shorts-amiri-shorts-006-139', 
+        title: "Amiri-shorts-",
+        price: 153,
+        
+        image: Img_139_Main,
+        hoverImage: Img_139_Hover,
+        gallery: [Img_139_Main],
+        category: "Shorts",
+        brand: "Amiri",
+        slug: "amiri-shorts-amiri-shorts-006-139", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Shorts","gym","football"]
+    },
+    {
+        id: 'amiri-shorts-amiri-shorts-007-140', 
+        title: "Amiri-shorts-",
+        price: 156,
+        compareAtPrice: 197,
+        image: Img_140_Main,
+        hoverImage: Img_140_Hover,
+        gallery: [Img_140_Main],
+        category: "Shorts",
+        brand: "Amiri",
+        slug: "amiri-shorts-amiri-shorts-007-140", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Shorts","gym","sale"]
+    },
+    {
+        id: 'amiri-shorts-amiri-shorts-008-141', 
+        title: "Amiri-shorts-",
+        price: 199,
+        compareAtPrice: 248,
+        image: Img_141_Main,
+        hoverImage: Img_141_Hover,
+        gallery: [Img_141_Main, Img_141_Gal_1],
+        category: "Shorts",
+        brand: "Amiri",
+        slug: "amiri-shorts-amiri-shorts-008-141", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Shorts","running","basketball","Best Sellers","Hoodies","Sweaters","Accessories","sale"]
+    },
+    {
+        id: 'amiri-shorts-amiri-shorts-009-142', 
+        title: "Amiri-shorts-",
+        price: 85,
+        
+        image: Img_142_Main,
+        hoverImage: Img_142_Hover,
+        gallery: [Img_142_Main, Img_142_Gal_1],
+        category: "Shorts",
+        brand: "Amiri",
+        slug: "amiri-shorts-amiri-shorts-009-142", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Shorts","football"]
+    },
+    {
+        id: 'amiri-shorts-amiri-shorts-010-143', 
+        title: "Amiri-shorts-",
+        price: 108,
+        
+        image: Img_143_Main,
+        hoverImage: Img_143_Hover,
+        gallery: [Img_143_Main, Img_143_Gal_1],
+        category: "Shorts",
+        brand: "Amiri",
+        slug: "amiri-shorts-amiri-shorts-010-143", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Shorts","basketball"]
+    },
+    {
+        id: 'amiri-shorts-amiri-shorts-011-144', 
+        title: "Amiri-shorts-",
+        price: 213,
+        
+        image: Img_144_Main,
+        hoverImage: Img_144_Hover,
+        gallery: [Img_144_Main, Img_144_Gal_1],
+        category: "Shorts",
+        brand: "Amiri",
+        slug: "amiri-shorts-amiri-shorts-011-144", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","Shorts","football","gym","Best Sellers","Sweatshirts","Slides","Accessories","Shoes"]
+    },
+    {
+        id: 'amiri-tshirts-amiri-tshirt-001-145', 
+        title: "Amiri-tshirt-",
+        price: 107,
+        
+        image: Img_145_Main,
+        hoverImage: Img_145_Hover,
+        gallery: [Img_145_Main, Img_145_Gal_1],
+        category: "T-Shirts",
+        brand: "Amiri",
+        slug: "amiri-tshirts-amiri-tshirt-001-145", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","T-Shirts","gym","Loafers","Slides","Shoes"]
+    },
+    {
+        id: 'amiri-tshirts-amiri-tshirt-002-146', 
+        title: "Amiri-tshirt-",
+        price: 138,
+        
+        image: Img_146_Main,
+        hoverImage: Img_146_Hover,
+        gallery: [Img_146_Main, Img_146_Gal_1],
+        category: "T-Shirts",
+        brand: "Amiri",
+        slug: "amiri-tshirts-amiri-tshirt-002-146", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","T-Shirts","football","basketball"]
+    },
+    {
+        id: 'amiri-tshirts-amiri-tshirt-003-147', 
+        title: "Amiri-tshirt-",
+        price: 245,
+        
+        image: Img_147_Main,
+        hoverImage: Img_147_Hover,
+        gallery: [Img_147_Main, Img_147_Gal_1],
+        category: "T-Shirts",
+        brand: "Amiri",
+        slug: "amiri-tshirts-amiri-tshirt-003-147", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","T-Shirts","basketball","football","Best Sellers","Polos","Sweaters","Hoodies"]
+    },
+    {
+        id: 'amiri-tshirts-amiri-tshirt-004-148', 
+        title: "Amiri-tshirt-",
+        price: 105,
+        
+        image: Img_148_Main,
+        hoverImage: Img_148_Hover,
+        gallery: [Img_148_Main, Img_148_Gal_1],
+        category: "T-Shirts",
+        brand: "Amiri",
+        slug: "amiri-tshirts-amiri-tshirt-004-148", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","T-Shirts","gym","Best Sellers","Accessories","Slides","Shoes"]
+    },
+    {
+        id: 'amiri-tshirts-amiri-tshirt-005-149', 
+        title: "Amiri-tshirt-",
+        price: 214,
+        
+        image: Img_149_Main,
+        hoverImage: Img_149_Hover,
+        gallery: [Img_149_Main, Img_149_Gal_1],
+        category: "T-Shirts",
+        brand: "Amiri",
+        slug: "amiri-tshirts-amiri-tshirt-005-149", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","T-Shirts","gym","Best Sellers","Pants","Loafers","Jackets","Shoes"]
+    },
+    {
+        id: 'amiri-tshirts-amiri-tshirt-006-150', 
+        title: "Amiri-tshirt-",
+        price: 115,
+        
+        image: Img_150_Main,
+        hoverImage: Img_150_Hover,
+        gallery: [Img_150_Main, Img_150_Gal_1],
+        category: "T-Shirts",
+        brand: "Amiri",
+        slug: "amiri-tshirts-amiri-tshirt-006-150", // Use uniqueId as slug too
+        gender: "unisex", 
+        tags: ["Amiri","T-Shirts","football","basketball"]
     }
 ];
