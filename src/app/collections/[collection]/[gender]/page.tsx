@@ -101,29 +101,27 @@ export default async function CollectionPage(props: PageProps) {
 
     // 4. Final Filtering
     // If user selected a subcategory (e.g. Hoodies), we search the WHOLE genderPool 
-    // to ensure we find 10 products of that type.
+    // to ensure we find 10 products of that specific type.
     const filteredProducts = (subcategoryFilter
         ? genderPool.filter(p => {
             const prodCat = (p.category || '').toLowerCase();
             const normProdCat = prodCat.replace(/[\s\-_]/g, '');
             const normalizedParam = subcategoryFilter.replace(/[\s\-_]/g, '');
+            const singularParam = normalizedParam.endsWith('s') ? normalizedParam.slice(0, -1) : normalizedParam;
 
-            // 1. Direct normalized match
-            if (normProdCat === normalizedParam) {
-                // Special check: if we are looking for tshirt, don't return sweatshirt
-                if (normalizedParam === 'tshirt' && normProdCat.includes('sweat')) return false;
+            // 1. Direct normalized match on Category property
+            if (normProdCat === normalizedParam || normProdCat === singularParam) {
+                // Special check: if we are looking for tshirts, don't return sweatshirts
+                if (normalizedParam === 'tshirts' && normProdCat.includes('sweat')) return false;
                 return true;
             }
 
-            // 2. Extra robust check for T-Shirt variations
-            if (normalizedParam === 'tshirt') {
-                return prodCat === 't-shirt' || prodCat === 't-shirts' ||
-                    prodCat.includes('t-shirt') || prodCat.includes('tshirt');
+            // 2. Robust check for variations (Strict)
+            if (normalizedParam === 'tshirt' || normalizedParam === 'tshirts') {
+                return prodCat === 't-shirt' || prodCat === 't-shirts' || prodCat === 'tshirts';
             }
-
-            // 3. Extra robust check for Sweatshirt variations
-            if (normalizedParam === 'sweatshirt') {
-                return prodCat.includes('sweatshirt');
+            if (normalizedParam === 'sweatshirt' || normalizedParam === 'sweatshirts') {
+                return prodCat === 'sweatshirt' || prodCat === 'sweatshirts';
             }
 
             return false;

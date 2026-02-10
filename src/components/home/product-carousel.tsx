@@ -33,7 +33,9 @@ export default function ProductCarousel({ title, products: sourceProducts }: { t
     // Filter for bestsellers products strictly
     const [displayProducts, setDisplayProducts] = useState<any[]>(
         sourceProducts && sourceProducts.length > 0 ? sourceProducts :
-            (products.length > 0 ? products.slice(0, 10) : CAROUSEL_PRODUCTS)
+            (title === 'BEST SELLERS'
+                ? products.filter(p => p.tags?.includes('Best Sellers') && !p.tags?.includes('Accessories') && p.category !== 'Accessories').slice(0, 10)
+                : products.filter(p => !p.tags?.includes('Accessories') && p.category !== 'Accessories').slice(0, 10))
     );
 
     useEffect(() => {

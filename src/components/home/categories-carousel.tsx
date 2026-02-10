@@ -10,14 +10,12 @@ import { products } from '@/data/generated-products';
 // Mock Categories with distinct placeholders if actual images repeat
 // Ensuring we have enough items to scroll (8 items for 2 pages of 4)
 const CATEGORIES = [
-    { name: 'HOODIES', slug: 'hoodies', image: products.find(p => p.category === 'Hoodie')?.image },
-    { name: 'T-SHIRTS', slug: 'tshirt', image: products.find(p => p.category === 'T-Shirt')?.image },
+    { name: 'HOODIES', slug: 'hoodies', image: products.find(p => p.category === 'Hoodies')?.image },
+    { name: 'T-SHIRTS', slug: 't-shirts', image: products.find(p => p.category === 'T-Shirts')?.image },
     { name: 'JEANS', slug: 'jeans', image: products.find(p => p.category === 'Jeans')?.image },
-    { name: 'SHOES', slug: 'shoes', image: products.find(p => p.category === 'Shoes')?.image },
-    { name: 'ACCESSORIES', slug: 'accessory', image: products.find(p => p.category === 'Accessories')?.image },
-    { name: 'JACKETS', slug: 'jacket', image: products.find(p => p.category === 'Jacket')?.image },
-    { name: 'SWEATS', slug: 'sweatshirt', image: products.find(p => p.category === 'Sweatshirt')?.image },
-    { name: 'HATS', slug: 'accessory', image: products.find(p => p.category === 'Accessories')?.image },
+    { name: 'JACKETS', slug: 'jackets', image: products.find(p => p.category === 'Jackets')?.image },
+    { name: 'SWEATS', slug: 'sweatshirts', image: products.find(p => p.category === 'Sweatshirts')?.image },
+    { name: 'SETS', slug: 'sets', image: products.find(p => p.category === 'Sets')?.image },
 ];
 
 export default function CategoriesCarousel() {
@@ -64,10 +62,7 @@ export default function CategoriesCarousel() {
 
                 <div className={styles.carouselContainer} ref={scrollRef}>
                     {CATEGORIES.map((cat, idx) => {
-                        // Start with placeholder or found image
-                        const imgSrc = cat.image || '/placeholder.jpg';
-                        // Force distinct images for visual variety if needed by rotating products
-                        const displayImg = products[idx % products.length]?.image || imgSrc;
+                        const displayImg = cat.image || '/placeholder.jpg';
 
                         return (
                             <Link

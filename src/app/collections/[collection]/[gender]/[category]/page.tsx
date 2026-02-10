@@ -19,16 +19,23 @@ const GENDER_MAP: Record<string, string> = {
 
 const CATEGORY_MAP: Record<string, string> = {
     'tshirt': 'T-Shirts',
+    't-shirts': 'T-Shirts',
     'iphone_case': 'iPhone Case',
     'sweatshirt': 'Sweatshirts',
-    'polo': 'Polo',
+    'sweatshirts': 'Sweatshirts',
+    'polo': 'Polos',
+    'polos': 'Polos',
     'shorts': 'Shorts',
+    'short': 'Shorts',
     'jeans': 'Jeans',
-    'sweater': 'Sweater',
-    'jacket': 'Jacket',
+    'sweater': 'Sweaters',
+    'sweaters': 'Sweaters',
+    'jacket': 'Jackets',
+    'jackets': 'Jackets',
     'sets': 'Sets',
     'shoes': 'Shoes',
     'hoodies': 'Hoodies',
+    'hoodie': 'Hoodies',
     'bags': 'Bags',
     'belts': 'Belts',
     'caps': 'Caps',
@@ -53,7 +60,8 @@ export default async function CategoryCollectionPage(props: PageProps) {
 
     // 1. Resolve Names
     let targetCollection = COLLECTION_MAP[collection] || collection.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-    let targetCategory = CATEGORY_MAP[category.toLowerCase()] || category.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    // Use the normalized mapping for consistency
+    const systemCategory = CATEGORY_MAP[category.toLowerCase()] || category.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
     const targetGender = GENDER_MAP[gender] || gender;
 
     // 2. Filter by Gender
@@ -62,87 +70,33 @@ export default async function CategoryCollectionPage(props: PageProps) {
         return targetGender === 'unisex' ? true : (productGender === targetGender || productGender === 'unisex');
     });
 
-    // 3. Filter by Collection Context
-    let collectionPool = genderPool.filter(p => {
-        const hasTag = p.tags?.some((t: string) => t.toLowerCase() === targetCollection.toLowerCase());
-        const isCategory = p.category?.toLowerCase() === targetCollection.toLowerCase();
-        return hasTag || isCategory;
-    });
+    // 3. Filter by Collection Context (Optional if we want to narrow down, but usually we want full category)
+    // For specific subcategory pages, we usually ignore the "Best Seller/Sale" collection wrapper 
+    // and show ALL products of that category, but we still respect the collection pool if it's restrictive.
+    // However, the user wants 10 items, so we'll fallback to genderPool if needed.
 
-    // Fallback logic for virtual collections (Standard behavior in this app)
-    if (collectionPool.length === 0) {
-        if (collection === 'new-arrivals') collectionPool = genderPool.slice(0, 100);
-        else if (collection === 'sale') collectionPool = genderPool.filter(p => p.price < 1500).slice(0, 100);
-        else if (collection === 'must-have') collectionPool = genderPool.slice(50, 150);
-        else if (collection === 'best-sellers') collectionPool = genderPool.slice(100, 200);
-        else collectionPool = genderPool; // For 'clothing' etc.
-    }
-
-    // Special Handling for "Clothing"
-    if (collection === 'clothing') {
-        const excludedCategories = ['shoes', 'belt', 'iphone case', 'accessory'];
-        collectionPool = genderPool.filter(p => {
-            const cat = (p.category || '').toLowerCase();
-            return !excludedCategories.some(excluded => cat.includes(excluded));
-        });
-    }
-
-    // Special Handling for "Shoes"
-    if (collection === 'shoes') {
-        const shoeCategories = ['shoe', 'sneaker', 'boot', 'loafer', 'slide'];
-        collectionPool = genderPool.filter(p => {
-            const cat = (p.category || '').toLowerCase();
-            return shoeCategories.some(shoeCat => cat.includes(shoeCat));
-        });
-    }
-
-    // Special Handling for "Accessories"
-    if (collection === 'accessories') {
-        const accCategories = ['bag', 'belt', 'cap', 'hat', 'wallet', 'scarf', 'mask', 'sunglass'];
-        collectionPool = genderPool.filter(p => {
-            const cat = (p.category || '').toLowerCase();
-            return accCategories.some(acc => cat.includes(acc));
-        });
-    }
-
-    // Special Handling for "Sports"
-    if (collection === 'sports') {
-        const sportsCategories = ['running', 'gym', 'football', 'basketball', 'training', 'sports'];
-        collectionPool = genderPool.filter(p => {
-            const cat = (p.category || '').toLowerCase();
-            return sportsCategories.some(sportCat => cat.includes(sportCat));
-        });
-    }
-
-    // 4. Resolve the requested category name for display
-    let displayCategory = CATEGORY_MAP[category.toLowerCase()] ||
-        category.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-
-    // 5. Final Filter
-    // We follow the parent page's subcategory filtering logic for consistency.
-    // We search the WHOLE genderPool to ensure we find 10 products of that type.
+    // 4. Final Filter
     const normalizedParam = category.toLowerCase().replace(/[\s\-_]/g, '');
+    const singularParam = normalizedParam.endsWith('s') ? normalizedParam.slice(0, -1) : normalizedParam;
+
+    // STRICT: Only match the 'category' property. Ignore tags to prevent muddled categories.
     const finalProducts = genderPool.filter(p => {
         const prodCat = (p.category || '').toLowerCase();
         const normProdCat = prodCat.replace(/[\s\-_]/g, '');
-        const prodTags = (p.tags || []).map(t => t.toLowerCase().replace(/[\s\-_]/g, ''));
 
-        // 1. Direct normalized match
-        if (normProdCat === normalizedParam || prodTags.includes(normalizedParam)) {
-            // Special check: if we are looking for tshirt, don't return sweatshirt
-            if (normalizedParam === 'tshirt' && normProdCat.includes('sweat')) return false;
+        // 1. Direct normalized match on Category property
+        if (normProdCat === normalizedParam || normProdCat === singularParam) {
+            // Special check: if we are looking for tshirts, don't return sweatshirts
+            if (normalizedParam === 'tshirts' && normProdCat.includes('sweat')) return false;
             return true;
         }
 
-        // 2. Extra robust check for T-Shirt variations
-        if (normalizedParam === 'tshirt') {
-            return prodCat === 't-shirt' || prodCat === 't-shirts' ||
-                prodCat.includes('t-shirt') || prodCat.includes('tshirt');
+        // 2. Exact match variations for T-Shirts/Sweatshirts
+        if (normalizedParam === 'tshirt' || normalizedParam === 'tshirts') {
+            if (prodCat === 't-shirt' || prodCat === 't-shirts' || prodCat === 'tshirts') return true;
         }
-
-        // 3. Extra robust check for Sweatshirt variations
-        if (normalizedParam === 'sweatshirt') {
-            return prodCat.includes('sweatshirt');
+        if (normalizedParam === 'sweatshirt' || normalizedParam === 'sweatshirts') {
+            if (prodCat === 'sweatshirt' || prodCat === 'sweatshirts') return true;
         }
 
         return false;
@@ -155,9 +109,9 @@ export default async function CategoryCollectionPage(props: PageProps) {
     // Get available categories for the sidebar (all categories in the gender pool)
     const availableCategories = Array.from(new Set(genderPool.map(p => p.category).filter(Boolean))).sort() as string[];
 
-    // Fix: Use the actual category from the matched products to ensure the client-side filter works.
-    // The displayCategory (e.g. "T-Shirts") might not match the data category (e.g. "Tshirt").
-    const actualCategory = finalProducts.length > 0 ? (finalProducts[0].category || displayCategory) : displayCategory;
+    // 5. Resolve actual category for display and filtering
+    const displayCategory = systemCategory;
+    const initialCategoryFilter = systemCategory;
 
     return (
         <main className="min-h-screen">
@@ -166,7 +120,7 @@ export default async function CategoryCollectionPage(props: PageProps) {
                     initialProducts={finalProducts}
                     allProductsSource={genderPool}
                     title={displayCategory}
-                    initialCategory={actualCategory}
+                    initialCategory={initialCategoryFilter}
                     availableCategories={availableCategories}
                     showCategoryCarousel={false}
                 />

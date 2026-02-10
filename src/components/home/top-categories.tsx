@@ -23,7 +23,7 @@ export default function TopCategories() {
         products[3]?.image || products[0]?.image,
     ];
 
-    const LABELS = ['HOODIES', 'JACKETS', 'JOGGERS', 'ACCESSORIES'];
+    const LABELS = ['HOODIES', 'JACKETS', 'JOGGERS'];
 
     return (
         <section className={`container ${styles.section}`}>

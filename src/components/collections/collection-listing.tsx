@@ -25,11 +25,8 @@ import { PAGE_CATEGORIES } from '@/data/category-config';
 
 // Helper to find image for category
 const findCategoryImage = (cat: any, products: GridProduct[]) => {
-    return products.find(p =>
-        (p.category === cat.filterValue) ||
-        (p.tags && p.tags.includes(cat.filterValue)) ||
-        (cat.slug === 'sweatshirts' && p.category === 'Sweaters')
-    )?.image;
+    // Strictly find a product that is principally of this category
+    return products.find(p => p.category === cat.filterValue)?.image;
 };
 
 

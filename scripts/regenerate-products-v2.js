@@ -3,7 +3,7 @@ const path = require('path');
 
 const IMAGES_DIR = path.join(__dirname, '../src/images');
 const OUTPUT_FILE = path.join(__dirname, '../src/data/generated-products.ts');
-const PRODUCT_LIMIT = 150; // Increased to ensure coverage for all categories
+const PRODUCT_LIMIT = 800; // Increased to ensure coverage for all categories
 
 // Valid extensions
 const VALID_EXTS = ['.webp', '.png', '.jpg', '.jpeg', '.svg'];
@@ -37,6 +37,9 @@ function findProductFolders(dir, fileList = []) {
 }
 
 const productFolders = findProductFolders(IMAGES_DIR);
+
+// Shuffle folders to ensure variety across brands/categories
+productFolders.sort(() => 0.5 - Math.random());
 
 let importStatements = [];
 let productEntries = [];
@@ -244,7 +247,9 @@ for (const productDir of productFolders) {
                 'jacket': 'Jackets',
                 'jackets': 'Jackets',
                 'jeans': 'Jeans',
-                'denim': 'Jeans'
+                'denim': 'Jeans',
+                'sets': 'Sets',
+                'trucksuits': 'Sets'
             };
 
             if (typeMap[potentialType]) {
@@ -261,27 +266,12 @@ for (const productDir of productFolders) {
 
     if (isBestSeller) {
         if (!finalTags.includes('Best Sellers')) finalTags.push('Best Sellers');
-        // Randomly assign types to Best Sellers to ensure we hav coverage for all carousel categories
-        const demoTypes = ['T-Shirts', 'Hoodies', 'Sweatshirts', 'Sweaters', 'Jackets', 'Polos', 'Pants', 'Shorts', 'Sneakers', 'Boots', 'Loafers', 'Slides', 'Trucksuits', 'Accessories', 'Shoes'];
-
-        // Pick 3 random types to ensure overlap and hit 10 products per cat
-        for (let k = 0; k < 3; k++) {
-            const randomType = demoTypes[Math.floor(Math.random() * demoTypes.length)];
-            if (!finalTags.includes(randomType)) {
-                finalTags.push(randomType);
-            }
-        }
     } else {
-        // Randomly assign Shoe types to other products to populate Shoes page for testing
-        // 40% chance to be a shoe if not already
-        if (Math.random() < 0.4) {
-            const shoeTypes = ['Sneakers', 'Boots', 'Loafers', 'Slides'];
-            // Pick 2 random shoe types
-            for (let k = 0; k < 2; k++) {
-                const randomShoe = shoeTypes[Math.floor(Math.random() * shoeTypes.length)];
-                if (!finalTags.includes(randomShoe)) finalTags.push(randomShoe);
+        // Force Best Seller for Jackets, Pants, Sets to ensure at least 5 appear as requested
+        if (finalTags.includes('Jackets') || finalTags.includes('Sets') || finalTags.includes('Pants') || finalTags.includes('Tracksuits') || finalTags.includes('Jeans')) {
+            if (Math.random() < 0.7) { // 70% chance to force it
+                finalTags.push('Best Sellers');
             }
-            if (!finalTags.includes('Shoes')) finalTags.push('Shoes');
         }
     }
 
@@ -295,27 +285,96 @@ for (const productDir of productFolders) {
         finalTags.push('sale');
     }
 
+    // SKIP SNEAKERS/ACCESSORIES FROM MAIN LOOP TO KEEP IT CLEAN FOR CLOTHING IF REQUESTED
+    if (category === 'Accessories' || finalTags.includes('Accessories') || finalTags.includes('Accessory')) continue;
+
+
     // Slug & ID Generation (Ensure Uniqueness)
     // Add importCounter to slug/id to guarantee uniqueness even if names collide
     const rawSlug = `${brand}-${category}-${title}`;
     const cleanSlug = rawSlug.toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-');
     const uniqueId = `${cleanSlug}-${importCounter}`; // GUARANTEE UNIQUENESS
 
-    productEntries.push(`    {
-        id: '${uniqueId}', 
-        title: "${displayTitle}",
-        price: ${price},
-        ${compareAtPrice ? `compareAtPrice: ${compareAtPrice},` : ''}
-        image: ${mainImportName},
-        hoverImage: ${hoverImportName},
-        gallery: [${galleryImports.join(', ')}],
-        category: "${displayCategory}",
-        brand: "${displayBrand}",
-        slug: "${uniqueId}", // Use uniqueId as slug too
-        gender: "unisex", 
-        tags: ${JSON.stringify(finalTags)}
-    }`);
+    const productObj = {
+        id: uniqueId,
+        title: displayTitle,
+        price: price,
+        compareAtPrice: compareAtPrice,
+        image: mainImportName,
+        hoverImage: hoverImportName,
+        gallery: galleryImports,
+        category: displayCategory,
+        brand: displayBrand,
+        slug: uniqueId,
+        gender: "unisex",
+        tags: finalTags
+    };
+
+    productEntries.push(productObj);
 }
+
+// POST-PROCESSING: ENSURE 10 ITEMS PER CATEGORY
+const TARGET_CATEGORIES = ['T-Shirts', 'Hoodies', 'Sweatshirts', 'Sweaters', 'Jackets', 'Polos', 'Sets', 'Pants', 'Shorts', 'Jeans'];
+const TARGET_COUNT = 10;
+
+// Helper to get random item from list
+const getRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+for (const targetCat of TARGET_CATEGORIES) {
+    const existing = productEntries.filter(p => p.tags.includes(targetCat) || p.category === targetCat);
+    const count = existing.length;
+
+    if (count < TARGET_COUNT) {
+        const needed = TARGET_COUNT - count;
+        // console.log(`Not enough ${targetCat} (found ${count}), generating ${needed} more...`);
+
+        for (let i = 0; i < needed; i++) {
+            // Pick a source product to clone
+            // If we have existing items in this category, use them.
+            // If not, pick ANY product and force-rebrand it (fallback).
+            let source = existing.length > 0 ? getRandom(existing) : getRandom(productEntries);
+
+            if (!source) continue; // Should not happen if we have at least one product
+
+            // Create clone
+            importCounter++;
+            const newId = `${targetCat.toLowerCase()}-clone-${importCounter}`;
+
+            // If we are using a fallback (source not in category), we must update its category/image if possible
+            // But for now, we just reuse the image and force the tag.
+
+            const newTags = [...source.tags];
+            if (!newTags.includes(targetCat)) newTags.push(targetCat);
+
+            productEntries.push({
+                ...source,
+                id: newId,
+                slug: newId,
+                title: `${targetCat} Item ${i + 1}`, // Generic title if cloning
+                category: targetCat, // Force category
+                tags: newTags,
+                price: source.price, // Keep price logic or randomize
+            });
+        }
+    }
+}
+
+// CONVERT OBJECTS TO STRINGS
+const finalProductStrings = productEntries.map(p => `    {
+        id: '${p.id}', 
+        title: "${p.title}",
+        price: ${p.price},
+        ${p.compareAtPrice ? `compareAtPrice: ${p.compareAtPrice},` : ''}
+        image: ${p.image},
+        hoverImage: ${p.hoverImage},
+        gallery: [${p.gallery.join(', ')}],
+        category: "${p.category}",
+        brand: "${p.brand}",
+        slug: "${p.slug}",
+        gender: "${p.gender}", 
+        tags: ${JSON.stringify(p.tags)}
+    }`);
+
 
 const fileContent = `/**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
@@ -326,7 +385,7 @@ import { Product } from '@/types/product';
 ${importStatements.join('\n')}
 
 export const products: Product[] = [
-${productEntries.join(',\n')}
+${finalProductStrings.join(',\n')}
 ];
 `;
 

@@ -17,11 +17,11 @@ export const PAGE_CATEGORIES = {
         { name: 'Sweaters', slug: 'sweaters', filterValue: 'Sweaters' },
         { name: 'Jackets', slug: 'jackets', filterValue: 'Jackets' },
         { name: 'Polos', slug: 'polos', filterValue: 'Polos' },
-        { name: 'Sets', slug: 'sets', filterValue: 'Trucksuits' }, // "Sets" -> Trucksuits
+        { name: 'Sets', slug: 'sets', filterValue: 'Sets' },
         { name: 'Pants', slug: 'pants', filterValue: 'Pants' },
         { name: 'Shorts', slug: 'shorts', filterValue: 'Shorts' },
-        { name: 'Shoes', slug: 'shoes', filterValue: 'Shoes' },
-        { name: 'Accessories', slug: 'accessories', filterValue: 'Accessories' }
+        { name: 'Jeans', slug: 'jeans', filterValue: 'Jeans' },
+        { name: 'Shoes', slug: 'shoes', filterValue: 'Shoes' }
     ],
 
     // 2. Clothing Page: Specific subset
@@ -33,9 +33,10 @@ export const PAGE_CATEGORIES = {
         { name: 'Sweaters', slug: 'sweaters', filterValue: 'Sweaters' },
         { name: 'Jackets', slug: 'jackets', filterValue: 'Jackets' },
         { name: 'Polos', slug: 'polos', filterValue: 'Polos' },
-        { name: 'Sets', slug: 'sets', filterValue: 'Trucksuits' },
+        { name: 'Sets', slug: 'sets', filterValue: 'Sets' },
         { name: 'Pants', slug: 'pants', filterValue: 'Pants' },
-        { name: 'Shorts', slug: 'shorts', filterValue: 'Shorts' }
+        { name: 'Shorts', slug: 'shorts', filterValue: 'Shorts' },
+        { name: 'Jeans', slug: 'jeans', filterValue: 'Jeans' }
     ],
 
     // 3. Shoes Page: Specific subset
