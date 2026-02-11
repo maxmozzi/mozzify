@@ -47,15 +47,13 @@ export const navigation = {
                         { label: 'View All', href: '/collections/clothing/unisex' },
                         { label: 'Hoodies', href: '/collections/clothing/unisex/hoodies' },
                         { label: 'T-Shirts', href: '/collections/clothing/unisex/tshirt' },
-                        { label: 'Polo', href: '/collections/clothing/unisex/polo' },
+                        { label: 'Polos', href: '/collections/clothing/unisex/polos' },
                         { label: 'Shorts', href: '/collections/clothing/unisex/shorts' },
                         { label: 'Jeans', href: '/collections/clothing/unisex/jeans' },
-                        { label: 'Sweater', href: '/collections/clothing/unisex/sweater' },
+                        { label: 'Sweaters', href: '/collections/clothing/unisex/sweaters' },
                         { label: 'Sweatshirts', href: '/collections/clothing/unisex/sweatshirt' },
-                        { label: 'Jacket', href: '/collections/clothing/unisex/jacket' },
+                        { label: 'Jackets', href: '/collections/clothing/unisex/jackets' },
                         { label: 'Sets', href: '/collections/clothing/unisex/sets' },
-                        { label: 'Shoes', href: '/collections/clothing/unisex/shoes' },
-                        { label: 'iPhone Case', href: '/collections/clothing/unisex/iphone_case' },
                     ]
                 },
                 {

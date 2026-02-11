@@ -105,8 +105,10 @@ export default function CategoryHeader({
                             cat={cat}
                             onClick={onCategoryClick}
                             isActive={
-                                activeCategory === cat.slug ||
-                                (activeCategory && cat.filterValue && activeCategory.toLowerCase() === cat.filterValue.toLowerCase())
+                                activeCategory
+                                    ? activeCategory === cat.slug ||
+                                    (cat.filterValue && activeCategory.toLowerCase() === cat.filterValue.toLowerCase())
+                                    : cat.slug === 'all'
                             }
                         />
                     ))}
