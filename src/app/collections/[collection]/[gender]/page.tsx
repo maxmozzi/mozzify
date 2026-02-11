@@ -83,10 +83,11 @@ export default async function CollectionPage(props: PageProps) {
 
     // 3.3 Special Handling for "Sports" collection
     if (collection === 'sports') {
-        const sportsCategories = ['running', 'gym', 'football', 'basketball', 'training', 'sports'];
+        const sportsTags = ['running', 'gym', 'football', 'basketball', 'training', 'sports'];
         collectionPool = genderPool.filter(p => {
-            const cat = (p.category || '').toLowerCase();
-            return sportsCategories.some(sportCat => cat.includes(sportCat));
+            // Check tags first, then category as fallback if needed (though requirement says TAGS)
+            const hasSportTag = p.tags?.some((t: string) => sportsTags.includes(t.toLowerCase()));
+            return hasSportTag;
         });
     }
 
@@ -104,11 +105,23 @@ export default async function CollectionPage(props: PageProps) {
     // to ensure we find 10 products of that specific type.
     const filteredProducts = (subcategoryFilter
         ? genderPool.filter(p => {
+            // Normalization
             const prodCat = (p.category || '').toLowerCase();
             const normProdCat = prodCat.replace(/[\s\-_]/g, '');
             const normalizedParam = subcategoryFilter.replace(/[\s\-_]/g, '');
             const singularParam = normalizedParam.endsWith('s') ? normalizedParam.slice(0, -1) : normalizedParam;
 
+            // SPORTS SPECIFIC FILTERING: Check tags if we are in sports collection
+            if (collection === 'sports') {
+                // For sports, the subcategory (e.g., 'football') MUST be present in tags
+                // We don't filter by category here, but by tag match.
+                return p.tags?.some((t: string) => {
+                    const normTag = t.toLowerCase().replace(/[\s\-_]/g, '');
+                    return normTag === normalizedParam || normTag === singularParam;
+                });
+            }
+
+            // ... (Rest of logic for non-sports)
             // 1. Direct normalized match on Category property
             if (normProdCat === normalizedParam || normProdCat === singularParam) {
                 // Special check: if we are looking for tshirts, don't return sweatshirts
