@@ -8,9 +8,6 @@ import styles from './filter-drawer.module.css';
 interface FilterDrawerProps {
     isOpen: boolean;
     onClose: () => void;
-    availableCategories: string[];
-    selectedCategories: string[];
-    onCategoryChange: (category: string) => void;
     // New Props
     selectedSizes: string[];
     onSizeChange: (size: string) => void;
@@ -19,11 +16,7 @@ interface FilterDrawerProps {
     priceRange: { min: number; max: number };
     onPriceChange: (range: { min: number; max: number }) => void;
     onClearAll: () => void;
-    currentSort: string;
-    onSortChange: (sort: string) => void;
     // New Props for Tagging System
-    selectedSports: string[];
-    onSportChange: (sport: string) => void;
     isSaleSelected: boolean;
     onSaleChange: (isSale: boolean) => void;
 }
@@ -31,9 +24,6 @@ interface FilterDrawerProps {
 export default function FilterDrawer({
     isOpen,
     onClose,
-    availableCategories,
-    selectedCategories,
-    onCategoryChange,
     selectedSizes,
     onSizeChange,
     selectedColors,
@@ -41,10 +31,6 @@ export default function FilterDrawer({
     priceRange,
     onPriceChange,
     onClearAll,
-    currentSort,
-    onSortChange,
-    selectedSports,
-    onSportChange,
     isSaleSelected,
     onSaleChange
 }: FilterDrawerProps) {
@@ -119,22 +105,6 @@ export default function FilterDrawer({
                                 />
                                 <span style={{ color: '#ef4444', fontWeight: 600 }}>On Sale</span>
                             </label>
-                        </div>
-                    </Accordion>
-
-                    {/* SPORTS */}
-                    <Accordion title="SPORTS">
-                        <div className={styles.checkboxList}>
-                            {['football', 'basketball', 'running', 'gym'].map(sport => (
-                                <label key={sport} className={styles.checkboxLabel}>
-                                    <input
-                                        type="checkbox"
-                                        checked={selectedSports.includes(sport)}
-                                        onChange={() => onSportChange(sport)}
-                                    />
-                                    <span style={{ textTransform: 'capitalize' }}>{sport}</span>
-                                </label>
-                            ))}
                         </div>
                     </Accordion>
 
@@ -224,38 +194,6 @@ export default function FilterDrawer({
                                 />
                                 {/* Visual Track Logic would go here in CSS or via a styled div background if needed, leveraging standardized range inputs for now */}
                             </div>
-                        </div>
-                    </Accordion>
-
-                    {/* SORT */}
-                    <Accordion title="SORT BY">
-                        <div className={styles.sortOptions}>
-                            {['Relevancy', 'Newest', 'Price: Low to High', 'Price: High to Low'].map(option => (
-                                <button
-                                    key={option}
-                                    className={`${styles.sortOption} ${currentSort === option ? styles.sortOptionActive : ''}`}
-                                    onClick={() => onSortChange(option)}
-                                >
-                                    <span>{option}</span>
-                                    {currentSort === option && <Check size={16} />}
-                                </button>
-                            ))}
-                        </div>
-                    </Accordion>
-
-                    {/* CATEGORY (Product Type) */}
-                    <Accordion title="PRODUCT TYPE">
-                        <div className={styles.checkboxList}>
-                            {availableCategories.length > 0 ? availableCategories.map(type => (
-                                <label key={type} className={styles.checkboxLabel}>
-                                    <input
-                                        type="checkbox"
-                                        checked={selectedCategories.includes(type)}
-                                        onChange={() => onCategoryChange(type)}
-                                    />
-                                    <span>{type}</span>
-                                </label>
-                            )) : <p style={{ color: '#999', fontSize: '0.9rem' }}>No categories available</p>}
                         </div>
                     </Accordion>
                 </div>

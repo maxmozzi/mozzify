@@ -4,6 +4,7 @@
 import { useState, useMemo } from 'react';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import ProductGrid from '@/components/home/product-grid';
+import { ArrowLeft } from 'lucide-react';
 import StickyFilterBar from '@/components/products/sticky-filter-bar';
 import FilterDrawer from '@/components/products/filter-drawer';
 import { GridProduct } from '@/types/product';
@@ -17,8 +18,10 @@ interface CollectionListingProps {
     baseProducts: GridProduct[]; // Products available in this context (Collection + Gender)
     collectionTitle: string;
     gender: string;
-    activeSubcategory?: string;
+    activeSubcategory?: string; // This is the Sport (e.g. Football)
+    activeCategory?: string; // This is the Category (e.g. Shoes)
     collectionSlug?: string;
+    dynamicCategories?: any[]; // Dynamic categories for the nested carousel
 }
 
 import { PAGE_CATEGORIES } from '@/data/category-config';
@@ -37,7 +40,9 @@ export default function CollectionListing({
     collectionTitle,
     gender,
     activeSubcategory,
-    collectionSlug
+    activeCategory,
+    collectionSlug,
+    dynamicCategories
 }: CollectionListingProps) {
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -48,7 +53,6 @@ export default function CollectionListing({
     const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
     const [selectedColors, setSelectedColors] = useState<string[]>([]);
     const [priceRange, setPriceRange] = useState({ min: 0, max: 1000 });
-    const [selectedSports, setSelectedSports] = useState<string[]>([]);
     const [isSaleSelected, setIsSaleSelected] = useState(false);
 
     // Filter CATEGORIES based on collection context
@@ -62,11 +66,15 @@ export default function CollectionListing({
 
     // Mapped categories for the visual carousel
     const carouselCategories = useMemo(() => {
-        return filteredCategories.map((cat) => ({
+        // If we have dynamic categories (from Sports), use them directly
+        // Otherwise use the config-based filtered categories
+        const sourceCats = dynamicCategories && dynamicCategories.length > 0 ? dynamicCategories : filteredCategories;
+
+        return sourceCats.map((cat) => ({
             ...cat,
-            image: findCategoryImage(cat, products)
+            image: cat.image || findCategoryImage(cat, products)
         }));
-    }, [filteredCategories]);
+    }, [filteredCategories, dynamicCategories]);
 
     const handleSizeChange = (size: string) => {
         setSelectedSizes(prev =>
@@ -82,17 +90,10 @@ export default function CollectionListing({
         );
     };
 
-    const handleSportChange = (sport: string) => {
-        setSelectedSports(prev =>
-            prev.includes(sport) ? prev.filter(s => s !== sport) : [...prev, sport]
-        );
-    };
-
     const handleClearAll = () => {
         setSelectedSizes([]);
         setSelectedColors([]);
         setPriceRange({ min: 0, max: 1000 });
-        setSelectedSports([]);
         setIsSaleSelected(false);
         handleCategoryChange('all');
     };
@@ -105,10 +106,57 @@ export default function CollectionListing({
     const handleCategoryChange = (categorySlug: string) => {
         const params = new URLSearchParams(searchParams.toString());
 
-        if (categorySlug === 'all') {
-            params.delete('collections');
+        // Logic: activeSubcategory (Sport) is controlled by 'collections' param (e.g. ?collections=football)
+        // If we are in Sports AND have a sport selected, clicking a category should update 'category' param.
+
+        if (collectionSlug === 'sports' && activeSubcategory) {
+            // If clicking the SAME category (or 'all' in context of categories), maybe toggle or clear?
+            // Assuming simpler logic: update 'category' param.
+            // But wait, CategoryHeader usually passed 'all' or 'slug'.
+
+            // Check if we are clicking a main sport or a sub-category?
+            // CategoryHeader emits `slug`. 
+            // If `slug` is one of the sports, we are switching sports.
+            // If `slug` is a category (shoes), we are filtering.
+
+            // How do we distinguish? 
+            // Ideally we have two carousels. One for Sports, one for Categories underneath.
+            // BUT user requirement: "Visualmente idéntica... Después de seleccionar un deporte... El carousel debe mostrar una subfila"
+
+            // Let's assume CategoryHeader handles the clicking.
+            // If we want to change SPORT, we change 'collections'.
+            // If we want to change CATEGORY, we change 'category'.
+
+            // This logic needs to be robust. 
+            // If the clicked slug is a SPORT (football, basketball...), update 'collections', clear 'category'.
+            // If the clicked slug is a CATEGORY, update 'category'.
+
+            const isSport = ['football', 'basketball', 'running', 'gym'].includes(categorySlug);
+
+            if (isSport) {
+                params.set('collections', categorySlug);
+                params.delete('category'); // Reset category when switching sport
+            } else if (categorySlug === 'all') {
+                // "View All" usually resets the current level.
+                // If we have a category selected, 'all' clears it.
+                // If only sport selected, 'all' might clear sport (go back to Sports main).
+                if (activeCategory) {
+                    params.delete('category');
+                } else {
+                    params.delete('collections');
+                }
+            } else {
+                // It's a category (Shoes, Clothing...)
+                params.set('category', categorySlug);
+            }
+
         } else {
-            params.set('collections', categorySlug);
+            // Default behavior for other collections
+            if (categorySlug === 'all') {
+                params.delete('collections');
+            } else {
+                params.set('collections', categorySlug);
+            }
         }
 
         router.push(`${pathname}?${params.toString()}`, { scroll: false });
@@ -120,39 +168,64 @@ export default function CollectionListing({
         // 1. Price Filter
         result = result.filter(p => p.price >= priceRange.min && p.price <= priceRange.max);
 
-        // 2. Tags Filter (Sports)
-        if (selectedSports.length > 0) {
-            result = result.filter(p =>
-                p.tags && p.tags.some(t => selectedSports.includes(t.toLowerCase()))
-            );
-        }
-
-        // 3. Sale Filter using tag or compareAtPrice
+        // 2. Sale Filter using tag or compareAtPrice
         if (isSaleSelected) {
             result = result.filter(p =>
                 (p.tags && p.tags.includes('sale')) || (p.compareAtPrice && p.compareAtPrice > p.price)
             );
         }
 
-        // 4. Sort
-        if (currentSort === 'Price: Low to High') {
-            result.sort((a, b) => a.price - b.price);
-        } else if (currentSort === 'Price: High to Low') {
-            result.sort((a, b) => b.price - a.price);
-        } else if (currentSort === 'Newest') {
-            result.reverse();
-        }
         return result;
-    }, [initialProducts, currentSort, priceRange, selectedSports, isSaleSelected]);
+    }, [initialProducts, priceRange, isSaleSelected]);
 
     return (
         <div>
-            {/* Visual Category Header with Carousel */}
+
             <CategoryHeader
                 title={collectionTitle}
                 productCount={initialProducts.length}
                 categories={carouselCategories}
                 onCategoryClick={(slug) => handleCategoryChange(slug)}
+                activeCategory={activeCategory || activeSubcategory} // Highlight the active item
+                subCategories={collectionSlug === 'sports' && activeSubcategory ? dynamicCategories : undefined} // Pass subcategories if sports & active
+                onSubCategoryClick={(slug) => {
+                    const params = new URLSearchParams(searchParams.toString());
+                    if (slug === 'all') params.delete('category');
+                    else params.set('category', slug);
+                    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+                }}
+                activeSubCategory={activeCategory}
+                backButton={
+                    (collectionSlug === 'sports' && activeSubcategory) ? (
+                        <button
+                            onClick={() => {
+                                const params = new URLSearchParams(searchParams.toString());
+                                params.delete('collections');
+                                params.delete('category');
+                                router.push(`${pathname}?${params.toString()}`);
+                            }}
+                            style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '0.5rem',
+                                fontSize: '0.9rem',
+                                fontWeight: 600,
+                                color: '#000',
+                                background: '#f5f5f5',
+                                border: '1px solid #e5e5e5',
+                                borderRadius: '20px',
+                                padding: '0.5rem 1rem',
+                                cursor: 'pointer',
+                                transition: 'all 0.2s ease'
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e0e0e0'}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#f5f5f5'}
+                        >
+                            <ArrowLeft size={16} />
+                            Back to Sports
+                        </button>
+                    ) : undefined
+                }
             />
 
 
@@ -187,22 +260,15 @@ export default function CollectionListing({
             <FilterDrawer
                 isOpen={isDrawerOpen}
                 onClose={() => setIsDrawerOpen(false)}
-                availableCategories={availableCategories}
-                selectedCategories={activeSubcategory ? [availableCategories.find(c => c.toLowerCase().replace(/\s+/g, '_') === activeSubcategory) || ''] : []}
-                onCategoryChange={(cat) => handleCategoryChange(cat.toLowerCase().replace(/\s+/g, '_'))}
                 selectedSizes={selectedSizes}
                 onSizeChange={handleSizeChange}
                 selectedColors={selectedColors}
                 onColorChange={handleColorChange}
                 priceRange={priceRange}
                 onPriceChange={setPriceRange}
-                selectedSports={selectedSports}
-                onSportChange={handleSportChange}
                 isSaleSelected={isSaleSelected}
                 onSaleChange={setIsSaleSelected}
                 onClearAll={handleClearAll}
-                currentSort={currentSort}
-                onSortChange={setCurrentSort}
             />
         </div>
     );

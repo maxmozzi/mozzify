@@ -13,14 +13,25 @@ export default function CategoryHeader({
     title,
     productCount,
     categories = [],
-    onCategoryClick
+    onCategoryClick,
+    activeCategory, // The active sport (e.g. Football)
+    subCategories, // The dynamic categories (Shoes, Clothing...)
+    onSubCategoryClick,
+    activeSubCategory, // The active secondary filter (e.g. Shoes)
+    backButton
 }: {
     title: string,
     productCount: number,
     categories?: any[],
-    onCategoryClick?: (slug: string) => void
+    onCategoryClick?: (slug: string) => void,
+    activeCategory?: string,
+    subCategories?: any[],
+    onSubCategoryClick?: (slug: string) => void,
+    activeSubCategory?: string,
+    backButton?: React.ReactNode
 }) {
     const scrollRef = useRef<HTMLDivElement>(null);
+    const subScrollRef = useRef<HTMLDivElement>(null); // Ref for sub-category row
     const [showLeftArrow, setShowLeftArrow] = useState(false);
     const [showRightArrow, setShowRightArrow] = useState(true);
 
@@ -52,29 +63,25 @@ export default function CategoryHeader({
                 <h1 style={{ fontSize: '44px', fontWeight: 'bold', textTransform: 'uppercase', lineHeight: '1.2' }}>
                     {title}
                 </h1>
-                {/* Optional description text similar to Gymshark if needed */}
                 <p style={{ marginTop: '0.5rem', color: '#444', maxWidth: '800px', fontSize: '0.95rem' }}>
                     Tireless looks that keep up with your every move. Throw them on and head out.
                 </p>
+                {backButton && (
+                    <div style={{ marginTop: '1rem' }}>
+                        {backButton}
+                    </div>
+                )}
             </div>
 
-            {/* Visual Carousel */}
+            {/* MAIN CAROUSEL (SPORTS) */}
             <div style={{ position: 'relative' }}>
-
                 {showLeftArrow && (
-                    <button
-                        onClick={() => scroll('left')}
-                        style={arrowButtonStyle('left')}
-                    >
+                    <button onClick={() => scroll('left')} style={arrowButtonStyle('left')}>
                         <ChevronLeft size={24} />
                     </button>
                 )}
-
                 {showRightArrow && (
-                    <button
-                        onClick={() => scroll('right')}
-                        style={arrowButtonStyle('right')}
-                    >
+                    <button onClick={() => scroll('right')} style={arrowButtonStyle('right')}>
                         <ChevronRight size={24} />
                     </button>
                 )}
@@ -87,21 +94,84 @@ export default function CategoryHeader({
                         gap: '1.5rem',
                         overflowX: 'auto',
                         scrollBehavior: 'smooth',
-                        scrollbarWidth: 'none', // Firefox
+                        scrollbarWidth: 'none',
                         paddingBottom: '1rem'
                     }}
-                    className="no-scrollbar" // Utility class for hiding scrollbar
+                    className="no-scrollbar"
                 >
                     {categories.map((cat, idx) => (
-                        <CategoryCard key={idx} cat={cat} onClick={onCategoryClick} />
+                        <CategoryCard
+                            key={idx}
+                            cat={cat}
+                            onClick={onCategoryClick}
+                            isActive={activeCategory === (cat.filterValue || cat.slug)}
+                        />
                     ))}
                 </div>
             </div>
+
+            {/* SECONDARY CAROUSEL (SUB-CATEGORIES) */}
+            {subCategories && subCategories.length > 0 && (
+                <div style={{
+                    marginTop: '1rem',
+                    borderTop: '1px solid #eee',
+                    paddingTop: '1rem',
+                    paddingBottom: '0.5rem'
+                }}>
+                    <div
+                        ref={subScrollRef}
+                        style={{
+                            display: 'flex',
+                            gap: '0.8rem',
+                            overflowX: 'auto',
+                            paddingBottom: '0.5rem',
+                            scrollbarWidth: 'none'
+                        }}
+                        className="no-scrollbar"
+                    >
+                        <SubCategoryPill
+                            label="All"
+                            isActive={!activeSubCategory}
+                            onClick={() => onSubCategoryClick?.('all')}
+                        />
+                        {subCategories.map((sub, idx) => (
+                            <SubCategoryPill
+                                key={idx}
+                                label={sub.name}
+                                isActive={activeSubCategory === (sub.filterValue || sub.slug)}
+                                onClick={() => onSubCategoryClick?.(sub.filterValue || sub.slug)}
+                            />
+                        ))}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
 
-function CategoryCard({ cat, onClick }: { cat: any, onClick?: (slug: string) => void }) {
+function SubCategoryPill({ label, isActive, onClick }: { label: string, isActive: boolean, onClick: () => void }) {
+    return (
+        <button
+            onClick={onClick}
+            style={{
+                padding: '0.4rem 1.2rem',
+                borderRadius: '20px',
+                border: isActive ? '1px solid black' : '1px solid #e5e5e5',
+                background: isActive ? 'black' : 'white',
+                color: isActive ? 'white' : 'black',
+                fontSize: '0.9rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+                transition: 'all 0.2s ease'
+            }}
+        >
+            {label}
+        </button>
+    );
+}
+
+function CategoryCard({ cat, onClick, isActive }: { cat: any, onClick?: (slug: string) => void, isActive?: boolean }) {
     const isViewAll = cat.isViewAll;
     const width = '350px';
     const imageHeight = '430px';
@@ -113,8 +183,10 @@ function CategoryCard({ cat, onClick }: { cat: any, onClick?: (slug: string) => 
         color: 'black',
         display: 'flex',
         flexDirection: 'column',
-        border: '1px solid #e5e5e5',
-        cursor: 'pointer'
+        border: isActive ? '2px solid black' : '1px solid #e5e5e5', // Active border
+        cursor: 'pointer',
+        transform: isActive ? 'scale(0.98)' : 'none',
+        transition: 'all 0.2s ease'
     };
 
     const content = (

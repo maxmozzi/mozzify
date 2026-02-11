@@ -25,6 +25,7 @@ interface PageProps {
     }>;
     searchParams: Promise<{
         collections?: string; // This corresponds to the subcategory filter (e.g. ?collections=hoodies)
+        category?: string; // Secondary filter for Sports
     }>;
 }
 
@@ -32,7 +33,8 @@ export default async function CollectionPage(props: PageProps) {
     const params = await props.params;
     const searchParams = await props.searchParams;
     const { collection, gender } = params;
-    const subcategoryFilter = searchParams.collections?.toLowerCase();
+    const subcategoryFilter = searchParams.collections?.toLowerCase(); // This is the SPORT
+    const categoryFilter = searchParams.category?.toLowerCase(); // This is the Sub-Category (e.g. Shoes)
 
 
     // 1. Resolve Collection Name
@@ -82,13 +84,47 @@ export default async function CollectionPage(props: PageProps) {
     }
 
     // 3.3 Special Handling for "Sports" collection
+    let dynamicCategories: any[] = [];
     if (collection === 'sports') {
         const sportsTags = ['running', 'gym', 'football', 'basketball', 'training', 'sports'];
+
+        // 3.3a. Filter pool for ANY sport tag initially
         collectionPool = genderPool.filter(p => {
-            // Check tags first, then category as fallback if needed (though requirement says TAGS)
-            const hasSportTag = p.tags?.some((t: string) => sportsTags.includes(t.toLowerCase()));
-            return hasSportTag;
+            return p.tags?.some((t: string) => sportsTags.includes(t.toLowerCase()));
         });
+
+        // 3.3b. If a specific sport [subcategoryFilter] is selected, 
+        // we calculate available categories from THAT sport's products.
+        if (subcategoryFilter) {
+            const sportProducts = collectionPool.filter(p => {
+                // Tag Match for Sport
+                const normalizedParam = subcategoryFilter.replace(/[\s\-_]/g, '');
+                const singularParam = normalizedParam.endsWith('s') ? normalizedParam.slice(0, -1) : normalizedParam;
+                return p.tags?.some((t: string) => {
+                    const normTag = t.toLowerCase().replace(/[\s\-_]/g, '');
+                    return normTag === normalizedParam || normTag === singularParam;
+                });
+            });
+
+            // Extract Unique Categories
+            const allowedCategories = ['hoodies', 'shorts', 'jackets', 'pants', 'shoes', 't-shirts'];
+
+            const rawCats = Array.from(new Set(sportProducts.map(p => p.category).filter(Boolean)));
+
+            dynamicCategories = rawCats
+                .filter(c => {
+                    const norm = c?.toLowerCase().trim();
+                    // Handle "tshirts" vs "t-shirts" normalization if needed
+                    if (norm === 't-shirts' || norm === 'tshirts') return true;
+                    return allowedCategories.includes(norm || '');
+                })
+                .map(c => ({
+                    name: c,
+                    slug: c?.toLowerCase().replace(/\s+/g, '-'),
+                    filterValue: c?.toLowerCase()
+                }))
+                .sort((a, b) => a.name.localeCompare(b.name));
+        }
     }
 
     // 3.4 Special Handling for "Accessories" collection
@@ -113,12 +149,23 @@ export default async function CollectionPage(props: PageProps) {
 
             // SPORTS SPECIFIC FILTERING: Check tags if we are in sports collection
             if (collection === 'sports') {
-                // For sports, the subcategory (e.g., 'football') MUST be present in tags
-                // We don't filter by category here, but by tag match.
-                return p.tags?.some((t: string) => {
+                // 1. Must match Sport Tag (subcategoryFilter)
+                const isSportMatch = p.tags?.some((t: string) => {
                     const normTag = t.toLowerCase().replace(/[\s\-_]/g, '');
                     return normTag === normalizedParam || normTag === singularParam;
                 });
+
+                if (!isSportMatch) return false;
+
+                // 2. If Category Filter (categoryFilter) is present, must match Category
+                if (categoryFilter) {
+                    const normCatFilter = categoryFilter.replace(/[\s\-_]/g, '');
+                    const singularCatFilter = normCatFilter.endsWith('s') ? normCatFilter.slice(0, -1) : normCatFilter;
+
+                    return normProdCat === normCatFilter || normProdCat === singularCatFilter;
+                }
+
+                return true;
             }
 
             // ... (Rest of logic for non-sports)
@@ -159,7 +206,9 @@ export default async function CollectionPage(props: PageProps) {
                 collectionTitle={targetCollection}
                 gender={gender}
                 activeSubcategory={subcategoryFilter}
+                activeCategory={categoryFilter} // Pass secondary filter
                 collectionSlug={collection}
+                dynamicCategories={dynamicCategories} // Pass calculated sports categories
             />
         </main>
     );

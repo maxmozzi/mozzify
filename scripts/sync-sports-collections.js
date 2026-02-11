@@ -132,6 +132,7 @@ async function processProduct(product, triggerType) {
             trigger: triggerType,
             product_id: product.id,
             product_handle: product.title.toLowerCase().replace(/ /g, '-'),
+            category: product.category, // Added category logging
             original_tags: originalTags,
             final_tags: finalTags,
             added_collections: addedCollections,
@@ -141,10 +142,18 @@ async function processProduct(product, triggerType) {
         logAction(logEntry);
         return logEntry;
     } else {
-        // Idempotency check: No changes needed
-        // We can optionally log that it was skipped or checked-ok
-        // console.log(`[Idempotency] No changes for ${product.id}`);
-        return { status: 'skipped', product_id: product.id };
+        // IDEMPOTENCY Log (Optional, but good for "Backend Action" requirement to see what we found)
+        const logEntry = {
+            timestamp,
+            trigger: triggerType,
+            product_id: product.id,
+            product_handle: product.title.toLowerCase().replace(/ /g, '-'),
+            category: product.category, // Added category logging
+            final_tags: finalTags,
+            status: 'skipped'
+        };
+        // logAction(logEntry); // Uncomment for verbose logs
+        return logEntry;
     }
 }
 
@@ -155,12 +164,12 @@ async function runDailyCron() {
 
     // Mock Data Source
     const mockProducts = [
-        { id: 101, title: "Pro Soccer Cleats", tags: "shoes, new, soccer" }, // Should add 'football'
-        { id: 102, title: "Elite Basketball Jersey", tags: "clothing, jersey, basketball" }, // No change
-        { id: 103, title: "Running Shorts", tags: "shorts, run" }, // Should add 'running'
-        { id: 104, title: "Gym Towel", tags: "accessory, crossfit" }, // Should add 'gym'
-        { id: 105, title: "Casual T-Shirt", tags: "casual, cotton" }, // No sports tags
-        { id: 106, title: "Mixed Sport Gear", tags: "gym, football" } // Multiple existing
+        { id: 101, title: "Pro Soccer Cleats", tags: "shoes, new, soccer", category: "Shoes" }, // Should add 'football'
+        { id: 102, title: "Elite Basketball Jersey", tags: "clothing, jersey, basketball", category: "Clothing" }, // No change
+        { id: 103, title: "Running Shorts", tags: "shorts, run", category: "Clothing" }, // Should add 'running'
+        { id: 104, title: "Gym Towel", tags: "accessory, crossfit", category: "Accessories" }, // Should add 'gym'
+        { id: 105, title: "Casual T-Shirt", tags: "casual, cotton", category: "Clothing" }, // No sports tags
+        { id: 106, title: "Mixed Sport Gear", tags: "gym, football", category: "Equipment" } // Multiple existing
     ];
 
     const results = [];
@@ -168,6 +177,24 @@ async function runDailyCron() {
         const res = await processProduct(p, 'cron_daily');
         results.push(res);
     }
+
+    // Audit: Aggregate Categories per Sport
+    const auditMap = {}; // { football: { Shoes: 1, Clothing: 2 } }
+
+    results.forEach(res => {
+        if (res.final_tags) {
+            res.final_tags.forEach(tag => {
+                if (CONFIG.ALLOWED_SPORTS_TAGS.includes(tag)) {
+                    if (!auditMap[tag]) auditMap[tag] = {};
+                    const cat = res.category || 'Uncategorized';
+                    auditMap[tag][cat] = (auditMap[tag][cat] || 0) + 1;
+                }
+            });
+        }
+    });
+
+    console.log('--- CATEGORY AUDIT PER SPORT ---');
+    console.table(auditMap);
 
     console.log('--- CRON COMPLETE ---');
 }
