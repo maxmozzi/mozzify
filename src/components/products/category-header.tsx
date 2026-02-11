@@ -104,7 +104,10 @@ export default function CategoryHeader({
                             key={idx}
                             cat={cat}
                             onClick={onCategoryClick}
-                            isActive={activeCategory === (cat.filterValue || cat.slug)}
+                            isActive={
+                                activeCategory === cat.slug ||
+                                (activeCategory && cat.filterValue && activeCategory.toLowerCase() === cat.filterValue.toLowerCase())
+                            }
                         />
                     ))}
                 </div>

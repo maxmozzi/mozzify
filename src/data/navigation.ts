@@ -106,13 +106,14 @@ export const navigation = {
                 {
                     title: 'Categories',
                     items: [
+                        { label: 'View All', href: '/collections/accessories/unisex' },
                         { label: 'Bags', href: '/collections/accessories/unisex/bags' },
                         { label: 'Belts', href: '/collections/accessories/unisex/belts' },
                         { label: 'Caps', href: '/collections/accessories/unisex/caps' },
                         { label: 'Hats', href: '/collections/accessories/unisex/hats' },
                         { label: 'Wallets', href: '/collections/accessories/unisex/wallets' },
                         { label: 'Scarves', href: '/collections/accessories/unisex/scarves' },
-                        { label: 'Ski Mask', href: '/collections/accessories/unisex/ski_mask' },
+                        { label: 'Ski Mask', href: '/collections/accessories/unisex/ski-mask' },
                         { label: 'Sunglasses', href: '/collections/accessories/unisex/sunglasses' },
                     ]
                 }

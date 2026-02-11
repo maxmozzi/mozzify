@@ -60,6 +60,7 @@ export default function CollectionListing({
         if (collectionSlug === 'clothing') return PAGE_CATEGORIES.CLOTHING;
         if (collectionSlug === 'shoes') return PAGE_CATEGORIES.SHOES;
         if (collectionSlug === 'sports') return PAGE_CATEGORIES.SPORTS;
+        if (collectionSlug === 'accessories') return PAGE_CATEGORIES.ACCESSORIES;
         // Default
         return PAGE_CATEGORIES.FULL_CATALOG;
     }, [collectionSlug]);
