@@ -120,7 +120,7 @@ export default async function CategoryCollectionPage(props: PageProps) {
 
     return (
         <main className="min-h-screen">
-            <div style={{ paddingTop: '80px', paddingBottom: '4rem' }}>
+            <div style={{ paddingTop: '40px', paddingBottom: '4rem' }}>
                 <ProductListing
                     initialProducts={finalProducts}
                     allProductsSource={genderPool}

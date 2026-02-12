@@ -95,7 +95,7 @@ export default async function SmartCategoryPage({
     const availableCategories = Array.from(new Set(allProducts.map(p => p.category))).sort();
 
     return (
-        <div style={{ paddingTop: '80px', paddingBottom: '4rem' }}>
+        <div style={{ paddingTop: '40px', paddingBottom: '4rem' }}>
             <ProductListing
                 initialProducts={filteredProducts}
                 allProductsSource={allProducts}

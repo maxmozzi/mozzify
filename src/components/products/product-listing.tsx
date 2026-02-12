@@ -214,11 +214,12 @@ export default function ProductListing({
                 />
             )}
             {!showCategoryCarousel && (
-                <div className="container" style={{ marginBottom: '1.5rem', marginTop: '1rem', padding: '0 2rem' }}>
-                    <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '0.5rem' }}>
+                <div className={styles.headerSection}>
+                    <p className={styles.productCount}>
                         {filteredProducts.length} Products
                     </p>
-                    <h1 style={{ fontSize: '1.5rem', fontWeight: 700, textTransform: 'uppercase' }}>
+                    <h1 className={styles.categoryTitle}>
+                        <span className={styles.categoryPrefix}>{gender} / </span>
                         {title}
                     </h1>
                 </div>
@@ -232,7 +233,7 @@ export default function ProductListing({
             />
 
             {/* 3. Product Grid */}
-            <div className={styles.mainContent} style={{ padding: '2rem 0', minHeight: '600px' }}>
+            <div className={styles.mainContent} style={{ padding: 0, minHeight: '600px' }}>
                 <ProductGrid
                     title=""
                     products={filteredProducts}
