@@ -147,11 +147,36 @@ export default function ProductListing({
     };
 
 
-    // Extract available brands dynamically
+    const handleBrandChange = (brand: string) => {
+        setSelectedBrands(prev =>
+            prev.includes(brand)
+                ? prev.filter(b => b !== brand)
+                : [...prev, brand]
+        );
+    };
+
+    // Extract available brands dynamically with counts
+    // We should show counts for products that match OTHER filters (gender, category, etc.)
     const availableBrands = useMemo(() => {
-        const brands = new Set(productPool.map(p => p.brand).filter(Boolean) as string[]);
-        return Array.from(brands).sort();
-    }, [productPool]);
+        // Base results matching context filters (like gender) but NOT brand filter
+        let contextPool = productPool;
+        if (gender === 'men') {
+            contextPool = contextPool.filter(p => p.gender === 'men' || p.gender === 'unisex');
+        } else if (gender === 'women') {
+            contextPool = contextPool.filter(p => p.gender === 'women' || p.gender === 'unisex');
+        }
+
+        const counts: Record<string, number> = {};
+        contextPool.forEach(p => {
+            if (p.brand) {
+                counts[p.brand] = (counts[p.brand] || 0) + 1;
+            }
+        });
+
+        return Object.entries(counts)
+            .map(([name, count]) => ({ name, count }))
+            .sort((a, b) => a.name.localeCompare(b.name));
+    }, [productPool, gender]);
 
     const handleCategoryChange = (category: string) => {
         setSelectedCategories(prev =>
@@ -255,6 +280,10 @@ export default function ProductListing({
                 onSportChange={handleCategoryChange}
                 isSaleSelected={isSaleSelected}
                 onSaleChange={setIsSaleSelected}
+                // Brand Filtering
+                availableBrands={availableBrands}
+                selectedBrands={selectedBrands}
+                onBrandChange={handleBrandChange}
             />
         </div>
     );

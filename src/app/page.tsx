@@ -11,14 +11,7 @@ export default function Home() {
     <main style={{ background: '#fff' }}>
       <HeroSplit />
       <ProductCarousel title="BEST SELLERS" />
-      <ProductCarousel
-        title="OUR JEANS"
-        products={products.filter(p => p.category === 'Jeans').slice(0, 10)}
-      />
-      <ProductCarousel
-        title="OUR SHIRTS"
-        products={products.filter(p => p.category === 'Shirts').slice(0, 10)}
-      />
+
       <CategoriesCarousel />
       <ReviewsCarousel />
       <InstagramFeed />

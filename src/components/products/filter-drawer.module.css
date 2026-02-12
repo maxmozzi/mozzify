@@ -365,3 +365,151 @@
     background-color: #f9f9f9;
     font-weight: 500;
 }
+
+/* BRANDS FILTER */
+.brandsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding-top: 0.5rem;
+}
+
+.searchBox {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 1rem;
+    color: #999;
+    pointer-events: none;
+}
+
+.brandSearchInput {
+    width: 100%;
+    padding: 0.8rem 2.8rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background-color: #f9f9f9;
+    transition: all 0.2s ease;
+}
+
+.brandSearchInput:focus {
+    outline: none;
+    border-color: #000;
+    background-color: #fff;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+.clearSearch {
+    position: absolute;
+    right: 0.8rem;
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.clearSearch:hover {
+    color: #000;
+}
+
+.brandsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+/* Custom Scrollbar for Brands List */
+.brandsList::-webkit-scrollbar {
+    width: 4px;
+}
+
+.brandsList::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.brandsList::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.brandItem {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    padding: 0.4rem 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.brandItem:hover {
+    background-color: #f5f5f5;
+}
+
+.checkboxWrapper {
+    position: relative;
+    width: 18px;
+    height: 18px;
+}
+
+.hiddenCheckbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.customCheckbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #fff;
+    border: 1.5px solid #e5e5e5;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.checkboxChecked {
+    background-color: #000;
+    border-color: #000;
+    color: white;
+}
+
+.brandName {
+    font-size: 0.95rem;
+    color: #333;
+    font-weight: 500;
+    flex: 1;
+}
+
+.brandCount {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.noBrands {
+    padding: 1rem;
+    color: #999;
+    font-size: 0.9rem;
+    text-align: center;
+    font-style: italic;
+}

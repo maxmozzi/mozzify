@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Check, RotateCcw } from 'lucide-react';
+import { X, Check, RotateCcw, Search } from 'lucide-react';
 import styles from './filter-drawer.module.css';
 
 interface FilterDrawerProps {
@@ -19,6 +19,18 @@ interface FilterDrawerProps {
     // New Props for Tagging System
     isSaleSelected: boolean;
     onSaleChange: (isSale: boolean) => void;
+    // Brand Filtering
+    availableBrands: { name: string; count: number }[];
+    selectedBrands: string[];
+    onBrandChange: (brand: string) => void;
+    // Fix: Add missing optional props reported by lint
+    availableCategories?: string[];
+    selectedCategories?: string[];
+    onCategoryChange?: (category: string) => void;
+    currentSort?: string;
+    onSortChange?: (sort: string) => void;
+    selectedSports?: string[];
+    onSportChange?: (sport: string) => void;
 }
 
 export default function FilterDrawer({
@@ -32,9 +44,13 @@ export default function FilterDrawer({
     onPriceChange,
     onClearAll,
     isSaleSelected,
-    onSaleChange
+    onSaleChange,
+    availableBrands,
+    selectedBrands,
+    onBrandChange
 }: FilterDrawerProps) {
     const [mounted, setMounted] = useState(false);
+    const [brandSearch, setBrandSearch] = useState('');
     const drawerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -96,6 +112,57 @@ export default function FilterDrawer({
 
                 {/* Content */}
                 <div className={styles.content}>
+                    {/* BRANDS */}
+                    <Accordion title="BRANDS">
+                        <div className={styles.brandsWrapper}>
+                            <div className={styles.searchBox}>
+                                <Search size={16} className={styles.searchIcon} />
+                                <input
+                                    type="text"
+                                    placeholder="Search brands..."
+                                    value={brandSearch}
+                                    onChange={(e) => setBrandSearch(e.target.value)}
+                                    className={styles.brandSearchInput}
+                                />
+                                {brandSearch && (
+                                    <button
+                                        className={styles.clearSearch}
+                                        onClick={() => setBrandSearch('')}
+                                    >
+                                        <X size={14} />
+                                    </button>
+                                )}
+                            </div>
+                            <div className={styles.brandsList}>
+                                {availableBrands
+                                    ?.filter(b => b.name.toLowerCase().includes(brandSearch.toLowerCase()))
+                                    .map(brand => {
+                                        const isSelected = selectedBrands.includes(brand.name);
+                                        return (
+                                            <label key={brand.name} className={styles.brandItem}>
+                                                <div className={styles.checkboxWrapper}>
+                                                    <input
+                                                        type="checkbox"
+                                                        checked={isSelected}
+                                                        onChange={() => onBrandChange(brand.name)}
+                                                        className={styles.hiddenCheckbox}
+                                                    />
+                                                    <div className={`${styles.customCheckbox} ${isSelected ? styles.checkboxChecked : ''}`}>
+                                                        {isSelected && <Check size={12} />}
+                                                    </div>
+                                                </div>
+                                                <span className={styles.brandName}>{brand.name}</span>
+                                                <span className={styles.brandCount}>({brand.count})</span>
+                                            </label>
+                                        );
+                                    })}
+                                {availableBrands?.filter(b => b.name.toLowerCase().includes(brandSearch.toLowerCase())).length === 0 && (
+                                    <p className={styles.noBrands}>No brands found</p>
+                                )}
+                            </div>
+                        </div>
+                    </Accordion>
+
 
                     {/* STATUS (Sale) -> Renamed to DISCOUNT */}
                     <Accordion title="DISCOUNT">
