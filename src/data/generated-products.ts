@@ -605,6 +605,24 @@ import Img_165_Main from '@/images/curated/bestsellers/amiparis-hoodie-008/front
 import Img_165_Hover from '@/images/curated/bestsellers/amiparis-hoodie-008/front.webp';
 import Img_165_Gal_0 from '@/images/curated/bestsellers/amiparis-hoodie-008/front.webp';
 
+// Brand Editorial Assets
+import Asset_amiparis from '@/images/brand-assets/ami/thumbnail.webp';
+import Asset_amiri from '@/images/brand-assets/amir/thumbnail.webp';
+import Asset_Arcteryx from '@/images/brand-assets/arc/thumbnail.webp';
+import Asset_Balenciaga from '@/images/brand-assets/balen/thumbnail.webp';
+import Asset_Bape from '@/images/brand-assets/bap/thumbnail.webp';
+import Asset_burberry from '@/images/brand-assets/burberr/thumbnail.webp';
+import Asset_CalvinKlein from '@/images/brand-assets/ck/thumbnail.webp';
+import Asset_CasaBlanca from '@/images/brand-assets/casab/thumbnail.webp';
+import Asset_Celine from '@/images/brand-assets/celin/thumbnail.webp';
+import Asset_Essentials from '@/images/brand-assets/essential/thumbnail.webp';
+import Asset_Jacquemus from '@/images/brand-assets/jacque/thumbnail.webp';
+import Asset_Jordan from '@/images/brand-assets/jord/thumbnail.webp';
+import Asset_Lacoste from '@/images/brand-assets/laco/thumbnail.webp';
+import Asset_Loewe from '@/images/brand-assets/loew/thumbnail.webp';
+import Asset_Louis_Vuitton from '@/images/brand-assets/lv/thumbnail.webp';
+import Asset_MiuMiu from '@/images/brand-assets/miu/thumbnail.webp';
+
 export interface Product {
     id: string;
     title: string;
@@ -696,7 +714,7 @@ export const products: Product[] = [
         brand: 'Amiparis',
         slug: 'amiparis-hoodies-amiparis-hoodie-006',
         gender: 'unisex',
-        tags: ['Amiparis', 'Hoodies']
+        tags: ['Amiparis', 'Hoodies', 'Best Sellers']
     },
     {
         id: 'amiparis-hoodie-007',
@@ -709,7 +727,7 @@ export const products: Product[] = [
         brand: 'Amiparis',
         slug: 'amiparis-hoodies-amiparis-hoodie-007',
         gender: 'unisex',
-        tags: ['Amiparis', 'Hoodies']
+        tags: ['Amiparis', 'Hoodies', 'Best Sellers']
     },
     {
         id: 'amiparis-hoodie-008',
@@ -722,7 +740,7 @@ export const products: Product[] = [
         brand: 'Amiparis',
         slug: 'amiparis-hoodies-amiparis-hoodie-008',
         gender: 'unisex',
-        tags: ['Amiparis', 'Hoodies', 'Best Sellers']
+        tags: ['Amiparis', 'Hoodies']
     },
     {
         id: 'amiparis-iphone_case-001',
@@ -774,7 +792,7 @@ export const products: Product[] = [
         brand: 'Amiparis',
         slug: 'amiparis-iphone-case-amiparis-iphone_case-004',
         gender: 'unisex',
-        tags: ['Amiparis', 'iPhone Case']
+        tags: ['Amiparis', 'iPhone Case', 'Best Sellers']
     },
     {
         id: 'amiparis-polo-001',
@@ -839,7 +857,7 @@ export const products: Product[] = [
         brand: 'Amiparis',
         slug: 'amiparis-shorts-amiparis-shorts-002',
         gender: 'unisex',
-        tags: ['Amiparis', 'Shorts']
+        tags: ['Amiparis', 'Shorts', 'Best Sellers']
     },
     {
         id: 'amiparis-shorts-003',
@@ -865,7 +883,7 @@ export const products: Product[] = [
         brand: 'Amiparis',
         slug: 'amiparis-shorts-amiparis-shorts-004',
         gender: 'unisex',
-        tags: ['Amiparis', 'Shorts', 'Best Sellers']
+        tags: ['Amiparis', 'Shorts']
     },
     {
         id: 'amiparis-shorts-005',
@@ -904,7 +922,7 @@ export const products: Product[] = [
         brand: 'Amiparis',
         slug: 'amiparis-shorts-amiparis-shorts-007',
         gender: 'unisex',
-        tags: ['Amiparis', 'Shorts', 'Best Sellers']
+        tags: ['Amiparis', 'Shorts']
     },
     {
         id: 'amiparis-sweater-001',
@@ -1021,7 +1039,7 @@ export const products: Product[] = [
         brand: 'Amiparis',
         slug: 'amiparis-sweater-amiparis-sweater-009',
         gender: 'unisex',
-        tags: ['Amiparis', 'Sweater', 'Best Sellers']
+        tags: ['Amiparis', 'Sweater']
     },
     {
         id: 'amiparis-sweater-010',
@@ -1138,7 +1156,7 @@ export const products: Product[] = [
         brand: 'Amiparis',
         slug: 'amiparis-t-shirts-amiparis-tshirt-002',
         gender: 'unisex',
-        tags: ['Amiparis', 'T-Shirts']
+        tags: ['Amiparis', 'T-Shirts', 'Best Sellers']
     },
     {
         id: 'amiparis-tshirt-003',
@@ -1216,7 +1234,7 @@ export const products: Product[] = [
         brand: 'Amiparis',
         slug: 'amiparis-t-shirts-amiparis-tshirt-008',
         gender: 'unisex',
-        tags: ['Amiparis', 'T-Shirts']
+        tags: ['Amiparis', 'T-Shirts', 'Best Sellers']
     },
     {
         id: 'amiparis-tshirt-009',
@@ -1346,7 +1364,7 @@ export const products: Product[] = [
         brand: 'Amiri',
         slug: 'amiri-jeans-amiri-jeans-006',
         gender: 'unisex',
-        tags: ['Amiri', 'Jeans', 'Best Sellers']
+        tags: ['Amiri', 'Jeans']
     },
     {
         id: 'amiri-jeans-007',
@@ -1424,7 +1442,7 @@ export const products: Product[] = [
         brand: 'Amiri',
         slug: 'amiri-polo-amiri-polo-002',
         gender: 'unisex',
-        tags: ['Amiri', 'Polo', 'Best Sellers']
+        tags: ['Amiri', 'Polo']
     },
     {
         id: 'amiri-polo-003',
@@ -1450,7 +1468,7 @@ export const products: Product[] = [
         brand: 'Amiri',
         slug: 'amiri-polo-amiri-polo-004',
         gender: 'unisex',
-        tags: ['Amiri', 'Polo']
+        tags: ['Amiri', 'Polo', 'Best Sellers']
     },
     {
         id: 'amiri-polo-005',
@@ -1489,7 +1507,7 @@ export const products: Product[] = [
         brand: 'Amiri',
         slug: 'amiri-polo-amiri-polo-007',
         gender: 'unisex',
-        tags: ['Amiri', 'Polo']
+        tags: ['Amiri', 'Polo', 'Best Sellers']
     },
     {
         id: 'amiri-sets-001',
@@ -1528,7 +1546,7 @@ export const products: Product[] = [
         brand: 'Amiri',
         slug: 'amiri-sets-amiri-sets-003',
         gender: 'unisex',
-        tags: ['Amiri', 'Sets', 'Best Sellers']
+        tags: ['Amiri', 'Sets']
     },
     {
         id: 'amiri-sets-004',
@@ -1541,7 +1559,7 @@ export const products: Product[] = [
         brand: 'Amiri',
         slug: 'amiri-sets-amiri-sets-004',
         gender: 'unisex',
-        tags: ['Amiri', 'Sets']
+        tags: ['Amiri', 'Sets', 'Best Sellers']
     },
     {
         id: 'amiri-shirts-001',
@@ -1554,7 +1572,7 @@ export const products: Product[] = [
         brand: 'Amiri',
         slug: 'amiri-shirts-amiri-shirts-001',
         gender: 'unisex',
-        tags: ['Amiri', 'Shirts', 'Best Sellers']
+        tags: ['Amiri', 'Shirts']
     },
     {
         id: 'amiri-shirts-002',
@@ -1567,7 +1585,7 @@ export const products: Product[] = [
         brand: 'Amiri',
         slug: 'amiri-shirts-amiri-shirts-002',
         gender: 'unisex',
-        tags: ['Amiri', 'Shirts', 'Best Sellers']
+        tags: ['Amiri', 'Shirts']
     },
     {
         id: 'amiri-shoes-001',
@@ -1658,7 +1676,7 @@ export const products: Product[] = [
         brand: 'Amiri',
         slug: 'amiri-shorts-amiri-shorts-002',
         gender: 'unisex',
-        tags: ['Amiri', 'Shorts']
+        tags: ['Amiri', 'Shorts', 'Best Sellers']
     },
     {
         id: 'amiri-shorts-003',
@@ -1671,7 +1689,7 @@ export const products: Product[] = [
         brand: 'Amiri',
         slug: 'amiri-shorts-amiri-shorts-003',
         gender: 'unisex',
-        tags: ['Amiri', 'Shorts']
+        tags: ['Amiri', 'Shorts', 'Best Sellers']
     },
     {
         id: 'arcteryx-hat-001',
@@ -1684,7 +1702,7 @@ export const products: Product[] = [
         brand: 'Arcteryx',
         slug: 'arcteryx-hats-arcteryx-hat-001',
         gender: 'unisex',
-        tags: ['Arcteryx', 'Hats']
+        tags: ['Arcteryx', 'Hats', 'Best Sellers']
     },
     {
         id: 'arcteryx-hat-002',
@@ -1697,7 +1715,7 @@ export const products: Product[] = [
         brand: 'Arcteryx',
         slug: 'arcteryx-hats-arcteryx-hat-002',
         gender: 'unisex',
-        tags: ['Arcteryx', 'Hats', 'Best Sellers']
+        tags: ['Arcteryx', 'Hats']
     },
     {
         id: 'arcteryx-hat-003',
@@ -1775,7 +1793,7 @@ export const products: Product[] = [
         brand: 'Arcteryx',
         slug: 'arcteryx-hats-arcteryx-hat-008',
         gender: 'unisex',
-        tags: ['Arcteryx', 'Hats', 'Best Sellers']
+        tags: ['Arcteryx', 'Hats']
     },
     {
         id: 'arcteryx-hat-009',
@@ -1866,7 +1884,7 @@ export const products: Product[] = [
         brand: 'Balenciaga',
         slug: 'balenciaga-belts-balenciaga-belt-004',
         gender: 'unisex',
-        tags: ['Balenciaga', 'Belts', 'Best Sellers']
+        tags: ['Balenciaga', 'Belts']
     },
     {
         id: 'balenciaga-belt-005',
@@ -1879,7 +1897,7 @@ export const products: Product[] = [
         brand: 'Balenciaga',
         slug: 'balenciaga-belts-balenciaga-belt-005',
         gender: 'unisex',
-        tags: ['Balenciaga', 'Belts', 'Best Sellers']
+        tags: ['Balenciaga', 'Belts']
     },
     {
         id: 'balenciaga-belt-006',
@@ -1957,7 +1975,7 @@ export const products: Product[] = [
         brand: 'Balenciaga',
         slug: 'balenciaga-jacket-balenciaga-jacket-001',
         gender: 'unisex',
-        tags: ['Balenciaga', 'Jacket']
+        tags: ['Balenciaga', 'Jacket', 'Best Sellers']
     },
     {
         id: 'balenciaga-shoes-001',
@@ -2009,7 +2027,7 @@ export const products: Product[] = [
         brand: 'Balenciaga',
         slug: 'balenciaga-sweatshirts-balenciaga-sweatshirt-002',
         gender: 'unisex',
-        tags: ['Balenciaga', 'Sweatshirts']
+        tags: ['Balenciaga', 'Sweatshirts', 'Best Sellers']
     },
     {
         id: 'burberry-boxer-001',
@@ -2022,7 +2040,7 @@ export const products: Product[] = [
         brand: 'Burberry',
         slug: 'burberry-boxers-burberry-boxer-001',
         gender: 'unisex',
-        tags: ['Burberry', 'Boxers']
+        tags: ['Burberry', 'Boxers', 'Best Sellers']
     },
     {
         id: 'burberry-boxer-002',
@@ -2048,7 +2066,7 @@ export const products: Product[] = [
         brand: 'Burberry',
         slug: 'burberry-boxers-burberry-boxer-003',
         gender: 'unisex',
-        tags: ['Burberry', 'Boxers', 'Best Sellers']
+        tags: ['Burberry', 'Boxers']
     },
     {
         id: 'burberry-boxer-004',
@@ -2061,7 +2079,7 @@ export const products: Product[] = [
         brand: 'Burberry',
         slug: 'burberry-boxers-burberry-boxer-004',
         gender: 'unisex',
-        tags: ['Burberry', 'Boxers']
+        tags: ['Burberry', 'Boxers', 'Best Sellers']
     },
     {
         id: 'burberry-boxer-005',
@@ -2100,7 +2118,7 @@ export const products: Product[] = [
         brand: 'Burberry',
         slug: 'burberry-caps-burberry-caps-001',
         gender: 'unisex',
-        tags: ['Burberry', 'Caps']
+        tags: ['Burberry', 'Caps', 'Best Sellers']
     },
     {
         id: 'burberry-jacket-001',
@@ -2126,7 +2144,7 @@ export const products: Product[] = [
         brand: 'Burberry',
         slug: 'burberry-jacket-burberry-jacket-002',
         gender: 'unisex',
-        tags: ['Burberry', 'Jacket', 'Best Sellers']
+        tags: ['Burberry', 'Jacket']
     },
     {
         id: 'burberry-jacket-003',
@@ -2178,7 +2196,7 @@ export const products: Product[] = [
         brand: 'Burberry',
         slug: 'burberry-jacket-burberry-jacket-006',
         gender: 'unisex',
-        tags: ['Burberry', 'Jacket', 'Best Sellers']
+        tags: ['Burberry', 'Jacket']
     },
     {
         id: 'burberry-jacket-007',
@@ -2204,7 +2222,7 @@ export const products: Product[] = [
         brand: 'Burberry',
         slug: 'burberry-jacket-burberry-jacket-008',
         gender: 'unisex',
-        tags: ['Burberry', 'Jacket', 'Best Sellers']
+        tags: ['Burberry', 'Jacket']
     },
     {
         id: 'burberry-jacket-009',
@@ -2256,7 +2274,7 @@ export const products: Product[] = [
         brand: 'Burberry',
         slug: 'burberry-jeanss-burberry-jeans-003',
         gender: 'unisex',
-        tags: ['Burberry', 'Jeanss']
+        tags: ['Burberry', 'Jeanss', 'Best Sellers']
     },
     {
         id: 'burberry-pants-001',
@@ -2295,7 +2313,7 @@ export const products: Product[] = [
         brand: 'Burberry',
         slug: 'burberry-pants-burberry-pants-003',
         gender: 'unisex',
-        tags: ['Burberry', 'Pants', 'Best Sellers']
+        tags: ['Burberry', 'Pants']
     },
     {
         id: 'burberry-pants-004',
@@ -2321,7 +2339,7 @@ export const products: Product[] = [
         brand: 'Burberry',
         slug: 'burberry-pants-burberry-pants-005',
         gender: 'unisex',
-        tags: ['Burberry', 'Pants']
+        tags: ['Burberry', 'Pants', 'Best Sellers']
     },
     {
         id: 'burberry-shirts-001',
@@ -2412,7 +2430,7 @@ export const products: Product[] = [
         brand: 'Burberry',
         slug: 'burberry-suits-burberry-suit-001',
         gender: 'unisex',
-        tags: ['Burberry', 'Suits', 'Best Sellers']
+        tags: ['Burberry', 'Suits']
     },
     {
         id: 'burberry-sweatshirt-001',
@@ -2490,7 +2508,7 @@ export const products: Product[] = [
         brand: 'CasaBlanca',
         slug: 'casablanca-pants-casab-pants-002',
         gender: 'unisex',
-        tags: ['CasaBlanca', 'Pants']
+        tags: ['CasaBlanca', 'Pants', 'Best Sellers']
     },
     {
         id: 'casab-pants-003',
@@ -2581,7 +2599,7 @@ export const products: Product[] = [
         brand: 'Essentials',
         slug: 'essentials-pants-essentials-pants-001',
         gender: 'unisex',
-        tags: ['Essentials', 'Pants']
+        tags: ['Essentials', 'Pants', 'Best Sellers']
     },
     {
         id: 'essentials-sets-001',
@@ -2781,6 +2799,41 @@ export const products: Product[] = [
 ];
 
 export const BRANDS = ["Amiparis","Amiri","Arcteryx","Balenciaga","Bape","Burberry","CalvinKlein","CasaBlanca","Celine","Cgoose","Di","Essentials","Gucci","Jacquemus","Jordan","Lacoste","Loewe","Louis_Vuitton","MiuMiu","Moncler","Nike","Off_White","PalmAngels","Patagonia","PhilipPlein","PoloRalphLauren","Prada","StoneIsland","Stussy","TheNorthFace","Trap","Warehouse"];
+
+export const BRAND_ASSETS: Record<string, StaticImageData> = {
+    'Amiparis': Asset_amiparis,
+    'Amiri': Asset_amiri,
+    'Arcteryx': Asset_Arcteryx,
+    'Balenciaga': Asset_Balenciaga,
+    'Bape': Asset_Bape,
+    'Burberry': Asset_burberry,
+    'CalvinKlein': Asset_CalvinKlein,
+    'CasaBlanca': Asset_CasaBlanca,
+    'Celine': Asset_Celine,
+    'Cgoose': Asset_Essentials,
+    'Di': Asset_Jacquemus,
+    'Essentials': Asset_Essentials,
+    'Gucci': Asset_Lacoste,
+    'Jacquemus': Asset_Jacquemus,
+    'Jordan': Asset_Jordan,
+    'Lacoste': Asset_Lacoste,
+    'Loewe': Asset_Loewe,
+    'Louis_Vuitton': Asset_Louis_Vuitton,
+    'MiuMiu': Asset_MiuMiu,
+    'Moncler': Asset_Balenciaga,
+    'Nike': Asset_Bape,
+    'Off_White': Asset_burberry,
+    'PalmAngels': Asset_CalvinKlein,
+    'Patagonia': Asset_CasaBlanca,
+    'PhilipPlein': Asset_Celine,
+    'PoloRalphLauren': Asset_Essentials,
+    'Prada': Asset_Jacquemus,
+    'StoneIsland': Asset_Jordan,
+    'Stussy': Asset_Lacoste,
+    'TheNorthFace': Asset_Loewe,
+    'Trap': Asset_Louis_Vuitton,
+    'Warehouse': Asset_MiuMiu
+};
 
 export const BRAND_SAMPLE_IMAGES: Record<string, StaticImageData> = {
     'Amiparis': Img_0_Main,

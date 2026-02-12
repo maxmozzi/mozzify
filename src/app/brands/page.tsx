@@ -3,32 +3,23 @@
 import React, { useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { products, BRANDS, BRAND_SAMPLE_IMAGES } from '@/data/generated-products';
+import { BRANDS, BRAND_ASSETS } from '@/data/generated-products';
 import styles from './brands.module.css';
-import { ArrowRight } from 'lucide-react';
 
 export default function BrandsPage() {
-    const [visibleCount, setVisibleCount] = React.useState(30);
+    // We want to show all brands, but maybe with a limited initial set for performance if requested.
+    // However, the user asked for a completely new format "Grid", 4 per row.
+    // I'll keep the view more functionality but adapted to the new grid style.
+    const [visibleCount, setVisibleCount] = React.useState(32); // Show all 32 since they are grid-based now
 
     const brandData = useMemo(() => {
-        const brandsWithProducts = new Map<string, number>();
-        products.forEach(p => {
-            const b = p.brand;
-            brandsWithProducts.set(b, (brandsWithProducts.get(b) || 0) + 1);
-        });
-
-        // Get a generic fallback image from any existing product if possible
-        const fallbackImage = products[0]?.image;
-
         return BRANDS.map(name => {
             const slug = name.toLowerCase().replace(/_/g, '-');
-            const count = brandsWithProducts.get(name) || 0;
-            const sampleImage = BRAND_SAMPLE_IMAGES[name] || fallbackImage;
+            const assetImage = BRAND_ASSETS[name];
 
             return {
                 name,
-                count,
-                sampleImage,
+                assetImage,
                 slug
             };
         });
@@ -38,56 +29,67 @@ export default function BrandsPage() {
 
     return (
         <main className={styles.container}>
-            <h1 className={styles.title}>Our Brands</h1>
+            <h1 className={styles.title}>Brands</h1>
             <p className={styles.subtitle}>
-                Discover the curators of modern luxury. From street-style icons to high-fashion houses,
-                explore the complete collection from our world-class partners.
+                Experience the world's most influential fashion houses through a curated editorial lens.
+                A collection defined by luxury, innovation, and timeless style.
             </p>
 
             <div className={styles.grid}>
-                {visibleBrands.map((brand) => (
-                    <Link key={brand.slug} href={`/${brand.slug}`} className={styles.brandCard}>
-                        <div className={styles.imageWrapper}>
-                            <Image
-                                src={brand.sampleImage}
-                                alt={brand.name}
-                                fill
-                                className={styles.brandImage}
-                                sizes="(max-width: 768px) 50vw, 33vw"
-                            />
-                        </div>
-                        <div className={styles.brandInfo}>
-                            <div>
-                                <h2 className={styles.brandName}>{brand.name}</h2>
-                                <span className={styles.productCount}>{brand.count} Products</span>
+                {visibleBrands.map((brand, index) => {
+                    if (!brand.assetImage) return null;
+
+                    return (
+                        <Link
+                            key={brand.slug}
+                            href={`/${brand.slug}`}
+                            className={styles.brandCard}
+                        >
+                            <div className={styles.imageWrapper}>
+                                <Image
+                                    src={brand.assetImage}
+                                    alt={brand.name}
+                                    fill
+                                    className={styles.brandImage}
+                                    sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                                    priority={index < 4}
+                                    loading={index < 4 ? "eager" : "lazy"}
+                                />
                             </div>
-                            <ArrowRight size={20} className={styles.arrow} />
-                        </div>
-                    </Link>
-                ))}
+                            <div className={styles.overlay}>
+                                <h2 className={styles.brandName}>{brand.name}</h2>
+                            </div>
+                        </Link>
+                    );
+                })}
             </div>
 
             {visibleCount < brandData.length && (
-                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '4rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '6rem' }}>
                     <button
-                        onClick={() => setVisibleCount(prev => prev + 30)}
+                        onClick={() => setVisibleCount(prev => Math.min(prev + 12, brandData.length))}
                         style={{
-                            padding: '12px 48px',
+                            padding: '16px 64px',
                             background: '#000',
                             color: '#fff',
-                            border: 'none',
-                            borderRadius: '4px',
-                            fontSize: '0.9rem',
+                            border: '1px solid #000',
+                            fontSize: '0.8rem',
                             fontWeight: 600,
                             cursor: 'pointer',
                             textTransform: 'uppercase',
-                            letterSpacing: '1px',
-                            transition: 'background 0.2s'
+                            letterSpacing: '2px',
+                            transition: 'all 0.3s ease'
                         }}
-                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#333'}
-                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#000'}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = 'transparent';
+                            e.currentTarget.style.color = '#000';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor = '#000';
+                            e.currentTarget.style.color = '#fff';
+                        }}
                     >
-                        View More
+                        Explore More
                     </button>
                 </div>
             )}

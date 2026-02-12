@@ -2,7 +2,27 @@ const fs = require('fs');
 const path = require('path');
 
 const IMAGES_DIR = path.join(__dirname, '../src/images/products');
+const ASSETS_DIR = path.join(__dirname, '../src/images/brand-assets');
 const OUTPUT_FILE = path.join(__dirname, '../src/data/generated-products.ts');
+
+const BRAND_ASSETS_MAP = {
+    'amiparis': 'ami',
+    'amiri': 'amir',
+    'arcteryx': 'arc',
+    'balenciaga': 'balen',
+    'bape': 'bap',
+    'burberry': 'burberr',
+    'casablanca': 'casab',
+    'celine': 'celin',
+    'calvinklein': 'ck',
+    'essentials': 'essential',
+    'jacquemus': 'jacque',
+    'jordan': 'jord',
+    'lacoste': 'laco',
+    'loewe': 'loew',
+    'louis_vuitton': 'lv',
+    'miumiu': 'miu'
+};
 
 const CATEGORY_MAP = {
     'hoodies': 'Hoodies',
@@ -28,9 +48,6 @@ const CATEGORY_MAP = {
 };
 
 function formatBrandName(folderName) {
-    // Keeping it simple as per user request: "no cambies los nombres"
-    // Just capitalize first letter, or return as is if preferred.
-    // Given the request, I'll just capitalization of the first letter for consistency.
     return folderName.charAt(0).toUpperCase() + folderName.slice(1);
 }
 
@@ -39,10 +56,9 @@ function generate() {
     const imports = [];
     let importCounter = 0;
 
-    // Filter out special directories that are not brands
     const excludedDirs = ['HomePage', 'brickenstones'];
 
-    const MAX_TOTAL_PRODUCTS = 250; // High limit, but we'll cap per category
+    const MAX_TOTAL_PRODUCTS = 1000;
     const MAX_PER_CATEGORY = 10;
     const categoryCounts = {};
     let totalProducts = 0;
@@ -154,7 +170,6 @@ function generate() {
         const mainImportName = `${importPrefix}_Main`;
         const hoverImportName = `${importPrefix}_Hover`;
 
-        // Calculate relative path from src/images
         const IMAGES_ROOT = path.join(__dirname, '../src/images');
         const relativeToImages = path.relative(IMAGES_ROOT, productPath).split(path.sep).join('/');
 
@@ -172,7 +187,6 @@ function generate() {
         const safeId = code.toLowerCase();
         const slug = `${safeBrand}-${safeCat}-${safeId}`;
 
-        // Best Seller logic
         const isBestSeller = categoryName === 'Best Sellers' || sourceRoot.includes('bestsellers') || Math.random() < 0.2;
         const finalTags = [brandName, categoryName];
         if (isBestSeller) finalTags.push('Best Sellers');
@@ -192,16 +206,56 @@ function generate() {
         });
     }
 
-    // 3. Export all brand names for the brands page
+    // 3. Process Brand Assets (Editorial/Premium Images)
     const allBrandFolders = fs.readdirSync(IMAGES_DIR)
         .filter(dir => fs.statSync(path.join(IMAGES_DIR, dir)).isDirectory() && !excludedDirs.includes(dir));
 
     const brandDisplayNames = allBrandFolders.map(dir => formatBrandName(dir)).sort();
 
+    const brandAssetImports = [];
+    const brandAssetMap = {};
+    const editorialAssets = [];
+
+    // First collect all available editorial assets
+    allBrandFolders.forEach(folder => {
+        const assetFolder = BRAND_ASSETS_MAP[folder.toLowerCase()];
+        if (assetFolder) {
+            const possibleThumbnail = path.join(ASSETS_DIR, assetFolder, 'thumbnail.webp');
+            if (fs.existsSync(possibleThumbnail)) {
+                const importName = `Asset_${folder.replace(/[^a-zA-Z0-9]/g, '_')}`;
+                brandAssetImports.push(`import ${importName} from '@/images/brand-assets/${assetFolder}/thumbnail.webp';`);
+                editorialAssets.push(importName);
+                brandAssetMap[formatBrandName(folder)] = importName;
+            }
+        }
+    });
+
+    // Then fill in the gaps for all brands
+    brandDisplayNames.forEach((brandName, index) => {
+        if (!brandAssetMap[brandName]) {
+            // Priority 1: Use first product image
+            const p = products.find(prod => prod.brand === brandName);
+            if (p) {
+                brandAssetMap[brandName] = p.image;
+            } else {
+                // Priority 2: Use an image from another brand (cyclic fallback)
+                const fallbackImg = editorialAssets[index % editorialAssets.length] ||
+                    (products[0] ? products[0].image : null);
+
+                if (fallbackImg) {
+                    brandAssetMap[brandName] = fallbackImg;
+                }
+            }
+        }
+    });
+
     const fileContent = `import { StaticImageData } from 'next/image';
 
 // Automatically generated product data
 ${imports.join('\n')}
+
+// Brand Editorial Assets
+${brandAssetImports.join('\n')}
 
 export interface Product {
     id: string;
@@ -235,10 +289,14 @@ ${products.map(p => `    {
 
 export const BRANDS = ${JSON.stringify(brandDisplayNames)};
 
+export const BRAND_ASSETS: Record<string, StaticImageData> = {
+${brandDisplayNames.map(name => `    '${name}': ${brandAssetMap[name]}`).join(',\n')}
+};
+
 export const BRAND_SAMPLE_IMAGES: Record<string, StaticImageData> = {
-${brandDisplayNames.map(b => {
-        const p = products.find(prod => prod.brand === b);
-        return p ? `    '${b}': ${p.image}` : '';
+${brandDisplayNames.map(name => {
+        const p = products.find(prod => prod.brand === name);
+        return p ? `    '${name}': ${p.image}` : '';
     }).filter(Boolean).join(',\n')}
 };
 `;
