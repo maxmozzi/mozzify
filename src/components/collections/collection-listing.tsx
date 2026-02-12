@@ -55,6 +55,7 @@ export default function CollectionListing({
     const [currentSort, setCurrentSort] = useState('Relevancy');
     const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
     const [selectedColors, setSelectedColors] = useState<string[]>([]);
+    const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
     const [priceRange, setPriceRange] = useState({ min: 0, max: 1000 });
     const [isSaleSelected, setIsSaleSelected] = useState(false);
 
@@ -94,9 +95,16 @@ export default function CollectionListing({
         );
     };
 
+    const handleBrandChange = (brand: string) => {
+        setSelectedBrands(prev =>
+            prev.includes(brand) ? prev.filter(b => b !== brand) : [...prev, brand]
+        );
+    };
+
     const handleClearAll = () => {
         setSelectedSizes([]);
         setSelectedColors([]);
+        setSelectedBrands([]);
         setPriceRange({ min: 0, max: 1000 });
         setIsSaleSelected(false);
         handleCategoryChange('all');
@@ -105,6 +113,21 @@ export default function CollectionListing({
     const availableCategories = useMemo(() => {
         const cats = new Set(baseProducts.map(p => p.category).filter(Boolean));
         return Array.from(cats).sort();
+    }, [baseProducts]);
+
+    const availableBrands = useMemo(() => {
+        const brandCounts: Record<string, number> = {};
+
+        // Count products per brand from baseProducts (context-specific)
+        baseProducts.forEach(p => {
+            if (p.brand) {
+                brandCounts[p.brand] = (brandCounts[p.brand] || 0) + 1;
+            }
+        });
+
+        return Object.entries(brandCounts)
+            .map(([name, count]) => ({ name, count }))
+            .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
     }, [baseProducts]);
 
     const handleCategoryChange = (categorySlug: string) => {
@@ -179,8 +202,13 @@ export default function CollectionListing({
             );
         }
 
+        // 3. Brand Filter
+        if (selectedBrands.length > 0) {
+            result = result.filter(p => p.brand && selectedBrands.includes(p.brand));
+        }
+
         return result;
-    }, [initialProducts, allProducts, priceRange, isSaleSelected]);
+    }, [initialProducts, allProducts, priceRange, isSaleSelected, selectedBrands]);
 
     return (
         <div>
@@ -296,6 +324,9 @@ export default function CollectionListing({
                 isSaleSelected={isSaleSelected}
                 onSaleChange={setIsSaleSelected}
                 onClearAll={handleClearAll}
+                availableBrands={availableBrands}
+                selectedBrands={selectedBrands}
+                onBrandChange={handleBrandChange}
             />
         </div>
     );

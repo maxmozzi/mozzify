@@ -3,42 +3,38 @@
 import React, { useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { products } from '@/data/generated-products';
+import { products, BRANDS, BRAND_SAMPLE_IMAGES } from '@/data/generated-products';
 import styles from './brands.module.css';
 import { ArrowRight } from 'lucide-react';
 
 export default function BrandsPage() {
+    const [visibleCount, setVisibleCount] = React.useState(30);
+
     const brandData = useMemo(() => {
-        const brandsMap = new Map<string, { name: string, count: number, sampleImage: any, slug: string }>();
-
+        const brandsWithProducts = new Map<string, number>();
         products.forEach(p => {
-            const rawBrand = p.brand || 'Other';
-
-            // Normalize brand name for display
-            let displayName = rawBrand;
-            if (rawBrand.toLowerCase() === 'amiparis') displayName = 'Ami Paris';
-            if (rawBrand.toLowerCase() === 'arcteryx') displayName = 'Arc\'teryx';
-            if (rawBrand.toLowerCase() === 'calvinklein') displayName = 'Calvin Klein';
-            if (rawBrand.toLowerCase() === 'casablanca') displayName = 'Casablanca';
-
-            // Normalize slug
-            const slug = rawBrand.toLowerCase();
-
-            if (!brandsMap.has(slug)) {
-                brandsMap.set(slug, {
-                    name: displayName,
-                    count: 1,
-                    sampleImage: p.image,
-                    slug: slug
-                });
-            } else {
-                const existing = brandsMap.get(slug)!;
-                existing.count += 1;
-            }
+            const b = p.brand;
+            brandsWithProducts.set(b, (brandsWithProducts.get(b) || 0) + 1);
         });
 
-        return Array.from(brandsMap.values()).sort((a, b) => a.name.localeCompare(b.name));
+        // Get a generic fallback image from any existing product if possible
+        const fallbackImage = products[0]?.image;
+
+        return BRANDS.map(name => {
+            const slug = name.toLowerCase().replace(/_/g, '-');
+            const count = brandsWithProducts.get(name) || 0;
+            const sampleImage = BRAND_SAMPLE_IMAGES[name] || fallbackImage;
+
+            return {
+                name,
+                count,
+                sampleImage,
+                slug
+            };
+        });
     }, []);
+
+    const visibleBrands = brandData.slice(0, visibleCount);
 
     return (
         <main className={styles.container}>
@@ -49,7 +45,7 @@ export default function BrandsPage() {
             </p>
 
             <div className={styles.grid}>
-                {brandData.map((brand) => (
+                {visibleBrands.map((brand) => (
                     <Link key={brand.slug} href={`/${brand.slug}`} className={styles.brandCard}>
                         <div className={styles.imageWrapper}>
                             <Image
@@ -70,6 +66,31 @@ export default function BrandsPage() {
                     </Link>
                 ))}
             </div>
+
+            {visibleCount < brandData.length && (
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '4rem' }}>
+                    <button
+                        onClick={() => setVisibleCount(prev => prev + 30)}
+                        style={{
+                            padding: '12px 48px',
+                            background: '#000',
+                            color: '#fff',
+                            border: 'none',
+                            borderRadius: '4px',
+                            fontSize: '0.9rem',
+                            fontWeight: 600,
+                            cursor: 'pointer',
+                            textTransform: 'uppercase',
+                            letterSpacing: '1px',
+                            transition: 'background 0.2s'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#333'}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#000'}
+                    >
+                        View More
+                    </button>
+                </div>
+            )}
         </main>
     );
 }

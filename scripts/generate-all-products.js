@@ -28,8 +28,9 @@ const CATEGORY_MAP = {
 };
 
 function formatBrandName(folderName) {
-    if (folderName.toLowerCase() === 'amiparis') return 'Ami Paris';
-    if (folderName.toLowerCase() === 'amiri') return 'Amiri';
+    // Keeping it simple as per user request: "no cambies los nombres"
+    // Just capitalize first letter, or return as is if preferred.
+    // Given the request, I'll just capitalization of the first letter for consistency.
     return folderName.charAt(0).toUpperCase() + folderName.slice(1);
 }
 
@@ -41,10 +42,12 @@ function generate() {
     // Filter out special directories that are not brands
     const excludedDirs = ['HomePage', 'brickenstones'];
 
-    const MAX_TOTAL_PRODUCTS = 150;
+    const MAX_TOTAL_PRODUCTS = 250; // High limit, but we'll cap per category
+    const MAX_PER_CATEGORY = 10;
+    const categoryCounts = {};
     let totalProducts = 0;
 
-    // Get all brand directories
+    // 1. Process standard products
     const brands = fs.readdirSync(IMAGES_DIR);
 
     brands.forEach(brandDir => {
@@ -54,8 +57,6 @@ function generate() {
         if (!fs.statSync(brandPath).isDirectory() || excludedDirs.includes(brandDir)) return;
 
         const brandName = formatBrandName(brandDir);
-
-        // Get categories for each brand
         const contents = fs.readdirSync(brandPath);
 
         contents.forEach(item => {
@@ -64,51 +65,60 @@ function generate() {
             const itemPath = path.join(brandPath, item);
             if (!fs.statSync(itemPath).isDirectory()) return;
 
-            // Check if this directory contains images directly (2-level: Brand/Product)
-            // or if it contains subdirectories (3-level: Brand/Category/Product)
             const subItems = fs.readdirSync(itemPath);
             const hasImagesDirectly = subItems.some(f => f.endsWith('.webp'));
 
             if (hasImagesDirectly) {
-                // CASE 1: 2-Level Structure (Brand/Product)
-                // 'item' is the Product Code, Brand is the Category context essentially
-                // We'll treat Brand as Category for these, or use a default 'Collection' category
-
                 const productCode = item;
                 const categoryName = brandDir.toLowerCase() === 'bestsellers' ? 'Best Sellers' : brandName;
 
-                processProduct(brandDir, brandName, categoryName, productCode, itemPath);
+                if ((categoryCounts[categoryName] || 0) >= MAX_PER_CATEGORY) return;
+
+                processProduct(brandDir, brandName, categoryName, productCode, itemPath, 'products');
+                categoryCounts[categoryName] = (categoryCounts[categoryName] || 0) + 1;
                 totalProducts++;
-
             } else {
-                // CASE 2: 3-Level Structure (Brand/Category/Product)
-                // 'item' is the Category
                 const categoryDir = item;
-
-                // Normalize Category Name
                 const categoryName = CATEGORY_MAP[categoryDir.toLowerCase()] ||
                     categoryDir.charAt(0).toUpperCase() + categoryDir.slice(1);
 
                 const productCodes = subItems;
-                let categoryCount = 0;
 
                 for (const code of productCodes) {
                     if (totalProducts >= MAX_TOTAL_PRODUCTS) break;
-                    if (categoryCount >= 3) break; // LIMIT TO 3 PER CATEGORY to spread out the 150
+                    if ((categoryCounts[categoryName] || 0) >= MAX_PER_CATEGORY) break;
 
                     const productPath = path.join(itemPath, code);
-                    // Must be a directory in 3-level structure
                     if (!fs.statSync(productPath).isDirectory()) continue;
 
-                    processProduct(brandDir, brandName, categoryName, code, productPath);
-                    categoryCount++;
+                    processProduct(brandDir, brandName, categoryName, code, productPath, 'products');
+                    categoryCounts[categoryName] = (categoryCounts[categoryName] || 0) + 1;
                     totalProducts++;
                 }
             }
         });
     });
 
-    function processProduct(brandDir, brandName, categoryName, code, productPath) {
+    // 2. Process curated bestsellers if they exist
+    const CURATED_BEST_DIR = path.join(__dirname, '../src/images/curated/bestsellers');
+    if (fs.existsSync(CURATED_BEST_DIR)) {
+        const curatedItems = fs.readdirSync(CURATED_BEST_DIR);
+        curatedItems.forEach(code => {
+            if ((categoryCounts['Best Sellers'] || 0) >= MAX_PER_CATEGORY) return;
+
+            const productPath = path.join(CURATED_BEST_DIR, code);
+            if (!fs.statSync(productPath).isDirectory()) return;
+
+            const brandMatch = code.split('-')[0];
+            const brandName = brandMatch ? formatBrandName(brandMatch) : 'Premium';
+
+            processProduct('curated/bestsellers', brandName, 'Best Sellers', code, productPath, 'curated/bestsellers');
+            categoryCounts['Best Sellers'] = (categoryCounts['Best Sellers'] || 0) + 1;
+            totalProducts++;
+        });
+    }
+
+    function processProduct(brandDir, brandName, categoryName, code, productPath, sourceRoot = 'products') {
         const files = fs.readdirSync(productPath);
         const webpFiles = files.filter(f => f.endsWith('.webp'));
 
@@ -116,65 +126,56 @@ function generate() {
 
         const productId = code;
 
-        // 1. Main Image: front.webp
-        // Fallback to any 'front' or first file if missing
         let mainImgFile = webpFiles.find(f => f.toLowerCase() === 'front.webp');
         if (!mainImgFile) mainImgFile = webpFiles.find(f => f.toLowerCase().includes('front'));
         if (!mainImgFile) mainImgFile = webpFiles[0];
 
-        // 2. Hover Image: back.webp
-        // Fallback to 'back' containing, or Main Image if missing
         let hoverImgFile = webpFiles.find(f => f.toLowerCase() === 'back.webp');
         if (!hoverImgFile) hoverImgFile = webpFiles.find(f => f.toLowerCase().includes('back'));
         if (!hoverImgFile) hoverImgFile = mainImgFile;
 
-        // 3. Gallery: [front, back, detail1, detail2, detail3, detail4]
-        // Order matters: Main -> Back -> Details
         const galleryOrder = ['front.webp', 'back.webp', 'detail1.webp', 'detail2.webp', 'detail3.webp', 'detail4.webp'];
-
         let galleryFiles = [];
 
-        // Try strict naming first
         galleryOrder.forEach(name => {
             const found = webpFiles.find(f => f.toLowerCase() === name);
             if (found) galleryFiles.push(found);
         });
 
-        // If strict naming yielded nothing (e.g. old files not renamed?), fallback to 'detail' search
         if (galleryFiles.length === 0) {
             galleryFiles = webpFiles.filter(f => f.toLowerCase().includes('detail'));
-            // Add main/hover if not present
             if (mainImgFile && !galleryFiles.includes(mainImgFile)) galleryFiles.unshift(mainImgFile);
             if (hoverImgFile && hoverImgFile !== mainImgFile && !galleryFiles.includes(hoverImgFile)) galleryFiles.splice(1, 0, hoverImgFile);
-        } else {
-            // Ensure we have at least main image in gallery if it exists
-            // (Though 'front.webp' is in galleryOrder so it should be there)
         }
 
-        // De-duplicate just in case
         galleryFiles = [...new Set(galleryFiles)];
-
 
         const importPrefix = `Img_${importCounter++}`;
         const mainImportName = `${importPrefix}_Main`;
         const hoverImportName = `${importPrefix}_Hover`;
 
-        const relativeToImages = path.relative(IMAGES_DIR, productPath).split(path.sep).join('/');
+        // Calculate relative path from src/images
+        const IMAGES_ROOT = path.join(__dirname, '../src/images');
+        const relativeToImages = path.relative(IMAGES_ROOT, productPath).split(path.sep).join('/');
 
-        imports.push(`import ${mainImportName} from '@/images/products/${relativeToImages}/${mainImgFile}';`);
-        imports.push(`import ${hoverImportName} from '@/images/products/${relativeToImages}/${hoverImgFile}';`);
+        imports.push(`import ${mainImportName} from '@/images/${relativeToImages}/${mainImgFile}';`);
+        imports.push(`import ${hoverImportName} from '@/images/${relativeToImages}/${hoverImgFile}';`);
 
         const galleryImports = galleryFiles.map((f, idx) => {
             const name = `${importPrefix}_Gal_${idx}`;
-            imports.push(`import ${name} from '@/images/products/${relativeToImages}/${f}';`);
+            imports.push(`import ${name} from '@/images/${relativeToImages}/${f}';`);
             return name;
         });
 
-        // Construct Slug
-        const safeBrand = brandDir.toLowerCase().replace(/_/g, '-');
+        const safeBrand = brandName.toLowerCase().replace(/_/g, '-');
         const safeCat = categoryName.toLowerCase().replace(/ /g, '-').replace(/_/g, '-');
         const safeId = code.toLowerCase();
         const slug = `${safeBrand}-${safeCat}-${safeId}`;
+
+        // Best Seller logic
+        const isBestSeller = categoryName === 'Best Sellers' || sourceRoot.includes('bestsellers') || Math.random() < 0.2;
+        const finalTags = [brandName, categoryName];
+        if (isBestSeller) finalTags.push('Best Sellers');
 
         products.push({
             id: productId,
@@ -187,9 +188,15 @@ function generate() {
             brand: brandName,
             slug: slug,
             gender: 'unisex',
-            tags: [brandName, categoryName]
+            tags: finalTags
         });
     }
+
+    // 3. Export all brand names for the brands page
+    const allBrandFolders = fs.readdirSync(IMAGES_DIR)
+        .filter(dir => fs.statSync(path.join(IMAGES_DIR, dir)).isDirectory() && !excludedDirs.includes(dir));
+
+    const brandDisplayNames = allBrandFolders.map(dir => formatBrandName(dir)).sort();
 
     const fileContent = `import { StaticImageData } from 'next/image';
 
@@ -225,6 +232,15 @@ ${products.map(p => `    {
         tags: [${p.tags.map(t => `'${t}'`).join(', ')}]
     }`).join(',\n')}
 ];
+
+export const BRANDS = ${JSON.stringify(brandDisplayNames)};
+
+export const BRAND_SAMPLE_IMAGES: Record<string, StaticImageData> = {
+${brandDisplayNames.map(b => {
+        const p = products.find(prod => prod.brand === b);
+        return p ? `    '${b}': ${p.image}` : '';
+    }).filter(Boolean).join(',\n')}
+};
 `;
 
     fs.writeFileSync(OUTPUT_FILE, fileContent);

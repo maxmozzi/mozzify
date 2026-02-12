@@ -2,21 +2,22 @@ import { notFound } from 'next/navigation';
 import ProductListing from '@/components/products/product-listing';
 import { products as allProducts } from '@/data/generated-products';
 
-// Helper to normalize strings for display
+// Helper to normalize strings for display (Simplified to respect folder names as requested)
 const normalizeText = (text: string): string => {
     if (!text) return '';
-    if (text.toLowerCase() === 'ami-paris' || text.toLowerCase() === 'amiparis') return 'Ami Paris';
-    if (text.toLowerCase() === 'amiri') return 'Amiri';
 
-    // Manual map for special categories
+    // Manual map for special formatting if strictly needed for functionality, 
+    // but keeping it minimal as per user request "no cambies los nombres"
     const categoryMap: { [key: string]: string } = {
         'iphone_case': 'iPhone Case',
         'tshirt': 'T-Shirts',
         't-shirts': 'T-Shirts',
     };
 
-    return categoryMap[text.toLowerCase()] ||
-        text.charAt(0).toUpperCase() + text.slice(1);
+    if (categoryMap[text.toLowerCase()]) return categoryMap[text.toLowerCase()];
+
+    // Just capitalize first letter if it's not a known mapping
+    return text.charAt(0).toUpperCase() + text.slice(1);
 };
 
 export default async function BrandPage({
