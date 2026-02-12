@@ -35,44 +35,44 @@ import Img_10_Main from '@/images/products/amiri/hoodies/amiri-hoodies-001/front
 import Img_10_Hover from '@/images/products/amiri/hoodies/amiri-hoodies-001/back.webp';
 import Img_10_Gal_0 from '@/images/products/amiri/hoodies/amiri-hoodies-001/front.webp';
 import Img_10_Gal_1 from '@/images/products/amiri/hoodies/amiri-hoodies-001/back.webp';
-import Img_11_Main from '@/images/products/amiri/jeans/amiri-jeans-001/front.webp';
-import Img_11_Hover from '@/images/products/amiri/jeans/amiri-jeans-001/back.webp';
-import Img_11_Gal_0 from '@/images/products/amiri/jeans/amiri-jeans-001/front.webp';
-import Img_11_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-001/back.webp';
-import Img_12_Main from '@/images/products/amiri/polos/amiri-polo-001/front.webp';
-import Img_12_Hover from '@/images/products/amiri/polos/amiri-polo-001/back.webp';
-import Img_12_Gal_0 from '@/images/products/amiri/polos/amiri-polo-001/front.webp';
-import Img_12_Gal_1 from '@/images/products/amiri/polos/amiri-polo-001/back.webp';
-import Img_13_Main from '@/images/products/amiri/sets/amiri-sets-001/front.webp';
-import Img_13_Hover from '@/images/products/amiri/sets/amiri-sets-001/back.webp';
-import Img_13_Gal_0 from '@/images/products/amiri/sets/amiri-sets-001/front.webp';
-import Img_13_Gal_1 from '@/images/products/amiri/sets/amiri-sets-001/back.webp';
-import Img_14_Main from '@/images/products/amiri/shirts/amiri-shirts-001/front.webp';
-import Img_14_Hover from '@/images/products/amiri/shirts/amiri-shirts-001/back.webp';
-import Img_14_Gal_0 from '@/images/products/amiri/shirts/amiri-shirts-001/front.webp';
-import Img_14_Gal_1 from '@/images/products/amiri/shirts/amiri-shirts-001/back.webp';
-import Img_15_Main from '@/images/products/amiri/shoes/amiri-shoes-001/front.webp';
-import Img_15_Hover from '@/images/products/amiri/shoes/amiri-shoes-001/back.webp';
-import Img_15_Gal_0 from '@/images/products/amiri/shoes/amiri-shoes-001/front.webp';
-import Img_15_Gal_1 from '@/images/products/amiri/shoes/amiri-shoes-001/back.webp';
-import Img_15_Gal_2 from '@/images/products/amiri/shoes/amiri-shoes-001/detail1.webp';
-import Img_15_Gal_3 from '@/images/products/amiri/shoes/amiri-shoes-001/detail2.webp';
-import Img_16_Main from '@/images/products/amiri/shorts/amiri-shorts-001/front.webp';
-import Img_16_Hover from '@/images/products/amiri/shorts/amiri-shorts-001/back.webp';
-import Img_16_Gal_0 from '@/images/products/amiri/shorts/amiri-shorts-001/front.webp';
-import Img_16_Gal_1 from '@/images/products/amiri/shorts/amiri-shorts-001/back.webp';
-import Img_17_Main from '@/images/products/amiri/tshirts/amiri-tshirt-001/front.webp';
-import Img_17_Hover from '@/images/products/amiri/tshirts/amiri-tshirt-001/back.webp';
-import Img_17_Gal_0 from '@/images/products/amiri/tshirts/amiri-tshirt-001/front.webp';
-import Img_17_Gal_1 from '@/images/products/amiri/tshirts/amiri-tshirt-001/back.webp';
-import Img_18_Main from '@/images/products/amiri/hoodies/amiri-hoodies-002/front.webp';
-import Img_18_Hover from '@/images/products/amiri/hoodies/amiri-hoodies-002/back.webp';
-import Img_18_Gal_0 from '@/images/products/amiri/hoodies/amiri-hoodies-002/front.webp';
-import Img_18_Gal_1 from '@/images/products/amiri/hoodies/amiri-hoodies-002/back.webp';
-import Img_19_Main from '@/images/products/amiri/jeans/amiri-jeans-002/front.webp';
-import Img_19_Hover from '@/images/products/amiri/jeans/amiri-jeans-002/back.webp';
-import Img_19_Gal_0 from '@/images/products/amiri/jeans/amiri-jeans-002/front.webp';
-import Img_19_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-002/back.webp';
+import Img_11_Main from '@/images/products/amiri/jackets/amiri-jackets-001/front.webp';
+import Img_11_Hover from '@/images/products/amiri/jackets/amiri-jackets-001/back.webp';
+import Img_11_Gal_0 from '@/images/products/amiri/jackets/amiri-jackets-001/front.webp';
+import Img_11_Gal_1 from '@/images/products/amiri/jackets/amiri-jackets-001/back.webp';
+import Img_12_Main from '@/images/products/amiri/jeans/amiri-jeans-001/front.webp';
+import Img_12_Hover from '@/images/products/amiri/jeans/amiri-jeans-001/back.webp';
+import Img_12_Gal_0 from '@/images/products/amiri/jeans/amiri-jeans-001/front.webp';
+import Img_12_Gal_1 from '@/images/products/amiri/jeans/amiri-jeans-001/back.webp';
+import Img_13_Main from '@/images/products/amiri/polos/amiri-polo-001/front.webp';
+import Img_13_Hover from '@/images/products/amiri/polos/amiri-polo-001/back.webp';
+import Img_13_Gal_0 from '@/images/products/amiri/polos/amiri-polo-001/front.webp';
+import Img_13_Gal_1 from '@/images/products/amiri/polos/amiri-polo-001/back.webp';
+import Img_14_Main from '@/images/products/amiri/sets/amiri-sets-001/front.webp';
+import Img_14_Hover from '@/images/products/amiri/sets/amiri-sets-001/back.webp';
+import Img_14_Gal_0 from '@/images/products/amiri/sets/amiri-sets-001/front.webp';
+import Img_14_Gal_1 from '@/images/products/amiri/sets/amiri-sets-001/back.webp';
+import Img_15_Main from '@/images/products/amiri/shirts/amiri-shirts-001/front.webp';
+import Img_15_Hover from '@/images/products/amiri/shirts/amiri-shirts-001/back.webp';
+import Img_15_Gal_0 from '@/images/products/amiri/shirts/amiri-shirts-001/front.webp';
+import Img_15_Gal_1 from '@/images/products/amiri/shirts/amiri-shirts-001/back.webp';
+import Img_16_Main from '@/images/products/amiri/shoes/amiri-shoes-001/front.webp';
+import Img_16_Hover from '@/images/products/amiri/shoes/amiri-shoes-001/back.webp';
+import Img_16_Gal_0 from '@/images/products/amiri/shoes/amiri-shoes-001/front.webp';
+import Img_16_Gal_1 from '@/images/products/amiri/shoes/amiri-shoes-001/back.webp';
+import Img_16_Gal_2 from '@/images/products/amiri/shoes/amiri-shoes-001/detail1.webp';
+import Img_16_Gal_3 from '@/images/products/amiri/shoes/amiri-shoes-001/detail2.webp';
+import Img_17_Main from '@/images/products/amiri/shorts/amiri-shorts-001/front.webp';
+import Img_17_Hover from '@/images/products/amiri/shorts/amiri-shorts-001/back.webp';
+import Img_17_Gal_0 from '@/images/products/amiri/shorts/amiri-shorts-001/front.webp';
+import Img_17_Gal_1 from '@/images/products/amiri/shorts/amiri-shorts-001/back.webp';
+import Img_18_Main from '@/images/products/amiri/tshirts/amiri-tshirt-001/front.webp';
+import Img_18_Hover from '@/images/products/amiri/tshirts/amiri-tshirt-001/back.webp';
+import Img_18_Gal_0 from '@/images/products/amiri/tshirts/amiri-tshirt-001/front.webp';
+import Img_18_Gal_1 from '@/images/products/amiri/tshirts/amiri-tshirt-001/back.webp';
+import Img_19_Main from '@/images/products/amiri/hoodies/amiri-hoodies-002/front.webp';
+import Img_19_Hover from '@/images/products/amiri/hoodies/amiri-hoodies-002/back.webp';
+import Img_19_Gal_0 from '@/images/products/amiri/hoodies/amiri-hoodies-002/front.webp';
+import Img_19_Gal_1 from '@/images/products/amiri/hoodies/amiri-hoodies-002/back.webp';
 import Img_20_Main from '@/images/products/arcteryx/hats/arcteryx-hat-001/front.webp';
 import Img_20_Hover from '@/images/products/arcteryx/hats/arcteryx-hat-001/front.webp';
 import Img_20_Gal_0 from '@/images/products/arcteryx/hats/arcteryx-hat-001/front.webp';
@@ -754,7 +754,7 @@ export interface Product {
 
 export const products: Product[] = [
     {
-        id: "amiparis-hoodie-001",
+        id: "amiparis-hoodies-amiparis-hoodie-001",
         title: "Ami Paris amiparis-hoodie-001",
         price: 250,
         image: Img_0_Main,
@@ -767,7 +767,7 @@ export const products: Product[] = [
         tags: ["Ami Paris", "Hoodies"]
     },
     {
-        id: "amiparis-iphone_case-001",
+        id: "amiparis-iphone-case-amiparis-iphonecase-001",
         title: "Ami Paris amiparis-iphone_case-001",
         price: 250,
         image: Img_1_Main,
@@ -780,20 +780,20 @@ export const products: Product[] = [
         tags: ["Ami Paris", "iPhone Case"]
     },
     {
-        id: "amiparis-polo-001",
+        id: "amiparis-polos-amiparis-polo-001",
         title: "Ami Paris amiparis-polo-001",
         price: 250,
         image: Img_2_Main,
         hoverImage: Img_2_Hover,
         gallery: [Img_2_Gal_0],
-        category: "Polo",
+        category: "Polos",
         brand: "Ami Paris",
-        slug: "amiparis-polo-amiparis-polo-001",
+        slug: "amiparis-polos-amiparis-polo-001",
         gender: "unisex",
-        tags: ["Ami Paris", "Polo"]
+        tags: ["Ami Paris", "Polos"]
     },
     {
-        id: "amiparis-shorts-001",
+        id: "amiparis-shorts-amiparis-shorts-001",
         title: "Ami Paris amiparis-shorts-001",
         price: 250,
         image: Img_3_Main,
@@ -806,20 +806,20 @@ export const products: Product[] = [
         tags: ["Ami Paris", "Shorts"]
     },
     {
-        id: "amiparis-sweater-001",
+        id: "amiparis-sweaters-amiparis-sweater-001",
         title: "Ami Paris amiparis-sweater-001",
         price: 250,
         image: Img_4_Main,
         hoverImage: Img_4_Hover,
         gallery: [Img_4_Gal_0],
-        category: "Sweater",
+        category: "Sweaters",
         brand: "Ami Paris",
-        slug: "amiparis-sweater-amiparis-sweater-001",
+        slug: "amiparis-sweaters-amiparis-sweater-001",
         gender: "unisex",
-        tags: ["Ami Paris", "Sweater"]
+        tags: ["Ami Paris", "Sweaters"]
     },
     {
-        id: "amiparis-sweatshirt-001",
+        id: "amiparis-sweatshirts-amiparis-sweatshirt-001",
         title: "Ami Paris amiparis-sweatshirt-001",
         price: 250,
         image: Img_5_Main,
@@ -832,7 +832,7 @@ export const products: Product[] = [
         tags: ["Ami Paris", "Sweatshirts"]
     },
     {
-        id: "amiparis-tshirt-001",
+        id: "amiparis-t-shirts-amiparis-tshirt-001",
         title: "Ami Paris amiparis-tshirt-001",
         price: 250,
         image: Img_6_Main,
@@ -845,7 +845,7 @@ export const products: Product[] = [
         tags: ["Ami Paris", "T-Shirts"]
     },
     {
-        id: "amiparis-hoodie-001",
+        id: "amiparis-best-sellers-amiparis-hoodie-001",
         title: "Ami Paris amiparis-hoodie-001",
         price: 250,
         image: Img_7_Main,
@@ -858,7 +858,7 @@ export const products: Product[] = [
         tags: ["Ami Paris", "Best Sellers", "Best Sellers"]
     },
     {
-        id: "amiparis-hoodie-002",
+        id: "amiparis-hoodies-amiparis-hoodie-002",
         title: "Ami Paris amiparis-hoodie-002",
         price: 250,
         image: Img_8_Main,
@@ -871,7 +871,7 @@ export const products: Product[] = [
         tags: ["Ami Paris", "Hoodies"]
     },
     {
-        id: "amiparis-iphone_case-002",
+        id: "amiparis-iphone-case-amiparis-iphonecase-002",
         title: "Ami Paris amiparis-iphone_case-002",
         price: 250,
         image: Img_9_Main,
@@ -884,7 +884,7 @@ export const products: Product[] = [
         tags: ["Ami Paris", "iPhone Case"]
     },
     {
-        id: "amiri-hoodies-001",
+        id: "amiri-hoodies-amiri-hoodies-001",
         title: "Amiri amiri-hoodies-001",
         price: 250,
         image: Img_10_Main,
@@ -897,12 +897,25 @@ export const products: Product[] = [
         tags: ["Amiri", "Hoodies"]
     },
     {
-        id: "amiri-jeans-001",
-        title: "Amiri amiri-jeans-001",
+        id: "amiri-jackets-amiri-jackets-001",
+        title: "Amiri amiri-jackets-001",
         price: 250,
         image: Img_11_Main,
         hoverImage: Img_11_Hover,
         gallery: [Img_11_Gal_0, Img_11_Gal_1],
+        category: "Jackets",
+        brand: "Amiri",
+        slug: "amiri-jackets-amiri-jackets-001",
+        gender: "unisex",
+        tags: ["Amiri", "Jackets"]
+    },
+    {
+        id: "amiri-jeans-amiri-jeans-001",
+        title: "Amiri amiri-jeans-001",
+        price: 250,
+        image: Img_12_Main,
+        hoverImage: Img_12_Hover,
+        gallery: [Img_12_Gal_0, Img_12_Gal_1],
         category: "Jeans",
         brand: "Amiri",
         slug: "amiri-jeans-amiri-jeans-001",
@@ -910,38 +923,38 @@ export const products: Product[] = [
         tags: ["Amiri", "Jeans"]
     },
     {
-        id: "amiri-polo-001",
+        id: "amiri-polos-amiri-polo-001",
         title: "Amiri amiri-polo-001",
-        price: 250,
-        image: Img_12_Main,
-        hoverImage: Img_12_Hover,
-        gallery: [Img_12_Gal_0, Img_12_Gal_1],
-        category: "Polo",
-        brand: "Amiri",
-        slug: "amiri-polo-amiri-polo-001",
-        gender: "unisex",
-        tags: ["Amiri", "Polo"]
-    },
-    {
-        id: "amiri-sets-001",
-        title: "Amiri amiri-sets-001",
         price: 250,
         image: Img_13_Main,
         hoverImage: Img_13_Hover,
         gallery: [Img_13_Gal_0, Img_13_Gal_1],
-        category: "Sets",
+        category: "Polos",
         brand: "Amiri",
-        slug: "amiri-sets-amiri-sets-001",
+        slug: "amiri-polos-amiri-polo-001",
         gender: "unisex",
-        tags: ["Amiri", "Sets"]
+        tags: ["Amiri", "Polos"]
     },
     {
-        id: "amiri-shirts-001",
-        title: "Amiri amiri-shirts-001",
+        id: "amiri-sets-amiri-sets-001",
+        title: "Amiri amiri-sets-001",
         price: 250,
         image: Img_14_Main,
         hoverImage: Img_14_Hover,
         gallery: [Img_14_Gal_0, Img_14_Gal_1],
+        category: "Sets",
+        brand: "Amiri",
+        slug: "amiri-sets-amiri-sets-001",
+        gender: "unisex",
+        tags: ["Amiri", "Sets", "Best Sellers"]
+    },
+    {
+        id: "amiri-shirts-amiri-shirts-001",
+        title: "Amiri amiri-shirts-001",
+        price: 250,
+        image: Img_15_Main,
+        hoverImage: Img_15_Hover,
+        gallery: [Img_15_Gal_0, Img_15_Gal_1],
         category: "Shirts",
         brand: "Amiri",
         slug: "amiri-shirts-amiri-shirts-001",
@@ -949,12 +962,12 @@ export const products: Product[] = [
         tags: ["Amiri", "Shirts"]
     },
     {
-        id: "amiri-shoes-001",
+        id: "amiri-shoes-amiri-shoes-001",
         title: "Amiri amiri-shoes-001",
         price: 250,
-        image: Img_15_Main,
-        hoverImage: Img_15_Hover,
-        gallery: [Img_15_Gal_0, Img_15_Gal_1, Img_15_Gal_2, Img_15_Gal_3],
+        image: Img_16_Main,
+        hoverImage: Img_16_Hover,
+        gallery: [Img_16_Gal_0, Img_16_Gal_1, Img_16_Gal_2, Img_16_Gal_3],
         category: "Shoes",
         brand: "Amiri",
         slug: "amiri-shoes-amiri-shoes-001",
@@ -962,12 +975,12 @@ export const products: Product[] = [
         tags: ["Amiri", "Shoes"]
     },
     {
-        id: "amiri-shorts-001",
+        id: "amiri-shorts-amiri-shorts-001",
         title: "Amiri amiri-shorts-001",
         price: 250,
-        image: Img_16_Main,
-        hoverImage: Img_16_Hover,
-        gallery: [Img_16_Gal_0, Img_16_Gal_1],
+        image: Img_17_Main,
+        hoverImage: Img_17_Hover,
+        gallery: [Img_17_Gal_0, Img_17_Gal_1],
         category: "Shorts",
         brand: "Amiri",
         slug: "amiri-shorts-amiri-shorts-001",
@@ -975,12 +988,12 @@ export const products: Product[] = [
         tags: ["Amiri", "Shorts"]
     },
     {
-        id: "amiri-tshirt-001",
+        id: "amiri-t-shirts-amiri-tshirt-001",
         title: "Amiri amiri-tshirt-001",
         price: 250,
-        image: Img_17_Main,
-        hoverImage: Img_17_Hover,
-        gallery: [Img_17_Gal_0, Img_17_Gal_1],
+        image: Img_18_Main,
+        hoverImage: Img_18_Hover,
+        gallery: [Img_18_Gal_0, Img_18_Gal_1],
         category: "T-Shirts",
         brand: "Amiri",
         slug: "amiri-t-shirts-amiri-tshirt-001",
@@ -988,12 +1001,12 @@ export const products: Product[] = [
         tags: ["Amiri", "T-Shirts"]
     },
     {
-        id: "amiri-hoodies-002",
+        id: "amiri-hoodies-amiri-hoodies-002",
         title: "Amiri amiri-hoodies-002",
         price: 250,
-        image: Img_18_Main,
-        hoverImage: Img_18_Hover,
-        gallery: [Img_18_Gal_0, Img_18_Gal_1],
+        image: Img_19_Main,
+        hoverImage: Img_19_Hover,
+        gallery: [Img_19_Gal_0, Img_19_Gal_1],
         category: "Hoodies",
         brand: "Amiri",
         slug: "amiri-hoodies-amiri-hoodies-002",
@@ -1001,20 +1014,7 @@ export const products: Product[] = [
         tags: ["Amiri", "Hoodies"]
     },
     {
-        id: "amiri-jeans-002",
-        title: "Amiri amiri-jeans-002",
-        price: 250,
-        image: Img_19_Main,
-        hoverImage: Img_19_Hover,
-        gallery: [Img_19_Gal_0, Img_19_Gal_1],
-        category: "Jeans",
-        brand: "Amiri",
-        slug: "amiri-jeans-amiri-jeans-002",
-        gender: "unisex",
-        tags: ["Amiri", "Jeans"]
-    },
-    {
-        id: "arcteryx-hat-001",
+        id: "arcteryx-hats-arcteryx-hat-001",
         title: "Arc'teryx arcteryx-hat-001",
         price: 250,
         image: Img_20_Main,
@@ -1027,7 +1027,7 @@ export const products: Product[] = [
         tags: ["Arc'teryx", "Hats"]
     },
     {
-        id: "arcteryx-shoes-001",
+        id: "arcteryx-shoes-arcteryx-shoes-001",
         title: "Arc'teryx arcteryx-shoes-001",
         price: 250,
         image: Img_21_Main,
@@ -1040,7 +1040,7 @@ export const products: Product[] = [
         tags: ["Arc'teryx", "Shoes"]
     },
     {
-        id: "arcteryx-tshirt-001",
+        id: "arcteryx-t-shirts-arcteryx-tshirt-001",
         title: "Arc'teryx arcteryx-tshirt-001",
         price: 250,
         image: Img_22_Main,
@@ -1053,7 +1053,7 @@ export const products: Product[] = [
         tags: ["Arc'teryx", "T-Shirts"]
     },
     {
-        id: "arcteryx-hat-002",
+        id: "arcteryx-hats-arcteryx-hat-002",
         title: "Arc'teryx arcteryx-hat-002",
         price: 250,
         image: Img_23_Main,
@@ -1066,7 +1066,7 @@ export const products: Product[] = [
         tags: ["Arc'teryx", "Hats"]
     },
     {
-        id: "arcteryx-tshirt-002",
+        id: "arcteryx-t-shirts-arcteryx-tshirt-002",
         title: "Arc'teryx arcteryx-tshirt-002",
         price: 250,
         image: Img_24_Main,
@@ -1079,7 +1079,7 @@ export const products: Product[] = [
         tags: ["Arc'teryx", "T-Shirts"]
     },
     {
-        id: "arcteryx-hat-003",
+        id: "arcteryx-hats-arcteryx-hat-003",
         title: "Arc'teryx arcteryx-hat-003",
         price: 250,
         image: Img_25_Main,
@@ -1092,7 +1092,7 @@ export const products: Product[] = [
         tags: ["Arc'teryx", "Hats"]
     },
     {
-        id: "arcteryx-tshirt-003",
+        id: "arcteryx-t-shirts-arcteryx-tshirt-003",
         title: "Arc'teryx arcteryx-tshirt-003",
         price: 250,
         image: Img_26_Main,
@@ -1105,7 +1105,7 @@ export const products: Product[] = [
         tags: ["Arc'teryx", "T-Shirts"]
     },
     {
-        id: "arcteryx-hat-004",
+        id: "arcteryx-hats-arcteryx-hat-004",
         title: "Arc'teryx arcteryx-hat-004",
         price: 250,
         image: Img_27_Main,
@@ -1118,7 +1118,7 @@ export const products: Product[] = [
         tags: ["Arc'teryx", "Hats"]
     },
     {
-        id: "arcteryx-tshirt-005",
+        id: "arcteryx-t-shirts-arcteryx-tshirt-005",
         title: "Arc'teryx arcteryx-tshirt-005",
         price: 250,
         image: Img_28_Main,
@@ -1131,7 +1131,7 @@ export const products: Product[] = [
         tags: ["Arc'teryx", "T-Shirts"]
     },
     {
-        id: "arcteryx-hat-005",
+        id: "arcteryx-hats-arcteryx-hat-005",
         title: "Arc'teryx arcteryx-hat-005",
         price: 250,
         image: Img_29_Main,
@@ -1141,10 +1141,10 @@ export const products: Product[] = [
         brand: "Arc'teryx",
         slug: "arcteryx-hats-arcteryx-hat-005",
         gender: "unisex",
-        tags: ["Arc'teryx", "Hats"]
+        tags: ["Arc'teryx", "Hats", "Best Sellers"]
     },
     {
-        id: "balenciaga-belt-001",
+        id: "balenciaga-belts-balenciaga-belt-001",
         title: "Balenciaga balenciaga-belt-001",
         price: 250,
         image: Img_30_Main,
@@ -1157,7 +1157,7 @@ export const products: Product[] = [
         tags: ["Balenciaga", "Belts"]
     },
     {
-        id: "balenciaga-hat-001",
+        id: "balenciaga-hats-balenciaga-hat-001",
         title: "Balenciaga balenciaga-hat-001",
         price: 250,
         image: Img_31_Main,
@@ -1170,7 +1170,7 @@ export const products: Product[] = [
         tags: ["Balenciaga", "Hats"]
     },
     {
-        id: "balenciaga-hoodies-001",
+        id: "balenciaga-hoodies-balenciaga-hoodies-001",
         title: "Balenciaga balenciaga-hoodies-001",
         price: 250,
         image: Img_32_Main,
@@ -1183,20 +1183,20 @@ export const products: Product[] = [
         tags: ["Balenciaga", "Hoodies"]
     },
     {
-        id: "balenciaga-jacket-001",
+        id: "balenciaga-jackets-balenciaga-jacket-001",
         title: "Balenciaga balenciaga-jacket-001",
         price: 250,
         image: Img_33_Main,
         hoverImage: Img_33_Hover,
         gallery: [Img_33_Gal_0, Img_33_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Balenciaga",
-        slug: "balenciaga-jacket-balenciaga-jacket-001",
+        slug: "balenciaga-jackets-balenciaga-jacket-001",
         gender: "unisex",
-        tags: ["Balenciaga", "Jacket"]
+        tags: ["Balenciaga", "Jackets"]
     },
     {
-        id: "balenciaga-shoes-001",
+        id: "balenciaga-shoes-balenciaga-shoes-001",
         title: "Balenciaga balenciaga-shoes-001",
         price: 250,
         image: Img_34_Main,
@@ -1209,7 +1209,7 @@ export const products: Product[] = [
         tags: ["Balenciaga", "Shoes"]
     },
     {
-        id: "balenciaga-shorts-001",
+        id: "balenciaga-shorts-balenciaga-shorts-001",
         title: "Balenciaga balenciaga-shorts-001",
         price: 250,
         image: Img_35_Main,
@@ -1222,20 +1222,20 @@ export const products: Product[] = [
         tags: ["Balenciaga", "Shorts"]
     },
     {
-        id: "balenciaga-sweater-001",
+        id: "balenciaga-sweaters-balenciaga-sweater-001",
         title: "Balenciaga balenciaga-sweater-001",
         price: 250,
         image: Img_36_Main,
         hoverImage: Img_36_Hover,
         gallery: [Img_36_Gal_0, Img_36_Gal_1],
-        category: "Sweater",
+        category: "Sweaters",
         brand: "Balenciaga",
-        slug: "balenciaga-sweater-balenciaga-sweater-001",
+        slug: "balenciaga-sweaters-balenciaga-sweater-001",
         gender: "unisex",
-        tags: ["Balenciaga", "Sweater"]
+        tags: ["Balenciaga", "Sweaters"]
     },
     {
-        id: "balenciaga-sweatshirt-001",
+        id: "balenciaga-sweatshirts-balenciaga-sweatshirt-001",
         title: "Balenciaga balenciaga-sweatshirt-001",
         price: 250,
         image: Img_37_Main,
@@ -1248,7 +1248,7 @@ export const products: Product[] = [
         tags: ["Balenciaga", "Sweatshirts"]
     },
     {
-        id: "balenciaga-tshirt-001",
+        id: "balenciaga-t-shirts-balenciaga-tshirt-001",
         title: "Balenciaga balenciaga-tshirt-001",
         price: 250,
         image: Img_38_Main,
@@ -1261,7 +1261,7 @@ export const products: Product[] = [
         tags: ["Balenciaga", "T-Shirts"]
     },
     {
-        id: "balenciaga-belt-002",
+        id: "balenciaga-belts-balenciaga-belt-002",
         title: "Balenciaga balenciaga-belt-002",
         price: 250,
         image: Img_39_Main,
@@ -1274,7 +1274,7 @@ export const products: Product[] = [
         tags: ["Balenciaga", "Belts"]
     },
     {
-        id: "bape-hoodies-001",
+        id: "bape-hoodies-bape-hoodies-001",
         title: "Bape bape-hoodies-001",
         price: 250,
         image: Img_40_Main,
@@ -1287,7 +1287,7 @@ export const products: Product[] = [
         tags: ["Bape", "Hoodies"]
     },
     {
-        id: "bape-hoodies-002",
+        id: "bape-hoodies-bape-hoodies-002",
         title: "Bape bape-hoodies-002",
         price: 250,
         image: Img_41_Main,
@@ -1300,7 +1300,7 @@ export const products: Product[] = [
         tags: ["Bape", "Hoodies"]
     },
     {
-        id: "bape-hoodies-003",
+        id: "bape-hoodies-bape-hoodies-003",
         title: "Bape bape-hoodies-003",
         price: 250,
         image: Img_42_Main,
@@ -1313,7 +1313,7 @@ export const products: Product[] = [
         tags: ["Bape", "Hoodies"]
     },
     {
-        id: "burberry-belt-001",
+        id: "burberry-belts-burberry-belt-001",
         title: "Burberry burberry-belt-001",
         price: 250,
         image: Img_43_Main,
@@ -1326,7 +1326,7 @@ export const products: Product[] = [
         tags: ["Burberry", "Belts"]
     },
     {
-        id: "burberry-boxer-001",
+        id: "burberry-boxers-burberry-boxer-001",
         title: "Burberry burberry-boxer-001",
         price: 250,
         image: Img_44_Main,
@@ -1336,10 +1336,10 @@ export const products: Product[] = [
         brand: "Burberry",
         slug: "burberry-boxers-burberry-boxer-001",
         gender: "unisex",
-        tags: ["Burberry", "Boxers"]
+        tags: ["Burberry", "Boxers", "Best Sellers"]
     },
     {
-        id: "burberry-caps-001",
+        id: "burberry-caps-burberry-caps-001",
         title: "Burberry burberry-caps-001",
         price: 250,
         image: Img_45_Main,
@@ -1352,7 +1352,7 @@ export const products: Product[] = [
         tags: ["Burberry", "Caps"]
     },
     {
-        id: "burberry-hats-001",
+        id: "burberry-hats-burberry-hats-001",
         title: "Burberry burberry-hats-001",
         price: 250,
         image: Img_46_Main,
@@ -1365,7 +1365,7 @@ export const products: Product[] = [
         tags: ["Burberry", "Hats"]
     },
     {
-        id: "burberry-hoodies-001",
+        id: "burberry-hoodies-burberry-hoodies-001",
         title: "Burberry burberry-hoodies-001",
         price: 250,
         image: Img_47_Main,
@@ -1378,20 +1378,20 @@ export const products: Product[] = [
         tags: ["Burberry", "Hoodies"]
     },
     {
-        id: "burberry-jacket-001",
+        id: "burberry-jackets-burberry-jacket-001",
         title: "Burberry burberry-jacket-001",
         price: 250,
         image: Img_48_Main,
         hoverImage: Img_48_Hover,
         gallery: [Img_48_Gal_0, Img_48_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Burberry",
-        slug: "burberry-jacket-burberry-jacket-001",
+        slug: "burberry-jackets-burberry-jacket-001",
         gender: "unisex",
-        tags: ["Burberry", "Jacket"]
+        tags: ["Burberry", "Jackets"]
     },
     {
-        id: "burberry-jeans-001",
+        id: "burberry-jeanss-burberry-jeans-001",
         title: "Burberry burberry-jeans-001",
         price: 250,
         image: Img_49_Main,
@@ -1404,7 +1404,7 @@ export const products: Product[] = [
         tags: ["Burberry", "Jeanss"]
     },
     {
-        id: "burberry-pants-001",
+        id: "burberry-pants-burberry-pants-001",
         title: "Burberry burberry-pants-001",
         price: 250,
         image: Img_50_Main,
@@ -1417,20 +1417,20 @@ export const products: Product[] = [
         tags: ["Burberry", "Pants"]
     },
     {
-        id: "burberry-polo-001",
+        id: "burberry-polos-burberry-polo-001",
         title: "Burberry burberry-polo-001",
         price: 250,
         image: Img_51_Main,
         hoverImage: Img_51_Hover,
         gallery: [Img_51_Gal_0, Img_51_Gal_1],
-        category: "Polo",
+        category: "Polos",
         brand: "Burberry",
-        slug: "burberry-polo-burberry-polo-001",
+        slug: "burberry-polos-burberry-polo-001",
         gender: "unisex",
-        tags: ["Burberry", "Polo"]
+        tags: ["Burberry", "Polos"]
     },
     {
-        id: "burberry-shirts-001",
+        id: "burberry-shirts-burberry-shirts-001",
         title: "Burberry burberry-shirts-001",
         price: 250,
         image: Img_52_Main,
@@ -1443,7 +1443,7 @@ export const products: Product[] = [
         tags: ["Burberry", "Shirts"]
     },
     {
-        id: "ck-suit-001",
+        id: "calvinklein-suits-ck-suit-001",
         title: "Calvin Klein ck-suit-001",
         price: 250,
         image: Img_53_Main,
@@ -1456,7 +1456,7 @@ export const products: Product[] = [
         tags: ["Calvin Klein", "Suits"]
     },
     {
-        id: "burberry-tshirt-001",
+        id: "calvinklein-t-shirts-burberry-tshirt-001",
         title: "Calvin Klein burberry-tshirt-001",
         price: 250,
         image: Img_54_Main,
@@ -1469,7 +1469,7 @@ export const products: Product[] = [
         tags: ["Calvin Klein", "T-Shirts"]
     },
     {
-        id: "ck-suit-002",
+        id: "calvinklein-suits-ck-suit-002",
         title: "Calvin Klein ck-suit-002",
         price: 250,
         image: Img_55_Main,
@@ -1482,7 +1482,7 @@ export const products: Product[] = [
         tags: ["Calvin Klein", "Suits"]
     },
     {
-        id: "burberry-tshirt-002",
+        id: "calvinklein-t-shirts-burberry-tshirt-002",
         title: "Calvin Klein burberry-tshirt-002",
         price: 250,
         image: Img_56_Main,
@@ -1495,7 +1495,7 @@ export const products: Product[] = [
         tags: ["Calvin Klein", "T-Shirts"]
     },
     {
-        id: "burberry-tshirt-003",
+        id: "calvinklein-t-shirts-burberry-tshirt-003",
         title: "Calvin Klein burberry-tshirt-003",
         price: 250,
         image: Img_57_Main,
@@ -1508,7 +1508,7 @@ export const products: Product[] = [
         tags: ["Calvin Klein", "T-Shirts"]
     },
     {
-        id: "casab-hoodies-001",
+        id: "casablanca-hoodies-casab-hoodies-001",
         title: "Casablanca casab-hoodies-001",
         price: 250,
         image: Img_58_Main,
@@ -1521,7 +1521,7 @@ export const products: Product[] = [
         tags: ["Casablanca", "Hoodies"]
     },
     {
-        id: "casab-pants-001",
+        id: "casablanca-pants-casab-pants-001",
         title: "Casablanca casab-pants-001",
         price: 250,
         image: Img_59_Main,
@@ -1531,10 +1531,10 @@ export const products: Product[] = [
         brand: "Casablanca",
         slug: "casablanca-pants-casab-pants-001",
         gender: "unisex",
-        tags: ["Casablanca", "Pants"]
+        tags: ["Casablanca", "Pants", "Best Sellers"]
     },
     {
-        id: "casab-sweatshirt-001",
+        id: "casablanca-sweatshirts-casab-sweatshirt-001",
         title: "Casablanca casab-sweatshirt-001",
         price: 250,
         image: Img_60_Main,
@@ -1547,7 +1547,7 @@ export const products: Product[] = [
         tags: ["Casablanca", "Sweatshirts"]
     },
     {
-        id: "casab-tshirt-001",
+        id: "casablanca-t-shirts-casab-tshirt-001",
         title: "Casablanca casab-tshirt-001",
         price: 250,
         image: Img_61_Main,
@@ -1560,7 +1560,7 @@ export const products: Product[] = [
         tags: ["Casablanca", "T-Shirts"]
     },
     {
-        id: "casab-hoodies-002",
+        id: "casablanca-hoodies-casab-hoodies-002",
         title: "Casablanca casab-hoodies-002",
         price: 250,
         image: Img_62_Main,
@@ -1573,7 +1573,7 @@ export const products: Product[] = [
         tags: ["Casablanca", "Hoodies"]
     },
     {
-        id: "casab-pants-002",
+        id: "casablanca-pants-casab-pants-002",
         title: "Casablanca casab-pants-002",
         price: 250,
         image: Img_63_Main,
@@ -1586,7 +1586,7 @@ export const products: Product[] = [
         tags: ["Casablanca", "Pants"]
     },
     {
-        id: "casab-sweatshirt-002",
+        id: "casablanca-sweatshirts-casab-sweatshirt-002",
         title: "Casablanca casab-sweatshirt-002",
         price: 250,
         image: Img_64_Main,
@@ -1599,7 +1599,7 @@ export const products: Product[] = [
         tags: ["Casablanca", "Sweatshirts"]
     },
     {
-        id: "casab-tshirt-002",
+        id: "casablanca-t-shirts-casab-tshirt-002",
         title: "Casablanca casab-tshirt-002",
         price: 250,
         image: Img_65_Main,
@@ -1612,7 +1612,7 @@ export const products: Product[] = [
         tags: ["Casablanca", "T-Shirts"]
     },
     {
-        id: "casab-hoodies-003",
+        id: "casablanca-hoodies-casab-hoodies-003",
         title: "Casablanca casab-hoodies-003",
         price: 250,
         image: Img_66_Main,
@@ -1625,7 +1625,7 @@ export const products: Product[] = [
         tags: ["Casablanca", "Hoodies"]
     },
     {
-        id: "casab-pants-003",
+        id: "casablanca-pants-casab-pants-003",
         title: "Casablanca casab-pants-003",
         price: 250,
         image: Img_67_Main,
@@ -1638,7 +1638,7 @@ export const products: Product[] = [
         tags: ["Casablanca", "Pants"]
     },
     {
-        id: "cl-hat-001",
+        id: "celine-hats-cl-hat-001",
         title: "Celine cl-hat-001",
         price: 250,
         image: Img_68_Main,
@@ -1651,7 +1651,7 @@ export const products: Product[] = [
         tags: ["Celine", "Hats"]
     },
     {
-        id: "hoodies",
+        id: "celine-celine-hoodies",
         title: "Celine hoodies",
         price: 250,
         image: Img_69_Main,
@@ -1664,7 +1664,7 @@ export const products: Product[] = [
         tags: ["Celine", "Celine"]
     },
     {
-        id: "cl-hat-002",
+        id: "celine-hats-cl-hat-002",
         title: "Celine cl-hat-002",
         price: 250,
         image: Img_70_Main,
@@ -1677,7 +1677,7 @@ export const products: Product[] = [
         tags: ["Celine", "Hats"]
     },
     {
-        id: "cl-hat-003",
+        id: "celine-hats-cl-hat-003",
         title: "Celine cl-hat-003",
         price: 250,
         image: Img_71_Main,
@@ -1690,202 +1690,202 @@ export const products: Product[] = [
         tags: ["Celine", "Hats"]
     },
     {
-        id: "cgoose-jackets-001",
+        id: "canadagoose-jackets-cgoose-jackets-001",
         title: "Canada Goose cgoose-jackets-001",
         price: 250,
         image: Img_72_Main,
         hoverImage: Img_72_Hover,
         gallery: [Img_72_Gal_0, Img_72_Gal_1, Img_72_Gal_2, Img_72_Gal_3],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Canada Goose",
-        slug: "canadagoose-jacket-cgoose-jackets-001",
+        slug: "canadagoose-jackets-cgoose-jackets-001",
         gender: "unisex",
-        tags: ["Canada Goose", "Jacket"]
+        tags: ["Canada Goose", "Jackets"]
     },
     {
-        id: "cgoose-jackets-002",
+        id: "canadagoose-jackets-cgoose-jackets-002",
         title: "Canada Goose cgoose-jackets-002",
         price: 250,
         image: Img_73_Main,
         hoverImage: Img_73_Hover,
         gallery: [Img_73_Gal_0, Img_73_Gal_1, Img_73_Gal_2],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Canada Goose",
-        slug: "canadagoose-jacket-cgoose-jackets-002",
+        slug: "canadagoose-jackets-cgoose-jackets-002",
         gender: "unisex",
-        tags: ["Canada Goose", "Jacket"]
+        tags: ["Canada Goose", "Jackets"]
     },
     {
-        id: "cgoose-jackets-003",
+        id: "canadagoose-jackets-cgoose-jackets-003",
         title: "Canada Goose cgoose-jackets-003",
         price: 250,
         image: Img_74_Main,
         hoverImage: Img_74_Hover,
         gallery: [Img_74_Gal_0, Img_74_Gal_1, Img_74_Gal_2],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Canada Goose",
-        slug: "canadagoose-jacket-cgoose-jackets-003",
+        slug: "canadagoose-jackets-cgoose-jackets-003",
         gender: "unisex",
-        tags: ["Canada Goose", "Jacket"]
+        tags: ["Canada Goose", "Jackets", "Best Sellers"]
     },
     {
-        id: "cgoose-jackets-004",
+        id: "canadagoose-jackets-cgoose-jackets-004",
         title: "Canada Goose cgoose-jackets-004",
         price: 250,
         image: Img_75_Main,
         hoverImage: Img_75_Hover,
         gallery: [Img_75_Gal_0, Img_75_Gal_1, Img_75_Gal_2],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Canada Goose",
-        slug: "canadagoose-jacket-cgoose-jackets-004",
+        slug: "canadagoose-jackets-cgoose-jackets-004",
         gender: "unisex",
-        tags: ["Canada Goose", "Jacket"]
+        tags: ["Canada Goose", "Jackets"]
     },
     {
-        id: "cgoose-jackets-005",
+        id: "canadagoose-jackets-cgoose-jackets-005",
         title: "Canada Goose cgoose-jackets-005",
         price: 250,
         image: Img_76_Main,
         hoverImage: Img_76_Hover,
         gallery: [Img_76_Gal_0, Img_76_Gal_1, Img_76_Gal_2],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Canada Goose",
-        slug: "canadagoose-jacket-cgoose-jackets-005",
+        slug: "canadagoose-jackets-cgoose-jackets-005",
         gender: "unisex",
-        tags: ["Canada Goose", "Jacket"]
+        tags: ["Canada Goose", "Jackets"]
     },
     {
-        id: "cgoose-jackets-006",
+        id: "canadagoose-jackets-cgoose-jackets-006",
         title: "Canada Goose cgoose-jackets-006",
         price: 250,
         image: Img_77_Main,
         hoverImage: Img_77_Hover,
         gallery: [Img_77_Gal_0, Img_77_Gal_1, Img_77_Gal_2, Img_77_Gal_3],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Canada Goose",
-        slug: "canadagoose-jacket-cgoose-jackets-006",
+        slug: "canadagoose-jackets-cgoose-jackets-006",
         gender: "unisex",
-        tags: ["Canada Goose", "Jacket"]
+        tags: ["Canada Goose", "Jackets"]
     },
     {
-        id: "cgoose-jackets-007",
+        id: "canadagoose-jackets-cgoose-jackets-007",
         title: "Canada Goose cgoose-jackets-007",
         price: 250,
         image: Img_78_Main,
         hoverImage: Img_78_Hover,
         gallery: [Img_78_Gal_0, Img_78_Gal_1, Img_78_Gal_2],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Canada Goose",
-        slug: "canadagoose-jacket-cgoose-jackets-007",
+        slug: "canadagoose-jackets-cgoose-jackets-007",
         gender: "unisex",
-        tags: ["Canada Goose", "Jacket"]
+        tags: ["Canada Goose", "Jackets"]
     },
     {
-        id: "cgoose-jackets-008",
+        id: "canadagoose-jackets-cgoose-jackets-008",
         title: "Canada Goose cgoose-jackets-008",
         price: 250,
         image: Img_79_Main,
         hoverImage: Img_79_Hover,
         gallery: [Img_79_Gal_0, Img_79_Gal_1, Img_79_Gal_2],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Canada Goose",
-        slug: "canadagoose-jacket-cgoose-jackets-008",
+        slug: "canadagoose-jackets-cgoose-jackets-008",
         gender: "unisex",
-        tags: ["Canada Goose", "Jacket"]
+        tags: ["Canada Goose", "Jackets"]
     },
     {
-        id: "cgoose-jackets-009",
+        id: "canadagoose-jackets-cgoose-jackets-009",
         title: "Canada Goose cgoose-jackets-009",
         price: 250,
         image: Img_80_Main,
         hoverImage: Img_80_Hover,
         gallery: [Img_80_Gal_0, Img_80_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Canada Goose",
-        slug: "canadagoose-jacket-cgoose-jackets-009",
+        slug: "canadagoose-jackets-cgoose-jackets-009",
         gender: "unisex",
-        tags: ["Canada Goose", "Jacket"]
+        tags: ["Canada Goose", "Jackets"]
     },
     {
-        id: "cgoose-jackets-010",
+        id: "canadagoose-jackets-cgoose-jackets-010",
         title: "Canada Goose cgoose-jackets-010",
         price: 250,
         image: Img_81_Main,
         hoverImage: Img_81_Hover,
         gallery: [Img_81_Gal_0, Img_81_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Canada Goose",
-        slug: "canadagoose-jacket-cgoose-jackets-010",
+        slug: "canadagoose-jackets-cgoose-jackets-010",
         gender: "unisex",
-        tags: ["Canada Goose", "Jacket"]
+        tags: ["Canada Goose", "Jackets"]
     },
     {
-        id: "di-jackets-001",
+        id: "dior-jackets-di-jackets-001",
         title: "Dior di-jackets-001",
         price: 250,
         image: Img_82_Main,
         hoverImage: Img_82_Hover,
         gallery: [Img_82_Gal_0, Img_82_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Dior",
-        slug: "dior-jacket-di-jackets-001",
+        slug: "dior-jackets-di-jackets-001",
         gender: "unisex",
-        tags: ["Dior", "Jacket"]
+        tags: ["Dior", "Jackets"]
     },
     {
-        id: "di-jackets-002",
+        id: "dior-jackets-di-jackets-002",
         title: "Dior di-jackets-002",
         price: 250,
         image: Img_83_Main,
         hoverImage: Img_83_Hover,
         gallery: [Img_83_Gal_0, Img_83_Gal_1, Img_83_Gal_2],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Dior",
-        slug: "dior-jacket-di-jackets-002",
+        slug: "dior-jackets-di-jackets-002",
         gender: "unisex",
-        tags: ["Dior", "Jacket"]
+        tags: ["Dior", "Jackets"]
     },
     {
-        id: "di-jackets-003",
+        id: "dior-jackets-di-jackets-003",
         title: "Dior di-jackets-003",
         price: 250,
         image: Img_84_Main,
         hoverImage: Img_84_Hover,
         gallery: [Img_84_Gal_0, Img_84_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Dior",
-        slug: "dior-jacket-di-jackets-003",
+        slug: "dior-jackets-di-jackets-003",
         gender: "unisex",
-        tags: ["Dior", "Jacket"]
+        tags: ["Dior", "Jackets"]
     },
     {
-        id: "di-jackets-004",
+        id: "dior-jackets-di-jackets-004",
         title: "Dior di-jackets-004",
         price: 250,
         image: Img_85_Main,
         hoverImage: Img_85_Hover,
         gallery: [Img_85_Gal_0, Img_85_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Dior",
-        slug: "dior-jacket-di-jackets-004",
+        slug: "dior-jackets-di-jackets-004",
         gender: "unisex",
-        tags: ["Dior", "Jacket"]
+        tags: ["Dior", "Jackets"]
     },
     {
-        id: "di-jackets-005",
+        id: "dior-jackets-di-jackets-005",
         title: "Dior di-jackets-005",
         price: 250,
         image: Img_86_Main,
         hoverImage: Img_86_Hover,
         gallery: [Img_86_Gal_0, Img_86_Gal_1, Img_86_Gal_2],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Dior",
-        slug: "dior-jacket-di-jackets-005",
+        slug: "dior-jackets-di-jackets-005",
         gender: "unisex",
-        tags: ["Dior", "Jacket"]
+        tags: ["Dior", "Jackets"]
     },
     {
-        id: "essentials-bags-001",
+        id: "essentials-bags-essentials-bags-001",
         title: "Essentials essentials-bags-001",
         price: 250,
         image: Img_87_Main,
@@ -1898,7 +1898,7 @@ export const products: Product[] = [
         tags: ["Essentials", "Bags"]
     },
     {
-        id: "essentials-hoodies-001",
+        id: "essentials-hoodies-essentials-hoodies-001",
         title: "Essentials essentials-hoodies-001",
         price: 250,
         image: Img_88_Main,
@@ -1911,7 +1911,7 @@ export const products: Product[] = [
         tags: ["Essentials", "Hoodies"]
     },
     {
-        id: "essentials-pants-001",
+        id: "essentials-pants-essentials-pants-001",
         title: "Essentials essentials-pants-001",
         price: 250,
         image: Img_89_Main,
@@ -1921,10 +1921,10 @@ export const products: Product[] = [
         brand: "Essentials",
         slug: "essentials-pants-essentials-pants-001",
         gender: "unisex",
-        tags: ["Essentials", "Pants"]
+        tags: ["Essentials", "Pants", "Best Sellers"]
     },
     {
-        id: "essentials-sets-001",
+        id: "essentials-sets-essentials-sets-001",
         title: "Essentials essentials-sets-001",
         price: 250,
         image: Img_90_Main,
@@ -1937,7 +1937,7 @@ export const products: Product[] = [
         tags: ["Essentials", "Sets"]
     },
     {
-        id: "essentials-shorts-001",
+        id: "essentials-shorts-essentials-shorts-001",
         title: "Essentials essentials-shorts-001",
         price: 250,
         image: Img_91_Main,
@@ -1950,7 +1950,7 @@ export const products: Product[] = [
         tags: ["Essentials", "Shorts"]
     },
     {
-        id: "essentials-sweatshirt-001",
+        id: "essentials-sweatshirts-essentials-sweatshirt-001",
         title: "Essentials essentials-sweatshirt-001",
         price: 250,
         image: Img_92_Main,
@@ -1963,7 +1963,7 @@ export const products: Product[] = [
         tags: ["Essentials", "Sweatshirts"]
     },
     {
-        id: "essentials-tshirt-001",
+        id: "essentials-t-shirts-essentials-tshirt-001",
         title: "Essentials essentials-tshirt-001",
         price: 250,
         image: Img_93_Main,
@@ -1976,7 +1976,7 @@ export const products: Product[] = [
         tags: ["Essentials", "T-Shirts"]
     },
     {
-        id: "essentials-bags-002",
+        id: "essentials-bags-essentials-bags-002",
         title: "Essentials essentials-bags-002",
         price: 250,
         image: Img_94_Main,
@@ -1989,7 +1989,7 @@ export const products: Product[] = [
         tags: ["Essentials", "Bags"]
     },
     {
-        id: "essentials-hoodies-002",
+        id: "essentials-hoodies-essentials-hoodies-002",
         title: "Essentials essentials-hoodies-002",
         price: 250,
         image: Img_95_Main,
@@ -2002,7 +2002,7 @@ export const products: Product[] = [
         tags: ["Essentials", "Hoodies"]
     },
     {
-        id: "essentials-pants-002",
+        id: "essentials-pants-essentials-pants-002",
         title: "Essentials essentials-pants-002",
         price: 250,
         image: Img_96_Main,
@@ -2015,7 +2015,7 @@ export const products: Product[] = [
         tags: ["Essentials", "Pants"]
     },
     {
-        id: "jacquemus-tshirts-001",
+        id: "jacquemus-t-shirts-jacquemus-tshirts-001",
         title: "Jacquemus jacquemus-tshirts-001",
         price: 250,
         image: Img_97_Main,
@@ -2028,7 +2028,7 @@ export const products: Product[] = [
         tags: ["Jacquemus", "T-Shirts"]
     },
     {
-        id: "jacquemus-tshirts-002",
+        id: "jacquemus-t-shirts-jacquemus-tshirts-002",
         title: "Jacquemus jacquemus-tshirts-002",
         price: 250,
         image: Img_98_Main,
@@ -2041,7 +2041,7 @@ export const products: Product[] = [
         tags: ["Jacquemus", "T-Shirts"]
     },
     {
-        id: "jacquemus-tshirts-003",
+        id: "jacquemus-t-shirts-jacquemus-tshirts-003",
         title: "Jacquemus jacquemus-tshirts-003",
         price: 250,
         image: Img_99_Main,
@@ -2054,7 +2054,7 @@ export const products: Product[] = [
         tags: ["Jacquemus", "T-Shirts"]
     },
     {
-        id: "jacquemus-tshirts-004",
+        id: "jacquemus-t-shirts-jacquemus-tshirts-004",
         title: "Jacquemus jacquemus-tshirts-004",
         price: 250,
         image: Img_100_Main,
@@ -2067,7 +2067,7 @@ export const products: Product[] = [
         tags: ["Jacquemus", "T-Shirts"]
     },
     {
-        id: "jacquemus-tshirts-005",
+        id: "jacquemus-t-shirts-jacquemus-tshirts-005",
         title: "Jacquemus jacquemus-tshirts-005",
         price: 250,
         image: Img_101_Main,
@@ -2080,7 +2080,7 @@ export const products: Product[] = [
         tags: ["Jacquemus", "T-Shirts"]
     },
     {
-        id: "jacquemus-tshirts-006",
+        id: "jacquemus-t-shirts-jacquemus-tshirts-006",
         title: "Jacquemus jacquemus-tshirts-006",
         price: 250,
         image: Img_102_Main,
@@ -2093,7 +2093,7 @@ export const products: Product[] = [
         tags: ["Jacquemus", "T-Shirts"]
     },
     {
-        id: "jacquemus-tshirts-007",
+        id: "jacquemus-t-shirts-jacquemus-tshirts-007",
         title: "Jacquemus jacquemus-tshirts-007",
         price: 250,
         image: Img_103_Main,
@@ -2106,7 +2106,7 @@ export const products: Product[] = [
         tags: ["Jacquemus", "T-Shirts"]
     },
     {
-        id: "jacquemus-tshirts-008",
+        id: "jacquemus-t-shirts-jacquemus-tshirts-008",
         title: "Jacquemus jacquemus-tshirts-008",
         price: 250,
         image: Img_104_Main,
@@ -2116,10 +2116,10 @@ export const products: Product[] = [
         brand: "Jacquemus",
         slug: "jacquemus-t-shirts-jacquemus-tshirts-008",
         gender: "unisex",
-        tags: ["Jacquemus", "T-Shirts"]
+        tags: ["Jacquemus", "T-Shirts", "Best Sellers"]
     },
     {
-        id: "jacquemus-tshirts-009",
+        id: "jacquemus-t-shirts-jacquemus-tshirts-009",
         title: "Jacquemus jacquemus-tshirts-009",
         price: 250,
         image: Img_105_Main,
@@ -2132,7 +2132,7 @@ export const products: Product[] = [
         tags: ["Jacquemus", "T-Shirts"]
     },
     {
-        id: "jacquemus-tshirts-010",
+        id: "jacquemus-t-shirts-jacquemus-tshirts-010",
         title: "Jacquemus jacquemus-tshirts-010",
         price: 250,
         image: Img_106_Main,
@@ -2145,7 +2145,7 @@ export const products: Product[] = [
         tags: ["Jacquemus", "T-Shirts"]
     },
     {
-        id: "jordan-hoodies-001",
+        id: "jordan-hoodies-jordan-hoodies-001",
         title: "Jordan jordan-hoodies-001",
         price: 250,
         image: Img_107_Main,
@@ -2158,7 +2158,7 @@ export const products: Product[] = [
         tags: ["Jordan", "Hoodies"]
     },
     {
-        id: "jordan-shorts-001",
+        id: "jordan-shorts-jordan-shorts-001",
         title: "Jordan jordan-shorts-001",
         price: 250,
         image: Img_108_Main,
@@ -2171,7 +2171,7 @@ export const products: Product[] = [
         tags: ["Jordan", "Shorts"]
     },
     {
-        id: "jordan-hoodies-002",
+        id: "jordan-hoodies-jordan-hoodies-002",
         title: "Jordan jordan-hoodies-002",
         price: 250,
         image: Img_109_Main,
@@ -2184,7 +2184,7 @@ export const products: Product[] = [
         tags: ["Jordan", "Hoodies"]
     },
     {
-        id: "jordan-shorts-002",
+        id: "jordan-shorts-jordan-shorts-002",
         title: "Jordan jordan-shorts-002",
         price: 250,
         image: Img_110_Main,
@@ -2197,7 +2197,7 @@ export const products: Product[] = [
         tags: ["Jordan", "Shorts"]
     },
     {
-        id: "jordan-hoodies-003",
+        id: "jordan-hoodies-jordan-hoodies-003",
         title: "Jordan jordan-hoodies-003",
         price: 250,
         image: Img_111_Main,
@@ -2210,7 +2210,7 @@ export const products: Product[] = [
         tags: ["Jordan", "Hoodies"]
     },
     {
-        id: "jordan-shorts-003",
+        id: "jordan-shorts-jordan-shorts-003",
         title: "Jordan jordan-shorts-003",
         price: 250,
         image: Img_112_Main,
@@ -2223,7 +2223,7 @@ export const products: Product[] = [
         tags: ["Jordan", "Shorts"]
     },
     {
-        id: "jordan-shorts-004",
+        id: "jordan-shorts-jordan-shorts-004",
         title: "Jordan jordan-shorts-004",
         price: 250,
         image: Img_113_Main,
@@ -2236,7 +2236,7 @@ export const products: Product[] = [
         tags: ["Jordan", "Shorts"]
     },
     {
-        id: "jordan-shorts-005",
+        id: "jordan-shorts-jordan-shorts-005",
         title: "Jordan jordan-shorts-005",
         price: 250,
         image: Img_114_Main,
@@ -2249,7 +2249,7 @@ export const products: Product[] = [
         tags: ["Jordan", "Shorts"]
     },
     {
-        id: "jordan-shorts-006",
+        id: "jordan-shorts-jordan-shorts-006",
         title: "Jordan jordan-shorts-006",
         price: 250,
         image: Img_115_Main,
@@ -2262,7 +2262,7 @@ export const products: Product[] = [
         tags: ["Jordan", "Shorts"]
     },
     {
-        id: "jordan-shorts-007",
+        id: "jordan-shorts-jordan-shorts-007",
         title: "Jordan jordan-shorts-007",
         price: 250,
         image: Img_116_Main,
@@ -2275,7 +2275,7 @@ export const products: Product[] = [
         tags: ["Jordan", "Shorts"]
     },
     {
-        id: "lacoste-hoodies-001",
+        id: "lacoste-hoodies-lacoste-hoodies-001",
         title: "Lacoste lacoste-hoodies-001",
         price: 250,
         image: Img_117_Main,
@@ -2288,20 +2288,20 @@ export const products: Product[] = [
         tags: ["Lacoste", "Hoodies"]
     },
     {
-        id: "lacoste-polos-001",
+        id: "lacoste-polos-lacoste-polos-001",
         title: "Lacoste lacoste-polos-001",
         price: 250,
         image: Img_118_Main,
         hoverImage: Img_118_Hover,
         gallery: [Img_118_Gal_0, Img_118_Gal_1],
-        category: "Polo",
+        category: "Polos",
         brand: "Lacoste",
-        slug: "lacoste-polo-lacoste-polos-001",
+        slug: "lacoste-polos-lacoste-polos-001",
         gender: "unisex",
-        tags: ["Lacoste", "Polo"]
+        tags: ["Lacoste", "Polos"]
     },
     {
-        id: "lacoste-shorts-001",
+        id: "lacoste-shorts-lacoste-shorts-001",
         title: "Lacoste lacoste-shorts-001",
         price: 250,
         image: Img_119_Main,
@@ -2311,10 +2311,10 @@ export const products: Product[] = [
         brand: "Lacoste",
         slug: "lacoste-shorts-lacoste-shorts-001",
         gender: "unisex",
-        tags: ["Lacoste", "Shorts"]
+        tags: ["Lacoste", "Shorts", "Best Sellers"]
     },
     {
-        id: "lacoste-sweatshirt-001",
+        id: "lacoste-sweatshirts-lacoste-sweatshirt-001",
         title: "Lacoste lacoste-sweatshirt-001",
         price: 250,
         image: Img_120_Main,
@@ -2327,7 +2327,7 @@ export const products: Product[] = [
         tags: ["Lacoste", "Sweatshirts"]
     },
     {
-        id: "lacoste-tshirts-001",
+        id: "lacoste-t-shirts-lacoste-tshirts-001",
         title: "Lacoste lacoste-tshirts-001",
         price: 250,
         image: Img_121_Main,
@@ -2340,7 +2340,7 @@ export const products: Product[] = [
         tags: ["Lacoste", "T-Shirts"]
     },
     {
-        id: "lacoste-hoodies-002",
+        id: "lacoste-hoodies-lacoste-hoodies-002",
         title: "Lacoste lacoste-hoodies-002",
         price: 250,
         image: Img_122_Main,
@@ -2353,20 +2353,20 @@ export const products: Product[] = [
         tags: ["Lacoste", "Hoodies"]
     },
     {
-        id: "lacoste-polos-002",
+        id: "lacoste-polos-lacoste-polos-002",
         title: "Lacoste lacoste-polos-002",
         price: 250,
         image: Img_123_Main,
         hoverImage: Img_123_Hover,
         gallery: [Img_123_Gal_0, Img_123_Gal_1],
-        category: "Polo",
+        category: "Polos",
         brand: "Lacoste",
-        slug: "lacoste-polo-lacoste-polos-002",
+        slug: "lacoste-polos-lacoste-polos-002",
         gender: "unisex",
-        tags: ["Lacoste", "Polo"]
+        tags: ["Lacoste", "Polos"]
     },
     {
-        id: "lacoste-shorts-002",
+        id: "lacoste-shorts-lacoste-shorts-002",
         title: "Lacoste lacoste-shorts-002",
         price: 250,
         image: Img_124_Main,
@@ -2379,7 +2379,7 @@ export const products: Product[] = [
         tags: ["Lacoste", "Shorts"]
     },
     {
-        id: "lacoste-sweatshirt-002",
+        id: "lacoste-sweatshirts-lacoste-sweatshirt-002",
         title: "Lacoste lacoste-sweatshirt-002",
         price: 250,
         image: Img_125_Main,
@@ -2392,7 +2392,7 @@ export const products: Product[] = [
         tags: ["Lacoste", "Sweatshirts"]
     },
     {
-        id: "lacoste-tshirts-002",
+        id: "lacoste-t-shirts-lacoste-tshirts-002",
         title: "Lacoste lacoste-tshirts-002",
         price: 250,
         image: Img_126_Main,
@@ -2405,7 +2405,7 @@ export const products: Product[] = [
         tags: ["Lacoste", "T-Shirts"]
     },
     {
-        id: "loewe-hoodies-001",
+        id: "loewe-hoodies-loewe-hoodies-001",
         title: "Loewe loewe-hoodies-001",
         price: 250,
         image: Img_127_Main,
@@ -2418,7 +2418,7 @@ export const products: Product[] = [
         tags: ["Loewe", "Hoodies"]
     },
     {
-        id: "loewe-pants-001",
+        id: "loewe-pants-loewe-pants-001",
         title: "Loewe loewe-pants-001",
         price: 250,
         image: Img_128_Main,
@@ -2431,7 +2431,7 @@ export const products: Product[] = [
         tags: ["Loewe", "Pants"]
     },
     {
-        id: "loewe-sets-001",
+        id: "loewe-sets-loewe-sets-001",
         title: "Loewe loewe-sets-001",
         price: 250,
         image: Img_129_Main,
@@ -2444,7 +2444,7 @@ export const products: Product[] = [
         tags: ["Loewe", "Sets"]
     },
     {
-        id: "loewe-sweatshirt-001",
+        id: "loewe-sweatshirts-loewe-sweatshirt-001",
         title: "Loewe loewe-sweatshirt-001",
         price: 250,
         image: Img_130_Main,
@@ -2457,7 +2457,7 @@ export const products: Product[] = [
         tags: ["Loewe", "Sweatshirts"]
     },
     {
-        id: "loewe-tshirts-001",
+        id: "loewe-t-shirts-loewe-tshirts-001",
         title: "Loewe loewe-tshirts-001",
         price: 250,
         image: Img_131_Main,
@@ -2470,7 +2470,7 @@ export const products: Product[] = [
         tags: ["Loewe", "T-Shirts"]
     },
     {
-        id: "loewe-hoodies-002",
+        id: "loewe-hoodies-loewe-hoodies-002",
         title: "Loewe loewe-hoodies-002",
         price: 250,
         image: Img_132_Main,
@@ -2483,7 +2483,7 @@ export const products: Product[] = [
         tags: ["Loewe", "Hoodies"]
     },
     {
-        id: "loewe-sets-002",
+        id: "loewe-sets-loewe-sets-002",
         title: "Loewe loewe-sets-002",
         price: 250,
         image: Img_133_Main,
@@ -2496,7 +2496,7 @@ export const products: Product[] = [
         tags: ["Loewe", "Sets"]
     },
     {
-        id: "loewe-sweatshirt-002",
+        id: "loewe-sweatshirts-loewe-sweatshirt-002",
         title: "Loewe loewe-sweatshirt-002",
         price: 250,
         image: Img_134_Main,
@@ -2506,10 +2506,10 @@ export const products: Product[] = [
         brand: "Loewe",
         slug: "loewe-sweatshirts-loewe-sweatshirt-002",
         gender: "unisex",
-        tags: ["Loewe", "Sweatshirts"]
+        tags: ["Loewe", "Sweatshirts", "Best Sellers"]
     },
     {
-        id: "loewe-tshirts-002",
+        id: "loewe-t-shirts-loewe-tshirts-002",
         title: "Loewe loewe-tshirts-002",
         price: 250,
         image: Img_135_Main,
@@ -2522,7 +2522,7 @@ export const products: Product[] = [
         tags: ["Loewe", "T-Shirts"]
     },
     {
-        id: "loewe-sweatshirt-003",
+        id: "loewe-sweatshirts-loewe-sweatshirt-003",
         title: "Loewe loewe-sweatshirt-003",
         price: 250,
         image: Img_136_Main,
@@ -2535,7 +2535,7 @@ export const products: Product[] = [
         tags: ["Loewe", "Sweatshirts"]
     },
     {
-        id: "lv-hats-001",
+        id: "louisvuitton-hats-lv-hats-001",
         title: "Louis Vuitton lv-hats-001",
         price: 250,
         image: Img_137_Main,
@@ -2548,7 +2548,7 @@ export const products: Product[] = [
         tags: ["Louis Vuitton", "Hats"]
     },
     {
-        id: "lv-hoodies-001",
+        id: "louisvuitton-hoodies-lv-hoodies-001",
         title: "Louis Vuitton lv-hoodies-001",
         price: 250,
         image: Img_138_Main,
@@ -2561,20 +2561,20 @@ export const products: Product[] = [
         tags: ["Louis Vuitton", "Hoodies"]
     },
     {
-        id: "lv-jackets-001",
+        id: "louisvuitton-jackets-lv-jackets-001",
         title: "Louis Vuitton lv-jackets-001",
         price: 250,
         image: Img_139_Main,
         hoverImage: Img_139_Hover,
         gallery: [Img_139_Gal_0, Img_139_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Louis Vuitton",
-        slug: "louisvuitton-jacket-lv-jackets-001",
+        slug: "louisvuitton-jackets-lv-jackets-001",
         gender: "unisex",
-        tags: ["Louis Vuitton", "Jacket"]
+        tags: ["Louis Vuitton", "Jackets"]
     },
     {
-        id: "lv-jeans-001",
+        id: "louisvuitton-jeans-lv-jeans-001",
         title: "Louis Vuitton lv-jeans-001",
         price: 250,
         image: Img_140_Main,
@@ -2587,7 +2587,7 @@ export const products: Product[] = [
         tags: ["Louis Vuitton", "Jeans"]
     },
     {
-        id: "lv-shirts-001",
+        id: "louisvuitton-shirts-lv-shirts-001",
         title: "Louis Vuitton lv-shirts-001",
         price: 250,
         image: Img_141_Main,
@@ -2600,7 +2600,7 @@ export const products: Product[] = [
         tags: ["Louis Vuitton", "Shirts"]
     },
     {
-        id: "lv-shorts-001",
+        id: "louisvuitton-shorts-lv-shorts-001",
         title: "Louis Vuitton lv-shorts-001",
         price: 250,
         image: Img_142_Main,
@@ -2613,20 +2613,20 @@ export const products: Product[] = [
         tags: ["Louis Vuitton", "Shorts"]
     },
     {
-        id: "lv-sweaters-001",
+        id: "louisvuitton-sweaters-lv-sweaters-001",
         title: "Louis Vuitton lv-sweaters-001",
         price: 250,
         image: Img_143_Main,
         hoverImage: Img_143_Hover,
         gallery: [Img_143_Gal_0, Img_143_Gal_1],
-        category: "Sweater",
+        category: "Sweaters",
         brand: "Louis Vuitton",
-        slug: "louisvuitton-sweater-lv-sweaters-001",
+        slug: "louisvuitton-sweaters-lv-sweaters-001",
         gender: "unisex",
-        tags: ["Louis Vuitton", "Sweater"]
+        tags: ["Louis Vuitton", "Sweaters"]
     },
     {
-        id: "lv-sweatshirt-001",
+        id: "louisvuitton-sweatshirts-lv-sweatshirt-001",
         title: "Louis Vuitton lv-sweatshirt-001",
         price: 250,
         image: Img_144_Main,
@@ -2639,7 +2639,7 @@ export const products: Product[] = [
         tags: ["Louis Vuitton", "Sweatshirts"]
     },
     {
-        id: "lv-tshirts-001",
+        id: "louisvuitton-t-shirts-lv-tshirts-001",
         title: "Louis Vuitton lv-tshirts-001",
         price: 250,
         image: Img_145_Main,
@@ -2652,7 +2652,7 @@ export const products: Product[] = [
         tags: ["Louis Vuitton", "T-Shirts"]
     },
     {
-        id: "lv-hats-002",
+        id: "louisvuitton-hats-lv-hats-002",
         title: "Louis Vuitton lv-hats-002",
         price: 250,
         image: Img_146_Main,
@@ -2665,7 +2665,7 @@ export const products: Product[] = [
         tags: ["Louis Vuitton", "Hats"]
     },
     {
-        id: "miu-hoodies-001",
+        id: "miumiu-hoodies-miu-hoodies-001",
         title: "Miu Miu miu-hoodies-001",
         price: 250,
         image: Img_147_Main,
@@ -2678,137 +2678,137 @@ export const products: Product[] = [
         tags: ["Miu Miu", "Hoodies"]
     },
     {
-        id: "monc-jackets-001",
+        id: "moncler-jackets-monc-jackets-001",
         title: "Moncler monc-jackets-001",
         price: 250,
         image: Img_148_Main,
         hoverImage: Img_148_Hover,
         gallery: [Img_148_Gal_0, Img_148_Gal_1, Img_148_Gal_2],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Moncler",
-        slug: "moncler-jacket-monc-jackets-001",
+        slug: "moncler-jackets-monc-jackets-001",
         gender: "unisex",
-        tags: ["Moncler", "Jacket"]
+        tags: ["Moncler", "Jackets"]
     },
     {
-        id: "monc-jackets-002",
+        id: "moncler-jackets-monc-jackets-002",
         title: "Moncler monc-jackets-002",
         price: 250,
         image: Img_149_Main,
         hoverImage: Img_149_Hover,
         gallery: [Img_149_Gal_0, Img_149_Gal_1, Img_149_Gal_2],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Moncler",
-        slug: "moncler-jacket-monc-jackets-002",
+        slug: "moncler-jackets-monc-jackets-002",
         gender: "unisex",
-        tags: ["Moncler", "Jacket"]
+        tags: ["Moncler", "Jackets", "Best Sellers"]
     },
     {
-        id: "monc-jackets-003",
+        id: "moncler-jackets-monc-jackets-003",
         title: "Moncler monc-jackets-003",
         price: 250,
         image: Img_150_Main,
         hoverImage: Img_150_Hover,
         gallery: [Img_150_Gal_0, Img_150_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Moncler",
-        slug: "moncler-jacket-monc-jackets-003",
+        slug: "moncler-jackets-monc-jackets-003",
         gender: "unisex",
-        tags: ["Moncler", "Jacket"]
+        tags: ["Moncler", "Jackets"]
     },
     {
-        id: "monc-jackets-004",
+        id: "moncler-jackets-monc-jackets-004",
         title: "Moncler monc-jackets-004",
         price: 250,
         image: Img_151_Main,
         hoverImage: Img_151_Hover,
         gallery: [Img_151_Gal_0, Img_151_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Moncler",
-        slug: "moncler-jacket-monc-jackets-004",
+        slug: "moncler-jackets-monc-jackets-004",
         gender: "unisex",
-        tags: ["Moncler", "Jacket"]
+        tags: ["Moncler", "Jackets"]
     },
     {
-        id: "monc-jackets-005",
+        id: "moncler-jackets-monc-jackets-005",
         title: "Moncler monc-jackets-005",
         price: 250,
         image: Img_152_Main,
         hoverImage: Img_152_Hover,
         gallery: [Img_152_Gal_0, Img_152_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Moncler",
-        slug: "moncler-jacket-monc-jackets-005",
+        slug: "moncler-jackets-monc-jackets-005",
         gender: "unisex",
-        tags: ["Moncler", "Jacket"]
+        tags: ["Moncler", "Jackets"]
     },
     {
-        id: "monc-jackets-006",
+        id: "moncler-jackets-monc-jackets-006",
         title: "Moncler monc-jackets-006",
         price: 250,
         image: Img_153_Main,
         hoverImage: Img_153_Hover,
         gallery: [Img_153_Gal_0, Img_153_Gal_1, Img_153_Gal_2, Img_153_Gal_3],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Moncler",
-        slug: "moncler-jacket-monc-jackets-006",
+        slug: "moncler-jackets-monc-jackets-006",
         gender: "unisex",
-        tags: ["Moncler", "Jacket"]
+        tags: ["Moncler", "Jackets"]
     },
     {
-        id: "monc-jackets-007",
+        id: "moncler-jackets-monc-jackets-007",
         title: "Moncler monc-jackets-007",
         price: 250,
         image: Img_154_Main,
         hoverImage: Img_154_Hover,
         gallery: [Img_154_Gal_0, Img_154_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Moncler",
-        slug: "moncler-jacket-monc-jackets-007",
+        slug: "moncler-jackets-monc-jackets-007",
         gender: "unisex",
-        tags: ["Moncler", "Jacket"]
+        tags: ["Moncler", "Jackets"]
     },
     {
-        id: "monc-jackets-008",
+        id: "moncler-jackets-monc-jackets-008",
         title: "Moncler monc-jackets-008",
         price: 250,
         image: Img_155_Main,
         hoverImage: Img_155_Hover,
         gallery: [Img_155_Gal_0, Img_155_Gal_1, Img_155_Gal_2],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Moncler",
-        slug: "moncler-jacket-monc-jackets-008",
+        slug: "moncler-jackets-monc-jackets-008",
         gender: "unisex",
-        tags: ["Moncler", "Jacket"]
+        tags: ["Moncler", "Jackets"]
     },
     {
-        id: "moose-jackets-001",
+        id: "moose-jackets-moose-jackets-001",
         title: "Moose moose-jackets-001",
         price: 250,
         image: Img_156_Main,
         hoverImage: Img_156_Hover,
         gallery: [Img_156_Gal_0, Img_156_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Moose",
-        slug: "moose-jacket-moose-jackets-001",
+        slug: "moose-jackets-moose-jackets-001",
         gender: "unisex",
-        tags: ["Moose", "Jacket"]
+        tags: ["Moose", "Jackets"]
     },
     {
-        id: "moose-jackets-002",
+        id: "moose-jackets-moose-jackets-002",
         title: "Moose moose-jackets-002",
         price: 250,
         image: Img_157_Main,
         hoverImage: Img_157_Hover,
         gallery: [Img_157_Gal_0, Img_157_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Moose",
-        slug: "moose-jacket-moose-jackets-002",
+        slug: "moose-jackets-moose-jackets-002",
         gender: "unisex",
-        tags: ["Moose", "Jacket"]
+        tags: ["Moose", "Jackets"]
     },
     {
-        id: "nik-hoodies-001",
+        id: "nike-hoodies-nik-hoodies-001",
         title: "Nike nik-hoodies-001",
         price: 250,
         image: Img_158_Main,
@@ -2821,20 +2821,20 @@ export const products: Product[] = [
         tags: ["Nike", "Hoodies"]
     },
     {
-        id: "nik-jackets-001",
+        id: "nike-jackets-nik-jackets-001",
         title: "Nike nik-jackets-001",
         price: 250,
         image: Img_159_Main,
         hoverImage: Img_159_Hover,
         gallery: [Img_159_Gal_0],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Nike",
-        slug: "nike-jacket-nik-jackets-001",
+        slug: "nike-jackets-nik-jackets-001",
         gender: "unisex",
-        tags: ["Nike", "Jacket"]
+        tags: ["Nike", "Jackets"]
     },
     {
-        id: "nik-pants-001",
+        id: "nike-pants-nik-pants-001",
         title: "Nike nik-pants-001",
         price: 250,
         image: Img_160_Main,
@@ -2847,7 +2847,7 @@ export const products: Product[] = [
         tags: ["Nike", "Pants"]
     },
     {
-        id: "nik-shorts-001",
+        id: "nike-shorts-nik-shorts-001",
         title: "Nike nik-shorts-001",
         price: 250,
         image: Img_161_Main,
@@ -2860,7 +2860,7 @@ export const products: Product[] = [
         tags: ["Nike", "Shorts"]
     },
     {
-        id: "nik-sweatshirts-001",
+        id: "nike-sweatshirts-nik-sweatshirts-001",
         title: "Nike nik-sweatshirts-001",
         price: 250,
         image: Img_162_Main,
@@ -2873,7 +2873,7 @@ export const products: Product[] = [
         tags: ["Nike", "Sweatshirts"]
     },
     {
-        id: "nik-tshirts-001",
+        id: "nike-t-shirts-nik-tshirts-001",
         title: "Nike nik-tshirts-001",
         price: 250,
         image: Img_163_Main,
@@ -2886,7 +2886,7 @@ export const products: Product[] = [
         tags: ["Nike", "T-Shirts"]
     },
     {
-        id: "nik-hoodies-002",
+        id: "nike-hoodies-nik-hoodies-002",
         title: "Nike nik-hoodies-002",
         price: 250,
         image: Img_164_Main,
@@ -2896,23 +2896,23 @@ export const products: Product[] = [
         brand: "Nike",
         slug: "nike-hoodies-nik-hoodies-002",
         gender: "unisex",
-        tags: ["Nike", "Hoodies"]
+        tags: ["Nike", "Hoodies", "Best Sellers"]
     },
     {
-        id: "nik-jackets-002",
+        id: "nike-jackets-nik-jackets-002",
         title: "Nike nik-jackets-002",
         price: 250,
         image: Img_165_Main,
         hoverImage: Img_165_Hover,
         gallery: [Img_165_Gal_0],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Nike",
-        slug: "nike-jacket-nik-jackets-002",
+        slug: "nike-jackets-nik-jackets-002",
         gender: "unisex",
-        tags: ["Nike", "Jacket"]
+        tags: ["Nike", "Jackets"]
     },
     {
-        id: "nik-pants-002",
+        id: "nike-pants-nik-pants-002",
         title: "Nike nik-pants-002",
         price: 250,
         image: Img_166_Main,
@@ -2925,7 +2925,7 @@ export const products: Product[] = [
         tags: ["Nike", "Pants"]
     },
     {
-        id: "nik-shorts-002",
+        id: "nike-shorts-nik-shorts-002",
         title: "Nike nik-shorts-002",
         price: 250,
         image: Img_167_Main,
@@ -2938,186 +2938,186 @@ export const products: Product[] = [
         tags: ["Nike", "Shorts"]
     },
     {
-        id: "pololauren-jackets-001",
+        id: "poloralphlauren-jackets-pololauren-jackets-001",
         title: "Polo Ralph Lauren pololauren-jackets-001",
         price: 250,
         image: Img_168_Main,
         hoverImage: Img_168_Hover,
         gallery: [Img_168_Gal_0, Img_168_Gal_1, Img_168_Gal_2],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Polo Ralph Lauren",
-        slug: "poloralphlauren-jacket-pololauren-jackets-001",
+        slug: "poloralphlauren-jackets-pololauren-jackets-001",
         gender: "unisex",
-        tags: ["Polo Ralph Lauren", "Jacket"]
+        tags: ["Polo Ralph Lauren", "Jackets"]
     },
     {
-        id: "pololauren-jackets-002",
+        id: "poloralphlauren-jackets-pololauren-jackets-002",
         title: "Polo Ralph Lauren pololauren-jackets-002",
         price: 250,
         image: Img_169_Main,
         hoverImage: Img_169_Hover,
         gallery: [Img_169_Gal_0, Img_169_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Polo Ralph Lauren",
-        slug: "poloralphlauren-jacket-pololauren-jackets-002",
+        slug: "poloralphlauren-jackets-pololauren-jackets-002",
         gender: "unisex",
-        tags: ["Polo Ralph Lauren", "Jacket"]
+        tags: ["Polo Ralph Lauren", "Jackets"]
     },
     {
-        id: "pololauren-jackets-003",
+        id: "poloralphlauren-jackets-pololauren-jackets-003",
         title: "Polo Ralph Lauren pololauren-jackets-003",
         price: 250,
         image: Img_170_Main,
         hoverImage: Img_170_Hover,
         gallery: [Img_170_Gal_0, Img_170_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Polo Ralph Lauren",
-        slug: "poloralphlauren-jacket-pololauren-jackets-003",
+        slug: "poloralphlauren-jackets-pololauren-jackets-003",
         gender: "unisex",
-        tags: ["Polo Ralph Lauren", "Jacket"]
+        tags: ["Polo Ralph Lauren", "Jackets"]
     },
     {
-        id: "pololauren-jackets-004",
+        id: "poloralphlauren-jackets-pololauren-jackets-004",
         title: "Polo Ralph Lauren pololauren-jackets-004",
         price: 250,
         image: Img_171_Main,
         hoverImage: Img_171_Hover,
         gallery: [Img_171_Gal_0, Img_171_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Polo Ralph Lauren",
-        slug: "poloralphlauren-jacket-pololauren-jackets-004",
+        slug: "poloralphlauren-jackets-pololauren-jackets-004",
         gender: "unisex",
-        tags: ["Polo Ralph Lauren", "Jacket"]
+        tags: ["Polo Ralph Lauren", "Jackets"]
     },
     {
-        id: "trap-jacket-001",
+        id: "trapstar-jackets-trap-jacket-001",
         title: "Trapstar trap-jacket-001",
         price: 250,
         image: Img_172_Main,
         hoverImage: Img_172_Hover,
         gallery: [Img_172_Gal_0, Img_172_Gal_1, Img_172_Gal_2, Img_172_Gal_3],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Trapstar",
-        slug: "trapstar-jacket-trap-jacket-001",
+        slug: "trapstar-jackets-trap-jacket-001",
         gender: "unisex",
-        tags: ["Trapstar", "Jacket"]
+        tags: ["Trapstar", "Jackets"]
     },
     {
-        id: "trap-jacket-002",
+        id: "trapstar-jackets-trap-jacket-002",
         title: "Trapstar trap-jacket-002",
         price: 250,
         image: Img_173_Main,
         hoverImage: Img_173_Hover,
         gallery: [Img_173_Gal_0, Img_173_Gal_1, Img_173_Gal_2],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Trapstar",
-        slug: "trapstar-jacket-trap-jacket-002",
+        slug: "trapstar-jackets-trap-jacket-002",
         gender: "unisex",
-        tags: ["Trapstar", "Jacket"]
+        tags: ["Trapstar", "Jackets"]
     },
     {
-        id: "trap-jacket-003",
+        id: "trapstar-jackets-trap-jacket-003",
         title: "Trapstar trap-jacket-003",
         price: 250,
         image: Img_174_Main,
         hoverImage: Img_174_Hover,
         gallery: [Img_174_Gal_0, Img_174_Gal_1, Img_174_Gal_2],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Trapstar",
-        slug: "trapstar-jacket-trap-jacket-003",
+        slug: "trapstar-jackets-trap-jacket-003",
         gender: "unisex",
-        tags: ["Trapstar", "Jacket"]
+        tags: ["Trapstar", "Jackets"]
     },
     {
-        id: "trap-jacket-004",
+        id: "trapstar-jackets-trap-jacket-004",
         title: "Trapstar trap-jacket-004",
         price: 250,
         image: Img_175_Main,
         hoverImage: Img_175_Hover,
         gallery: [Img_175_Gal_0, Img_175_Gal_1, Img_175_Gal_2],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Trapstar",
-        slug: "trapstar-jacket-trap-jacket-004",
+        slug: "trapstar-jackets-trap-jacket-004",
         gender: "unisex",
-        tags: ["Trapstar", "Jacket"]
+        tags: ["Trapstar", "Jackets"]
     },
     {
-        id: "trap-jacket-005",
+        id: "trapstar-jackets-trap-jacket-005",
         title: "Trapstar trap-jacket-005",
         price: 250,
         image: Img_176_Main,
         hoverImage: Img_176_Hover,
         gallery: [Img_176_Gal_0, Img_176_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Trapstar",
-        slug: "trapstar-jacket-trap-jacket-005",
+        slug: "trapstar-jackets-trap-jacket-005",
         gender: "unisex",
-        tags: ["Trapstar", "Jacket"]
+        tags: ["Trapstar", "Jackets"]
     },
     {
-        id: "trap-jacket-006",
+        id: "trapstar-jackets-trap-jacket-006",
         title: "Trapstar trap-jacket-006",
         price: 250,
         image: Img_177_Main,
         hoverImage: Img_177_Hover,
         gallery: [Img_177_Gal_0, Img_177_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Trapstar",
-        slug: "trapstar-jacket-trap-jacket-006",
+        slug: "trapstar-jackets-trap-jacket-006",
         gender: "unisex",
-        tags: ["Trapstar", "Jacket"]
+        tags: ["Trapstar", "Jackets"]
     },
     {
-        id: "trap-jacket-007",
+        id: "trapstar-jackets-trap-jacket-007",
         title: "Trapstar trap-jacket-007",
         price: 250,
         image: Img_178_Main,
         hoverImage: Img_178_Hover,
         gallery: [Img_178_Gal_0, Img_178_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Trapstar",
-        slug: "trapstar-jacket-trap-jacket-007",
+        slug: "trapstar-jackets-trap-jacket-007",
         gender: "unisex",
-        tags: ["Trapstar", "Jacket"]
+        tags: ["Trapstar", "Jackets"]
     },
     {
-        id: "trap-jacket-008",
+        id: "trapstar-jackets-trap-jacket-008",
         title: "Trapstar trap-jacket-008",
         price: 250,
         image: Img_179_Main,
         hoverImage: Img_179_Hover,
         gallery: [Img_179_Gal_0, Img_179_Gal_1, Img_179_Gal_2],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Trapstar",
-        slug: "trapstar-jacket-trap-jacket-008",
+        slug: "trapstar-jackets-trap-jacket-008",
         gender: "unisex",
-        tags: ["Trapstar", "Jacket"]
+        tags: ["Trapstar", "Jackets", "Best Sellers"]
     },
     {
-        id: "trap-jacket-009",
+        id: "trapstar-jackets-trap-jacket-009",
         title: "Trapstar trap-jacket-009",
         price: 250,
         image: Img_180_Main,
         hoverImage: Img_180_Hover,
         gallery: [Img_180_Gal_0, Img_180_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Trapstar",
-        slug: "trapstar-jacket-trap-jacket-009",
+        slug: "trapstar-jackets-trap-jacket-009",
         gender: "unisex",
-        tags: ["Trapstar", "Jacket"]
+        tags: ["Trapstar", "Jackets"]
     },
     {
-        id: "trap-jacket-010",
+        id: "trapstar-jackets-trap-jacket-010",
         title: "Trapstar trap-jacket-010",
         price: 250,
         image: Img_181_Main,
         hoverImage: Img_181_Hover,
         gallery: [Img_181_Gal_0, Img_181_Gal_1],
-        category: "Jacket",
+        category: "Jackets",
         brand: "Trapstar",
-        slug: "trapstar-jacket-trap-jacket-010",
+        slug: "trapstar-jackets-trap-jacket-010",
         gender: "unisex",
-        tags: ["Trapstar", "Jacket"]
+        tags: ["Trapstar", "Jackets"]
     }
 ];
 

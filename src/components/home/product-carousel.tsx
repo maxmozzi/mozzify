@@ -7,6 +7,7 @@ import { ChevronRight, ChevronLeft, Heart } from 'lucide-react';
 import styles from './product-carousel.module.css';
 import { useFavorites } from '@/context/favorites-context';
 import { GridProduct } from '@/types/product';
+import { useGender } from '@/context/gender-context';
 
 // Mock Data for Visuals
 const CAROUSEL_PRODUCTS = Array.from({ length: 10 }).map((_, i) => ({
@@ -28,20 +29,29 @@ import demoImg from '@/images/marketing/homepage/banner1.webp';
 import { products } from '@/data/generated-products';
 
 export default function ProductCarousel({ title, products: sourceProducts }: { title: string, products?: any[] }) {
-    console.log('ProductCarousel rendering');
     const scrollRef = useRef<HTMLDivElement>(null);
-    // Filter for bestsellers products strictly
-    const [displayProducts, setDisplayProducts] = useState<any[]>(
-        sourceProducts && sourceProducts.length > 0 ? sourceProducts :
-            (title === 'BEST SELLERS'
-                ? products.filter(p => p.tags?.includes('Best Sellers') && !p.tags?.includes('Accessories') && p.category !== 'Accessories').slice(0, 10)
-                : products.filter(p => !p.tags?.includes('Accessories') && p.category !== 'Accessories').slice(0, 10))
-    );
+    const { gender } = useGender();
+    const [displayProducts, setDisplayProducts] = useState<any[]>([]);
 
     useEffect(() => {
-        // Shuffle on client side only to avoid hydration mismatch
-        // setDisplayProducts([...products].sort(() => 0.5 - Math.random()).slice(0, 20));
-    }, []);
+        let filtered = sourceProducts && sourceProducts.length > 0 ? sourceProducts : products;
+
+        // Apply Gender Filter
+        if (gender === 'men') {
+            filtered = filtered.filter(p => p.gender === 'men' || p.gender === 'unisex');
+        } else if (gender === 'women') {
+            filtered = filtered.filter(p => p.gender === 'women' || p.gender === 'unisex');
+        }
+
+        // Apply Collection Filter
+        if (title === 'BEST SELLERS') {
+            filtered = filtered.filter(p => p.tags?.includes('Best Sellers') && !p.tags?.includes('Accessories') && p.category !== 'Accessories');
+        } else {
+            filtered = filtered.filter(p => !p.tags?.includes('Accessories') && p.category !== 'Accessories');
+        }
+
+        setDisplayProducts(filtered.slice(0, 15));
+    }, [gender, sourceProducts, title]);
     const { addToFavorites, removeFromFavorites, checkIsFavorite } = useFavorites();
 
     const scroll = (direction: 'left' | 'right') => {

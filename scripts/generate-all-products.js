@@ -30,20 +30,20 @@ const CATEGORY_MAP = {
     'tshirts': 'T-Shirts',
     't-shirt': 'T-Shirts',
     't-shirts': 'T-Shirts',
-    'polo': 'Polo',
-    'polos': 'Polo',
+    'polo': 'Polos',
+    'polos': 'Polos',
     'shorts': 'Shorts',
-    'sweater': 'Sweater',
-    'sweaters': 'Sweater',
+    'sweater': 'Sweaters',
+    'sweaters': 'Sweaters',
     'sweatshirt': 'Sweatshirts',
     'sweatshirts': 'Sweatshirts',
     'iphone_case': 'iPhone Case',
     'jeans': 'Jeans',
     'shirts': 'Shirts',
-    'belt': 'Belt',
+    'belt': 'Belts',
     'shoes': 'Shoes',
-    'jacket': 'Jacket',
-    'jackets': 'Jacket',
+    'jacket': 'Jackets',
+    'jackets': 'Jackets',
     'sets': 'Sets',
     'pants': 'Pants',
     'suits': 'Suits',
@@ -95,6 +95,7 @@ function generate() {
     const products = [];
     const imports = [];
     let importCounter = 0;
+    const processedIds = new Set();
 
     const excludedDirs = ['HomePage', 'brickenstones'];
 
@@ -205,12 +206,22 @@ function generate() {
     });
 
     function processProduct(brandDir, brandName, categoryName, code, productPath, sourceRoot = 'products') {
+        const safeBrand = brandName.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const safeCat = categoryName.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
+        const safeId = code.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
+        const productId = `${safeBrand}-${safeCat}-${safeId}`;
+
+        // De-duplication check
+        if (processedIds.has(productId)) {
+            console.log(`Skipping duplicate product: ${productId}`);
+            return;
+        }
+        processedIds.add(productId);
+
         const files = fs.readdirSync(productPath);
         const webpFiles = files.filter(f => f.endsWith('.webp'));
 
         if (webpFiles.length === 0) return;
-
-        const productId = code;
 
         let mainImgFile = webpFiles.find(f => f.toLowerCase() === 'front.webp');
         if (!mainImgFile) mainImgFile = webpFiles.find(f => f.toLowerCase().includes('front'));
@@ -252,12 +263,9 @@ function generate() {
             return name;
         });
 
-        const safeBrand = brandName.toLowerCase().replace(/[^a-z0-9]/g, '');
-        const safeCat = categoryName.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
-        const safeId = code.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
-        const slug = `${safeBrand}-${safeCat}-${safeId}`;
+        const slug = productId;
 
-        const isBestSeller = categoryName === 'Best Sellers' || sourceRoot.includes('bestsellers');
+        const isBestSeller = categoryName === 'Best Sellers' || sourceRoot.includes('bestsellers') || (importCounter % 15 === 0);
         const finalTags = [brandName, categoryName];
         if (isBestSeller) finalTags.push('Best Sellers');
 

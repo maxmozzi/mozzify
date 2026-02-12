@@ -12,8 +12,9 @@ export default function MegaMenu() {
 
     const getLinkWithGender = (path: string) => {
         if (!path) return path;
+        if (!path.includes('/unisex')) return path;
         if (gender !== 'unisex') {
-            return path.replace('/unisex', `/${gender}`);
+            return path.replace('/unisex', `/${gender === 'men' ? 'mens' : 'womens'}`);
         }
         return path;
     };
@@ -97,8 +98,9 @@ function MenuDropdown({ activeId, items, gender }: { activeId: string, items: Me
 
     const getLinkWithGender = (path: string) => {
         if (!path) return path;
+        if (!path.includes('/unisex')) return path;
         if (gender !== 'unisex') {
-            return path.replace('/unisex', `/${gender}`);
+            return path.replace('/unisex', `/${gender === 'men' ? 'mens' : 'womens'}`);
         }
         return path;
     };

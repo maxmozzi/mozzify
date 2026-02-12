@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { ChevronRight, ChevronLeft, ArrowDown, ArrowRight } from 'lucide-react';
 import styles from './categories-carousel.module.css';
 import { products } from '@/data/generated-products';
+import { useGender } from '@/context/gender-context';
 
 // Mock Categories with distinct placeholders if actual images repeat
 // Ensuring we have enough items to scroll (8 items for 2 pages of 4)
@@ -22,6 +23,15 @@ const CATEGORIES = [
 export default function CategoriesCarousel() {
     const scrollRef = useRef<HTMLDivElement>(null);
     const [isHovering, setIsHovering] = useState(false);
+    const { gender } = useGender();
+
+    const getLinkWithGender = (path: string) => {
+        if (!path) return path;
+        if (gender !== 'unisex') {
+            return path.replace('/unisex', `/${gender === 'men' ? 'mens' : 'womens'}`);
+        }
+        return path;
+    };
 
     const scroll = (direction: 'left' | 'right') => {
         if (scrollRef.current) {
@@ -67,7 +77,7 @@ export default function CategoriesCarousel() {
 
                         return (
                             <Link
-                                href={`/collections/clothing/unisex/${cat.slug}`}
+                                href={getLinkWithGender(`/collections/clothing/unisex/${cat.slug}`)}
                                 key={`${cat.name}-${idx}`}
                                 className={styles.card}
                             >

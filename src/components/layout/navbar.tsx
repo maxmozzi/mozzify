@@ -55,12 +55,15 @@ export default function Navbar() {
         setExpandedSection(prev => prev === section ? null : section);
     };
 
-    const { gender } = useGender();
+    const { gender, setGender } = useGender();
 
     const getLinkWithGender = (path: string) => {
         if (!path) return path;
+        // Don't modify brand links or other non-collection links
+        if (!path.includes('/unisex')) return path;
+
         if (gender !== 'unisex') {
-            return path.replace('/unisex', `/${gender}`);
+            return path.replace('/unisex', `/${gender === 'men' ? 'mens' : 'womens'}`);
         }
         return path;
     };
@@ -87,7 +90,13 @@ export default function Navbar() {
                             <nav className={styles.genderNav}>
                                 {navigation.top.map((item, index) => (
                                     <Fragment key={item.label}>
-                                        <Link href={item.href} className={styles.genderLink}>{item.label}</Link>
+                                        <Link
+                                            href={item.href}
+                                            className={styles.genderLink}
+                                            onClick={() => setGender(item.label.toLowerCase() as any)}
+                                        >
+                                            {item.label}
+                                        </Link>
                                         {index < navigation.top.length - 1 && <span className={styles.divider}>|</span>}
                                     </Fragment>
                                 ))}
@@ -96,7 +105,11 @@ export default function Navbar() {
 
                         {/* CENTER: Logo */}
                         <div className={styles.centerArea}>
-                            <Link href="/" className={styles.navLogo}>
+                            <Link
+                                href="/"
+                                className={styles.navLogo}
+                                onClick={() => setGender('unisex')}
+                            >
                                 <Image
                                     src={logoImg}
                                     alt="Mozzify Logo"
@@ -305,7 +318,11 @@ export default function Navbar() {
                                                                         {/* <h5 style={{fontSize: '0.8rem', opacity: 0.6, marginBottom: '0.5rem', paddingLeft: '1rem'}}>{col.title}</h5> */}
 
                                                                         {col.items.map((link, lIdx) => (
-                                                                            <Link key={lIdx} href={link.href} className={styles.accordionLink}>
+                                                                            <Link
+                                                                                key={lIdx}
+                                                                                href={getLinkWithGender(link.href)}
+                                                                                className={styles.accordionLink}
+                                                                            >
                                                                                 {link.label}
                                                                             </Link>
                                                                         ))}
