@@ -5,7 +5,7 @@ const IMAGES_DIR = path.join(__dirname, '../src/images/products');
 const ASSETS_DIR = path.join(__dirname, '../src/images/brand-assets');
 const OUTPUT_FILE = path.join(__dirname, '../src/data/generated-products.ts');
 
-const BRAND_ASSETS_MAP = {
+const BRAND_ASSET_IMPORT_MAP = {
     'amiparis': 'ami',
     'amiri': 'amir',
     'arcteryx': 'arc',
@@ -20,7 +20,7 @@ const BRAND_ASSETS_MAP = {
     'jordan': 'jord',
     'lacoste': 'laco',
     'loewe': 'loew',
-    'louis_vuitton': 'lv',
+    'louisvuitton': 'lv',
     'miumiu': 'miu'
 };
 
@@ -44,10 +44,50 @@ const CATEGORY_MAP = {
     'shoes': 'Shoes',
     'jacket': 'Jacket',
     'jackets': 'Jacket',
-    'sets': 'Sets'
+    'sets': 'Sets',
+    'pants': 'Pants',
+    'suits': 'Suits',
+    'tracksuits': 'Tracksuits',
+    'knitwear': 'Knitwear'
+};
+
+const BRAND_NAME_FIXES = {
+    'amiparis': 'Ami Paris',
+    'amiri': 'Amiri',
+    'arcteryx': "Arc'teryx",
+    'balenciaga': 'Balenciaga',
+    'bape': 'Bape',
+    'burberry': 'Burberry',
+    'calvinklein': 'Calvin Klein',
+    'casablanca': 'Casablanca',
+    'celine': 'Celine',
+    'cgoose': 'Canada Goose',
+    'di': 'Dior',
+    'essentials': 'Essentials',
+    'gucci': 'Gucci',
+    'jacquemus': 'Jacquemus',
+    'jordan': 'Jordan',
+    'lacoste': 'Lacoste',
+    'loewe': 'Loewe',
+    'louisvuitton': 'Louis Vuitton',
+    'miumiu': 'Miu Miu',
+    'moncler': 'Moncler',
+    'nike': 'Nike',
+    'offwhite': 'Off-White',
+    'palmangels': 'Palm Angels',
+    'patagonia': 'Patagonia',
+    'philipplein': 'Philipp Plein',
+    'poloralphlauren': 'Polo Ralph Lauren',
+    'prada': 'Prada',
+    'stoneisland': 'Stone Island',
+    'stussy': 'Stussy',
+    'thenorthface': 'The North Face',
+    'trap': 'Trapstar'
 };
 
 function formatBrandName(folderName) {
+    const slug = folderName.toLowerCase();
+    if (BRAND_NAME_FIXES[slug]) return BRAND_NAME_FIXES[slug];
     return folderName.charAt(0).toUpperCase() + folderName.slice(1);
 }
 
@@ -218,7 +258,7 @@ function generate() {
 
     // First collect all available editorial assets
     allBrandFolders.forEach(folder => {
-        const assetFolder = BRAND_ASSETS_MAP[folder.toLowerCase()];
+        const assetFolder = BRAND_ASSET_IMPORT_MAP[folder.toLowerCase()];
         if (assetFolder) {
             const possibleThumbnail = path.join(ASSETS_DIR, assetFolder, 'thumbnail.webp');
             if (fs.existsSync(possibleThumbnail)) {
@@ -273,36 +313,36 @@ export interface Product {
 
 export const products: Product[] = [
 ${products.map(p => `    {
-        id: '${p.id}',
-        title: '${p.title}',
+        id: ${JSON.stringify(p.id)},
+        title: ${JSON.stringify(p.title)},
         price: ${p.price},
         image: ${p.image},
         hoverImage: ${p.hoverImage},
         gallery: ${p.gallery},
-        category: '${p.category}',
-        brand: '${p.brand}',
-        slug: '${p.slug}',
-        gender: '${p.gender}',
-        tags: [${p.tags.map(t => `'${t}'`).join(', ')}]
+        category: ${JSON.stringify(p.category)},
+        brand: ${JSON.stringify(p.brand)},
+        slug: ${JSON.stringify(p.slug)},
+        gender: ${JSON.stringify(p.gender)},
+        tags: [${p.tags.map(t => JSON.stringify(t)).join(', ')}]
     }`).join(',\n')}
 ];
 
 export const BRANDS = ${JSON.stringify(brandDisplayNames)};
 
 export const BRAND_ASSETS: Record<string, StaticImageData> = {
-${brandDisplayNames.map(name => `    '${name}': ${brandAssetMap[name]}`).join(',\n')}
+${brandDisplayNames.map(name => `    ${JSON.stringify(name)}: ${brandAssetMap[name]}`).join(',\n')}
 };
 
 export const BRAND_SAMPLE_IMAGES: Record<string, StaticImageData> = {
 ${brandDisplayNames.map(name => {
         const p = products.find(prod => prod.brand === name);
-        return p ? `    '${name}': ${p.image}` : '';
+        return p ? `    ${JSON.stringify(name)}: ${p.image}` : '';
     }).filter(Boolean).join(',\n')}
 };
 `;
 
     fs.writeFileSync(OUTPUT_FILE, fileContent);
-    console.log(`Generated ${products.length} products to ${OUTPUT_FILE}`);
+    console.log(`Generated ${products.length} products to ${OUTPUT_FILE} `);
 }
 
 generate();

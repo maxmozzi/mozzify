@@ -211,6 +211,7 @@ export default function ProductListing({
                     productCount={filteredProducts.length}
                     categories={customCategories}
                     onCategoryClick={handleCarouselClick}
+                    activeCategory={selectedCategories[0] || 'all'}
                 />
             )}
             {!showCategoryCarousel && (

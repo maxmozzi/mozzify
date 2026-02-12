@@ -3,7 +3,7 @@ export interface CategoryConfig {
     name: string;
     slug: string;
     filterValue: string;
-    image?: string; // Optional override, otherwise dynamic find
+    image?: string | any; // Support both string paths and StaticImageData imports
 }
 
 export const PAGE_CATEGORIES = {
