@@ -1,6 +1,4 @@
-.megaNav {
-    /* No specific width needed, fits content */
-}
+/* .megaNav removed as it was empty */
 
 .navList {
     display: flex;
@@ -99,16 +97,12 @@
     gap: 2rem;
 }
 
-.grid4 {
-    grid-template-columns: repeat(4, 1fr);
-}
-
-.grid3 {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.grid2 {
-    grid-template-columns: 1fr 2fr;
+.flexContainer {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    /* Just in case, though usually one row */
 }
 
 .columnTitle {

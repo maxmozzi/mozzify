@@ -15,6 +15,7 @@ import CategoryHeader from '@/components/products/category-header';
 
 interface CollectionListingProps {
     initialProducts: GridProduct[];
+    allProducts?: GridProduct[]; // Full pool for pagination
     baseProducts: GridProduct[]; // Products available in this context (Collection + Gender)
     collectionTitle: string;
     gender: string;
@@ -36,6 +37,7 @@ const findCategoryImage = (cat: any, products: GridProduct[]) => {
 
 export default function CollectionListing({
     initialProducts,
+    allProducts,
     baseProducts,
     collectionTitle,
     gender,
@@ -49,6 +51,7 @@ export default function CollectionListing({
     const pathname = usePathname();
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [visibleCount, setVisibleCount] = useState(initialProducts.length); // Pagination state
     const [currentSort, setCurrentSort] = useState('Relevancy');
     const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
     const [selectedColors, setSelectedColors] = useState<string[]>([]);
@@ -164,7 +167,7 @@ export default function CollectionListing({
     };
 
     const sortedProducts = useMemo(() => {
-        let result = [...initialProducts];
+        let result = [...(allProducts || initialProducts)];
 
         // 1. Price Filter
         result = result.filter(p => p.price >= priceRange.min && p.price <= priceRange.max);
@@ -177,7 +180,7 @@ export default function CollectionListing({
         }
 
         return result;
-    }, [initialProducts, priceRange, isSaleSelected]);
+    }, [initialProducts, allProducts, priceRange, isSaleSelected]);
 
     return (
         <div>
@@ -251,10 +254,33 @@ export default function CollectionListing({
             <div style={{ paddingBottom: '4rem' }}>
                 <ProductGrid
                     title=""
-                    products={sortedProducts}
+                    products={sortedProducts.slice(0, visibleCount)}
                     variant="visual"
                     fullWidth={true}
                 />
+
+                {/* LOAD MORE BUTTON */}
+                {visibleCount < sortedProducts.length && (
+                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
+                        <button
+                            onClick={() => setVisibleCount(prev => prev + 30)}
+                            style={{
+                                padding: '12px 32px',
+                                background: '#000',
+                                color: '#fff',
+                                border: 'none',
+                                borderRadius: '4px',
+                                fontSize: '0.9rem',
+                                fontWeight: 600,
+                                cursor: 'pointer',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.5px'
+                            }}
+                        >
+                            View More
+                        </button>
+                    </div>
+                )}
             </div>
 
             {/* Filter Drawer */}

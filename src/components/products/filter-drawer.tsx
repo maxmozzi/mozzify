@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Check } from 'lucide-react';
+import { X, Check, RotateCcw } from 'lucide-react';
 import styles from './filter-drawer.module.css';
 
 interface FilterDrawerProps {
@@ -78,13 +78,16 @@ export default function FilterDrawer({
 
     return createPortal(
         <div className={styles.overlay} style={{ zIndex: 9999 }}>
-            <div className={styles.backdrop} />
+            <div className={styles.backdrop} onClick={onClose} />
             <div className={styles.drawer} ref={drawerRef}>
                 {/* Header */}
                 <div className={styles.header}>
                     <h2>FILTER & SORT</h2>
                     <div className={styles.headerActions}>
-                        <button className={styles.clearBtn} onClick={onClearAll}>CLEAR ALL</button>
+                        <button className={styles.clearBtn} onClick={onClearAll}>
+                            <RotateCcw size={14} />
+                            CLEAR ALL
+                        </button>
                         <button onClick={onClose} className={styles.closeBtn}>
                             <X size={24} />
                         </button>
@@ -94,17 +97,16 @@ export default function FilterDrawer({
                 {/* Content */}
                 <div className={styles.content}>
 
-                    {/* STATUS (Sale) */}
-                    <Accordion title="STATUS">
-                        <div className={styles.checkboxList}>
-                            <label className={styles.checkboxLabel}>
-                                <input
-                                    type="checkbox"
-                                    checked={isSaleSelected}
-                                    onChange={(e) => onSaleChange(e.target.checked)}
-                                />
-                                <span style={{ color: '#ef4444', fontWeight: 600 }}>On Sale</span>
-                            </label>
+                    {/* STATUS (Sale) -> Renamed to DISCOUNT */}
+                    <Accordion title="DISCOUNT">
+                        <div className={styles.list}>
+                            <button
+                                className={`${styles.saleBtn} ${isSaleSelected ? styles.saleBtnActive : ''}`}
+                                onClick={() => onSaleChange(!isSaleSelected)}
+                            >
+                                {isSaleSelected && <Check size={18} />}
+                                ON SALE
+                            </button>
                         </div>
                     </Accordion>
 

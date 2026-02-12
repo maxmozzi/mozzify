@@ -110,9 +110,7 @@ export default function ProductGrid({ title, products, variant = 'standard', ful
                 })}
             </div>
 
-            <div className={styles.viewAllWrapper}>
-                <Link href="/all" className={styles.viewAllBtn}>View All</Link>
-            </div>
+
         </section>
     );
 }

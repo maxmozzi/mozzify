@@ -139,8 +139,13 @@ export default async function CollectionPage(props: PageProps) {
     // 4. Final Filtering
     // If user selected a subcategory (e.g. Hoodies), we search the WHOLE genderPool 
     // to ensure we find 10 products of that specific type.
-    const filteredProducts = (subcategoryFilter
-        ? genderPool.filter(p => {
+
+    let filteredProducts: GridProduct[] = [];
+    let allProductsForPagination: GridProduct[] | undefined = undefined;
+
+    if (subcategoryFilter) {
+        // SPECIFIC FILTER BEHAVIOR (Keep at 10 items, no load more)
+        filteredProducts = genderPool.filter(p => {
             // Normalization
             const prodCat = (p.category || '').toLowerCase();
             const normProdCat = prodCat.replace(/[\s\-_]/g, '');
@@ -190,9 +195,13 @@ export default async function CollectionPage(props: PageProps) {
             }
 
             return false;
-        })
-        : collectionPool
-    ).slice(0, 10); // LIMIT TO 10 AS REQUESTED
+        }).slice(0, 10);
+    } else {
+        // GENERAL COLLECTION VIEW (Load More enabled)
+        // Initial load 30, pass full pool for pagination
+        filteredProducts = collectionPool.slice(0, 30);
+        allProductsForPagination = collectionPool;
+    }
 
     // 5. baseProducts for the Carousel/Drawer
     // We want the carousel to show categories available in this "Collection" context
@@ -202,6 +211,7 @@ export default async function CollectionPage(props: PageProps) {
         <main className="pt-20 pb-16 min-h-screen">
             <CollectionListing
                 initialProducts={filteredProducts}
+                allProducts={allProductsForPagination} // Pass full pool for Load More
                 baseProducts={baseProducts}
                 collectionTitle={targetCollection}
                 gender={gender}

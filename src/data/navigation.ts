@@ -44,7 +44,7 @@ export const navigation = {
                 {
                     title: 'Categories',
                     items: [
-                        { label: 'View All', href: '/collections/clothing/unisex' },
+                        { label: 'All Clothes', href: '/collections/clothing/unisex' },
                         { label: 'Hoodies', href: '/collections/clothing/unisex/hoodies' },
                         { label: 'T-Shirts', href: '/collections/clothing/unisex/tshirt' },
                         { label: 'Polos', href: '/collections/clothing/unisex/polos' },

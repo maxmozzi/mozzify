@@ -27,7 +27,7 @@ export const PAGE_CATEGORIES = {
 
     // 2. Clothing Page: Specific subset
     CLOTHING: [
-        { name: 'View All', slug: 'all', filterValue: 'all' },
+        { name: 'All Clothes', slug: 'all', filterValue: 'all' },
         { name: 'T-Shirts', slug: 't-shirts', filterValue: 'T-Shirts' },
         { name: 'Hoodies', slug: 'hoodies', filterValue: 'Hoodies' },
         { name: 'Sweatshirts', slug: 'sweatshirts', filterValue: 'Sweatshirts' },
