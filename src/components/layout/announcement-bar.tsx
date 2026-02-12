@@ -9,7 +9,7 @@ export default function AnnouncementBar() {
                 <div className={styles.content}>
                     <span>Free Shipping on orders over 150€</span>
                     <span className={styles.separator}>•</span>
-                    <a href="/help">Ayuda y contacto</a>
+                    <a href="/help">Help & Contact</a>
                     <span className={styles.separator}>•</span>
                     <span>WorldWide Shipping</span>
                     <span className={styles.separator}>•</span>
@@ -18,7 +18,7 @@ export default function AnnouncementBar() {
                 <div className={styles.content}>
                     <span>Free Shipping on orders over 150€</span>
                     <span className={styles.separator}>•</span>
-                    <a href="/help">Ayuda y contacto</a>
+                    <a href="/help">Help & Contact</a>
                     <span className={styles.separator}>•</span>
                     <span>WorldWide Shipping</span>
                     <span className={styles.separator}>•</span>
@@ -26,7 +26,7 @@ export default function AnnouncementBar() {
                 <div className={styles.content}>
                     <span>Free Shipping on orders over 150€</span>
                     <span className={styles.separator}>•</span>
-                    <a href="/help">Ayuda y contacto</a>
+                    <a href="/help">Help & Contact</a>
                     <span className={styles.separator}>•</span>
                     <span>WorldWide Shipping</span>
                     <span className={styles.separator}>•</span>
@@ -34,7 +34,7 @@ export default function AnnouncementBar() {
                 <div className={styles.content}>
                     <span>Free Shipping on orders over 150€</span>
                     <span className={styles.separator}>•</span>
-                    <a href="/help">Ayuda y contacto</a>
+                    <a href="/help">Help & Contact</a>
                     <span className={styles.separator}>•</span>
                     <span>WorldWide Shipping</span>
                     <span className={styles.separator}>•</span>

@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import Link from 'next/link';
 import { useFavorites } from '@/context/favorites-context';
 import { usePathname } from 'next/navigation';
@@ -86,10 +86,10 @@ export default function Navbar() {
 
                             <nav className={styles.genderNav}>
                                 {navigation.top.map((item, index) => (
-                                    <span key={item.label} style={{ display: 'flex', alignItems: 'center' }}>
+                                    <Fragment key={item.label}>
                                         <Link href={item.href} className={styles.genderLink}>{item.label}</Link>
                                         {index < navigation.top.length - 1 && <span className={styles.divider}>|</span>}
-                                    </span>
+                                    </Fragment>
                                 ))}
                             </nav>
                         </div>

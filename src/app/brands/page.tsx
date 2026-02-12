@@ -29,9 +29,9 @@ export default function BrandsPage() {
 
     return (
         <main className={styles.container}>
-            <h1 className={styles.title}>Brands</h1>
+            <h1 className={styles.title}>BRANDS</h1>
             <p className={styles.subtitle}>
-                Experience the world's most influential fashion houses through a curated editorial lens.
+                Experience the world&apos;s most influential fashion houses through a curated editorial lens.
                 A collection defined by luxury, innovation, and timeless style.
             </p>
 
@@ -44,6 +44,7 @@ export default function BrandsPage() {
                             key={brand.slug}
                             href={`/${brand.slug}`}
                             className={styles.brandCard}
+                            style={{ animationDelay: `${index * 0.05}s` }}
                         >
                             <div className={styles.imageWrapper}>
                                 <Image
@@ -52,8 +53,9 @@ export default function BrandsPage() {
                                     fill
                                     className={styles.brandImage}
                                     sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, (max-width: 1200px) 33vw, 25vw"
-                                    priority={index < 4}
-                                    loading={index < 4 ? "eager" : "lazy"}
+                                    placeholder="blur"
+                                    priority={index < 8}
+                                    loading={index < 8 ? "eager" : "lazy"}
                                 />
                             </div>
                             <div className={styles.overlay}>
