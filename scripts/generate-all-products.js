@@ -100,24 +100,25 @@ function generate() {
 
     const MAX_TOTAL_PRODUCTS = 1000;
     const MAX_PER_CATEGORY = 10;
-    const categoryCounts = {};
-    let totalProducts = 0;
+    const MAX_PER_BRAND = 10;
+
+    // Track discovered products to select later
+    const discoveredByBrand = {}; // { BrandName: { CategoryName: [ { brandDir, brandName, categoryName, code, productPath, sourceRoot } ] } }
 
     // 1. Process standard products
     const brands = fs.readdirSync(IMAGES_DIR);
 
     brands.forEach(brandDir => {
-        if (totalProducts >= MAX_TOTAL_PRODUCTS) return;
-
+        const brandName = formatBrandName(brandDir);
         const brandPath = path.join(IMAGES_DIR, brandDir);
+
         if (!fs.statSync(brandPath).isDirectory() || excludedDirs.includes(brandDir)) return;
 
-        const brandName = formatBrandName(brandDir);
+        if (!discoveredByBrand[brandName]) discoveredByBrand[brandName] = {};
+
         const contents = fs.readdirSync(brandPath);
 
         contents.forEach(item => {
-            if (totalProducts >= MAX_TOTAL_PRODUCTS) return;
-
             const itemPath = path.join(brandPath, item);
             if (!fs.statSync(itemPath).isDirectory()) return;
 
@@ -128,28 +129,24 @@ function generate() {
                 const productCode = item;
                 const categoryName = brandDir.toLowerCase() === 'bestsellers' ? 'Best Sellers' : brandName;
 
-                if ((categoryCounts[categoryName] || 0) >= MAX_PER_CATEGORY) return;
-
-                processProduct(brandDir, brandName, categoryName, productCode, itemPath, 'products');
-                categoryCounts[categoryName] = (categoryCounts[categoryName] || 0) + 1;
-                totalProducts++;
+                if (!discoveredByBrand[brandName][categoryName]) discoveredByBrand[brandName][categoryName] = [];
+                discoveredByBrand[brandName][categoryName].push({
+                    brandDir, brandName, categoryName, code: productCode, productPath: itemPath, sourceRoot: 'products'
+                });
             } else {
                 const categoryDir = item;
                 const categoryName = CATEGORY_MAP[categoryDir.toLowerCase()] ||
                     categoryDir.charAt(0).toUpperCase() + categoryDir.slice(1);
 
-                const productCodes = subItems;
+                if (!discoveredByBrand[brandName][categoryName]) discoveredByBrand[brandName][categoryName] = [];
 
-                for (const code of productCodes) {
-                    if (totalProducts >= MAX_TOTAL_PRODUCTS) break;
-                    if ((categoryCounts[categoryName] || 0) >= MAX_PER_CATEGORY) break;
-
+                for (const code of subItems) {
                     const productPath = path.join(itemPath, code);
                     if (!fs.statSync(productPath).isDirectory()) continue;
 
-                    processProduct(brandDir, brandName, categoryName, code, productPath, 'products');
-                    categoryCounts[categoryName] = (categoryCounts[categoryName] || 0) + 1;
-                    totalProducts++;
+                    discoveredByBrand[brandName][categoryName].push({
+                        brandDir, brandName, categoryName, code, productPath, sourceRoot: 'products'
+                    });
                 }
             }
         });
@@ -160,19 +157,52 @@ function generate() {
     if (fs.existsSync(CURATED_BEST_DIR)) {
         const curatedItems = fs.readdirSync(CURATED_BEST_DIR);
         curatedItems.forEach(code => {
-            if ((categoryCounts['Best Sellers'] || 0) >= MAX_PER_CATEGORY) return;
-
             const productPath = path.join(CURATED_BEST_DIR, code);
             if (!fs.statSync(productPath).isDirectory()) return;
 
             const brandMatch = code.split('-')[0];
             const brandName = brandMatch ? formatBrandName(brandMatch) : 'Premium';
+            const categoryName = 'Best Sellers';
 
-            processProduct('curated/bestsellers', brandName, 'Best Sellers', code, productPath, 'curated/bestsellers');
-            categoryCounts['Best Sellers'] = (categoryCounts['Best Sellers'] || 0) + 1;
-            totalProducts++;
+            if (!discoveredByBrand[brandName]) discoveredByBrand[brandName] = {};
+            if (!discoveredByBrand[brandName][categoryName]) discoveredByBrand[brandName][categoryName] = [];
+
+            discoveredByBrand[brandName][categoryName].push({
+                brandDir: 'curated/bestsellers', brandName, categoryName, code, productPath, sourceRoot: 'curated/bestsellers'
+            });
         });
     }
+
+    // 3. Select exactly MAX_PER_BRAND products per brand with round-robin variety
+    const selectedProducts = [];
+    Object.keys(discoveredByBrand).forEach(brandName => {
+        const categories = Object.keys(discoveredByBrand[brandName]);
+        const brandSelected = [];
+        let added = true;
+
+        // Deep copy of category lists for picking
+        const categoryQueues = {};
+        categories.forEach(cat => {
+            categoryQueues[cat] = [...discoveredByBrand[brandName][cat]];
+        });
+
+        while (brandSelected.length < MAX_PER_BRAND && added) {
+            added = false;
+            categories.forEach(cat => {
+                if (brandSelected.length < MAX_PER_BRAND && categoryQueues[cat].length > 0) {
+                    brandSelected.push(categoryQueues[cat].shift());
+                    added = true;
+                }
+            });
+        }
+        selectedProducts.push(...brandSelected);
+    });
+
+    // 4. Process only selected products
+    selectedProducts.forEach(p => {
+        if (products.length >= MAX_TOTAL_PRODUCTS) return;
+        processProduct(p.brandDir, p.brandName, p.categoryName, p.code, p.productPath, p.sourceRoot);
+    });
 
     function processProduct(brandDir, brandName, categoryName, code, productPath, sourceRoot = 'products') {
         const files = fs.readdirSync(productPath);
@@ -222,12 +252,12 @@ function generate() {
             return name;
         });
 
-        const safeBrand = brandName.toLowerCase().replace(/_/g, '-');
-        const safeCat = categoryName.toLowerCase().replace(/ /g, '-').replace(/_/g, '-');
-        const safeId = code.toLowerCase();
+        const safeBrand = brandName.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const safeCat = categoryName.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
+        const safeId = code.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
         const slug = `${safeBrand}-${safeCat}-${safeId}`;
 
-        const isBestSeller = categoryName === 'Best Sellers' || sourceRoot.includes('bestsellers') || Math.random() < 0.2;
+        const isBestSeller = categoryName === 'Best Sellers' || sourceRoot.includes('bestsellers');
         const finalTags = [brandName, categoryName];
         if (isBestSeller) finalTags.push('Best Sellers');
 
@@ -246,7 +276,7 @@ function generate() {
         });
     }
 
-    // 3. Process Brand Assets (Editorial/Premium Images)
+    // 5. Process Brand Assets (Editorial/Premium Images)
     const allBrandFolders = fs.readdirSync(IMAGES_DIR)
         .filter(dir => fs.statSync(path.join(IMAGES_DIR, dir)).isDirectory() && !excludedDirs.includes(dir));
 
@@ -342,7 +372,7 @@ ${brandDisplayNames.map(name => {
 `;
 
     fs.writeFileSync(OUTPUT_FILE, fileContent);
-    console.log(`Generated ${products.length} products to ${OUTPUT_FILE} `);
+    console.log(`Generated ${products.length} products (strictly limited to ${MAX_PER_BRAND} per brand) to ${OUTPUT_FILE}`);
 }
 
 generate();

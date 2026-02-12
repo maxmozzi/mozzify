@@ -8,14 +8,16 @@ const BRAND_MAP: { [key: string]: string } = {
     'ami-paris': 'Ami Paris',
     'amiparis': 'Ami Paris',
     'amiri': 'Amiri',
-    'arcteryx': "Arcteryx",
+    'arcteryx': "Arc'teryx",
     'balenciaga': 'Balenciaga',
     'bape': 'Bape',
     'burberry': 'Burberry',
     'calvinklein': 'Calvin Klein',
+    'calvin-klein': 'Calvin Klein',
     'casablanca': 'Casablanca',
     'celine': 'Celine',
     'canada-goose': 'Canada Goose',
+    'canadagoose': 'Canada Goose',
     'cgoose': 'Canada Goose',
     'dior': 'Dior',
     'di': 'Dior',
@@ -55,7 +57,7 @@ const BRAND_MAP: { [key: string]: string } = {
 const normalizeText = (text: string): string => {
     if (!text) return '';
     const clean = text.toLowerCase().replace(/-/g, ' ');
-    const slug = text.toLowerCase();
+    const slug = text.toLowerCase().replace(/[^a-z0-9]/g, '');
 
     if (BRAND_MAP[slug]) return BRAND_MAP[slug];
 
@@ -118,6 +120,21 @@ export default async function BrandPage({
     // 2. Brand Page with Category Carousel
     const availableCategories = Array.from(new Set(brandProducts.map(p => p.category))).sort();
 
+    // Define all categories we want to show
+    const allCategories = [
+        ...PAGE_CATEGORIES.CLOTHING,
+        ...PAGE_CATEGORIES.ACCESSORIES,
+        ...PAGE_CATEGORIES.SHOES.filter(c => c.slug !== 'all')
+    ].filter((cat, index, self) =>
+        cat.slug !== 'all' && index === self.findIndex((t) => t.slug === cat.slug)
+    );
+
+    // Final list starting with "View All"
+    const carouselCategories = [
+        { name: 'View All', slug: 'all', filterValue: 'all' },
+        ...allCategories
+    ];
+
     return (
         <div style={{ paddingTop: '80px', paddingBottom: '4rem' }}>
             <ProductListing
@@ -129,15 +146,24 @@ export default async function BrandPage({
                 showBrandFilter={false} // Hidden as requested
                 isGlobalView={false}
                 showCategoryCarousel={true}
-                customCategories={PAGE_CATEGORIES.FULL_CATALOG.map(cat => ({
-                    ...cat,
-                    // Dynamic image finding within THIS brand's products first, fallback to global
-                    image: brandProducts.find(p => p.category === cat.filterValue)?.image ||
-                        allProducts.find(p => p.category === cat.filterValue && p.image)?.image
-                })).filter(cat => {
-                    // Only show categories in the carousel if the brand actually has them
-                    if (cat.slug === 'all') return true;
-                    return brandProducts.some(p => p.category === cat.filterValue);
+                customCategories={carouselCategories.map(cat => {
+                    // 1. Try to find an image from this brand in this category
+                    let categoryImage = brandProducts.find(p => p.category === cat.filterValue)?.image;
+
+                    // 2. Fallback: Try to find ANY image in this category from ANY brand
+                    if (!categoryImage && cat.filterValue !== 'all') {
+                        categoryImage = allProducts.find(p => p.category === cat.filterValue && p.image)?.image;
+                    }
+
+                    // 3. Last fallback: Just a random image from the brand (as requested "si no hay foto pon una random")
+                    if (!categoryImage) {
+                        categoryImage = brandProducts[Math.floor(Math.random() * brandProducts.length)]?.image;
+                    }
+
+                    return {
+                        ...cat,
+                        image: categoryImage
+                    };
                 })}
             />
         </div>

@@ -14,7 +14,7 @@ export default function BrandsPage() {
 
     const brandData = useMemo(() => {
         return BRANDS.map(name => {
-            const slug = name.toLowerCase().replace(/_/g, '-');
+            const slug = name.toLowerCase().replace(/[^a-z0-9]/g, '');
             const assetImage = BRAND_ASSETS[name];
 
             return {
