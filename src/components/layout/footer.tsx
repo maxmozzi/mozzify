@@ -29,17 +29,20 @@ export default function Footer() {
                             <li><Link href="/support">FAQ</Link></li>
                             <li><Link href="/support">Delivery Information</Link></li>
                             <li><Link href="/support">Returns Policy</Link></li>
-                            <li><Link href="/returns/new">Make A Return</Link></li>
-                            <li><Link href="/orders">Orders</Link></li>
+                            <li><Link href="/support">Make A Return</Link></li>
+                            <li><Link href="/support">Orders</Link></li>
                         </ul>
                     </div>
 
-                    {/* COL 2: MY ACCOUNT */}
+                    {/* COL 2: QUICK ACCESS */}
                     <div>
-                        <h4 className={styles.columnTitle}>My Account</h4>
+                        <h4 className={styles.columnTitle}>Quick Access</h4>
                         <ul className={styles.linkList}>
-                            <li><Link href="/login">Login</Link></li>
-                            <li><Link href="/register">Register</Link></li>
+                            <li><Link href="/collections/clothing/unisex">Clothing</Link></li>
+                            <li><Link href="/collections/shoes/unisex">Shoes</Link></li>
+                            <li><Link href="/collections/accessories/unisex">Accessories</Link></li>
+                            <li><Link href="/collections/best-sellers/unisex">Best Sellers</Link></li>
+                            <li><Link href="/collections/sale/unisex">Sale</Link></li>
                         </ul>
                     </div>
 

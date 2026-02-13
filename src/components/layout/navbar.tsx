@@ -70,7 +70,7 @@ export default function Navbar() {
 
     return (
         <>
-            <AnnouncementBar />
+            {!pathname?.startsWith('/support') && <AnnouncementBar />}
 
             <LayoutGroup>
                 <header className={styles.header}>
@@ -113,7 +113,7 @@ export default function Navbar() {
                                 <Image
                                     src={logoImg}
                                     alt="Mozzify Logo"
-                                    height={50}
+                                    height={60}
                                     style={{ width: 'auto' }}
                                     priority
                                 />
@@ -249,11 +249,13 @@ export default function Navbar() {
                     </div>
 
                     {/* --- LEVEL 2: BOTTOM NAV (Sticky, Categories) --- */}
-                    <div className={styles.bottomRow}>
-                        <div className={styles.bottomNavContainer}>
-                            <MegaMenu />
+                    {!pathname?.startsWith('/support') && (
+                        <div className={styles.bottomRow}>
+                            <div className={styles.bottomNavContainer}>
+                                <MegaMenu />
+                            </div>
                         </div>
-                    </div>
+                    )}
 
                 </header>
             </LayoutGroup >

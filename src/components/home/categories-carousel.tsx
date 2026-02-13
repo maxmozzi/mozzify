@@ -54,7 +54,7 @@ export default function CategoriesCarousel() {
         >
             <div className={`container ${styles.header}`}>
                 <h2 className={styles.title}>CATEGORIES</h2>
-                <Link href="/all" className={styles.viewAllLink}>
+                <Link href="/collections/clothing/unisex" className={styles.viewAllLink}>
                     View All <ArrowRight size={20} />
                 </Link>
             </div>

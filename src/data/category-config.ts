@@ -1,4 +1,6 @@
 
+import logoImg from '@/images/system/logo/logo.png';
+
 export interface CategoryConfig {
     name: string;
     slug: string;
@@ -10,7 +12,7 @@ export const PAGE_CATEGORIES = {
     // 1. Bestsellers & Sales: "Todas las categorias de la web"
     // Limited to 10 products per category logic is handled in the filtering component
     FULL_CATALOG: [
-        { name: 'View All', slug: 'all', filterValue: 'all' },
+        { name: 'View All', slug: 'all', filterValue: 'all', image: logoImg },
         { name: 'T-Shirts', slug: 't-shirts', filterValue: 'T-Shirts' },
         { name: 'Hoodies', slug: 'hoodies', filterValue: 'Hoodies' },
         { name: 'Sweatshirts', slug: 'sweatshirts', filterValue: 'Sweatshirts' },
@@ -27,7 +29,7 @@ export const PAGE_CATEGORIES = {
 
     // 2. Clothing Page: Specific subset
     CLOTHING: [
-        { name: 'All Clothes', slug: 'all', filterValue: 'all' },
+        { name: 'All Clothes', slug: 'all', filterValue: 'all', image: logoImg },
         { name: 'T-Shirts', slug: 't-shirts', filterValue: 'T-Shirts' },
         { name: 'Hoodies', slug: 'hoodies', filterValue: 'Hoodies' },
         { name: 'Sweatshirts', slug: 'sweatshirts', filterValue: 'Sweatshirts' },
@@ -43,7 +45,7 @@ export const PAGE_CATEGORIES = {
 
     // 3. Shoes Page: Specific subset
     SHOES: [
-        { name: 'View All', slug: 'all', filterValue: 'all' },
+        { name: 'All Shoes', slug: 'all', filterValue: 'all', image: logoImg },
         { name: 'Sneakers', slug: 'sneakers', filterValue: 'Sneakers' },
         { name: 'Boots', slug: 'boots', filterValue: 'Boots' },
         { name: 'Loafers', slug: 'loafers', filterValue: 'Loafers' },
@@ -52,7 +54,7 @@ export const PAGE_CATEGORIES = {
 
     // 4. Sports (already custom, but good to have here)
     SPORTS: [
-        { name: 'View All', slug: 'all', filterValue: 'all' },
+        { name: 'View All', slug: 'all', filterValue: 'all', image: logoImg },
         { name: 'Football', slug: 'football', filterValue: 'football' },
         { name: 'Basketball', slug: 'basketball', filterValue: 'basketball' },
         { name: 'Running', slug: 'running', filterValue: 'running' },
@@ -61,7 +63,7 @@ export const PAGE_CATEGORIES = {
 
     // 5. Accessories
     ACCESSORIES: [
-        { name: 'View All', slug: 'all', filterValue: 'all' },
+        { name: 'All Accessories', slug: 'all', filterValue: 'all', image: logoImg },
         { name: 'Bags', slug: 'bags', filterValue: 'Bags' },
         { name: 'Belts', slug: 'belts', filterValue: 'Belts' },
         { name: 'Caps', slug: 'caps', filterValue: 'Caps' },

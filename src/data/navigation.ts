@@ -73,7 +73,7 @@ export const navigation = {
                 {
                     title: 'Categories',
                     items: [
-                        { label: 'View All', href: '/collections/shoes/unisex' },
+                        { label: 'All Shoes', href: '/collections/shoes/unisex' },
                         { label: 'Boots', href: '/boots' },
                         { label: 'Sneakers', href: '/sneakers' },
                         { label: 'Loafers', href: '/loafers' },
@@ -104,7 +104,7 @@ export const navigation = {
                 {
                     title: 'Categories',
                     items: [
-                        { label: 'View All', href: '/collections/accessories/unisex' },
+                        { label: 'All Accessories', href: '/collections/accessories/unisex' },
                         { label: 'Bags', href: '/collections/accessories/unisex/bags' },
                         { label: 'Belts', href: '/collections/accessories/unisex/belts' },
                         { label: 'Caps', href: '/collections/accessories/unisex/caps' },

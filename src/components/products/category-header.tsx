@@ -199,37 +199,37 @@ function CategoryCard({ cat, onClick, isActive }: { cat: any, onClick?: (slug: s
             <div style={{
                 position: 'relative',
                 height: imageHeight,
-                backgroundColor: '#f5f5f5',
+                backgroundColor: '#ffffff', // Changed to white for logo
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                overflow: 'hidden'
             }}>
-                {isViewAll ? (
-                    <span style={{ fontWeight: 600, textDecoration: 'underline' }}>View All</span>
-                ) : (
-                    <>
-                        <div style={{
-                            position: 'absolute',
-                            top: '1rem',
-                            left: '1rem',
-                            background: 'white',
-                            padding: '0.3rem 0.6rem',
-                            fontSize: '0.7rem',
-                            fontWeight: 700,
-                            textTransform: 'uppercase',
-                            zIndex: 2,
-                            letterSpacing: '0.5px'
-                        }}>
-                            Most Popular
-                        </div>
-                        <Image
-                            src={cat.image || '/placeholder.jpg'}
-                            alt={cat.name}
-                            fill
-                            style={{ objectFit: 'cover' }}
-                        />
-                    </>
+                {cat.slug !== 'all' && (
+                    <div style={{
+                        position: 'absolute',
+                        top: '1rem',
+                        left: '1rem',
+                        background: 'white',
+                        padding: '0.3rem 0.6rem',
+                        fontSize: '0.7rem',
+                        fontWeight: 700,
+                        textTransform: 'uppercase',
+                        zIndex: 2,
+                        letterSpacing: '0.5px'
+                    }}>
+                        Most Popular
+                    </div>
                 )}
+                <Image
+                    src={cat.image || '/placeholder.jpg'}
+                    alt={cat.name}
+                    fill
+                    style={{
+                        objectFit: cat.slug === 'all' ? 'contain' : 'cover',
+                        padding: cat.slug === 'all' ? '4rem' : '0'
+                    }}
+                />
             </div>
 
             <div style={{

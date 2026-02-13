@@ -21,7 +21,7 @@ export default function FavoritesPage() {
                 ) : (
                     <div className={styles.emptyState}>
                         <p>You haven't added any favorites yet.</p>
-                        <Link href="/all" className={styles.shopBtn}>
+                        <Link href="/collections/clothing/unisex" className={styles.shopBtn}>
                             Start Shopping
                         </Link>
                     </div>

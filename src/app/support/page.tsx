@@ -77,10 +77,12 @@ export default function SupportPage() {
     ];
 
     const popularQuestions = [
-        "Where is my order?",
-        "How do I make a return?",
-        "Do you offer student discount?",
-        "Can I change my order after placing it?"
+        { label: "Delivery Information", href: "/support/orders" },
+        { label: "How do I track my order?", href: "/support/orders" },
+        { label: "How do I return my items?", href: "/support/returns" },
+        { label: "Returns Policy", href: "/support/returns" },
+        { label: "Mozzify Loyalty", href: "/support/payments" },
+        { label: "Discounts", href: "/support/payments" }
     ];
 
     return (
@@ -143,14 +145,14 @@ export default function SupportPage() {
                 {/* Popular Questions */}
                 <div className={styles.faqSection}>
                     <div className={styles.faqHeader}>
-                        <h2 className={styles.faqTitle}>Got a question?</h2>
-                        <p style={{ color: '#666' }}>Check out our popular articles below to find the answer you're looking for.</p>
+                        <h2 className={styles.faqTitle}>Popular Questions</h2>
+                        <p style={{ color: '#666' }}>Got a question? Check out our popular articles below to find the answer you're looking for.</p>
                     </div>
                     <div className={styles.faqList}>
                         {popularQuestions.map((q, i) => (
-                            <div key={i} className={styles.faqItem}>
-                                <p className={styles.faqQuestion}>{q}</p>
-                            </div>
+                            <Link key={i} href={q.href} className={styles.faqItem}>
+                                <p className={styles.faqQuestion}>{q.label}</p>
+                            </Link>
                         ))}
                     </div>
                 </div>

@@ -28,8 +28,8 @@
 }
 
 .item {
-    aspect-ratio: 1;
-    /* Square */
+    aspect-ratio: 350 / 500;
+    /* Portrait 350x500 */
     position: relative;
     cursor: pointer;
     overflow: hidden;

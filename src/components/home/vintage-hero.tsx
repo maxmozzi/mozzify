@@ -6,7 +6,7 @@ import styles from './vintage-hero.module.css';
 export default function VintageHero() {
     return (
         <div className={styles.heroContainer}>
-            <Link href="/all" className={styles.heroLink}>
+            <Link href="/collections/clothing/unisex" className={styles.heroLink}>
                 <div className={styles.imageWrapper}>
                     <div className={styles.vintageOverlay} />
                     <Image
