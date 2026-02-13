@@ -13,9 +13,9 @@ export default function SupportPage() {
             title: 'Orders & Delivery',
             icon: <Truck size={32} strokeWidth={1.5} />,
             links: [
-                { label: 'Delivery Information', href: '#' },
-                { label: 'How do I track my order?', href: '#' },
-                { label: 'I have a problem with my order', href: '#' },
+                { label: 'Delivery Information', href: '/support/orders' },
+                { label: 'How do I track my order?', href: '/support/orders' },
+                { label: 'I have a problem with my order', href: '/support/orders' },
             ],
             seeAll: 'See all 6 articles'
         },
@@ -24,9 +24,9 @@ export default function SupportPage() {
             title: 'Returns & Refunds',
             icon: <RotateCcw size={32} strokeWidth={1.5} />,
             links: [
-                { label: 'How do I return my items?', href: '#' },
-                { label: 'Returns Policy', href: '#' },
-                { label: 'Still Waiting on Your Refund or Exchange?', href: '#' },
+                { label: 'How do I return my items?', href: '/support/returns' },
+                { label: 'Returns Policy', href: '/support/returns' },
+                { label: 'Still Waiting on Your Refund or Exchange?', href: '/support/returns' },
             ],
             seeAll: 'See all 7 articles'
         },
@@ -35,9 +35,9 @@ export default function SupportPage() {
             title: 'Payments & Promotions',
             icon: <CreditCard size={32} strokeWidth={1.5} />,
             links: [
-                { label: 'Mozzify Loyalty', href: '#' },
-                { label: 'Refer A Friend', href: '#' },
-                { label: 'Discounts', href: '#' },
+                { label: 'Mozzify Loyalty', href: '/support/payments' },
+                { label: 'Refer A Friend', href: '/support/payments' },
+                { label: 'Discounts', href: '/support/payments' },
             ],
             seeAll: 'See all 8 articles'
         },
@@ -46,9 +46,9 @@ export default function SupportPage() {
             title: 'Technical',
             icon: <Settings size={32} strokeWidth={1.5} />,
             links: [
-                { label: 'The Mozzify App', href: '#' },
-                { label: 'Accessing My Mozzify Account', href: '#' },
-                { label: 'Delete My Mozzify Account', href: '#' },
+                { label: 'The Mozzify App', href: '/support/technical' },
+                { label: 'Accessing My Mozzify Account', href: '/support/technical' },
+                { label: 'Delete My Mozzify Account', href: '/support/technical' },
             ],
             seeAll: 'See all 6 articles'
         },
@@ -57,9 +57,9 @@ export default function SupportPage() {
             title: 'Product',
             icon: <ShoppingBag size={32} strokeWidth={1.5} />,
             links: [
-                { label: "Women's Size Guide", href: '#' },
-                { label: "Men's Size Guide", href: '#' },
-                { label: "What is Mozzify's commitment to sustainability?", href: '#' },
+                { label: "Women's Size Guide", href: '/support/product' },
+                { label: "Men's Size Guide", href: '/support/product' },
+                { label: "What is Mozzify's commitment to sustainability?", href: '/support/product' },
             ],
             seeAll: 'See all 8 articles'
         },
@@ -68,9 +68,9 @@ export default function SupportPage() {
             title: 'General Information',
             icon: <HelpCircle size={32} strokeWidth={1.5} />,
             links: [
-                { label: 'Sign up to Marketing', href: '#' },
-                { label: 'Careers', href: '#' },
-                { label: 'Mozzify Regent St London', href: '#' },
+                { label: 'Sign up to Marketing', href: '/support/general' },
+                { label: 'Careers', href: '/support/general' },
+                { label: 'Mozzify Regent St London', href: '/support/general' },
             ],
             seeAll: 'See all 6 articles'
         },
@@ -134,7 +134,7 @@ export default function SupportPage() {
                                         </li>
                                     ))}
                                 </ul>
-                                <span className={styles.seeAll}>{cat.seeAll}</span>
+                                <Link href={`/support/${cat.id}`} className={styles.seeAll}>{cat.seeAll}</Link>
                             </div>
                         </div>
                     ))}

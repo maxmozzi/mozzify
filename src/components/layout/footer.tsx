@@ -1,5 +1,9 @@
+"use client";
+
+import { useState } from 'react';
 import Link from 'next/link';
 import styles from './footer.module.css';
+import NewsletterModal from '../shared/newsletter-modal';
 import {
     Instagram,
     Twitter,
@@ -9,6 +13,8 @@ import {
 } from 'lucide-react';
 
 export default function Footer() {
+    const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
+
     return (
         <footer id="site-footer" className={styles.footer}>
             <div className={styles.container}>
@@ -37,7 +43,6 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* COL 3: CUSTOMER SUPPORT */}
                     <div>
                         <h4 className={styles.columnTitle}>Customer Support</h4>
                         <ul className={styles.linkList}>
@@ -53,9 +58,26 @@ export default function Footer() {
                                 fontSize: '0.85rem',
                                 color: '#666',
                                 marginTop: '0.5rem',
+                                marginBottom: '0.5rem',
                                 lineHeight: '1.4'
                             }}>
                                 We will take up to 24 hours to respond to your email.
+                            </li>
+                            <li>
+                                <Link
+                                    href="#"
+                                    style={{ fontWeight: 600, textDecoration: 'underline' }}
+                                >
+                                    Telegram
+                                </Link>
+                            </li>
+                            <li style={{
+                                fontSize: '0.85rem',
+                                color: '#666',
+                                marginTop: '0.5rem',
+                                lineHeight: '1.4'
+                            }}>
+                                Get a faster response via our Telegram support channel.
                             </li>
                         </ul>
                     </div>
@@ -80,13 +102,22 @@ export default function Footer() {
                             </Link>
 
                             {/* Email Card (Full Width) */}
-                            <Link href="/newsletter" className={`${styles.cardLink} ${styles.cardFullWidth}`} style={{ gridColumn: 'span 2' }}>
+                            <button
+                                onClick={() => setIsNewsletterOpen(true)}
+                                className={`${styles.cardLink} ${styles.cardFullWidth}`}
+                                style={{ gridColumn: 'span 2', background: 'none', border: 'none', padding: 0, textAlign: 'inherit', width: '100%' }}
+                            >
                                 <div className={`${styles.card} ${styles.emailCard}`}>
                                     <Mail size={18} />
                                     <span className={styles.cardLabel}>Email Sign Up</span>
                                 </div>
-                            </Link>
+                            </button>
                         </div>
+
+                        <NewsletterModal
+                            isOpen={isNewsletterOpen}
+                            onClose={() => setIsNewsletterOpen(false)}
+                        />
 
                         {/* Social Icons */}
                         <div className={styles.socialIcons}>
@@ -110,6 +141,7 @@ export default function Footer() {
                     <div className={styles.legalLinks}>
                         <span>&copy; {new Date().getFullYear()} Mozzify Limited</span>
                         <Link href="/terms">Terms & Conditions</Link>
+                        <Link href="/terms-of-use">Terms of Use</Link>
                         <Link href="/privacy">Privacy Notice</Link>
                         <Link href="/cookies">Cookie Policy</Link>
                         <Link href="/slavery">Modern Slavery</Link>

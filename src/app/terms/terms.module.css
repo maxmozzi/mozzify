@@ -1,0 +1,87 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 6rem;
+    color: #333;
+    line-height: 1.6;
+    font-family: inherit;
+}
+
+.header {
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+    color: #000;
+}
+
+.lastUpdated {
+    font-size: 0.9rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contentSection {
+    margin-bottom: 3rem;
+}
+
+.contentSection h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f0f0f0;
+    color: #000;
+}
+
+.contentSection p {
+    margin-bottom: 1.2rem;
+}
+
+.contentSection ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.contentSection li {
+    margin-bottom: 0.8rem;
+}
+
+.contactBox {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 4px;
+    margin-top: 4rem;
+    border: 1px solid #eee;
+}
+
+.contactBox h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.emailLink {
+    color: #000;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.2rem;
+    }
+
+    .container {
+        padding-top: 1rem;
+    }
+}
